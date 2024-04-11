@@ -22,6 +22,7 @@ const Register = () => {
       email === '' ||
       password === '' ||
       confirmPassword === ''
+      
     ) {
       setError('Empty fields');
       return;
