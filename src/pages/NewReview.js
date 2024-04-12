@@ -18,12 +18,16 @@ const genreOptions = [
 ];
 
 const NewReview = ({ user }) => {
-  const [image, setImage] = useState('');
-  const [title, setTitle] = useState('');
-  const [rating, setRating] = useState('');
-  const [genre, setGenre] = useState('');
-  const [description, setDescription] = useState('');
-  const [video, setVideo] = useState('');
+  const [image, setImage] = useState('');             //kep
+  const [title, setTitle] = useState('');             //cim
+  const [rating, setRating] = useState('');           //ertekeles - felesleges valszeg - helyette a szavazasokat kellene hasznalni(?)
+  const [genre, setGenre] = useState('');             //mufaj
+  const [description, setDescription] = useState(''); //leiras
+  const [video, setVideo] = useState('');             //video link
+  /*2024.04.12*/
+  const [views, setViews] = useState(0);              //megtekintesek szama
+  const [moneygoal, setMoneygoal] = useState(0);      //ez nem biztos hogy igy kell matyival egyeztetni
+  const [collected, setCollected] = useState(0);      // Az eddig gyujtott penz
 
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
@@ -48,7 +52,8 @@ const NewReview = ({ user }) => {
       title === '' ||
       rating === '' ||
       genre === '' ||
-      description === ''
+      description === '' ||
+      moneygoal === ''
     ) {
       setError('Empty fields');
       return;
@@ -61,6 +66,9 @@ const NewReview = ({ user }) => {
       rating,
       genre,
       description,
+      views,
+      moneygoal,
+      collected,
     };
 
     addReview(data, image, video);
@@ -78,6 +86,10 @@ const NewReview = ({ user }) => {
       setRating(0);
       setGenre('');
       setDescription('');
+
+      setMoneygoal(0);
+      setCollected(0);
+      setViews(0);
     }
   }, [firebaseError, firebaseSuccess]);
 
@@ -146,6 +158,14 @@ const NewReview = ({ user }) => {
           value={rating || ''}
           onChange={(e) => setRating(e.target.value)}
         />
+
+          <input
+          type='number'
+          placeholder='Needed funds for this idea (EUR)'
+          className='p-4 rounded-md shadow-md outline-none bg-slate-50'
+          value={moneygoal || ''}
+          onChange={(e) => setMoneygoal(e.target.value)}
+          />
 
         <select
           className={`p-4  rounded-md shadow-md outline-none bg-slate-50 ${

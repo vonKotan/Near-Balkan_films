@@ -1,4 +1,5 @@
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { useAuth } from '../hooks/useAuth';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -10,15 +11,20 @@ import Comments from '../components/Comments';
 import { database } from '../firebase/config';
 import AddFavorite from '../components/AddFavorite';
 
+// Radix Imports
+import {
+  Item,
+} from '@radix-ui/react-navigation-menu';
+
 const Details = ({ user }) => {
   const { id } = useParams();
-
+  const videoRef = React.useRef(null);  //megtekintesek novelesehez kell
   const [stars, setStars] = useState([]);
   const [movie, setMovie] = useState({});
 
   useEffect(() => {
     const loadDocument = async () => {
-      const docRef = doc(database, 'reviews', id);
+      const docRef = doc(database, 'reviews', id);  //majd át kell írni a reviews-t films-re
       const docSnap = await getDoc(docRef);
 
       setMovie(docSnap.data());
@@ -39,6 +45,29 @@ const Details = ({ user }) => {
       setStars(setRatingStars(movie?.rating));
     }
   }, [movie]);
+  
+  //Megtekintesek novelese
+  useEffect(() => {
+    const increaseViews = async () => {
+      const docRef = doc(database, 'reviews', id);  //majd át kell írni a reviews-t films-re
+      const docSnap = await getDoc(docRef);
+      const currentViews = docSnap.data().views;
+      await updateDoc(docRef, { views: currentViews + 1 });
+    };
+    const handleVideoPlay = () => {
+      // Increase views when the video starts playing
+      increaseViews();
+    };
+    let currentVideoRef = videoRef.current;
+    if (currentVideoRef) {
+      currentVideoRef.addEventListener('play', handleVideoPlay);
+    }
+    return () => {
+      if (currentVideoRef) {
+        currentVideoRef.removeEventListener('play', handleVideoPlay);
+      }
+    };
+  }, [videoRef, id]);
 
   return (
     <section className='flex items-center justify-center py-4 sectionHeight lg:py-8'>
@@ -78,12 +107,16 @@ const Details = ({ user }) => {
             <p className='text-justify lg:text-xl'>{movie.description}</p>
           </div>
         </div>
-        
-        <div className='py-4'>
-          <video controls src={movie.videoUrl} className='w-full' />
-        </div>
-        {/* Comments section */}
-        <Comments id={id} user={user} />
+        {/*EZT CSAK BEJELENTKEZVE KENE LATNI INNENTOL*/}
+        {user&&(<Item>
+          <div className='py-4'>
+            <video ref={videoRef} controls src={movie.videoUrl} className='w-full' />
+          </div>
+          <p className='text-justify lg:text-xl'>Views: {movie.views}</p>
+          {/* Comments section */}
+          <Comments id={id} user={user} />
+        </Item>
+        )}
       </div>
     </section>
   );
