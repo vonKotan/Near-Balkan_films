@@ -1,5 +1,6 @@
 // Firebase Config
-import { app } from '../firebase/config';
+import { app , database} from '../firebase/config';
+import { setDoc, doc, getDoc, getDocFromCache } from 'firebase/firestore';
 
 // Firebase functions
 import {
@@ -31,18 +32,28 @@ export const useAuth = () => {
   };
 
   // Function to register and login new users
-  const registerUser = async (email, password, username) => {
+  const registerUser = async (email, password, username, firstName, lastName, phoneNumber, userType, birthDate) => {
     setLoading(true);
 
     try {
+      //create auth user object
       const { user } = await createUserWithEmailAndPassword(
         auth,
         email,
         password,
       );
-
-      await updateProfile(user, { displayName: username });
-
+      
+      await updateProfile(user, { displayName: firstName + lastName });
+      //create doc in our database with the same id as the auth object
+      await setDoc(doc(database, 'users', user.uid), {
+        userName:username,
+        firstName:firstName,
+        lastName:lastName,
+        phoneNumber:phoneNumber,
+        userType:userType,
+        birthDate:birthDate
+      })
+      
       setLoading(false);
     } catch (e) {
       setError(e.message);
@@ -84,6 +95,19 @@ export const useAuth = () => {
       setLoading(false);
     }
   };
+  //function the retrieve the current users data from our database based on the auth object
+  //can be used later when we want to display things based on the users type
+  const getUser= async () => {
+    const uid = auth.currentUser.uid;
+    const docRef = doc(database, "users", uid);
+     //if it is cached try to get it from the cache
+    try {
+      return await getDocFromCache(docRef);
+    //if the doc was not cached it throws an error and we read it from the database
+    } catch (err){
+      return await getDoc(docRef )
+    }
+  }
 
   return {
     auth,
@@ -95,5 +119,6 @@ export const useAuth = () => {
     error,
     loading,
     onAuthStateChanged,
+    getUser
   };
 };
