@@ -51,7 +51,7 @@ const Details = ({ user }) => {
     const increaseViews = async () => {
       const docRef = doc(database, 'reviews', id);  //majd át kell írni a reviews-t films-re
       const docSnap = await getDoc(docRef);
-      const currentViews = docSnap.data().views;
+      const currentViews = docSnap.data().views ?? 0;
       await updateDoc(docRef, { views: currentViews + 1 });
     };
     const handleVideoPlay = () => {
@@ -112,7 +112,7 @@ const Details = ({ user }) => {
           <div className='py-4'>
             <video ref={videoRef} controls src={movie.videoUrl} className='w-full' />
           </div>
-          <p className='text-justify lg:text-xl'>Views: {movie.views}</p>
+          <p className='text-justify lg:text-xl'>Views: {movie.views ?? 0}</p>
           {/* Comments section */}
           <Comments id={id} user={user} />
         </Item>
