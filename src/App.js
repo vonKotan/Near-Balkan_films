@@ -19,7 +19,10 @@ import Loading from './components/Loading';
 import Favorites from './pages/Favorites';
 
 function App() {
+  //auth object of user
   const [user, setUser] = useState(undefined);
+
+  const [userObj, setUserObj] = useState(undefined);
 
   const { auth, onAuthStateChanged } = useAuth();
 
@@ -44,7 +47,9 @@ function App() {
         <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
         <Route
           path='/register/*'
-          element={user ? <Navigate to='/' /> : <Register />}
+          element={
+            user && userObj ? <Navigate to='/' /> : <Register />
+          }
         />
         <Route path='/details/:id' element={<Details user={user} />} />
         <Route

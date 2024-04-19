@@ -16,7 +16,7 @@ export const RegistrationInfo = () => {
 
     function handleRegister(user) {
         registerUserInfo(user);
-        navigate("-2")
+        navigate(-2);
     }
 
 

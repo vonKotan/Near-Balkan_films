@@ -63,7 +63,7 @@ export const useAuth = () => {
 
     try {
       const userId = auth.currentUser.uid;
-
+      
       //create doc in our database with the same id as the auth object
       await setDoc(doc(database, 'users', userId), userInfo)
 
@@ -113,12 +113,17 @@ export const useAuth = () => {
   const getUser = async () => {
     const uid = auth.currentUser.uid;
     const docRef = doc(database, "users", uid);
+    let document;
     //if it is cached try to get it from the cache
+    
     try {
-      return await getDocFromCache(docRef);
+      document = await getDocFromCache(docRef);
       //if the doc was not cached it throws an error and we read it from the database
     } catch (err) {
-      return await getDoc(docRef)
+      document = await getDoc(docRef)
+    }
+    if(document.exists){
+      return document.data;
     }
   }
 

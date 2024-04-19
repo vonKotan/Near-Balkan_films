@@ -20,8 +20,8 @@ export const RegistrationAuth = () => {
 
     const navigate = useNavigate();
 
-    function handleRegister(user) {
-        registerUser({
+    async function handleRegister(user) {
+        await registerUser({
             email: user.email,
             password: user.password
         });
@@ -29,14 +29,12 @@ export const RegistrationAuth = () => {
     }
 
     function googleLogin(e) {
-        signInWithPopup(getAuth(), provider).then(async () => {
-            const docRef = getUser();
-            if (!(await docRef).exists) {
-                console.log("no doc");
-                navigate("info");
-            }
+        signInWithPopup(getAuth(), provider);
+        const doc = getUser();
+        if(!doc){
+            navigate("info");
         }
-        );
+        console.log(doc);
     }
 
     return (
