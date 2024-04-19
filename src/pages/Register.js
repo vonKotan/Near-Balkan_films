@@ -157,6 +157,8 @@ const Register = () => {
             <div className='flex items-center justify-center w-full'>
               <Loading size={'30px'} />
             </div>
+
+            
           )}
 
           {error && <p className='error'>{error}</p>}
@@ -173,7 +175,7 @@ const Register = () => {
           </p>
 
 
-          
+
         </div>
       </div>
     </section>

@@ -41,6 +41,9 @@ const NewReview = ({ user }) => {
     loading,
   } = useAddReview();
 
+
+  
+
   const handleUpload = (e) => {
     e.preventDefault();
     firebaseSetError(null);
