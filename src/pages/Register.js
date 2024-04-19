@@ -171,6 +171,9 @@ const Register = () => {
               Log in
             </Link>
           </p>
+
+
+          
         </div>
       </div>
     </section>
