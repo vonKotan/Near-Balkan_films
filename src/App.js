@@ -43,7 +43,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
         <Route
-          path='/register'
+          path='/register/*'
           element={user ? <Navigate to='/' /> : <Register />}
         />
         <Route path='/details/:id' element={<Details user={user} />} />
