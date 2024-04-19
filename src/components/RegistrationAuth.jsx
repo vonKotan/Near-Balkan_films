@@ -3,7 +3,8 @@ import Loading from '../components/Loading';
 import { useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { useAuth } from "../hooks/useAuth";
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup";
 
 
 
@@ -12,29 +13,30 @@ export const RegistrationAuth = () => {
 
     const [error, setError] = useState(null);
 
-    const provider = new GoogleAuthProvider();
-
-    const { register, handleSubmit } = useForm();
 
     const { registerUser, getUser, googleSignIn, loading } = useAuth()
 
     const navigate = useNavigate();
+
+    const schema = yup.object().shape({
+        email: yup.string().email("Please write a valid email address").required("Email is missing"),
+        password: yup.string().min(8, "Password too short").required("Password is missing"),
+        confirmPassword: yup.string().oneOf([yup.ref("password"), null], "Password does not match previous one").required("Please confirm your password")
+    });
+
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        resolver: yupResolver(schema)
+    });
 
     async function handleRegister(user) {
         await registerUser({
             email: user.email,
             password: user.password
         });
-        navigate("info");
     }
 
     function googleLogin(e) {
-        signInWithPopup(getAuth(), provider);
-        const doc = getUser();
-        if(!doc){
-            navigate("info");
-        }
-        console.log(doc);
+        googleSignIn();
     }
 
     return (
@@ -43,26 +45,26 @@ export const RegistrationAuth = () => {
                 className='flex flex-col items-center justify-center w-full gap-2 mt-8'
                 onSubmit={handleSubmit(handleRegister)}
             >
+                {errors.email && (<p>{errors.email?.message}</p>)}
                 <input
-                    type='email'
+                    type='text'
                     {...register("email")}
-                    //onChange={(e) => setEmail(e.target.value)}
                     placeholder={'E-mail'}
                     autoComplete='true'
                     className='w-full p-4 italic rounded-md shadow-sm outline-none'
                 />
+                {errors.password && (<p>{errors.password?.message}</p>)}
                 <input
                     type='password'
                     {...register("password")}
-                    //onChange={(e) => setPassword(e.target.value)}
                     placeholder={'Password'}
                     autoComplete='true'
                     className='w-full p-4 italic rounded-md shadow-sm outline-none'
                 />
+                {errors.confirmPassword && (<p>{errors.confirmPassword?.message}</p>)}
                 <input
                     type='password'
                     {...register("confirmPassword")}
-                    //onChange={(e) => setConfirmPassword(e.target.value)}
                     placeholder={'Confirm Password'}
                     autoComplete='true'
                     className='w-full p-4 italic rounded-md shadow-sm outline-none'
@@ -88,7 +90,7 @@ export const RegistrationAuth = () => {
                 {error && <p className='error'>{error}</p>}
             </form>
 
-            <button onClick={(e) => { googleLogin(e) }}> Sign up with Google</button>
+            <button onClick={(e) => { googleLogin(e) }}> Google </button>
 
         </>
     );

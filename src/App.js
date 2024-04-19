@@ -22,13 +22,15 @@ function App() {
   //auth object of user
   const [user, setUser] = useState(undefined);
 
-  const [userObj, setUserObj] = useState(undefined);
+  const [userObject, setUserObject] = useState(undefined);
 
-  const { auth, onAuthStateChanged } = useAuth();
+  const { auth, onAuthStateChanged, getUser } = useAuth();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth,async (user) => {
       setUser(user);
+      let userObj = await getUser();
+      setUserObject( userObj ?? undefined);
     });
   }, [auth, onAuthStateChanged]);
 
@@ -48,7 +50,7 @@ function App() {
         <Route
           path='/register/*'
           element={
-            user && userObj ? <Navigate to='/' /> : <Register />
+            user && userObject ? <Navigate to='/' /> : <Register />
           }
         />
         <Route path='/details/:id' element={<Details user={user} />} />
@@ -65,7 +67,7 @@ function App() {
           element={!user ? <Navigate to='/' /> : <NewReview user={user} />}
         />
         <Route path='/details/:id' element={<Details />} />
-        <Route path='/*' element={<Navigate to='/' />} />
+        <Route path='/*' element={<h1>404</h1>} />
       </Routes>
     </div>
   );
