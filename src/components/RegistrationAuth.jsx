@@ -1,9 +1,9 @@
-import { useState } from "react"
 import Loading from '../components/Loading';
-import { useNavigate } from "react-router-dom";
 import { useForm } from 'react-hook-form';
 import { useAuth } from "../hooks/useAuth";
 import { yupResolver } from "@hookform/resolvers/yup"
+import { useEffect } from 'react';
+import { useState } from 'react';
 import * as yup from "yup";
 
 
@@ -11,12 +11,8 @@ import * as yup from "yup";
 
 export const RegistrationAuth = () => {
 
-    const [error, setError] = useState(null);
 
-
-    const { registerUser, getUser, googleSignIn, loading } = useAuth()
-
-    const navigate = useNavigate();
+    const { registerUser, googleSignIn, loading, error: firebaseError } = useAuth()
 
     const schema = yup.object().shape({
         email: yup.string().email("Please write a valid email address").required("Email is missing"),
@@ -38,6 +34,22 @@ export const RegistrationAuth = () => {
     function googleLogin(e) {
         googleSignIn();
     }
+    const [error, setError] = useState(null);
+
+
+    useEffect(() => {
+        if (firebaseError) {
+            setError(firebaseError);
+        }
+    }, [firebaseError]);
+
+    useEffect(() => {
+        if (error) {
+            setTimeout(() => {
+                setError(null);
+            }, 3000);
+        }
+    }, [error]);
 
     return (
         <>

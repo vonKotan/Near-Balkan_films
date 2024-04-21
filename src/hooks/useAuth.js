@@ -9,7 +9,6 @@ import {
   signInWithEmailAndPassword,
   signOut,
   sendPasswordResetEmail,
-  updateProfile,
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup
@@ -74,7 +73,7 @@ export const useAuth = () => {
       const userId = auth.currentUser.uid;
 
       //create doc in our database with the same id as the auth object
-      await setDoc(doc(database, 'users', userId), userInfo)
+      await setDoc(doc(database, 'users', userId), {...userInfo, email:auth.currentUser?.email})
 
       setLoading(false);
     } catch (e) {
