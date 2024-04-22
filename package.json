@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
     "@radix-ui/react-dialog": "^1.0.2",
     "@radix-ui/react-icons": "^1.1.1",
     "@radix-ui/react-navigation-menu": "^1.1.1",
@@ -13,10 +14,12 @@
     "firebase": "^9.15.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.3",
     "react-icons": "^4.7.1",
     "react-router-dom": "^6.4.4",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.0"
+    "web-vitals": "^2.1.0",
+    "yup": "^1.4.0"
   },
   "scripts": {
     "start": "react-scripts start",

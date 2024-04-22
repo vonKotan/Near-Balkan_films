@@ -1,5 +1,4 @@
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
-import { useAuth } from '../hooks/useAuth';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 

@@ -19,13 +19,18 @@ import Loading from './components/Loading';
 import Favorites from './pages/Favorites';
 
 function App() {
+  //auth object of user
   const [user, setUser] = useState(undefined);
 
-  const { auth, onAuthStateChanged } = useAuth();
+  const [userObject, setUserObject] = useState(undefined);
+
+  const { auth, onAuthStateChanged, getUser } = useAuth();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth,async (user) => {
       setUser(user);
+      let userObj = await getUser();
+      setUserObject( userObj ?? undefined);
     });
   }, [auth, onAuthStateChanged]);
 
@@ -43,8 +48,10 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
         <Route
-          path='/register'
-          element={user ? <Navigate to='/' /> : <Register />}
+          path='/register/*'
+          element={
+            user && userObject ? <Navigate to='/' /> : <Register user = {user}/>
+          }
         />
         <Route path='/details/:id' element={<Details user={user} />} />
         <Route
@@ -60,7 +67,7 @@ function App() {
           element={!user ? <Navigate to='/' /> : <NewReview user={user} />}
         />
         <Route path='/details/:id' element={<Details />} />
-        <Route path='/*' element={<Navigate to='/' />} />
+        <Route path='/*' element={<h1>404</h1>} />
       </Routes>
     </div>
   );
