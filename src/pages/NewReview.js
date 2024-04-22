@@ -5,9 +5,13 @@ import { useAddReview } from '../hooks/useAddReview';
 const genreOptions = [
   'Action',
   'Adventure',
+  'Animation',
   'Comedy',
+  'Documentary',
   'Drama',
+  'Family-friendly',
   'Fantasy',
+  'Historical',
   'Horror',
   'Musical',
   'Mystery',
@@ -15,6 +19,7 @@ const genreOptions = [
   'Science Fiction',
   'Sports',
   'Thriller',
+  'Western',
 ];
 
 const NewReview = ({ user }) => {
@@ -28,6 +33,8 @@ const NewReview = ({ user }) => {
   const [views, setViews] = useState(0);              //megtekintesek szama
   const [moneygoal, setMoneygoal] = useState(0);      //ez nem biztos hogy igy kell matyival egyeztetni
   const [collected, setCollected] = useState(0);      // Az eddig gyujtott penz
+  /*2024.04.19*/
+  const [script, setScript] = useState('');           //script
 
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
@@ -39,7 +46,7 @@ const NewReview = ({ user }) => {
     setError: firebaseSetError,
     setSuccess: firebaseSetSuccess,
     loading,
-  } = useAddReview();
+  } = useAddReview(user);
 
   const handleUpload = (e) => {
     e.preventDefault();
@@ -53,7 +60,8 @@ const NewReview = ({ user }) => {
       rating === '' ||
       genre === '' ||
       description === '' ||
-      moneygoal === ''
+      moneygoal === '' ||
+      script === ''
     ) {
       setError('Empty fields');
       return;
@@ -71,7 +79,7 @@ const NewReview = ({ user }) => {
       collected,
     };
 
-    addReview(data, image, video);
+    addReview(data, image, video, script);
   };
 
   useEffect(() => {
@@ -82,6 +90,7 @@ const NewReview = ({ user }) => {
       setSuccess(firebaseSuccess);
       setImage(null);
       setVideo(null);
+      setScript(null);
       setTitle('');
       setRating(0);
       setGenre('');
@@ -138,6 +147,16 @@ const NewReview = ({ user }) => {
           accept='video/mp4'
           className='block w-full p-3 m-0 text-base font-normal text-gray-700 transition ease-in-out border-none rounded shadow-md bg-slate-50 form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
           onChange={(e) => setVideo(e.target.files[0])}
+          disabled={loading ? true : false}
+        />
+
+        <label htmlFor='film'>Script (pdf only)</label>
+        <input
+          type='file'
+          name='script'
+          accept='pdf'
+          className='block w-full p-3 m-0 text-base font-normal text-gray-700 transition ease-in-out border-none rounded shadow-md bg-slate-50 form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
+          onChange={(e) => setScript(e.target.files[0])}
           disabled={loading ? true : false}
         />
 
@@ -202,7 +221,6 @@ const NewReview = ({ user }) => {
             className='w-full p-4 font-bold text-white transition-all duration-300 rounded-md shadow-sm cursor-pointer bg-zinc-800 hover:bg-zinc-700 hover:tracking-wider'
           />
         )}
-
         {error && <p className='error'>{error}</p>}
         {success && <p className='success'>{success}</p>}
       </form>

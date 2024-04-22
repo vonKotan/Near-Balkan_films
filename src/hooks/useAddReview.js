@@ -3,21 +3,28 @@ import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { database, storage } from '../firebase/config';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
 
-export const useAddReview = () => {
+export const useAddReview = (user) => {
   const [success, setSuccess] = useState(null); // State variable to track success message
   const [error, setError] = useState(null); // State variable to track error message
   const [loading, setLoading] = useState(false); // State variable to track loading state
 
-  const addReview = async (data, img, video) => {
+  const addReview = async (data, img, video, script) => {
     setLoading(true); // Set loading state to true
 
     try {
-      const generateName = `posters/${Date.now()}`;
+      //itt tartok....
+      const urlname=user.email.split('@')[0];
+      // Upload image
+      const generateName = `posters/${urlname}/${Date.now()}`; //TESZTELNI KELL, HA MŰÖDIK, AKKOR A FILS ÉS A SCRIPTSNÉL UGYANEZ!
       const storageRef = ref(storage, generateName);
-            // Upload video
-            const videoRef = ref(storage, `films/${Date.now()}`);
-            const videoUploadTask = uploadBytesResumable(videoRef, video);
       const uploadTask = uploadBytesResumable(storageRef, img);
+      // Upload video
+      const videoRef = ref(storage, `films/${Date.now()}`);     //ITT!!
+      const videoUploadTask = uploadBytesResumable(videoRef, video);
+      //Upload script
+      const scriptRef = ref(storage, `scripts/${Date.now()}`);   //ITT!!
+      const scriptUploadTask = uploadBytesResumable(scriptRef, script);
+
 
       uploadTask.on(
         'state_changed',
@@ -50,11 +57,15 @@ export const useAddReview = () => {
           const videoUrl = await getDownloadURL(videoUploadTask.snapshot.ref);
           console.log('Video Download URL:', videoUrl); // Log video download URL
 
+          const scriptUrl = await getDownloadURL(scriptUploadTask.snapshot.ref);
+          console.log('Script Download URL:', scriptUrl); // Log script download URL
+
           const docRef = collection(database, 'reviews');
 
             const docData = {
             image: window.publicUrl,
             videoUrl: videoUrl,
+            scriptUrl: scriptUrl,
             createdAt: Timestamp.now(),
             ...data,
             };
