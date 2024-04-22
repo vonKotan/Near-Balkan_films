@@ -21,8 +21,8 @@ export const RegistrationInfo = () => {
         }
 
     const schema = yup.object().shape({
-        firstName: yup.string().matches('^[a-zA-Z]+$', "your name should only contain letters").required("This field is required"),
-        lastName: yup.string().matches('^[a-zA-Z]+$', "your name should only contain letters").required("This field is required"),
+        firstName: yup.string().matches('^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ]+$', "your name should only contain letters").required("This field is required"),
+        lastName: yup.string().matches('^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ]+$', "your name should only contain letters").required("This field is required"),
         phoneNumber: yup.string().matches('^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$', "Please enter a valid phone number"),
         birthDate: yup.date().max(new Date(), "Your birthDate can not be later than today").required(),
         userName: yup.string().matches('^[a-zA-Z]+$', "your username should only contain letters").required("This field is required"),
