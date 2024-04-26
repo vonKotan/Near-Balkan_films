@@ -111,7 +111,30 @@ const Details = ({ user }) => {
           <div className='py-4'>
             <video ref={videoRef} controls src={movie.videoUrl} className='w-full' />
           </div>
-          <p className='text-justify lg:text-xl'>Views: {movie.views ?? 0}</p>
+          <div>
+            {/* Views */}
+            <p className="text-justify lg:text-xl" style={{ marginBottom: '20px' }}>Views: {movie.views ?? 0}</p>
+            {/* Script */}
+            <a
+              href={movie.scriptUrl}
+              target="_blank"
+              className="w-300 p-4 font-bold text-white transition-all duration-300 bg-yellow-400 rounded-md shadow-sm cursor-pointer hover:bg-yellow-300 hover:tracking-wider"
+            >
+              Check script
+            </a>
+
+            {/* Money*/}
+            <p className="text-justify lg:text-xl" style={{ marginBottom: '20px' , marginTop: '20px' }}> Money: {movie.collected ?? 0} / {movie.moneygoal ?? 0} $</p>
+            {/* Donate*/}
+            <a
+              //href={movie.scriptUrl}
+              target="_blank"
+              className="w-300 p-4 font-bold text-white transition-all duration-300 bg-yellow-400 rounded-md shadow-sm cursor-pointer hover:bg-yellow-300 hover:tracking-wider"
+            >
+              Support
+            </a>
+            
+          </div>
           {/* Comments section */}
           <Comments id={id} user={user} />
         </Item>

@@ -18,7 +18,7 @@ const Register = (user) => {
         </h1>
         <Routes>
           <Route path='/' element={<RegistrationAuth></RegistrationAuth>}/>
-          <Route path='/info' element={user ? <Navigate to="/login"></Navigate>: <RegistrationInfo></RegistrationInfo>}/>
+          <Route path='/info' element={!user ? <Navigate to="/login"></Navigate>: <RegistrationInfo></RegistrationInfo>}/>
       </Routes>
         <div className='flex flex-col w-full gap-2 mt-4'>
           <p className='italic text-gray-500 '>
