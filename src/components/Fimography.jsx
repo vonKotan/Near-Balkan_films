@@ -25,7 +25,7 @@ export function Filmography({ sendData }) {
         const data = {
             title: title,
             year: year,
-            image: img,
+           // image: img,
             role: role
         }
         console.log(data);

@@ -52,6 +52,13 @@ export const RegistrationInfo = () => {
 
     const [filmography, setFilmography] = useState([])
 
+    const [roles, setRoles] = useState([])
+
+    const [filmographyError, setFilmographyError] = useState('')
+
+    const [rolesError, setRolesError] = useState('')
+
+
 
     function addFilmograpy(film) {
         setFilmography([...filmography, film])
@@ -59,8 +66,39 @@ export const RegistrationInfo = () => {
 
 
     function handleRegister(user) {
-        registerUserInfo(user);
-        navigate("/");
+        if (validateExtraFields()) {
+            user = CreateUserObj(user);
+            registerUserInfo(user);
+            navigate("/");
+        }
+    }
+
+    function CreateUserObj(user) {
+        if (roles && roles.length > 0) {
+            user = { ...user, roles: roles }
+        }
+
+        if (filmography && filmography.length > 0) {
+            user = { ...user, filmography: filmography }
+        } 
+        return user;
+    }
+
+    function validateExtraFields() {
+        let areFieldsValid=true
+        if (userType === 'creator') {
+            if (!filmography || filmography.length === 0) {
+                setFilmographyError('You need to provide your filmography if you want to be a creator')
+                areFieldsValid=false;
+            } else setFilmographyError('')
+
+            if (!roles || roles.length === 0) {
+                setRolesError('You need to provide your preferred roles if you want to be a creator')
+                areFieldsValid = false;
+            } else setRolesError('')
+        }
+
+        return areFieldsValid;
     }
 
     function fileUploaded(e) {
@@ -72,9 +110,14 @@ export const RegistrationInfo = () => {
         firstName: yup.string().matches('^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ]+$', "your name should only contain letters").required("This field is required"),
         lastName: yup.string().matches('^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ]+$', "your name should only contain letters").required("This field is required"),
         phoneNumber: yup.string().matches('^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$', "Please enter a valid phone number"),
-        birthDate: yup.date().max(new Date(), "Your birthDate can not be later than today").required(),
+        birthDate: yup.date("This field is required").max(new Date(), "Your birthDate can not be later than today").required("This field is required"),
         userName: yup.string().matches('^[a-zA-Z]+$', "your username should only contain letters").required("This field is required"),
-        userType: yup.string().oneOf(['viewer', 'creator']).required("This field is required")
+        userType: yup.string().oneOf(['viewer', 'creator']).required("This field is required"),
+        /*roles: yup.array().of(yup.string()).max(10).test({
+            name : "rolestest",
+            message: "You must provide your preferred roles if you want to be a creator",
+            test: (value) => true
+        })*/
     });
 
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -160,16 +203,18 @@ export const RegistrationInfo = () => {
 
                 {userType === 'creator' && (
                     <>
+                        {rolesError && (<p>{rolesError}</p>)}
                         <Select
                             className='w-full p-4 italic rounded-md shadow-sm outline-none'
                             options={titleOptions}
                             isMulti
+                            onChange={e => {
+                                setRoles(Array.isArray(e) ? e.map(x => x.value) : [])
+                            }}
                             closeMenuOnSelect={false}>
                         </Select>
-
-                        <Filmography sendData={addFilmograpy}>
-
-                        </Filmography>
+                        {filmographyError && (<p>{filmographyError}</p>)}
+                        <Filmography sendData={addFilmograpy} />
 
                         {filmography.length > 0 && (
                             <>
