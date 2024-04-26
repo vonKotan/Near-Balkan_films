@@ -19,10 +19,10 @@ export const useAddReview = (user) => {
       const storageRef = ref(storage, generateName);
       const uploadTask = uploadBytesResumable(storageRef, img);
       // Upload video
-      const videoRef = ref(storage, `films/${Date.now()}`);     //ITT!!
+      const videoRef = ref(storage, `films/${urlname}/${Date.now()}`);     //ITT!!
       const videoUploadTask = uploadBytesResumable(videoRef, video);
       //Upload script
-      const scriptRef = ref(storage, `scripts/${Date.now()}`);   //ITT!!
+      const scriptRef = ref(storage, `scripts/${urlname}/${Date.now()}`);   //ITT!!
       const scriptUploadTask = uploadBytesResumable(scriptRef, script);
 
 
