@@ -208,6 +208,7 @@ export const RegistrationInfo = () => {
                             className='w-full p-4 italic rounded-md shadow-sm outline-none'
                             options={titleOptions}
                             isMulti
+                            placeholder="Your preferred roles on movie"
                             onChange={e => {
                                 setRoles(Array.isArray(e) ? e.map(x => x.value) : [])
                             }}
