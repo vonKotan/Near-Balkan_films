@@ -9,7 +9,7 @@ import { Filmography } from "./Fimography";
 import Select from "react-select"
 import * as yup from 'yup';
 
-export const RegistrationInfo = () => {
+export const RegistrationInfo = ({user}) => {
 
     const titleOptions = [
         { value: 'screenwriter', label: 'Screenwriter' },
@@ -80,16 +80,16 @@ export const RegistrationInfo = () => {
 
         if (filmography && filmography.length > 0) {
             user = { ...user, filmography: filmography }
-        } 
+        }
         return user;
     }
 
     function validateExtraFields() {
-        let areFieldsValid=true
+        let areFieldsValid = true
         if (userType === 'creator') {
             if (!filmography || filmography.length === 0) {
                 setFilmographyError('You need to provide your filmography if you want to be a creator')
-                areFieldsValid=false;
+                areFieldsValid = false;
             } else setFilmographyError('')
 
             if (!roles || roles.length === 0) {
@@ -215,7 +215,7 @@ export const RegistrationInfo = () => {
                             closeMenuOnSelect={false}>
                         </Select>
                         {filmographyError && (<p>{filmographyError}</p>)}
-                        <Filmography sendData={addFilmograpy} />
+                        <Filmography user={user} sendData={addFilmograpy} />
 
                         {filmography.length > 0 && (
                             <>

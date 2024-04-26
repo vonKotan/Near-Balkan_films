@@ -1,9 +1,12 @@
 import Select from 'react-select'
 import { useForm } from 'react-hook-form'
 import { useRef, useState } from 'react'
+import { useUploadImage } from '../hooks/useUploadImage'
 
 
-export function Filmography({ sendData }) {
+export function Filmography({ sendData, user }) {
+
+    const { uploadImage } = useUploadImage(user)
 
     const titleOptions = [
         { value: 'screenwriter', label: 'Screenwriter' },
@@ -21,20 +24,24 @@ export function Filmography({ sendData }) {
         { value: 'actor', label: 'Actor' },
         { value: 'set designer', label: 'Set designer' },]
 
-    function sendFilmData() {
-        const data = {
-            title: title,
-            year: year,
-           // image: img,
-            role: role
+    async function sendFilmData() {
+        if (validateData()) {
+            const url = await uploadImage(image, title);
+            const data = {
+                title: title,
+                year: year,
+                image: url,
+                role: role
+            }
+            console.log(data);
+            sendData(data);
         }
-        console.log(data);
-        sendData(data);
     }
     const [title, setTitle] = useState("");
     const [year, setYear] = useState(0);
-    const [img, setImg] = useState();
+    const [image, setImage] = useState();
     const [role, setRole] = useState("")
+    const [errorMesage, setErrorMessage] = useState("")
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const hiddenInput = useRef(null)
@@ -43,17 +50,27 @@ export function Filmography({ sendData }) {
         hiddenInput?.current?.click()
     }
 
+    function validateData() {
+        if (!image || !title || !year || !role) {
+            setErrorMessage("please fill out all fields to add to your filmography")
+            return false
+        }
+        setErrorMessage('');
+        return true
+    }
+
 
 
     return (
         <section>
             <p>Please add your filmography</p>
             <div>
+                {errorMesage && <p>{errorMesage}</p>}
                 <input type="text" placeholder="Title" onChange={(e) => setTitle(e.target.value)} />
                 <input type="number" placeholder="Year" onChange={(e) => setYear(e.target.value)} />
                 <Select options={titleOptions} placeholder='your role int the movie' onChange={(choice) => setRole(choice.value)}></Select>
                 <button onClick={() => { attachImage() }} type="button">attach image</button>
-                <input type="file" onChange={e => setImg(e.target.files[0])} ref={hiddenInput} className='hidden' />
+                <input type="file" onChange={e => setImage(e.target.files[0])} ref={hiddenInput} className='hidden' />
                 <input type='button' onClick={() => sendFilmData()} value="Add"></input>
             </div>
         </section>
