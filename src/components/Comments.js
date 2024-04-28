@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
 const Comments = ({ id, user }) => {
   const [newComment, setNewComment] = useState('');
 
-  const { documents: comments } = useFetchData(`reviews/${id}/comments`);
-  const { insertComment, deleteComment } = useComment(`reviews/${id}/comments`);
+  const { documents: comments } = useFetchData(`films/${id}/comments`);
+  const { insertComment, deleteComment } = useComment(`films/${id}/comments`);
 
   const commentHandler = (e) => {
     e.preventDefault();

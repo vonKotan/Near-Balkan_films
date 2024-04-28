@@ -26,7 +26,7 @@ export const useAuth = () => {
   // Change firebase messages language to brazilian portuguese
   auth.languageCode = 'pt-BR';
 
-  // Set redirect URL to localhost
+  // Set redirect URL to localhost  //whats this bullshit?
   const actionCodeSettings = {
     url: 'https://moviereviews-yago.vercel.app/',
   };

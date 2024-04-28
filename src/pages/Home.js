@@ -8,7 +8,7 @@ import Card from '../components/Card';
 import { useFetchData } from '../hooks/useFetchData';
 
 const Home = () => {
-  const { documents: movies } = useFetchData('reviews');
+  const { documents: movies } = useFetchData('films');
 
   const [search, setSearch] = useState(null);
   const [moviesFilter, setMoviesFilter] = useState([]);
