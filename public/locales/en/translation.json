@@ -6,7 +6,7 @@
         "home":{ 
            "description": "Find a movie to watch or to support",
            "no_results": "No results found",
-           "search": "Search"
+           "search": "Search..."
         },
         "register":{
           "first_name": "First Name",

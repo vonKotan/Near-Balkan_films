@@ -1,7 +1,26 @@
+
 {
+        "navbar": {
+          "login": "Bejelentkezés",
+          "register": "Regisztráció"
+        },
         "home": {
-                "description": "Találj egy filmet amit megvalósítanál!",
-                "no_results": "nincs találat"
+        "description": "Találj egy filmet amit megvalósítanál!",
+        "no_results": "nincs találat",
+        "search": "Keresés..."
+        },
+        "register": {
+          "first_name": "Keresztnév",
+          "last_name": "Vezetéknév",
+          "phone_number": "Telefonszám",
+          "Username": "Felhasználónév",
+          "viewer": "Néző",
+          "creator": "Készítő",
+          "create_account": "Fiók létrehozása",
+          "already_have": "Már van fiókod?",
+          "log_in": "Bejelentkezés",
+          "register_and_enjoy": "Regisztrálj és élvezd az összes funkciót"
         },
         "language": "hu"
-}
+      }
+      

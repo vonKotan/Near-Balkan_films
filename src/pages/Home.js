@@ -46,7 +46,7 @@ const Home = () => {
         <form className='relative flex sm:w-[50%]  w-full'>
           <input
             type='text'
-            placeholder='Write a movie name ...'
+            placeholder={t("home.search")}
             className='items-center justify-center w-full p-2 italic border-2 rounded-md outline-none placeholder:text-center border-slate-200-400 text-start bg-gray-50'
             value={search || ''}
             onChange={(e) => setSearch(e.target.value)}
