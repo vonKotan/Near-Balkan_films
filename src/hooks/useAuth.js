@@ -30,7 +30,7 @@ export const useAuth = () => {
 
   auth.languageCode = 'eng';
 
-  // Set redirect URL to localhost
+  // Set redirect URL to localhost  //whats this bullshit?
   const actionCodeSettings = {
     url: 'https://moviereviews-yago.vercel.app/',
   };

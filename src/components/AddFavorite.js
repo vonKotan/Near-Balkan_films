@@ -10,7 +10,7 @@ const AddFavorite = ({ movieId, user }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const { documents: favorites } = useFetchData(`users/${user?.uid}/favorites`);
-  const { documents: movies } = useFetchData(`reviews`);
+  const { documents: movies } = useFetchData(`films`);
 
   const addFavorite = async () => {
     try {

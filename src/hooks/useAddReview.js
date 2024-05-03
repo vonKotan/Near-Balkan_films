@@ -60,7 +60,7 @@ export const useAddReview = (user) => {
           const scriptUrl = await getDownloadURL(scriptUploadTask.snapshot.ref);
           console.log('Script Download URL:', scriptUrl); // Log script download URL
 
-          const docRef = collection(database, 'reviews');
+          const docRef = collection(database, 'films');
 
             const docData = {
             image: window.publicUrl,

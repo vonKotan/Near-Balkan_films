@@ -8,8 +8,11 @@ import { BrowserRouter } from 'react-router-dom';
 // App
 import App from './App';
 
-// Global Styles
+// Global Styles 
 import './index.css';
+
+//multi language
+import './i18n';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

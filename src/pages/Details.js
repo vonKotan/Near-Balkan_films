@@ -23,7 +23,7 @@ const Details = ({ user }) => {
 
   useEffect(() => {
     const loadDocument = async () => {
-      const docRef = doc(database, 'reviews', id);  //majd át kell írni a reviews-t films-re
+      const docRef = doc(database, 'films', id); 
       const docSnap = await getDoc(docRef);
 
       setMovie(docSnap.data());
@@ -48,7 +48,7 @@ const Details = ({ user }) => {
   //Megtekintesek novelese
   useEffect(() => {
     const increaseViews = async () => {
-      const docRef = doc(database, 'reviews', id);  //majd át kell írni a reviews-t films-re
+      const docRef = doc(database, 'films', id);  
       const docSnap = await getDoc(docRef);
       const currentViews = docSnap.data().views ?? 0;
       await updateDoc(docRef, { views: currentViews + 1 });

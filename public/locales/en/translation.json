@@ -1,0 +1,24 @@
+{
+        "navbar":{
+           "login": "Login",
+           "register": "Register"
+        },
+        "home":{ 
+           "description": "Find a movie to watch or to support",
+           "no_results": "No results found",
+           "search": "Search..."
+        },
+        "register":{
+          "first_name": "First Name",
+          "last_name": "Last Name",
+          "phone_number": "Phone Number",
+          "Username": "Username",
+          "viewer": "Viewer",
+          "creator": "Creator",
+          "create_account": "Create Account",
+          "already_have": "Already have an account?",
+          "log_in": "Log in",
+          "register_and_enjoy": "Register and enjoy all functions"
+        },
+        "language": "en"
+}

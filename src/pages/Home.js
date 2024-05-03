@@ -6,10 +6,16 @@ import { Link } from 'react-router-dom';
 // Components
 import Card from '../components/Card';
 import { useFetchData } from '../hooks/useFetchData';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
-  const { documents: movies } = useFetchData('reviews');
+  const { documents: movies } = useFetchData('films');
+  const { t, i18n } = useTranslation(); 
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
+  //changeLanguage("en");
   const [search, setSearch] = useState(null);
   const [moviesFilter, setMoviesFilter] = useState([]);
 
@@ -32,13 +38,15 @@ const Home = () => {
             <span className='border-b-4 border-black'>Films</span>
           </h1>
           <p className='mt-4 text-xs italic text-gray-500 sm:text-base xl:text-xl'>
-            Find a movie to watch or to support
+            <div>{t("home.description")}</div>
           </p>
         </div>
+        <button onClick={() => changeLanguage("en")}>EN</button>
+        <button onClick={() => changeLanguage("hu")}>HU</button>
         <form className='relative flex sm:w-[50%]  w-full'>
           <input
             type='text'
-            placeholder='Write a movie name ...'
+            placeholder={t("home.search")}
             className='items-center justify-center w-full p-2 italic border-2 rounded-md outline-none placeholder:text-center border-slate-200-400 text-start bg-gray-50'
             value={search || ''}
             onChange={(e) => setSearch(e.target.value)}
