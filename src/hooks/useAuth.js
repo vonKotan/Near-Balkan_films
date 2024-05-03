@@ -1,5 +1,5 @@
 // Firebase Config
-import { app , database} from '../firebase/config';
+import { app, database } from '../firebase/config';
 import { setDoc, doc, getDoc, getDocFromCache } from 'firebase/firestore';
 
 // Firebase functions
@@ -9,51 +9,72 @@ import {
   signInWithEmailAndPassword,
   signOut,
   sendPasswordResetEmail,
-  updateProfile,
   onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup
 } from 'firebase/auth';
 
 // React Hooks
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const useAuth = () => {
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
+  const provider = new GoogleAuthProvider();
+  const navigate = useNavigate();
 
   // Get auth from firebase
   const auth = getAuth(app);
-  // Change firebase messages language to brazilian portuguese
-  auth.languageCode = 'pt-BR';
+
+  auth.languageCode = 'eng';
 
   // Set redirect URL to localhost  //whats this bullshit?
   const actionCodeSettings = {
     url: 'https://moviereviews-yago.vercel.app/',
   };
 
+  const googleSignIn = async () => {
+    await signInWithPopup(getAuth(), provider);
+    await checkFirstSignIn();
+  }
+
+  const registerUser = async (user) => {
+    setLoading(true)
+    try {
+      await createUserWithEmailAndPassword(
+        auth,
+        user.email,
+        user.password,
+      );
+      await checkFirstSignIn();
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+
+  }
+
+  const checkFirstSignIn = async () => {
+    const doc = await getUser();
+    if (!doc) {
+      navigate("/register/info");
+    } else console.log(doc);
+    console.log(doc);
+  }
+
   // Function to register and login new users
-  const registerUser = async (email, password, username, firstName, lastName, phoneNumber, userType, birthDate) => {
+  const registerUserInfo = async (userInfo) => {
     setLoading(true);
 
     try {
-      //create auth user object
-      const { user } = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password,
-      );
-      
-      await updateProfile(user, { displayName: firstName + lastName });
+      const userId = auth.currentUser.uid;
+
       //create doc in our database with the same id as the auth object
-      await setDoc(doc(database, 'users', user.uid), {
-        userName:username,
-        firstName:firstName,
-        lastName:lastName,
-        phoneNumber:phoneNumber,
-        userType:userType,
-        birthDate:birthDate
-      })
-      
+      await setDoc(doc(database, 'users', userId), {...userInfo, email:auth.currentUser?.email})
+
       setLoading(false);
     } catch (e) {
       setError(e.message);
@@ -67,6 +88,7 @@ export const useAuth = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
+      checkFirstSignIn();
       setLoading(false);
     } catch (e) {
       setError(e.message);
@@ -97,21 +119,29 @@ export const useAuth = () => {
   };
   //function the retrieve the current users data from our database based on the auth object
   //can be used later when we want to display things based on the users type
-  const getUser= async () => {
-    const uid = auth.currentUser.uid;
+  const getUser = async () => {
+    const uid = auth?.currentUser?.uid;
+    if(!uid) return false;
     const docRef = doc(database, "users", uid);
-     //if it is cached try to get it from the cache
+    let document;
+    //if it is cached try to get it from the cache
+
     try {
-      return await getDocFromCache(docRef);
-    //if the doc was not cached it throws an error and we read it from the database
-    } catch (err){
-      return await getDoc(docRef )
+      document = await getDocFromCache(docRef);
+      //if the doc was not cached it throws an error and we read it from the database
+    } catch (err) {
+      document = await getDoc(docRef)
     }
+    if (document.exists()) {
+      return document.data();
+    } else return false;
   }
 
   return {
     auth,
     registerUser,
+    registerUserInfo,
+    googleSignIn,
     signInUser,
     signOutUser,
     resetPassword,

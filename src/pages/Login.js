@@ -12,7 +12,7 @@ const Login = () => {
 
   const [error, setError] = useState(null);
 
-  const { signInUser, error: firebaseError, loading } = useAuth();
+  const { signInUser, error: firebaseError, loading, googleSignIn } = useAuth();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,6 +24,11 @@ const Login = () => {
 
     signInUser(email, password);
   };
+
+  const googleLogin = (e) => {
+    e.preventDefault();
+    googleSignIn();
+  }
 
   useEffect(() => {
     if (firebaseError) {
@@ -83,6 +88,7 @@ const Login = () => {
           )}
 
           {error && <p className='error'>{error}</p>}
+          <button onClick={(e) => { googleLogin(e) }}> Google </button>
         </form>
         <div className='flex flex-col w-full gap-2 mt-4'>
           <p className='italic text-gray-500 '>
