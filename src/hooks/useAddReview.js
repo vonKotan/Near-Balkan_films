@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { database, storage } from '../firebase/config';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
-import { data } from 'autoprefixer';
 
 export const useAddReview = (user) => {
   const [success, setSuccess] = useState(null); // State variable to track success message
