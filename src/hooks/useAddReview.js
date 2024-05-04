@@ -2,15 +2,27 @@ import { useState } from 'react';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { database, storage } from '../firebase/config';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { data } from 'autoprefixer';
 
 export const useAddReview = (user) => {
   const [success, setSuccess] = useState(null); // State variable to track success message
   const [error, setError] = useState(null); // State variable to track error message
   const [loading, setLoading] = useState(false); // State variable to track loading state
 
-  const addReview = async (data, img, video, script) => {
-    setLoading(true); // Set loading state to true
+  const addReview = async (data) => {
+    setLoading(true); 
 
+    console.log(data)// Set loading state to true
+
+    //get the files from the object and then remove them
+    //so we dont ty to upload them to db
+    const img = data.image[0];
+    delete data.image
+    const video = data.video[0];
+    delete data.video
+    const script = data.script[0];
+    delete data.script
+    
     try {
       //itt tartok....
       const urlname=user.email.split('@')[0];
