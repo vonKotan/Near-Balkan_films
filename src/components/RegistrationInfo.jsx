@@ -144,8 +144,7 @@ export const RegistrationInfo = ({user}) => {
 
 
     return (
-        <>
-            <form
+        <form
                 className='flex flex-col items-center justify-center w-full gap-2 mt-8'
                 onSubmit={handleSubmit(handleRegister)}
             >
@@ -247,6 +246,5 @@ export const RegistrationInfo = ({user}) => {
 
                 {error && <p className='error'>{error}</p>}
             </form>
-        </>
     )
 }
