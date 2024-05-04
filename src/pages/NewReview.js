@@ -154,7 +154,7 @@ const NewReview = ({ user }) => {
         <input
           type='file'
           name='script'
-          accept='pdf'
+          accept='.pdf'
           className='block w-full p-3 m-0 text-base font-normal text-gray-700 transition ease-in-out border-none rounded shadow-md bg-slate-50 form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
           onChange={(e) => setScript(e.target.files[0])}
           disabled={loading ? true : false}
