@@ -5,12 +5,14 @@ import { deleteDoc, doc, setDoc, Timestamp } from 'firebase/firestore';
 
 import { TbHeartPlus, TbHeartMinus } from 'react-icons/tb';
 import { useFetchData } from '../hooks/useFetchData';
+import { useTranslation } from 'react-i18next';
 
 const AddFavorite = ({ movieId, user }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const { documents: favorites } = useFetchData(`users/${user?.uid}/favorites`);
   const { documents: movies } = useFetchData(`films`);
+  const { t, i18n } = useTranslation();   
 
   const addFavorite = async () => {
     try {
@@ -49,13 +51,13 @@ const AddFavorite = ({ movieId, user }) => {
       {isFavorite ? (
         <TbHeartMinus
           size={30}
-          className='text-yellow-400'
+          className='text-nbgreenmain'
           onClick={removeFavorite}
         />
       ) : (
         <TbHeartPlus
           size={30}
-          className='text-yellow-400'
+          className='text-nbgreenmain'
           onClick={addFavorite}
         />
       )}

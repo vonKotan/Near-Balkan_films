@@ -27,19 +27,19 @@ const Header = ({ user }) => {
           className='text-2xl font-bold transition-all duration-300 hover:tracking-wider'
         >
           Near-Balkan
-          <span className='text-yellow-400'>Films</span>
+          <span className='text-nbgreenmain'>Films</span>
         </Link>
         <List className='relative top-[4px] '>
           {!user && (
             <Item>
               <Trigger>
-                <GiHamburgerMenu size={20} className='text-yellow-400' />
+                <GiHamburgerMenu size={20} className='text-nbgreenmain' />
               </Trigger>
               <Content className='absolute right-0 z-10 flex flex-col gap-2 p-4 shadow-md bg-gray-50'>
                 <RadixLink>
                   <Link
                     to='/login'
-                    className='px-4 text-yellow-400 transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-yellow-400'
+                    className='px-4 text-nbgreenmain transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-nbgreenmain'
                   >
                     Login
                   </Link>
@@ -47,7 +47,7 @@ const Header = ({ user }) => {
                 <RadixLink>
                   <Link
                     to='/register'
-                    className='px-4 text-yellow-400 transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-yellow-400'
+                    className='px-4 text-nbgreenmain transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-nbgreenmain'
                   >
                     Register
                   </Link>
@@ -66,15 +66,15 @@ const Header = ({ user }) => {
                   />
                 </Trigger>
               ) : (
-                <Trigger className='p-2 text-center text-yellow-400 bg-black rounded-full'>
-                  <RiUserFill size={15} className='text-yellow-400 ' />
+                <Trigger className='p-2 text-center text-nbgreenmain bg-black rounded-full'>
+                  <RiUserFill size={15} className='text-nbgreenmain ' />
                 </Trigger>
               )}
               <Content className='absolute right-0 z-10 flex flex-col gap-2 p-4 shadow-md bg-gray-50 w-[170px]'>
                 <RadixLink>
                   <Link
                     to='/profile'
-                    className='px-4 text-yellow-400 transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-yellow-400'
+                    className='px-4 text-nbgreenmain transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-nbgreenmain'
                   >
                     Profile
                   </Link>
@@ -82,7 +82,7 @@ const Header = ({ user }) => {
                 <RadixLink>
                   <Link
                     to='/add-review'
-                    className='px-4 text-yellow-400 transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-yellow-400'
+                    className='px-4 text-nbgreenmain transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-nbgreenmain'
                   >
                     New Review
                   </Link>
@@ -90,7 +90,7 @@ const Header = ({ user }) => {
                 <RadixLink>
                   <Link
                     to='/favorites'
-                    className='px-4 text-yellow-400 transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-yellow-400'
+                    className='px-4 text-nbgreenmain transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-nbgreenmain'
                   >
                     Favorites
                   </Link>
@@ -98,7 +98,7 @@ const Header = ({ user }) => {
                 <RadixLink>
                   <span
                     onClick={signOutUser}
-                    className='px-4 text-yellow-400 transition-all duration-200 cursor-pointer hover:text-black hover:font-bold hover:border-l-4 hover:border-l-yellow-400'
+                    className='px-4 text-nbgreenmain transition-all duration-200 cursor-pointer hover:text-black hover:font-bold hover:border-l-4 hover:border-l-nbgreenmain'
                   >
                     Sign out
                   </span>

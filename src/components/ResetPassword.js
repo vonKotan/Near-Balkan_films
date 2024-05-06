@@ -16,7 +16,7 @@ const ResetPassword = ({ userEmail }) => {
     <Dialog.Root>
       <Dialog.Trigger asChild>
         <button
-          className='italic font-bold text-yellow-400 outline-none cursor-pointer'
+          className='italic font-bold text-nbgreenmain outline-none cursor-pointer'
           size='large'
         >
           Reset
@@ -25,7 +25,7 @@ const ResetPassword = ({ userEmail }) => {
       <Dialog.Portal>
         <Dialog.Overlay className='fixed inset-0 bg-[rgba(0,0,0,0.3)]' />
         <Dialog.Content className='bg-gray-100 rounded-md shadow-sm fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-[90vw] max-w-[450px] max-h-[85vh] p-6'>
-          <Dialog.Title className='flex items-center justify-center gap-2 mb-4 text-xl font-bold text-center text-yellow-400'>
+          <Dialog.Title className='flex items-center justify-center gap-2 mb-4 text-xl font-bold text-center text-nbgreenmain'>
             Send a reset password link to your email
             <Dialog.Close asChild>
               <button className=' text-zinc-800' aria-label='Close'>
@@ -51,7 +51,7 @@ const ResetPassword = ({ userEmail }) => {
           >
             <Dialog.Close asChild>
               <button
-                className='w-full p-4 font-bold text-white transition-all duration-300 bg-yellow-400 rounded-md shadow-sm cursor-pointer hover:bg-amber-300 hover:tracking-wider'
+                className='w-full p-4 font-bold text-white transition-all duration-300 bg-nbgreenmain rounded-md shadow-sm cursor-pointer hover:bg-amber-300 hover:tracking-wider'
                 onClick={handleReset}
               >
                 Send

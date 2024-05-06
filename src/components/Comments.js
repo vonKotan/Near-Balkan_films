@@ -30,7 +30,7 @@ const Comments = ({ id, user }) => {
 
   return (
     <div className='flex flex-col gap-8 my-4 lg:my-8'>
-      <h2 className='pl-4 text-2xl font-bold border-l-8 border-yellow-400 lg:text-4xl '>
+      <h2 className='pl-4 text-2xl font-bold border-l-8 border-nbgreenmain lg:text-4xl '>
         Comments
       </h2>
       {user ? (
@@ -45,7 +45,7 @@ const Comments = ({ id, user }) => {
             className='w-full p-2 text-lg border-2 rounded-lg outline-none lg:p-4 bg-slate-50'
           />
           <input
-            className='absolute right-0 px-10 py-2 text-lg font-bold text-white transition-all duration-300 bg-yellow-400 border-2 border-yellow-400 rounded-r-lg cursor-pointer lg:py-4 hover:bg-yellow-300 hover:border-yellow-300 hover:tracking-wider'
+            className='absolute right-0 px-10 py-2 text-lg font-bold text-white transition-all duration-300 bg-nbgreenmain border-2 border-nbgreenmain rounded-r-lg cursor-pointer lg:py-4 hover:bg-nbgreenlight hover:border-nbgreenlight hover:tracking-wider'
             type='submit'
             value='Send'
           />

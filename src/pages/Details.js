@@ -9,6 +9,7 @@ import { AiFillStar } from 'react-icons/ai';
 import Comments from '../components/Comments';
 import { database } from '../firebase/config';
 import AddFavorite from '../components/AddFavorite';
+import { useTranslation } from 'react-i18next';
 
 // Radix Imports
 import {
@@ -20,6 +21,7 @@ const Details = ({ user }) => {
   const videoRef = React.useRef(null);  //megtekintesek novelesehez kell
   const [stars, setStars] = useState([]);
   const [movie, setMovie] = useState({});
+  const { t, i18n } = useTranslation(); 
 
   useEffect(() => {
     const loadDocument = async () => {
@@ -92,7 +94,7 @@ const Details = ({ user }) => {
                 {stars.map((e) => (
                   <AiFillStar
                     key={e}
-                    className='text-xl text-yellow-400 lg:text-3xl'
+                    className='text-xl text-nbgreenmain lg:text-3xl'
                   />
                 ))}
               </div>
@@ -118,7 +120,7 @@ const Details = ({ user }) => {
             <a
               href={movie.scriptUrl}
               target="_blank"
-              className="w-300 p-4 font-bold text-white transition-all duration-300 bg-yellow-400 rounded-md shadow-sm cursor-pointer hover:bg-yellow-300 hover:tracking-wider"
+              className="w-300 p-4 font-bold text-white transition-all duration-300 bg-nbgreenmain rounded-md shadow-sm cursor-pointer hover:bg-nbgreenlight hover:tracking-wider"
             >
               Check script
             </a>
@@ -129,7 +131,7 @@ const Details = ({ user }) => {
             <a
               //href={movie.scriptUrl}
               target="_blank"
-              className="w-300 p-4 font-bold text-white transition-all duration-300 bg-yellow-400 rounded-md shadow-sm cursor-pointer hover:bg-yellow-300 hover:tracking-wider"
+              className="w-300 p-4 font-bold text-white transition-all duration-300 bg-nbgreenmain rounded-md shadow-sm cursor-pointer hover:bg-nbgreenlight hover:tracking-wider"
             >
               Support
             </a>
