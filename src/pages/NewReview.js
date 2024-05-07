@@ -3,8 +3,6 @@ import Loading from '../components/Loading';
 import { useAddReview } from '../hooks/useAddReview';
 import { useTranslation } from 'react-i18next';
 
-const { t, i18n } = useTranslation(); 
-
 const genreOptions = [
   'Action',
   'Adventure',
