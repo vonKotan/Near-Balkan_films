@@ -8,9 +8,9 @@ import {RegistrationInfo} from '../components/RegistrationInfo';
 import { useTranslation } from 'react-i18next';
 
 
-const { t, i18n } = useTranslation(); 
-const Register = (user) => {
 
+const Register = (user) => {
+  const { t, i18n } = useTranslation(); 
   return (
     <section className='flex flex-col items-center justify-center sectionHeight bg-nbgreenlight'>
       <div className='flex flex-col items-center justify-center px-16 py-8 bg-gray-100 rounded-md shadow-md max-w-[600px] w-[90%]'>
