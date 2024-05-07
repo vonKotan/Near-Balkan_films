@@ -113,11 +113,6 @@ export const RegistrationInfo = ({user}) => {
         birthDate: yup.date("This field is required").max(new Date(), "Your birthDate can not be later than today").required("This field is required"),
         userName: yup.string().matches('^[a-zA-Z]+$', "your username should only contain letters").required("This field is required"),
         userType: yup.string().oneOf(['viewer', 'creator']).required("This field is required"),
-        /*roles: yup.array().of(yup.string()).max(10).test({
-            name : "rolestest",
-            message: "You must provide your preferred roles if you want to be a creator",
-            test: (value) => true
-        })*/
     });
 
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -144,8 +139,7 @@ export const RegistrationInfo = ({user}) => {
 
 
     return (
-        <>
-            <form
+        <form
                 className='flex flex-col items-center justify-center w-full gap-2 mt-8'
                 onSubmit={handleSubmit(handleRegister)}
             >
@@ -247,6 +241,5 @@ export const RegistrationInfo = ({user}) => {
 
                 {error && <p className='error'>{error}</p>}
             </form>
-        </>
     )
 }

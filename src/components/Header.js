@@ -16,7 +16,7 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { RiUserFill } from 'react-icons/ri';
 import { useAuth } from '../hooks/useAuth';
 
-const Header = ({ user }) => {
+const Header = ({ user, userObject }) => {
   const { signOutUser } = useAuth();
 
   return (
@@ -79,6 +79,7 @@ const Header = ({ user }) => {
                     Profile
                   </Link>
                 </RadixLink>
+                {userObject && userObject.userType ==='creator' &&
                 <RadixLink>
                   <Link
                     to='/add-review'
@@ -86,7 +87,8 @@ const Header = ({ user }) => {
                   >
                     New Review
                   </Link>
-                </RadixLink>
+                </RadixLink>}
+
                 <RadixLink>
                   <Link
                     to='/favorites'

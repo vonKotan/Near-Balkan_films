@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Loading from '../components/Loading';
 import { useAddReview } from '../hooks/useAddReview';
 import { useTranslation } from 'react-i18next';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from 'yup';
+
 
 const genreOptions = [
   'Action',
@@ -41,6 +45,24 @@ const NewReview = ({ user }) => {
   const [success, setSuccess] = useState('');
   const [error, setError] = useState('');
 
+
+  const schema = yup.object().shape({
+    title: yup.string().required("Please provide the title"),
+    englishTitle: yup.string(),
+    rating: yup.number().typeError("please provide a number").required("Please provide a rating"),
+    moneygoal: yup.number().min(1, "Number is too small").max(1000000, "Number is too high").required("Please fill this field").typeError("Please provide a number"),
+    genre: yup.string().required("Please choose a genre for your film"),
+    description: yup.string().min(20, "Description too short").max(1500, "Description too long").required("Please provide a description"),
+    englishDescription: yup.string(),
+    image: yup.mixed().required("please provide a poster for your film"),
+    video: yup.mixed().required("Please provide a demo for your film"),
+    script: yup.mixed().required("Please provide a script for your film")
+  });
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    resolver: yupResolver(schema)
+  });
+
   const {
     addReview,
     error: firebaseError,
@@ -50,38 +72,20 @@ const NewReview = ({ user }) => {
     loading,
   } = useAddReview(user);
 
-  const handleUpload = (e) => {
-    e.preventDefault();
+  const handleUpload = ( formData) => {
+    //e.preventDefault();
     firebaseSetError(null);
     firebaseSetSuccess(null);
-
-    if (
-      image === '' ||
-      video === '' ||
-      title === '' ||
-      rating === '' ||
-      genre === '' ||
-      description === '' ||
-      moneygoal === '' ||
-      script === ''
-    ) {
-      setError('Empty fields');
-      return;
-    }
 
     console.log('Calling addReview function');
     const data = {
       user: user.uid,
-      title,
-      rating,
-      genre,
-      description,
-      views,
-      moneygoal,
-      collected,
+      ...formData,
+      views, //Ennek itt mi a szerepe
+      collected, // meg ennek?
     };
 
-    addReview(data, image, video, script);
+    addReview(data);
   };
 
   useEffect(() => {
@@ -129,71 +133,84 @@ const NewReview = ({ user }) => {
       )}
 
       <form
-        onSubmit={handleUpload}
+        onSubmit={handleSubmit(handleUpload)}
         className='flex flex-col max-w-[600px] w-[90%] mx-auto gap-3 mb-16'
       >
+        {errors?.image && (<p>{errors.image?.message}</p>)}
         <label htmlFor='poster'>Poster</label>
         <input
           type='file'
           name='poster'
           accept='image/*'
           className='block w-full p-3 m-0 text-base font-normal text-gray-700 transition ease-in-out border-none rounded shadow-md bg-slate-50 form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
-          onChange={(e) => setImage(e.target.files[0])}
-          disabled={loading ? true : false}
+          {...register("image")}
+          disabled={loading}
         />
-      
+
+        {errors?.video && (<p>{errors.video?.message}</p>)}
         <label htmlFor='film'>Film</label>
         <input
           type='file'
           name='film'
           accept='video/mp4'
           className='block w-full p-3 m-0 text-base font-normal text-gray-700 transition ease-in-out border-none rounded shadow-md bg-slate-50 form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
-          onChange={(e) => setVideo(e.target.files[0])}
-          disabled={loading ? true : false}
+          {...register("video")}
+          disabled={loading}
         />
 
+        {errors?.script && (<p>{errors.script?.message}</p>)}
         <label htmlFor='film'>Script (pdf only)</label>
         <input
           type='file'
           name='script'
-          accept='pdf'
+          accept='.pdf'
           className='block w-full p-3 m-0 text-base font-normal text-gray-700 transition ease-in-out border-none rounded shadow-md bg-slate-50 form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
-          onChange={(e) => setScript(e.target.files[0])}
-          disabled={loading ? true : false}
+          {...register("script")}
+          disabled={loading}
         />
 
-
+        {errors?.title && (<p>{errors.title?.message}</p>)}
         <input
           type='text'
           placeholder='Title'
           className='p-4 rounded-md shadow-md outline-none bg-slate-50'
-          value={title || ''}
-          onChange={(e) => setTitle(e.target.value)}
+          value={title || ''} // Ezek fölöslegesek voltak sztem eddig is, de most már bizto azok
+          {...register('title')}
         />
+
+        {errors?.englishTitle && (<p>{errors.englishTitle?.message}</p>)}
         <input
+          type='text'
+          placeholder='English title'
+          className='p-4 rounded-md shadow-md outline-none bg-slate-50'
+          {...register('englishTitle')}
+        />
+
+        {errors?.rating && (<p>{errors.rating?.message}</p>)}
+        <input // Ezt amugy az egészet kikukázhatnánk sztem mer fölös
           type='number'
           placeholder='Rating (0 - 5)'
           className='p-4 rounded-md shadow-md outline-none bg-slate-50'
           min={0}
           max={5}
-          value={rating || ''}
-          onChange={(e) => setRating(e.target.value)}
+          //value={rating || ''}
+          {...register('rating')}
         />
 
-          <input
+        {errors?.moneygoal && (<p>{errors.moneygoal?.message}</p>)}
+        <input
           type='number'
           placeholder='Needed funds for this idea (EUR)'
           className='p-4 rounded-md shadow-md outline-none bg-slate-50'
-          value={moneygoal || ''}
-          onChange={(e) => setMoneygoal(e.target.value)}
-          />
+          //value={moneygoal || ''}
+          {...register('moneygoal')}
+        />
 
+        {errors?.genre && (<p>{errors.genre?.message}</p>)}
         <select
-          className={`p-4  rounded-md shadow-md outline-none bg-slate-50 ${
-            genre === '' && 'text-gray-400'
-          }`}
-          value={genre || ''}
-          onChange={(e) => setGenre(e.target.value)}
+          className={`p-4  rounded-md shadow-md outline-none bg-slate-50 ${genre === '' && 'text-gray-400'
+            }`}
+          {...register('genre')}
         >
           <option value='' className='disabled:text-gray-500' disabled>
             Genre
@@ -204,12 +221,20 @@ const NewReview = ({ user }) => {
             </option>
           ))}
         </select>
+
+        {errors?.description && (<p>{errors.description?.message}</p>)}
         <textarea
           type='text'
           placeholder='Description'
           className='p-4 rounded-md shadow-md outline-none resize-none bg-slate-50 h-[200px]'
-          value={description || ''}
-          onChange={(e) => setDescription(e.target.value)}
+          {...register('description')}
+        />
+        {errors?.englishDescription && (<p>{errors.englishDescription?.message}</p>)}
+        <textarea
+          type='text'
+          placeholder='English description'
+          className='p-4 rounded-md shadow-md outline-none resize-none bg-slate-50 h-[200px]'
+          {...register('englishDescription')}
         />
 
         {loading ? (

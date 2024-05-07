@@ -43,7 +43,7 @@ function App() {
   }
   return (
     <div className='App'>
-      <Header user={user} />
+      <Header user={user} userObject={userObject} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
