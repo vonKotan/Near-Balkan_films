@@ -28,7 +28,7 @@ const Card = ({ image, title, genre, rating }) => {
         <div className='flex items-center justify-between'>
           <span className='flex '>
             {stars.map((e) => (
-              <AiFillStar key={e} className='text-yellow-400' />
+              <AiFillStar key={e} className='text-nbgreenmain' />
             ))}
           </span>
           <span className='pr-1 text-sm italic text-gray-400'>{genre}</span>

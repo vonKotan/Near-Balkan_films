@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Loading from '../components/Loading';
 import { useAddReview } from '../hooks/useAddReview';
+import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from 'yup';
@@ -27,6 +28,7 @@ const genreOptions = [
 ];
 
 const NewReview = ({ user }) => {
+  const { t, i18n } = useTranslation(); 
   const [image, setImage] = useState('');             //kep
   const [title, setTitle] = useState('');             //cim
   const [rating, setRating] = useState('');           //ertekeles - felesleges valszeg - helyette a szavazasokat kellene hasznalni(?)

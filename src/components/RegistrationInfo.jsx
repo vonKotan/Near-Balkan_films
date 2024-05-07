@@ -229,7 +229,7 @@ export const RegistrationInfo = ({user}) => {
                     <input
                         type='submit'
                         value='Create Account'
-                        className='w-full p-4 font-bold text-white transition-all duration-300 bg-yellow-400 rounded-md shadow-sm cursor-pointer hover:bg-yellow-300 hover:tracking-wider'
+                        className='w-full p-4 font-bold text-white transition-all duration-300 bg-nbgreenmain rounded-md shadow-sm cursor-pointer hover:bg-nbgreenlight hover:tracking-wider'
                     />
                 )}
 

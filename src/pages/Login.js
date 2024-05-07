@@ -5,10 +5,12 @@ import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
 import ResetPassword from '../components/ResetPassword';
 import { useAuth } from '../hooks/useAuth';
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const { t, i18n } = useTranslation(); 
 
   const [error, setError] = useState(null);
 
@@ -45,9 +47,9 @@ const Login = () => {
   }, [error]);
 
   return (
-    <section className='flex flex-col items-center justify-center sectionHeight bg-amber-200'>
+    <section className='flex flex-col items-center justify-center sectionHeight bg-nbgreenlight'>
       <div className='flex flex-col items-center justify-center px-16 py-8 bg-white rounded-md shadow-md max-w-[600px] w-[90%]'>
-        <h1 className='py-2 text-4xl font-bold tracking-wider text-yellow-400 transition-all duration-300 border-b-4 border-black hover:tracking-widest hover:text-yellow-300'>
+        <h1 className='py-2 text-4xl font-bold tracking-wider text-nbgreenmain transition-all duration-300 border-b-4 border-black hover:tracking-widest hover:text-nbgreenlight'>
           Login
         </h1>
         <p className='mt-2 text-sm italic text-gray-500'>
@@ -77,7 +79,7 @@ const Login = () => {
             <input
               type='submit'
               value='Log in'
-              className='w-full p-4 font-bold text-white transition-all duration-300 bg-yellow-400 rounded-md shadow-sm cursor-pointer hover:bg-yellow-300 hover:tracking-wider'
+              className='w-full p-4 font-bold text-white transition-all duration-300 bg-nbgreenmain rounded-md shadow-sm cursor-pointer hover:bg-nbgreenlight hover:tracking-wider'
             />
           )}
 
@@ -98,7 +100,7 @@ const Login = () => {
             New here?{' '}
             <Link
               to='/register'
-              className='pb-1 font-bold text-yellow-400 transition-all duration-150 hover:tracking-wider hover:text-yellow-300'
+              className='pb-1 font-bold text-nbgreenmain transition-all duration-150 hover:tracking-wider hover:text-nbgreenlight'
             >
               Register
             </Link>

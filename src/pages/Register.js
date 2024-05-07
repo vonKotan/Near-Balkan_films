@@ -5,15 +5,16 @@ import { Routes, Route, Navigate} from 'react-router-dom';
 //Componenets
 import {RegistrationAuth} from '../components/RegistrationAuth';
 import {RegistrationInfo} from '../components/RegistrationInfo';
+import { useTranslation } from 'react-i18next';
 
 
 
 const Register = (user) => {
-
+  const { t, i18n } = useTranslation(); 
   return (
-    <section className='flex flex-col items-center justify-center sectionHeight'>
+    <section className='flex flex-col items-center justify-center sectionHeight bg-nbgreenlight'>
       <div className='flex flex-col items-center justify-center px-16 py-8 bg-gray-100 rounded-md shadow-md max-w-[600px] w-[90%]'>
-        <h1 className='py-2 text-4xl font-bold tracking-wider text-yellow-400 transition-all duration-300 border-b-4 border-black hover:tracking-widest hover:text-yellow-300'>
+        <h1 className='py-2 text-4xl font-bold tracking-wider text-nbgreenmain transition-all duration-300 border-b-4 border-black hover:tracking-widest hover:text-nbgreenlight'>
           Register
         </h1>
         <Routes>
@@ -25,7 +26,7 @@ const Register = (user) => {
             Already registered?{' '}
             <Link
               to='/login'
-              className='pb-1 font-bold text-yellow-400 transition-all duration-150 hover:tracking-wider hover:text-yellow-300'
+              className='pb-1 font-bold text-nbgreenmain transition-all duration-150 hover:tracking-wider hover:text-nbgreenlight'
             >
               Log in
             </Link>

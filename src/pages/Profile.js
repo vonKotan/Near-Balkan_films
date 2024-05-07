@@ -3,8 +3,10 @@ import { useUpdateProfile } from '../hooks/useUpdateProfile';
 import { MdOutlineClose, MdCheck } from 'react-icons/md';
 import { FaUserAlt } from 'react-icons/fa';
 import Loading from '../components/Loading';
+import  { useTranslation } from 'react-i18next';
 
 const Profile = ({ user }) => {
+  const { t, i18n } = useTranslation(); 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

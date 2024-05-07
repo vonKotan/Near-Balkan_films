@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom';
 import AddFavorite from '../components/AddFavorite';
 import Card from '../components/Card';
 import { useFetchData } from '../hooks/useFetchData';
+import { useTranslation } from 'react-i18next';
 
 const Favorites = ({ user }) => {
   const { documents: favorites } = useFetchData(`users/${user?.uid}/favorites`);
+  const { t, i18n } = useTranslation(); 
   console.log(favorites);
   return (
     <section className='flex flex-col items-center justify-start gap-10 py-16 sectionHeight lg:py-32'>
       <h1 className='mb-2 text-3xl font-bold sm:text-4xl xl:text-5xl'>
-        <span className='text-yellow-400 border-b-4 border-black '>
+        <span className='text-nbgreenmain border-b-4 border-black '>
           Favorites
         </span>
       </h1>

@@ -20,5 +20,63 @@
           "log_in": "Log in",
           "register_and_enjoy": "Register and enjoy all functions"
         },
+        "login":{
+          "log_in_to":"Log in to watch and support films",
+          "forgot":"Forgot your password",
+          "new_here":"New here?",
+          "register":"Register"
+        },
+        "details":{
+          "check_script":"Check script",
+          "support":"support",
+          "moneygoal":"Money goal"
+        },
+        "favourites":{
+          "no_favs":"No favorites added"
+        },
+        "new_reviews":{
+          "upload_films":"Upload film",
+          "poster":"Poster",
+          "film":"Film",
+          "script":"Script (pdf only)",
+          "genre":"Genre"
+        },
+        "profile":{
+          "empty_fields":"Empty fields are empty",
+          "password_equal":"Passwords must be equal",
+          "update_profile":"Update Profile",
+          "password":"Password",
+          "confirm_password":"Confirm Password",
+          "email":"E-mail",
+          "username":"Username"
+        },
+        "comments":{
+          "comments":"Comments",
+          "comment":"comment"
+        },
+        "reset":{
+          "reset":"Reset",
+          "send_reset":"Send a reset password link to your email",
+          "send":"Send"
+        },
+        "genres":{
+            "action":"Action",
+            "adventure":"Adventure",
+            "animation":"Animation",
+            "comedy":"Comedy",
+            "documentary":"Documentary",
+            "drama":"Drama",
+            "family-friendly":"Family-friendly",
+            "fantasy":"Fantasy",
+            "historical":"Historical",
+            "horror":"Horror",
+            "musical":"Musical",
+            "mistery":"Mystery",
+            "romance":"Romance",
+            "scienece_fiction":"Science Fiction",
+            "sports":"Sports",
+            "thriller":"Thriller",
+            "western":"Western"
+        },
         "language": "en"
 }
