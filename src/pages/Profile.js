@@ -5,6 +5,11 @@ import { FaUserAlt } from 'react-icons/fa';
 import Loading from '../components/Loading';
 import  { useTranslation } from 'react-i18next';
 
+const languages = [
+  'en',
+  'hu',
+];
+
 const Profile = ({ user }) => {
   const { t, i18n } = useTranslation(); 
   const [username, setUsername] = useState('');
@@ -188,7 +193,7 @@ const Profile = ({ user }) => {
             onChange={(e) => {
               setUsername(e.target.value);
             }}
-            placeholder='Username'
+            placeholder={t("profile.username")}
             className='w-full p-4 rounded-md shadow-md outline-none bg-slate-50'
           />
           {loadName && <Loading size={'25px'} />}
@@ -217,7 +222,7 @@ const Profile = ({ user }) => {
               onChange={(e) => {
                 setPassword(e.target.value);
               }}
-              placeholder='Password'
+              placeholder={t("profile.password")}
               className='p-4 rounded-md shadow-md outline-none bg-slate-50'
               autoComplete='true'
             />
@@ -227,7 +232,7 @@ const Profile = ({ user }) => {
               onChange={(e) => {
                 setConfirmPassword(e.target.value);
               }}
-              placeholder='Confirm Password'
+              placeholder={t("profile.confirm_password")}
               className='p-4 rounded-md shadow-md outline-none bg-slate-50'
               autoComplete='true'
             />
@@ -247,7 +252,7 @@ const Profile = ({ user }) => {
         ) : (
           <input
             type='submit'
-            value='Update Profile'
+            value={t("profile.update_profile")}
             className='w-full p-4 font-bold text-white transition-all duration-300 rounded-md shadow-sm cursor-pointer bg-zinc-800 hover:bg-zinc-700 hover:tracking-wider'
           />
         )}

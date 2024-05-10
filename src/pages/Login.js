@@ -50,10 +50,10 @@ const Login = () => {
     <section className='flex flex-col items-center justify-center sectionHeight bg-nbgreenlight'>
       <div className='flex flex-col items-center justify-center px-16 py-8 bg-white rounded-md shadow-md max-w-[600px] w-[90%]'>
         <h1 className='py-2 text-4xl font-bold tracking-wider text-nbgreenmain transition-all duration-300 border-b-4 border-black hover:tracking-widest hover:text-nbgreenlight'>
-          Login
+          {t('login.login')}
         </h1>
         <p className='mt-2 text-sm italic text-gray-500'>
-          Log in to watch and support films
+          {t('login.log_in_to')}
         </p>
         <form
           className='flex flex-col items-center justify-center w-full gap-2 mt-8'
@@ -71,14 +71,14 @@ const Login = () => {
             type='password'
             value={password || ''}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder={'Password'}
+            placeholder={t('login.password')}
             autoComplete='true'
             className='w-full p-4 italic text-white rounded-md shadow-sm outline-none bg-zinc-800'
           />
           {!loading && (
             <input
               type='submit'
-              value='Log in'
+              value={t("login.log_in")}
               className='w-full p-4 font-bold text-white transition-all duration-300 bg-nbgreenmain rounded-md shadow-sm cursor-pointer hover:bg-nbgreenlight hover:tracking-wider'
             />
           )}
@@ -94,15 +94,15 @@ const Login = () => {
         </form>
         <div className='flex flex-col w-full gap-2 mt-4'>
           <p className='italic text-gray-500 '>
-            Forgot your password? <ResetPassword userEmail={email} />
+            {t("login.forgot")}<ResetPassword userEmail={email} />
           </p>
           <p className='italic text-gray-500 '>
-            New here?{' '}
+            {t("login.new_here")}{' '}
             <Link
               to='/register'
               className='pb-1 font-bold text-nbgreenmain transition-all duration-150 hover:tracking-wider hover:text-nbgreenlight'
             >
-              Register
+              {t("login.register")}
             </Link>
           </p>
         </div>
