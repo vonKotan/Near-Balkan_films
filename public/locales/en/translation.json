@@ -9,6 +9,7 @@
            "search": "Search..."
         },
         "register":{
+          "register": "Register",
           "first_name": "First Name",
           "last_name": "Last Name",
           "phone_number": "Phone Number",
@@ -20,18 +21,35 @@
           "log_in": "Log in",
           "register_and_enjoy": "Register and enjoy all functions"
         },
+        "register_info":{
+          "register_info": "Since this is your first time here we need some extra information about you",
+          "first_name": "First Name",
+          "last_name": "Last Name",
+          "phone_number": "Phone Number",
+          "username": "Username",
+          "date_of_birth": "Date of Birth",
+          "content_creator": "Content-creator",
+          "viewer": "Viewer", 
+          "filmography": "Filmography:",
+          "create_account": "Create Account"
+        },
         "login":{
+          "login": "Login",
           "log_in_to":"Log in to watch and support films",
+          "password": "Password",
           "forgot":"Forgot your password",
+          "log_in": "Log in",
           "new_here":"New here?",
           "register":"Register"
         },
         "details":{
+          "views":"Views:",
           "check_script":"Check script",
           "support":"support",
           "moneygoal":"Money goal"
         },
         "favourites":{
+          "favourites":"Favourites",
           "no_favs":"No favorites added"
         },
         "new_reviews":{
@@ -39,10 +57,27 @@
           "poster":"Poster",
           "film":"Film",
           "script":"Script (pdf only)",
-          "genre":"Genre"
+          "genre":"Genre",
+          "title":"English title",
+          "original_title":"Original title",
+          "desc":"Description",
+          "original_desc":"Original description",
+          "needed_money":"Needed funds for this idea (EUR)",
+          "pls_title":"Please provide the title",
+          "pls_number":"please provide a number",
+          "number_small":"Number is too small",
+          "number_high":"Number is too high",
+          "pls_fill":"Please fill this field",
+          "pls_genre":"Please choose a genre for your film",
+          "desc_short":"Description too short",
+          "desc_long":"Description too long",
+          "pls_desc":"Please provide a description",
+          "pls_poster":"please provide a poster for your film",
+          "pls_trailer":"Please provide a trailer for your film",
+          "pls_script":"Please provide a script for your film"
         },
         "profile":{
-          "empty_fields":"Empty fields are empty",
+          "empty_fields":"Fill the empty fields",
           "password_equal":"Passwords must be equal",
           "update_profile":"Update Profile",
           "password":"Password",
@@ -77,6 +112,14 @@
             "sports":"Sports",
             "thriller":"Thriller",
             "western":"Western"
+        },
+        "header":{
+          "login":"Login",
+          "register":"Register",
+          "profile":"Profile",
+          "new_film":"New film",
+          "favorites":"Favorites",
+          "signout":"Sign out"
         },
         "language": "en"
 }

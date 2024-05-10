@@ -1,5 +1,6 @@
 // Routes
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 // Radix Imports
 import {
@@ -18,6 +19,7 @@ import { useAuth } from '../hooks/useAuth';
 
 const Header = ({ user, userObject }) => {
   const { signOutUser } = useAuth();
+  const { t, i18n } = useTranslation();
 
   return (
     <header className='shadow-md bg-gray-50 '>
@@ -41,7 +43,7 @@ const Header = ({ user, userObject }) => {
                     to='/login'
                     className='px-4 text-nbgreenmain transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-nbgreenmain'
                   >
-                    Login
+                    {t("header.login")}
                   </Link>
                 </RadixLink>
                 <RadixLink>
@@ -49,7 +51,7 @@ const Header = ({ user, userObject }) => {
                     to='/register'
                     className='px-4 text-nbgreenmain transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-nbgreenmain'
                   >
-                    Register
+                    {t("header.register")}
                   </Link>
                 </RadixLink>
               </Content>
@@ -76,7 +78,7 @@ const Header = ({ user, userObject }) => {
                     to='/profile'
                     className='px-4 text-nbgreenmain transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-nbgreenmain'
                   >
-                    Profile
+                    {t("header.profile")}
                   </Link>
                 </RadixLink>
                 {userObject && userObject.userType ==='creator' &&
@@ -85,7 +87,7 @@ const Header = ({ user, userObject }) => {
                     to='/add-review'
                     className='px-4 text-nbgreenmain transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-nbgreenmain'
                   >
-                    New Review
+                    {t("header.new_review")}
                   </Link>
                 </RadixLink>}
 
@@ -94,7 +96,7 @@ const Header = ({ user, userObject }) => {
                     to='/favorites'
                     className='px-4 text-nbgreenmain transition-all duration-200 hover:text-black hover:font-bold hover:border-l-4 hover:border-l-nbgreenmain'
                   >
-                    Favorites
+                    {t("header.favorites")}
                   </Link>
                 </RadixLink>
                 <RadixLink>
@@ -102,7 +104,7 @@ const Header = ({ user, userObject }) => {
                     onClick={signOutUser}
                     className='px-4 text-nbgreenmain transition-all duration-200 cursor-pointer hover:text-black hover:font-bold hover:border-l-4 hover:border-l-nbgreenmain'
                   >
-                    Sign out
+                    {t("header.signout")}
                   </span>
                 </RadixLink>
               </Content>

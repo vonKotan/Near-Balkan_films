@@ -115,25 +115,25 @@ const Details = ({ user }) => {
           </div>
           <div>
             {/* Views */}
-            <p className="text-justify lg:text-xl" style={{ marginBottom: '20px' }}>Views: {movie.views ?? 0}</p>
+            <p className="text-justify lg:text-xl" style={{ marginBottom: '20px' }}>{t("details.views")} {movie.views ?? 0}</p>
             {/* Script */}
             <a
               href={movie.scriptUrl}
               target="_blank"
               className="w-300 p-4 font-bold text-white transition-all duration-300 bg-nbgreenmain rounded-md shadow-sm cursor-pointer hover:bg-nbgreenlight hover:tracking-wider"
             >
-              Check script
+              {t("details.check_script")}
             </a>
 
             {/* Money*/}
-            <p className="text-justify lg:text-xl" style={{ marginBottom: '20px' , marginTop: '20px' }}> Money: {movie.collected ?? 0} / {movie.moneygoal ?? 0} $</p>
+            <p className="text-justify lg:text-xl" style={{ marginBottom: '20px' , marginTop: '20px' }}> {t("details.moneygoal")} {movie.collected ?? 0} / {movie.moneygoal ?? 0} $</p>
             {/* Donate*/}
             <a
               //href={movie.scriptUrl}
               target="_blank"
               className="w-300 p-4 font-bold text-white transition-all duration-300 bg-nbgreenmain rounded-md shadow-sm cursor-pointer hover:bg-nbgreenlight hover:tracking-wider"
             >
-              Support
+              {t("details.support")}
             </a>
             
           </div>

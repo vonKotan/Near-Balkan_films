@@ -13,7 +13,7 @@ const Favorites = ({ user }) => {
     <section className='flex flex-col items-center justify-start gap-10 py-16 sectionHeight lg:py-32'>
       <h1 className='mb-2 text-3xl font-bold sm:text-4xl xl:text-5xl'>
         <span className='text-nbgreenmain border-b-4 border-black '>
-          Favorites
+          {t('favourites.favourites')}
         </span>
       </h1>
       <div className='grid items-start grid-flow-row grid-cols-1 gap-8 py-8 justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
@@ -37,7 +37,7 @@ const Favorites = ({ user }) => {
       </div>
 
       {favorites && favorites.length === 0 && (
-        <p className='italic text-gray-400'>No favorites added</p>
+        <p className='italic text-gray-400'>{t("favourites.no_favs")}</p>
       )}
     </section>
   );
