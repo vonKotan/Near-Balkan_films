@@ -27,6 +27,26 @@ const genreOptions = [
   'Western',
 ];
 
+const genreOptionsHUN = [
+  'Akció',
+  'Kaland',
+  'Animáció',
+  'Vígjáték',
+  'Dokumentum',
+  'Dráma',
+  'Családi',
+  'Fantasy',
+  'Történelmi',
+  'Horror',
+  'Musical',
+  'Rejtély',
+  'Romantikus',
+  'Sci-fi',
+  'Sport',
+  'Thriller',
+  'Western',
+];
+
 const NewReview = ({ user }) => {
   const { t, i18n } = useTranslation(); 
   const [image, setImage] = useState('');             //kep
@@ -121,7 +141,7 @@ const NewReview = ({ user }) => {
   return (
     <section className='flex flex-col items-center justify-center bg-amber-200 sectionHeight'>
       <h1 className='my-8 sm:text-xl md:text-2xl font-bold text-zinc-800 w-[90%] text-center '>
-        Upload film
+        {t("new_reviews.upload_films")}
       </h1>
 
       {image && (
@@ -137,7 +157,7 @@ const NewReview = ({ user }) => {
         className='flex flex-col max-w-[600px] w-[90%] mx-auto gap-3 mb-16'
       >
         {errors?.image && (<p>{errors.image?.message}</p>)}
-        <label htmlFor='poster'>Poster</label>
+        <label htmlFor='poster'>{t("new_reviews.poster")}</label>
         <input
           type='file'
           name='poster'
@@ -148,7 +168,7 @@ const NewReview = ({ user }) => {
         />
 
         {errors?.video && (<p>{errors.video?.message}</p>)}
-        <label htmlFor='film'>Film</label>
+        <label htmlFor='film'>{t("new_reviews.film")}</label>
         <input
           type='file'
           name='film'
@@ -159,7 +179,7 @@ const NewReview = ({ user }) => {
         />
 
         {errors?.script && (<p>{errors.script?.message}</p>)}
-        <label htmlFor='film'>Script (pdf only)</label>
+        <label htmlFor='film'>{t("new_reviews.script")}</label>
         <input
           type='file'
           name='script'
@@ -172,7 +192,7 @@ const NewReview = ({ user }) => {
         {errors?.title && (<p>{errors.title?.message}</p>)}
         <input
           type='text'
-          placeholder='Title'
+          placeholder={t("new_reviews.title")}
           className='p-4 rounded-md shadow-md outline-none bg-slate-50'
           value={title || ''} // Ezek fölöslegesek voltak sztem eddig is, de most már bizto azok
           {...register('title')}
@@ -181,12 +201,12 @@ const NewReview = ({ user }) => {
         {errors?.englishTitle && (<p>{errors.englishTitle?.message}</p>)}
         <input
           type='text'
-          placeholder='English title'
+          placeholder={t("new_reviews.original_title")}
           className='p-4 rounded-md shadow-md outline-none bg-slate-50'
           {...register('englishTitle')}
         />
-
-        {errors?.rating && (<p>{errors.rating?.message}</p>)}
+        
+        {/*errors?.rating && (<p>{errors.rating?.message}</p>)}
         <input // Ezt amugy az egészet kikukázhatnánk sztem mer fölös
           type='number'
           placeholder='Rating (0 - 5)'
@@ -195,12 +215,12 @@ const NewReview = ({ user }) => {
           max={5}
           //value={rating || ''}
           {...register('rating')}
-        />
-
+    />*/}
+      
         {errors?.moneygoal && (<p>{errors.moneygoal?.message}</p>)}
         <input
           type='number'
-          placeholder='Needed funds for this idea (EUR)'
+          placeholder={t("new_reviews.needed_money")}
           className='p-4 rounded-md shadow-md outline-none bg-slate-50'
           //value={moneygoal || ''}
           {...register('moneygoal')}
@@ -213,7 +233,7 @@ const NewReview = ({ user }) => {
           {...register('genre')}
         >
           <option value='' className='disabled:text-gray-500' disabled>
-            Genre
+            {t("new_reviews.genre")}
           </option>
           {genreOptions.map((genre) => (
             <option key={genre} value={genre}>
@@ -225,14 +245,14 @@ const NewReview = ({ user }) => {
         {errors?.description && (<p>{errors.description?.message}</p>)}
         <textarea
           type='text'
-          placeholder='Description'
+          placeholder={t("new_reviews.desc")}
           className='p-4 rounded-md shadow-md outline-none resize-none bg-slate-50 h-[200px]'
           {...register('description')}
         />
         {errors?.englishDescription && (<p>{errors.englishDescription?.message}</p>)}
         <textarea
           type='text'
-          placeholder='English description'
+          placeholder={t("new_reviews.original_desc")}
           className='p-4 rounded-md shadow-md outline-none resize-none bg-slate-50 h-[200px]'
           {...register('englishDescription')}
         />
@@ -244,7 +264,7 @@ const NewReview = ({ user }) => {
         ) : (
           <input
             type='submit'
-            value={'Upload Review'}
+            value={t("new_reviews.upload_films")}
             className='w-full p-4 font-bold text-white transition-all duration-300 rounded-md shadow-sm cursor-pointer bg-zinc-800 hover:bg-zinc-700 hover:tracking-wider'
           />
         )}

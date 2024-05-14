@@ -70,7 +70,7 @@ const Home = () => {
               />
             </Link>
           ))}
-        {search && moviesFilter.length === 0 && <p>No results found.</p>}
+        {search && moviesFilter.length === 0 && <p>{t("home.no_results")}</p>}
         {search &&
           moviesFilter.length > 0 &&
           moviesFilter?.map((movie) => (

@@ -16,6 +16,7 @@
         "search": "Keresés..."
         },
         "register": {
+          "register": "Regisztráció",
           "first_name": "Keresztnév",
           "last_name": "Vezetéknév",
           "phone_number": "Telefonszám",
@@ -27,18 +28,35 @@
           "log_in": "Bejelentkezés",
           "register_and_enjoy": "Regisztrálj és élvezd az összes funkciót"
         },
+        "register_info": {
+          "register_info": "Mivel ez az első látogatásod, szükségünk van néhány extra információra rólad",
+          "first_name": "Keresztnév",
+          "last_name": "Vezetéknév",
+          "phone_number": "Telefonszám",
+          "username": "Felhasználónév",
+          "date_of_birth": "Születési dátum",
+          "content_creator": "Tartalomkészítő",
+          "viewer": "Néző",
+          "filmography": "Filmográfia:",
+          "create_account": "Fiók létrehozása"
+        },
           "login": {
+            "login": "Bejelentkezés",
             "log_in_to": "Jelentkezz be a filmek megtekintéséhez és támogatásához",
+            "password": "Jelszó",
             "forgot": "Elfelejtetted a jelszavad?",
+            "log_in": "Bejelentkezés",
             "new_here": "Új vagy itt?",
             "register": "Regisztráció"
           },
           "details": {
+            "views": "Megtekintések:",
             "check_script": "Forgatókönyv ellenőrzése",
             "support": "támogatás",
             "moneygoal": "Pénzügyi cél"
           },
           "favourites": {
+            "favourites": "Kedvencek",
             "no_favs": "Nincsenek hozzáadott kedvencek"
           },
           "new_reviews": {
@@ -46,7 +64,24 @@
             "poster": "Poszter",
             "film": "Film",
             "script": "Forgatókönyv (csak pdf)",
-            "genre": "Műfaj"
+            "genre": "Műfaj",
+            "title": "Angol cím",
+            "original_title": "Eredeti cím",
+            "desc": "Angol leírás",
+            "original_desc": "Eredeti leírás",
+            "needed_money": "Szükséges összeg az ötlet megvalósításához (EUR)",
+            "pls_title": "Kérem adja meg a címet",
+            "pls_number": "kérem adjon meg egy számot",
+            "number_small": "A szám túl kicsi",
+            "number_high": "A szám túl magas",
+            "pls_fill": "Kérem töltse ki ezt a mezőt",
+            "pls_genre": "Kérem válasszon műfajt a filmjéhez",
+            "desc_short": "Túl rövid leírás",
+            "desc_long": "Túl hosszú leírás",
+            "pls_desc": "Kérem adjon meg egy leírást",
+            "pls_poster": "kérem adjon meg egy posztert a filmjéhez",
+            "pls_trailer": "Kérem adjon meg egy előzetest a filmjéhez",
+            "pls_script": "Kérem adjon meg egy forgatókönyvet a filmjéhez"
           },
           "profile": {
             "empty_fields": "A mezők nem lehetnek üresek",
@@ -84,6 +119,14 @@
             "sports": "Sport",
             "thriller": "Thriller",
             "western": "Western"
-          },        
+          },
+          "header":{
+            "login":"Bejelentkezés",
+            "register":"Regisztráció",
+            "profile":"Profil",
+            "new_film":"Új film",
+            "favorites":"Kedvencek",
+            "signout":"Kijelentkezés"
+          },    
         "language": "hu"
       }
