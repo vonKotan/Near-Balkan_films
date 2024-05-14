@@ -1,20 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}', "./node_modules/flowbite/**/*.js"],
   theme: {
     extend: {
-      screens: {
-        sm: '540px',
-        // tablet
-        md: '768px',
-        // tablet
-        lg: '1024px',
-        // tablet grande e notebook pequeno
-        xl: '1280px',
-        // notebook
-        '2xl': '1536px',
-        // desktop
-      },
       colors: {
         nbwhite: "#ffffff",
         nbblack: "#000000",
@@ -73,5 +61,14 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/container-queries'),
+    require('flowbite/plugin')({
+      charts: true,
+  }),
+  ],
+  important: true,
 };

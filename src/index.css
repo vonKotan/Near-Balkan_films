@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.min-h-16 {
+  min-height: 4rem !important;
+}
+
+/*
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +37,9 @@
   text-align: center;
   border: 1px solid rgb(0, 87, 19);
 }
+*/
 
+/*
 .lds-ring {
   display: inline-block;
   position: relative;
@@ -71,4 +78,169 @@
   100% {
     transform: rotate(360deg);
   }
+}
+*/
+
+/* STYLEGUIDE */
+@font-face {
+  font-family: "Vampiro One";
+  src: url("../src/assets/fonts/VampiroOne-Balkan.ttf");
+}
+
+:root {
+  --font-h1-primetitle-font-family: "Vampiro One", Helvetica, sans-serif;
+  --font-h1-primetitle-font-size: 16px;
+  --font-h1-primetitle-font-style: normal;
+  --font-h1-primetitle-font-weight: 400;
+  --font-h1-primetitle-letter-spacing: 0px;
+  --font-h1-primetitle-line-height: normal;
+  --font-h2-title-font-family: "Chakra Petch", Helvetica, sans-serif;
+  --font-h2-title-font-size: 16px;
+  --font-h2-title-font-style: normal;
+  --font-h2-title-font-weight: 700;
+  --font-h2-title-letter-spacing: 0px;
+  --font-h2-title-line-height: normal;
+  --font-h3-subtitle-font-family: "Space Mono", Helvetica, sans-serif;
+  --font-h3-subtitle-font-size: 16px;
+  --font-h3-subtitle-font-style: normal;
+  --font-h3-subtitle-font-weight: 400;
+  --font-h3-subtitle-letter-spacing: 0px;
+  --font-h3-subtitle-line-height: normal;
+  --font-h4-lead-font-family: "Source Code Pro", Helvetica, sans-serif;
+  --font-h4-lead-font-size: 16px;
+  --font-h4-lead-font-style: normal;
+  --font-h4-lead-font-weight: 500;
+  --font-h4-lead-letter-spacing: 0px;
+  --font-h4-lead-line-height: normal;
+  --font-p-paragraph-font-family: "Libre Franklin", Helvetica, sans-serif;
+  --font-p-paragraph-font-size: 16px;
+  --font-p-paragraph-font-style: normal;
+  --font-p-paragraph-font-weight: 400;
+  --font-p-paragraph-letter-spacing: 0px;
+  --font-p-paragraph-line-height: normal;
+  --font-a-anchor-font-family: "Chakra Petch", Helvetica, sans-serif;
+  --font-a-anchor-font-size: 16px;
+  --font-a-anchor-font-style: normal;
+  --font-a-anchor-font-weight: 700;
+  --font-a-anchor-letter-spacing: 0px;
+  --font-a-anchor-line-height: normal;
+  --font-button-font-family: "Chakra Petch", Helvetica, sans-serif;
+  --font-button-font-size: 16px;
+  --font-button-font-style: normal;
+  --font-button-font-weight: 700;
+  --font-button-letter-spacing: 0px;
+  --font-button-line-height: normal;
+  --nbwhite: rgba(255, 255, 255, 1);
+  --nbblack: rgba(0, 0, 0, 1);
+  --nbgreydark: rgba(43, 83, 93, 1);
+  --nbgreymiddark: rgba(81, 122, 134, 1);
+  --nbgreymain: rgba(144, 176, 185, 1);
+  --nbgreylight: rgba(233, 239, 240, 1);
+  --nbgreendark: rgba(24, 106, 92, 1);
+  --nbgreenmain: rgba(70, 190, 164, 1);
+  --nbgreenlight: rgba(158, 216, 210, 1);
+  --nbbluedark: rgba(17, 112, 148, 1);
+  --nbbluemain: rgba(49, 175, 246, 1);
+  --nbbluelight: rgba(152, 221, 246, 1);
+  --nbpurpledark: rgba(36, 26, 154, 1);
+  --nbpurplemain: rgba(95, 82, 241, 1);
+  --nbpurplelight: rgba(201, 185, 248, 1);
+  --nbpinkdark: rgba(164, 125, 125, 1);
+  --nbpinkmain: rgba(253, 176, 159, 1);
+  --nbpinklight: rgba(255, 215, 215, 1);
+  --nbreddark: rgba(160, 37, 10, 1);
+  --nbredmain: rgba(244, 69, 30, 1);
+  --nbredlight: rgba(251, 208, 184, 1);
+  --nbyellowdark: rgba(115, 99, 9, 1);
+  --nbyellowmain: rgba(235, 201, 13, 1);
+  --nbyellowlight: rgba(248, 235, 163, 1);
+  --nborangedark: rgba(184, 113, 8, 1);
+  --nborangemain: rgba(233, 167, 67, 1);
+  --nborangelight: rgba(255, 225, 181, 1);
+}
+
+/* GENERAL ELEMENTS */
+*::-webkit-scrollbar {
+  display: none;
+}
+
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  caret-color: var(--nbgreenmain);
+} */
+
+body {
+  overflow-x: hidden;
+  touch-action: pan-y;
+  text-align: left;
+  word-break: break-word;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--font-h3-subtitle-font-family);
+  background-color: var(--nbgreymiddark);
+  color: var(--nbgreenmain);
+}
+
+::selection {
+  color: var(--nbgreylight);
+  background-color: var(--nbgreenmain);
+}
+
+#root {
+  background-color: var(--nbgreydark);
+  color: var(--nbgreenmain);
+}
+
+/* navbar */
+header {
+  width: 100%;
+  background-color: var(--nbgreylight);
+}
+
+/* footer */
+footer {
+  width: 100%;
+  min-height: 10rem;
+  background-color: var(--nbgreymiddark);
+  color: var(--nbgreenmain);
+}
+
+/* tailwind flexgrid assistance */
+#innerGrid {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  gap: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+#gridRow {
+  gap: 1rem;
+}
+
+#footerGrid {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5rem;
+}
+
+/* INNERGRID COMPONENTS */
+
+#mintaelem {
+  /* background-image: url("/public/images/x.svg"); */
 }

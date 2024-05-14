@@ -137,7 +137,7 @@ const Profile = ({ user }) => {
   ]);
 
   return (
-    <section className='flex flex-col items-center justify-center sectionHeight bg-amber-200'>
+    <section className='flex flex-col items-center justify-center sectionHeight bg-nbgreylight'>
       <div className='flex flex-col w-[90%] mx-auto justify-center items-center my-16 gap-8 '>
         {image && (
           <img
