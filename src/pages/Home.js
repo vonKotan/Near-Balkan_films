@@ -30,7 +30,7 @@ const Home = () => {
   }, [search, movies]);
 
   return (
-    <section className='max-w-[1200px] w-[90%] mx-auto sectionHeight py-4 md:p-8'>
+    <section className='max-w-[1200px] w-[90%] mr-auto  sectionHeight'>
       <div className='flex flex-col items-center justify-between gap-4 pb-4 border-b-4 border-nbgreenmain md:pb-8 sm:flex-row'>
         <div className='sm:w-[50%] flex flex-col items-start justify-center'>
           <h1 className='mb-2 text-3xl font-bold sm:text-4xl xl:text-5xl'>

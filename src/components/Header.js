@@ -190,71 +190,71 @@ const Header = ({ user, userObject }) => {
                   </ul>
                 </div>
                 <div role="none"
-                  id="navbarDropdownInsideMobile" class="flex flex-col justify-center items-start lg:hidden divide-y-2 divide-solid divide-nbgreymain w-full">
+                  id="navbarDropdownInsideMobile" className="flex flex-col justify-center items-start lg:hidden divide-y-2 divide-solid divide-nbgreymain w-full">
                   <ul role="none"
-                    class="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full navbarDropdownMenuInside">
+                    className="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full navbarDropdownMenuInside">
                     <RadixLink>
                       <Link
-                        to='/' class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        to='/' className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
                           {t("navbar.competition")}</p>
                       </Link>
                     </RadixLink>
                     <RadixLink>
                       <Link
                         to='/films'
-                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
                           {t("navbar.films")}</p>
                       </Link>
                     </RadixLink>
                     <RadixLink>
                       <Link
                         to='/events'
-                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
                           {t("navbar.events")}</p>
                       </Link>
                     </RadixLink>
                     <RadixLink>
                       <Link
                         to='/events'
-                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M5.2029 0.500827C2.33387 0.500827 0 2.8347 0 5.70372C0 8.57275 2.33387 10.9066 5.2029 10.9066C6.07996 10.9066 6.94215 10.6985 7.67056 10.2971C7.7289 10.3674 7.79359 10.432 7.86381 10.4904L9.35035 11.9769C9.48761 12.1314 9.655 12.2562 9.84222 12.3436C10.0295 12.431 10.2326 12.4792 10.4391 12.4853C10.6457 12.4914 10.8513 12.4552 11.0433 12.3789C11.2354 12.3027 11.4098 12.188 11.5559 12.0419C11.702 11.8957 11.8167 11.7213 11.893 11.5293C11.9692 11.3372 12.0054 11.1316 11.9993 10.9251C11.9933 10.7185 11.945 10.5154 11.8576 10.3282C11.7702 10.141 11.6454 9.97357 11.491 9.83631L10.0044 8.34977C9.93201 8.27733 9.85231 8.21257 9.76658 8.15652C10.1679 7.42811 10.4207 6.58078 10.4207 5.68886C10.4207 2.81983 8.08679 0.485962 5.21776 0.485962L5.2029 0.500827ZM5.2029 1.98737C7.26919 1.98737 8.91925 3.63743 8.91925 5.70372C8.91925 6.68484 8.56248 7.59163 7.93813 8.26058C7.92327 8.27544 7.9084 8.29031 7.89354 8.30517C7.82332 8.36352 7.75863 8.42821 7.70029 8.49842C7.04621 9.09304 6.15428 9.43494 5.18803 9.43494C3.12174 9.43494 1.47168 7.78488 1.47168 5.71859C1.47168 3.6523 3.12174 2.00223 5.18803 2.00223L5.2029 1.98737Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
                           {t("navbar.search")}</p>
                       </Link>
                     </RadixLink>
                   </ul>
                   <ul role="none"
-                    id="navbarDropdownProfileInsideLoggedOut" class="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full">
+                    id="navbarDropdownProfileInsideLoggedOut" className="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full">
                     <RadixLink>
                       <Link
                         to='/login' role="menuitem" tabindex="-1" id="menu-item-0"
@@ -371,19 +371,19 @@ const Header = ({ user, userObject }) => {
                       {user.displayName}</h3>
                   </ul>
                   <ul role="none"
-                    class="lg:flex flex-col justify-center items-start gap-1.5 hidden py-2 w-full navbarDropdownProfileInsideLoggedIn">
+                    className="lg:flex flex-col justify-center items-start gap-1.5 hidden py-2 w-full navbarDropdownProfileInsideLoggedIn">
                     <RadixLink>
                       <Link
                         to='/profile' role="menuitem" tabindex="-1" id="menu-item-1"
-                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
                           {t("navbar.profile")}</p>
                       </Link>
                     </RadixLink>
@@ -391,127 +391,127 @@ const Header = ({ user, userObject }) => {
                       <RadixLink>
                         <Link
                           to='/add-review' role="menuitem" tabindex="-1" id="menu-item-1"
-                          class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                           <svg
-                            class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                            className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                             <path
                               d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                           </svg>
                           <p
-                            class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
                             filmterv feltöltése</p>
                         </Link>
                       </RadixLink>}
                     <RadixLink>
                       <Link
                         to='/favorites' role="menuitem" tabindex="-1" id="menu-item-1"
-                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
                           {t("navbar.favourites")}</p>
                       </Link>
                     </RadixLink>
                     <RadixLink>
                       <a onClick={signOutUser} role="menuitem" tabindex="-1" id="menu-item-1"
-                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit cursor-pointer select-none group/anchor">
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit cursor-pointer select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
                           {t("navbar.logout")}</p>
                       </a>
                     </RadixLink>
                   </ul>
                 </div>
                 <div role="none"
-                  id="navbarDropdownInsideMobile" class="flex flex-col justify-center items-start lg:hidden divide-y-2 divide-solid divide-nbgreymain w-full">
+                  id="navbarDropdownInsideMobile" className="flex flex-col justify-center items-start lg:hidden divide-y-2 divide-solid divide-nbgreymain w-full">
                   <ul role="none"
-                    id="navbarDropdownMenuInside" class="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full">
+                    id="navbarDropdownMenuInside" className="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full">
                     <RadixLink>
                       <Link
-                        to='/' class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        to='/' className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
                           {t("navbar.competition")}</p>
                       </Link>
                     </RadixLink>
                     <RadixLink>
                       <Link
                         to='/films'
-                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
                           {t("navbar.films")}</p>
                       </Link>
                     </RadixLink>
                     <RadixLink>
                       <Link
                         to='/events'
-                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
                           {t("navbar.events")}</p>
                       </Link>
                     </RadixLink>
                     <RadixLink>
                       <Link
                         to='/search'
-                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M5.2029 0.500827C2.33387 0.500827 0 2.8347 0 5.70372C0 8.57275 2.33387 10.9066 5.2029 10.9066C6.07996 10.9066 6.94215 10.6985 7.67056 10.2971C7.7289 10.3674 7.79359 10.432 7.86381 10.4904L9.35035 11.9769C9.48761 12.1314 9.655 12.2562 9.84222 12.3436C10.0295 12.431 10.2326 12.4792 10.4391 12.4853C10.6457 12.4914 10.8513 12.4552 11.0433 12.3789C11.2354 12.3027 11.4098 12.188 11.5559 12.0419C11.702 11.8957 11.8167 11.7213 11.893 11.5293C11.9692 11.3372 12.0054 11.1316 11.9993 10.9251C11.9933 10.7185 11.945 10.5154 11.8576 10.3282C11.7702 10.141 11.6454 9.97357 11.491 9.83631L10.0044 8.34977C9.93201 8.27733 9.85231 8.21257 9.76658 8.15652C10.1679 7.42811 10.4207 6.58078 10.4207 5.68886C10.4207 2.81983 8.08679 0.485962 5.21776 0.485962L5.2029 0.500827ZM5.2029 1.98737C7.26919 1.98737 8.91925 3.63743 8.91925 5.70372C8.91925 6.68484 8.56248 7.59163 7.93813 8.26058C7.92327 8.27544 7.9084 8.29031 7.89354 8.30517C7.82332 8.36352 7.75863 8.42821 7.70029 8.49842C7.04621 9.09304 6.15428 9.43494 5.18803 9.43494C3.12174 9.43494 1.47168 7.78488 1.47168 5.71859C1.47168 3.6523 3.12174 2.00223 5.18803 2.00223L5.2029 1.98737Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
                           {t("navbar.search")}</p>
                       </Link>
                     </RadixLink>
                   </ul>
                   <ul role="none"
-                    class="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full navbarDropdownProfileInsideLoggedIn">
+                    className="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full navbarDropdownProfileInsideLoggedIn">
                     <RadixLink>
                       <Link
                         to='/profile' role="menuitem" tabindex="-1" id="menu-item-1"
-                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
                           {t("navbar.profile")}</p>
                       </Link>
                     </RadixLink>
@@ -519,45 +519,45 @@ const Header = ({ user, userObject }) => {
                       <RadixLink>
                         <Link
                           to='/add-review' role="menuitem" tabindex="-1" id="menu-item-1"
-                          class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                           <svg
-                            class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                            className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                             <path
                               d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                           </svg>
                           <p
-                            class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
                             filmterv feltöltése</p>
                         </Link>
                       </RadixLink>}
                     <RadixLink>
                       <Link
                         to='/favorites' role="menuitem" tabindex="-1" id="menu-item-1"
-                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
                           {t("navbar.favourites")}</p>
                       </Link>
                     </RadixLink>
                     <RadixLink>
                       <a
                         onClick={signOutUser} role="menuitem" tabindex="-1" id="menu-item-1"
-                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit cursor-pointer select-none group/anchor">
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit cursor-pointer select-none group/anchor">
                         <svg
-                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
                           xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                           <path
                             d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                         </svg>
                         <p
-                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
                           {t("navbar.logout")}</p>
                       </a>
                     </RadixLink>

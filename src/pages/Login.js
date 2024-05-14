@@ -47,7 +47,7 @@ const Login = () => {
   }, [error]);
 
   return (
-    <section className='flex flex-col items-center justify-center sectionHeight bg-nbgreenlight'>
+    <section className='flex flex-col items-center justify-center sectionHeight bg-nbgreylight'>
       <div className='flex flex-col items-center justify-center px-16 py-8 bg-white rounded-md shadow-md max-w-[600px] w-[90%]'>
         <h1 className='py-2 text-4xl font-bold tracking-wider text-nbgreenmain transition-all duration-300 border-b-4 border-black hover:tracking-widest hover:text-nbgreenlight'>
           Login

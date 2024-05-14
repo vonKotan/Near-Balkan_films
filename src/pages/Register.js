@@ -12,7 +12,7 @@ import { useTranslation } from 'react-i18next';
 const Register = (user) => {
   const { t, i18n } = useTranslation(); 
   return (
-    <section className='flex flex-col items-center justify-center sectionHeight bg-nbgreenlight'>
+    <section className='flex flex-col items-center justify-center sectionHeight bg-nbgreylight'>
       <div className='flex flex-col items-center justify-center px-16 py-8 bg-gray-100 rounded-md shadow-md max-w-[600px] w-[90%]'>
         <h1 className='py-2 text-4xl font-bold tracking-wider text-nbgreenmain transition-all duration-300 border-b-4 border-black hover:tracking-widest hover:text-nbgreenlight'>
           Register

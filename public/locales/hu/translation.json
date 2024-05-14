@@ -1,89 +1,92 @@
 {
-        "navbar": {
-          "competition": "verseny",
-          "films": "filmek",
-          "events": "események",
-          "search": "keresés",
-          "login": "bejelentkezés",
-          "register": "regisztráció",
-          "profile": "profil",
-          "favourites": "kedvencek",
-          "logout": "kijelentkezés"
-        },
-        "home": {
-        "description": "Találj egy filmet amit megvalósítanál!",
-        "no_results": "nincs találat",
-        "search": "Keresés..."
-        },
-        "register": {
-          "first_name": "Keresztnév",
-          "last_name": "Vezetéknév",
-          "phone_number": "Telefonszám",
-          "Username": "Felhasználónév",
-          "viewer": "Néző",
-          "creator": "Készítő",
-          "create_account": "Fiók létrehozása",
-          "already_have": "Már van fiókod?",
-          "log_in": "Bejelentkezés",
-          "register_and_enjoy": "Regisztrálj és élvezd az összes funkciót"
-        },
-          "login": {
-            "log_in_to": "Jelentkezz be a filmek megtekintéséhez és támogatásához",
-            "forgot": "Elfelejtetted a jelszavad?",
-            "new_here": "Új vagy itt?",
-            "register": "Regisztráció"
-          },
-          "details": {
-            "check_script": "Forgatókönyv ellenőrzése",
-            "support": "támogatás",
-            "moneygoal": "Pénzügyi cél"
-          },
-          "favourites": {
-            "no_favs": "Nincsenek hozzáadott kedvencek"
-          },
-          "new_reviews": {
-            "upload_films": "Film feltöltése",
-            "poster": "Poszter",
-            "film": "Film",
-            "script": "Forgatókönyv (csak pdf)",
-            "genre": "Műfaj"
-          },
-          "profile": {
-            "empty_fields": "A mezők nem lehetnek üresek",
-            "password_equal": "A jelszavaknak egyezniük kell",
-            "update_profile": "Profil frissítése",
-            "password": "Jelszó",
-            "confirm_password": "Jelszó megerősítése",
-            "email": "E-mail",
-            "username": "Felhasználónév"
-          },
-          "comments": {
-            "comments": "Megjegyzések",
-            "comment": "megjegyzés"
-          },
-          "reset": {
-            "reset": "Visszaállítás",
-            "send_reset": "Küldj egy jelszó visszaállítási linket az e-mail címedre",
-            "send": "Küldés"
-          },
-          "genres": {
-            "action": "Akció",
-            "adventure": "Kaland",
-            "animation": "Animáció",
-            "comedy": "Vígjáték",
-            "documentary": "Dokumentumfilm",
-            "drama": "Dráma",
-            "family-friendly": "Családbarát",
-            "fantasy": "Fantázia",
-            "historical": "Történelmi",
-            "horror": "Horror",
-            "musical": "Zenés",
-            "mistery": "Rejtély",
-            "romance": "Romantikus",
-            "scienece_fiction": "Sci-fi",
-            "sports": "Sport",
-            "thriller": "Thriller",
-            "western": "Western"
-          },        
-        "language": "hu"
-      }
+  "navbar": {
+    "competition": "verseny",
+    "films": "filmek",
+    "events": "események",
+    "search": "keresés",
+    "login": "bejelentkezés",
+    "register": "regisztráció",
+    "profile": "profil",
+    "favourites": "kedvencek",
+    "logout": "kijelentkezés"
+  },
+  "404": {
+    "description": "na, akkor most nem vagyunk jó helyen"
+  },
+  "home": {
+    "description": "Találj egy filmet amit megvalósítanál!",
+    "no_results": "nincs találat",
+    "search": "Keresés..."
+  },
+  "register": {
+    "first_name": "Keresztnév",
+    "last_name": "Vezetéknév",
+    "phone_number": "Telefonszám",
+    "Username": "Felhasználónév",
+    "viewer": "Néző",
+    "creator": "Készítő",
+    "create_account": "Fiók létrehozása",
+    "already_have": "Már van fiókod?",
+    "log_in": "Bejelentkezés",
+    "register_and_enjoy": "Regisztrálj és élvezd az összes funkciót"
+  },
+  "login": {
+    "log_in_to": "Jelentkezz be a filmek megtekintéséhez és támogatásához",
+    "forgot": "Elfelejtetted a jelszavad?",
+    "new_here": "Új vagy itt?",
+    "register": "Regisztráció"
+  },
+  "details": {
+    "check_script": "Forgatókönyv ellenőrzése",
+    "support": "támogatás",
+    "moneygoal": "Pénzügyi cél"
+  },
+  "favourites": {
+    "no_favs": "Nincsenek hozzáadott kedvencek"
+  },
+  "new_reviews": {
+    "upload_films": "Film feltöltése",
+    "poster": "Poszter",
+    "film": "Film",
+    "script": "Forgatókönyv (csak pdf)",
+    "genre": "Műfaj"
+  },
+  "profile": {
+    "empty_fields": "A mezők nem lehetnek üresek",
+    "password_equal": "A jelszavaknak egyezniük kell",
+    "update_profile": "Profil frissítése",
+    "password": "Jelszó",
+    "confirm_password": "Jelszó megerősítése",
+    "email": "E-mail",
+    "username": "Felhasználónév"
+  },
+  "comments": {
+    "comments": "Megjegyzések",
+    "comment": "megjegyzés"
+  },
+  "reset": {
+    "reset": "Visszaállítás",
+    "send_reset": "Küldj egy jelszó visszaállítási linket az e-mail címedre",
+    "send": "Küldés"
+  },
+  "genres": {
+    "action": "Akció",
+    "adventure": "Kaland",
+    "animation": "Animáció",
+    "comedy": "Vígjáték",
+    "documentary": "Dokumentumfilm",
+    "drama": "Dráma",
+    "family-friendly": "Családbarát",
+    "fantasy": "Fantázia",
+    "historical": "Történelmi",
+    "horror": "Horror",
+    "musical": "Zenés",
+    "mistery": "Rejtély",
+    "romance": "Romantikus",
+    "scienece_fiction": "Sci-fi",
+    "sports": "Sport",
+    "thriller": "Thriller",
+    "western": "Western"
+  },
+  "language": "hu"
+}

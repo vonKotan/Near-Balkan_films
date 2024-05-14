@@ -10,6 +10,9 @@
     "favourites": "favourites",
     "logout": "logout"
   },
+  "404": {
+    "description": "well, looks like the wrong place"
+  },
   "home": {
     "description": "Find a movie to watch or to support",
     "no_results": "No results found",
