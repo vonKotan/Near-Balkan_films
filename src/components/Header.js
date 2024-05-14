@@ -139,17 +139,22 @@ const Header = ({ user, userObject }) => {
                   </button>
                 </Trigger>
                 <div className='lg:inline-flex items-baseline gap-0.5 hidden'>
-                  <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                  {i18n.language==='hu' && (
+                    <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                     <p
                       className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
                       en</p>
                   </button>
-                  <p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
-                  <button onClick={() => changeLanguage("hu")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                    <p
-                      className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                      hu</p>
-                  </button>
+                  )}
+                  {i18n.language==='en'&& (
+                    //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                    <button onClick={() => changeLanguage("hu")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                      <p
+                        className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                        hu</p>
+                    </button>
+                  )}
+                  
                 </div>
               </div>
               <Content id="navbarDropdown" className='top-16 lg:right-0 left-0 lg:left-auto z-50 absolute flex flex-col justify-center items-start bg-nbgreylight shadow-sm lg:mt-2.5 lg:mr-12 px-6 lg:px-5 lg:py-4 pb-3 lg:rounded-lg w-full lg:max-w-max'>
