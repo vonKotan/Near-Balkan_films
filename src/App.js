@@ -67,7 +67,7 @@ function App() {
           element={!user ? <Navigate to='/' /> : <NewReview user={user} />}
         />
         <Route path='/details/:id' element={<Details />} />
-        <Route path='/*' element={<h1>404</h1>} />
+        <Route path='/*' element={<h1 className="text-center m-auto">404</h1>} />
       </Routes>
     </div>
   );

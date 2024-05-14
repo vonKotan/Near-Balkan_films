@@ -1,7 +1,14 @@
 {
         "navbar": {
-          "login": "Bejelentkezés",
-          "register": "Regisztráció"
+          "competition": "verseny",
+          "films": "filmek",
+          "events": "események",
+          "search": "keresés",
+          "login": "bejelentkezés",
+          "register": "regisztráció",
+          "profile": "profil",
+          "favourites": "kedvencek",
+          "logout": "kijelentkezés"
         },
         "home": {
         "description": "Találj egy filmet amit megvalósítanál!",

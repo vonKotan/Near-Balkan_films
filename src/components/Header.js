@@ -40,10 +40,10 @@ const Header = ({ user, userObject }) => {
             </svg>
             <p
               className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
-              verseny</p>
+              {t("navbar.competition")}</p>
           </Link>
           <Link
-            to='/'
+            to='/films'
             className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
             <svg
               className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
@@ -53,10 +53,10 @@ const Header = ({ user, userObject }) => {
             </svg>
             <p
               className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
-              filmek</p>
+              {t("navbar.films")}</p>
           </Link>
           <Link
-            to='/' className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+            to='/events' className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
             <svg
               className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
               xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -65,10 +65,10 @@ const Header = ({ user, userObject }) => {
             </svg>
             <p
               className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
-              események</p>
+              {t("navbar.events")}</p>
           </Link>
           <Link
-            to='/'
+            to='/search'
             className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
             <svg
               className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all fill-nbgreenlight"
@@ -78,7 +78,7 @@ const Header = ({ user, userObject }) => {
             </svg>
             {/* <p
               className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
-              keresés</p> */}
+              {t("navbar.search")}</p> */}
           </Link>
         </ul>
         <Link
@@ -152,68 +152,11 @@ const Header = ({ user, userObject }) => {
                   </button>
                 </div>
               </div>
-              <Content className='top-16 lg:right-0 left-0 lg:left-auto z-50 absolute flex flex-col justify-center items-start bg-nbgreylight shadow-sm lg:mt-2.5 lg:mr-12 px-6 lg:px-5 lg:py-4 pb-3 lg:rounded-lg w-full lg:max-w-max navbarDropdown'>
+              <Content id="navbarDropdown" className='top-16 lg:right-0 left-0 lg:left-auto z-50 absolute flex flex-col justify-center items-start bg-nbgreylight shadow-sm lg:mt-2.5 lg:mr-12 px-6 lg:px-5 lg:py-4 pb-3 lg:rounded-lg w-full lg:max-w-max'>
                 <div role="none"
-                  className="navbarDropdownInsideDesktop lg:flex flex-col justify-center items-start gap-1.5 hidden divide-y-2 divide-solid divide-nbgreymain w-full">
-                  {/* < ul role="none"
-                    className="lg:flex flex-col justify-center items-start hidden pb-1 w-full navbarDropdownProfileNameLoggedIn">
-                    <h3
-                      className="w-fit max-w-32 font-bold font-h4-lead text-base text-left text-nbgreydark leading-5 tracking-tight">
-                      {user.displayName}</h3>
-                  </ul>
+                  id="navbarDropdownInsideDesktop" className="lg:flex flex-col justify-center items-start gap-1.5 hidden divide-y-2 divide-solid divide-nbgreymain w-full">
                   <ul role="none"
-                    class="lg:flex flex-col justify-center items-start gap-1.5 hidden py-2 w-full navbarDropdownProfileInsideLoggedIn">
-                    <a href="#" role="menuitem" tabindex="-1" id="menu-item-1"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight transition-all">
-                        profil</p>
-                    </a>
-                    <a href="#" role="menuitem" tabindex="-1" id="menu-item-1"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                        filmterv feltöltése</p>
-                    </a>
-                    <a href="#" role="menuitem" tabindex="-1" id="menu-item-1"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                        kedvencek</p>
-                    </a>
-                    <a href="#" role="menuitem" tabindex="-1" id="menu-item-1"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                        kijelentkezés</p>
-                    </a>
-                  </ul> */}
-                  <ul role="none"
-                    className="lg:flex flex-col justify-center items-start gap-1.5 hidden py-1 w-full navbarDropdownProfileInsideLoggedOut">
+                    id="navbarDropdownProfileInsideLoggedOut" className="lg:flex flex-col justify-center items-start gap-1.5 hidden py-1 w-full">
                     <RadixLink>
                       <Link
                         to='/login' role="menuitem" tabindex="-1" id="menu-item-0"
@@ -226,7 +169,7 @@ const Header = ({ user, userObject }) => {
                         </svg>
                         <p
                           className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                          bejelentkezés</p>
+                          {t("navbar.login")}</p>
                       </Link>
                     </RadixLink>
                     <RadixLink>
@@ -241,153 +184,107 @@ const Header = ({ user, userObject }) => {
                         </svg>
                         <p
                           className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                          regisztráció</p>
+                          {t("navbar.register")}</p>
                       </Link>
                     </RadixLink>
                   </ul>
                 </div>
                 <div role="none"
-                  class="flex flex-col justify-center items-start lg:hidden divide-y-2 divide-solid divide-nbgreymain w-full navbarDropdownInsideMobile">
+                  id="navbarDropdownInsideMobile" class="flex flex-col justify-center items-start lg:hidden divide-y-2 divide-solid divide-nbgreymain w-full">
                   <ul role="none"
                     class="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full navbarDropdownMenuInside">
-                    <a href="#" class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
-                        verseny</p>
-                    </a>
-                    <a href="#"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
-                        filmek</p>
-                    </a>
-                    <a href="#"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
-                        események</p>
-                    </a>
-                    <a href="#"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M5.2029 0.500827C2.33387 0.500827 0 2.8347 0 5.70372C0 8.57275 2.33387 10.9066 5.2029 10.9066C6.07996 10.9066 6.94215 10.6985 7.67056 10.2971C7.7289 10.3674 7.79359 10.432 7.86381 10.4904L9.35035 11.9769C9.48761 12.1314 9.655 12.2562 9.84222 12.3436C10.0295 12.431 10.2326 12.4792 10.4391 12.4853C10.6457 12.4914 10.8513 12.4552 11.0433 12.3789C11.2354 12.3027 11.4098 12.188 11.5559 12.0419C11.702 11.8957 11.8167 11.7213 11.893 11.5293C11.9692 11.3372 12.0054 11.1316 11.9993 10.9251C11.9933 10.7185 11.945 10.5154 11.8576 10.3282C11.7702 10.141 11.6454 9.97357 11.491 9.83631L10.0044 8.34977C9.93201 8.27733 9.85231 8.21257 9.76658 8.15652C10.1679 7.42811 10.4207 6.58078 10.4207 5.68886C10.4207 2.81983 8.08679 0.485962 5.21776 0.485962L5.2029 0.500827ZM5.2029 1.98737C7.26919 1.98737 8.91925 3.63743 8.91925 5.70372C8.91925 6.68484 8.56248 7.59163 7.93813 8.26058C7.92327 8.27544 7.9084 8.29031 7.89354 8.30517C7.82332 8.36352 7.75863 8.42821 7.70029 8.49842C7.04621 9.09304 6.15428 9.43494 5.18803 9.43494C3.12174 9.43494 1.47168 7.78488 1.47168 5.71859C1.47168 3.6523 3.12174 2.00223 5.18803 2.00223L5.2029 1.98737Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
-                        keresés</p>
-                    </a>
+                    <RadixLink>
+                      <Link
+                        to='/' class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
+                          {t("navbar.competition")}</p>
+                      </Link>
+                    </RadixLink>
+                    <RadixLink>
+                      <Link
+                        to='/films'
+                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
+                          {t("navbar.films")}</p>
+                      </Link>
+                    </RadixLink>
+                    <RadixLink>
+                      <Link
+                        to='/events'
+                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
+                          {t("navbar.events")}</p>
+                      </Link>
+                    </RadixLink>
+                    <RadixLink>
+                      <Link
+                        to='/events'
+                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M5.2029 0.500827C2.33387 0.500827 0 2.8347 0 5.70372C0 8.57275 2.33387 10.9066 5.2029 10.9066C6.07996 10.9066 6.94215 10.6985 7.67056 10.2971C7.7289 10.3674 7.79359 10.432 7.86381 10.4904L9.35035 11.9769C9.48761 12.1314 9.655 12.2562 9.84222 12.3436C10.0295 12.431 10.2326 12.4792 10.4391 12.4853C10.6457 12.4914 10.8513 12.4552 11.0433 12.3789C11.2354 12.3027 11.4098 12.188 11.5559 12.0419C11.702 11.8957 11.8167 11.7213 11.893 11.5293C11.9692 11.3372 12.0054 11.1316 11.9993 10.9251C11.9933 10.7185 11.945 10.5154 11.8576 10.3282C11.7702 10.141 11.6454 9.97357 11.491 9.83631L10.0044 8.34977C9.93201 8.27733 9.85231 8.21257 9.76658 8.15652C10.1679 7.42811 10.4207 6.58078 10.4207 5.68886C10.4207 2.81983 8.08679 0.485962 5.21776 0.485962L5.2029 0.500827ZM5.2029 1.98737C7.26919 1.98737 8.91925 3.63743 8.91925 5.70372C8.91925 6.68484 8.56248 7.59163 7.93813 8.26058C7.92327 8.27544 7.9084 8.29031 7.89354 8.30517C7.82332 8.36352 7.75863 8.42821 7.70029 8.49842C7.04621 9.09304 6.15428 9.43494 5.18803 9.43494C3.12174 9.43494 1.47168 7.78488 1.47168 5.71859C1.47168 3.6523 3.12174 2.00223 5.18803 2.00223L5.2029 1.98737Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
+                          {t("navbar.search")}</p>
+                      </Link>
+                    </RadixLink>
                   </ul>
                   <ul role="none"
-                    class="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full navbarDropdownProfileInsideLoggedOut">
-                    <a href="#" role="menuitem" tabindex="-1" id="menu-item-0"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                        bejelentkezés</p>
-                    </a>
-                    <a href="#" role="menuitem" tabindex="-1" id="menu-item-1"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                        regisztráció</p>
-                    </a>
-                    <div className='inline-flex items-baseline gap-0.5'>
-                      <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                    id="navbarDropdownProfileInsideLoggedOut" class="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full">
+                    <RadixLink>
+                      <Link
+                        to='/login' role="menuitem" tabindex="-1" id="menu-item-0"
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        <svg
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
                         <p
                           className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                          en</p>
-                      </button>
-                      <p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
-                      <button onClick={() => changeLanguage("hu")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          {t("navbar.login")}</p>
+                      </Link>
+                    </RadixLink>
+                    <RadixLink>
+                      <Link
+                        to='/register' role="menuitem" tabindex="-1" id="menu-item-1"
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        <svg
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
                         <p
                           className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                          hu</p>
-                      </button>
-                    </div>
-                  </ul>
-                  <ul role="none"
-                    class="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full navbarDropdownProfileInsideLoggedIn">
-                    <a href="#" role="menuitem" tabindex="-1" id="menu-item-1"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight transition-all">
-                        profil</p>
-                    </a>
-                    <a href="#" role="menuitem" tabindex="-1" id="menu-item-1"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                        filmterv feltöltése</p>
-                    </a>
-                    <a href="#" role="menuitem" tabindex="-1" id="menu-item-1"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                        kedvencek</p>
-                    </a>
-                    <a href="#" role="menuitem" tabindex="-1" id="menu-item-1"
-                      class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <svg
-                        class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
-                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                        <path
-                          d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                      </svg>
-                      <p
-                        class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                        kijelentkezés</p>
-                    </a>
+                          {t("navbar.register")}</p>
+                      </Link>
+                    </RadixLink>
                     <div className='inline-flex items-baseline gap-0.5'>
                       <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <p
@@ -450,7 +347,7 @@ const Header = ({ user, userObject }) => {
                     </button>
                   </>
                 )}
-                <div className='inline-flex items-baseline gap-0.5'>
+                <div className='lg:inline-flex items-baseline gap-0.5 hidden'>
                   <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                     <p
                       className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
@@ -464,41 +361,221 @@ const Header = ({ user, userObject }) => {
                   </button>
                 </div>
               </div>
-              <Content className='right-0 z-10 absolute flex flex-col gap-2 bg-gray-50 shadow-md p-4 w-[170px]'>
-                <RadixLink>
-                  <Link
-                    to='/profile'
-                    className='px-4 hover:border-l-4 hover:border-l-nbgreenmain hover:font-bold text-nbgreenmain hover:text-black transition-all duration-200'
-                  >
-                    Profile
-                  </Link>
-                </RadixLink>
-                {userObject && userObject.userType === 'creator' &&
-                  <RadixLink>
-                    <Link
-                      to='/add-review'
-                      className='px-4 hover:border-l-4 hover:border-l-nbgreenmain hover:font-bold text-nbgreenmain hover:text-black transition-all duration-200'
-                    >
-                      New Review
-                    </Link>
-                  </RadixLink>}
-
-                <RadixLink>
-                  <Link
-                    to='/favorites'
-                    className='px-4 hover:border-l-4 hover:border-l-nbgreenmain hover:font-bold text-nbgreenmain hover:text-black transition-all duration-200'
-                  >
-                    Favorites
-                  </Link>
-                </RadixLink>
-                <RadixLink>
-                  <span
-                    onClick={signOutUser}
-                    className='px-4 hover:border-l-4 hover:border-l-nbgreenmain hover:font-bold text-nbgreenmain hover:text-black transition-all duration-200 cursor-pointer'
-                  >
-                    Sign out
-                  </span>
-                </RadixLink>
+              <Content id="navbarDropdown" className='top-16 lg:right-0 left-0 lg:left-auto z-50 absolute flex flex-col justify-center items-start bg-nbgreylight shadow-sm lg:mt-2.5 lg:mr-12 px-6 lg:px-5 lg:py-4 pb-3 lg:rounded-lg w-full lg:max-w-max'>
+                <div role="none"
+                  id="navbarDropdownInsideDesktop" className="lg:flex flex-col justify-center items-start gap-1.5 hidden divide-y-2 divide-solid divide-nbgreymain w-full">
+                  < ul role="none"
+                    id="navbarDropdownProfileNameLoggedIn" className="lg:flex flex-col justify-center items-start hidden pb-1 w-full select-none">
+                    <h3
+                      className="w-fit max-w-32 font-bold font-h2-title text-base text-left text-nbgreymain leading-5 tracking-tight">
+                      {user.displayName}</h3>
+                  </ul>
+                  <ul role="none"
+                    class="lg:flex flex-col justify-center items-start gap-1.5 hidden py-2 w-full navbarDropdownProfileInsideLoggedIn">
+                    <RadixLink>
+                      <Link
+                        to='/profile' role="menuitem" tabindex="-1" id="menu-item-1"
+                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          {t("navbar.profile")}</p>
+                      </Link>
+                    </RadixLink>
+                    {userObject && userObject.userType === 'creator' &&
+                      <RadixLink>
+                        <Link
+                          to='/add-review' role="menuitem" tabindex="-1" id="menu-item-1"
+                          class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <svg
+                            class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                            <path
+                              d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                          </svg>
+                          <p
+                            class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            filmterv feltöltése</p>
+                        </Link>
+                      </RadixLink>}
+                    <RadixLink>
+                      <Link
+                        to='/favorites' role="menuitem" tabindex="-1" id="menu-item-1"
+                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          {t("navbar.favourites")}</p>
+                      </Link>
+                    </RadixLink>
+                    <RadixLink>
+                      <a onClick={signOutUser} role="menuitem" tabindex="-1" id="menu-item-1"
+                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit cursor-pointer select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          {t("navbar.logout")}</p>
+                      </a>
+                    </RadixLink>
+                  </ul>
+                </div>
+                <div role="none"
+                  id="navbarDropdownInsideMobile" class="flex flex-col justify-center items-start lg:hidden divide-y-2 divide-solid divide-nbgreymain w-full">
+                  <ul role="none"
+                    id="navbarDropdownMenuInside" class="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full">
+                    <RadixLink>
+                      <Link
+                        to='/' class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
+                          {t("navbar.competition")}</p>
+                      </Link>
+                    </RadixLink>
+                    <RadixLink>
+                      <Link
+                        to='/films'
+                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
+                          {t("navbar.films")}</p>
+                      </Link>
+                    </RadixLink>
+                    <RadixLink>
+                      <Link
+                        to='/events'
+                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
+                          {t("navbar.events")}</p>
+                      </Link>
+                    </RadixLink>
+                    <RadixLink>
+                      <Link
+                        to='/search'
+                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M5.2029 0.500827C2.33387 0.500827 0 2.8347 0 5.70372C0 8.57275 2.33387 10.9066 5.2029 10.9066C6.07996 10.9066 6.94215 10.6985 7.67056 10.2971C7.7289 10.3674 7.79359 10.432 7.86381 10.4904L9.35035 11.9769C9.48761 12.1314 9.655 12.2562 9.84222 12.3436C10.0295 12.431 10.2326 12.4792 10.4391 12.4853C10.6457 12.4914 10.8513 12.4552 11.0433 12.3789C11.2354 12.3027 11.4098 12.188 11.5559 12.0419C11.702 11.8957 11.8167 11.7213 11.893 11.5293C11.9692 11.3372 12.0054 11.1316 11.9993 10.9251C11.9933 10.7185 11.945 10.5154 11.8576 10.3282C11.7702 10.141 11.6454 9.97357 11.491 9.83631L10.0044 8.34977C9.93201 8.27733 9.85231 8.21257 9.76658 8.15652C10.1679 7.42811 10.4207 6.58078 10.4207 5.68886C10.4207 2.81983 8.08679 0.485962 5.21776 0.485962L5.2029 0.500827ZM5.2029 1.98737C7.26919 1.98737 8.91925 3.63743 8.91925 5.70372C8.91925 6.68484 8.56248 7.59163 7.93813 8.26058C7.92327 8.27544 7.9084 8.29031 7.89354 8.30517C7.82332 8.36352 7.75863 8.42821 7.70029 8.49842C7.04621 9.09304 6.15428 9.43494 5.18803 9.43494C3.12174 9.43494 1.47168 7.78488 1.47168 5.71859C1.47168 3.6523 3.12174 2.00223 5.18803 2.00223L5.2029 1.98737Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
+                          {t("navbar.search")}</p>
+                      </Link>
+                    </RadixLink>
+                  </ul>
+                  <ul role="none"
+                    class="flex flex-col justify-center items-start gap-2.5 lg:hidden py-4 w-full navbarDropdownProfileInsideLoggedIn">
+                    <RadixLink>
+                      <Link
+                        to='/profile' role="menuitem" tabindex="-1" id="menu-item-1"
+                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          {t("navbar.profile")}</p>
+                      </Link>
+                    </RadixLink>
+                    {userObject && userObject.userType === 'creator' &&
+                      <RadixLink>
+                        <Link
+                          to='/add-review' role="menuitem" tabindex="-1" id="menu-item-1"
+                          class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <svg
+                            class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                            <path
+                              d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                          </svg>
+                          <p
+                            class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            filmterv feltöltése</p>
+                        </Link>
+                      </RadixLink>}
+                    <RadixLink>
+                      <Link
+                        to='/favorites' role="menuitem" tabindex="-1" id="menu-item-1"
+                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          {t("navbar.favourites")}</p>
+                      </Link>
+                    </RadixLink>
+                    <RadixLink>
+                      <a
+                        onClick={signOutUser} role="menuitem" tabindex="-1" id="menu-item-1"
+                        class="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit cursor-pointer select-none group/anchor">
+                        <svg
+                          class="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          class="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          {t("navbar.logout")}</p>
+                      </a>
+                    </RadixLink>
+                    <div className='inline-flex items-baseline gap-0.5'>
+                      <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        <p
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          en</p>
+                      </button>
+                      <p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                      <button onClick={() => changeLanguage("hu")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                        <p
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                          hu</p>
+                      </button>
+                    </div>
+                  </ul>
+                </div>
               </Content>
             </Item>
           )}

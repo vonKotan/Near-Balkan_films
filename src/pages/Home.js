@@ -43,7 +43,7 @@ const Home = () => {
         </div>
         <button onClick={() => changeLanguage("en")}>EN</button>
         <button onClick={() => changeLanguage("hu")}>HU</button>
-        <form className='relative flex sm:w-[50%]  w-full'>
+        <form className='relative flex sm:w-[50%] w-full'>
           <input
             type='text'
             placeholder={t("home.search")}
