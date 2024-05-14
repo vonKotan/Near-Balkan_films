@@ -6,11 +6,13 @@ import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useEffect, useRef } from "react";
 import { Filmography } from "./Fimography";
+import { useTranslation } from "react-i18next";
+
 import Select from "react-select"
 import * as yup from 'yup';
 
 export const RegistrationInfo = ({user}) => {
-
+    const { t, i18n } = useTranslation(); 
     const titleOptions = [
         { value: 'screenwriter', label: 'Screenwriter' },
         { value: 'director', label: 'Director' },
@@ -144,13 +146,13 @@ export const RegistrationInfo = ({user}) => {
                 onSubmit={handleSubmit(handleRegister)}
             >
                 <p className='mt-2 text-sm italic text-gray-500'>
-                    Since this is your first time here we need some extra information about you
+                    {t("register_info.register_info")}
                 </p>
                 {errors.firstName && (<p>{errors.firstName?.message}</p>)}
                 <input
                     type='text'
                     {...register("firstName")}
-                    placeholder={'First name'}
+                    placeholder={t("register_info.first_name")}
                     autoComplete='false'
                     className='w-full p-4 italic rounded-md shadow-sm outline-none'
                 />
@@ -158,7 +160,7 @@ export const RegistrationInfo = ({user}) => {
                 <input
                     type='text'
                     {...register("lastName")}
-                    placeholder={'Last Name'}
+                    placeholder={t("register_info.last_name")}
                     autoComplete='false'
                     className='w-full p-4 italic rounded-md shadow-sm outline-none'
                 />
@@ -166,7 +168,7 @@ export const RegistrationInfo = ({user}) => {
                 <input
                     type='tel'
                     {...register("phoneNumber")}
-                    placeholder={'Phone number'}
+                    placeholder={t("register_info.phone_number")}
                     autoComplete='false'
                     className='w-full p-4 italic rounded-md shadow-sm outline-none'
                 />
@@ -174,7 +176,7 @@ export const RegistrationInfo = ({user}) => {
                 <input
                     type='date'
                     {...register("birthDate")}
-                    placeholder={'Birthdate'}
+                    placeholder={t("register_info.date_of_birth")}
                     autoComplete='false'
                     className='w-full p-4 italic rounded-md shadow-sm outline-none'
                 />
@@ -182,7 +184,7 @@ export const RegistrationInfo = ({user}) => {
                 <input
                     type='text'
                     {...register("userName")}
-                    placeholder={'Username'}
+                    placeholder={t("register_info.username")}
                     autoComplete='true'
                     className='w-full p-4 italic rounded-md shadow-sm outline-none'
                 />
@@ -191,8 +193,8 @@ export const RegistrationInfo = ({user}) => {
                     {...register("userType")}
                     onChange={(e) => setUserType(e.target.value)}
                     className='w-full p-4 italic rounded-md shadow-sm outline-none'>
-                    <option value="creator"> Content creator</option>
-                    <option value="viewer" selected> Viewer</option>
+                    <option value="creator"> {t("register_info.content_creator")}</option>
+                    <option value="viewer" selected>{t("register_info.viewer")}</option>
                 </select>
 
                 {userType === 'creator' && (
@@ -213,7 +215,7 @@ export const RegistrationInfo = ({user}) => {
 
                         {filmography.length > 0 && (
                             <>
-                                <p>Filmography:</p>
+                                <p>{t("register_info.filmography")}</p>
                                 {filmography.map(film =>
                                     <div>{film.title} {film.year} {film.role}</div>
                                 )}
@@ -228,7 +230,7 @@ export const RegistrationInfo = ({user}) => {
                 {!loading && (
                     <input
                         type='submit'
-                        value='Create Account'
+                        value={t("register_info.create_account")}
                         className='w-full p-4 font-bold text-white transition-all duration-300 bg-nbgreenmain rounded-md shadow-sm cursor-pointer hover:bg-nbgreenlight hover:tracking-wider'
                     />
                 )}
