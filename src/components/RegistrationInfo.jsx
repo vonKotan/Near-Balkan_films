@@ -142,10 +142,10 @@ export const RegistrationInfo = ({user}) => {
 
     return (
         <form
-                className='flex flex-col items-center justify-center w-full gap-2 mt-8'
+                className='flex flex-col justify-center items-center gap-2 mt-8 w-full'
                 onSubmit={handleSubmit(handleRegister)}
             >
-                <p className='mt-2 text-sm italic text-gray-500'>
+                <p className='mt-2 text-gray-500 text-sm italic'>
                     {t("register_info.register_info")}
                 </p>
                 {errors.firstName && (<p>{errors.firstName?.message}</p>)}
@@ -154,7 +154,7 @@ export const RegistrationInfo = ({user}) => {
                     {...register("firstName")}
                     placeholder={t("register_info.first_name")}
                     autoComplete='false'
-                    className='w-full p-4 italic rounded-md shadow-sm outline-none'
+                    className='shadow-sm p-4 rounded-md w-full italic outline-none'
                 />
                 {errors.lastName && (<p>{errors.lastName?.message}</p>)}
                 <input
@@ -162,7 +162,7 @@ export const RegistrationInfo = ({user}) => {
                     {...register("lastName")}
                     placeholder={t("register_info.last_name")}
                     autoComplete='false'
-                    className='w-full p-4 italic rounded-md shadow-sm outline-none'
+                    className='shadow-sm p-4 rounded-md w-full italic outline-none'
                 />
                 {errors.phoneNumber && (<p>{errors.phoneNumber?.message}</p>)}
                 <input
@@ -170,7 +170,7 @@ export const RegistrationInfo = ({user}) => {
                     {...register("phoneNumber")}
                     placeholder={t("register_info.phone_number")}
                     autoComplete='false'
-                    className='w-full p-4 italic rounded-md shadow-sm outline-none'
+                    className='shadow-sm p-4 rounded-md w-full italic outline-none'
                 />
                 {errors.birthDate && (<p>{errors.birthDate?.message}</p>)}
                 <input
@@ -178,7 +178,7 @@ export const RegistrationInfo = ({user}) => {
                     {...register("birthDate")}
                     placeholder={t("register_info.date_of_birth")}
                     autoComplete='false'
-                    className='w-full p-4 italic rounded-md shadow-sm outline-none'
+                    className='shadow-sm p-4 rounded-md w-full italic outline-none'
                 />
                 {errors.userName && (<p>{errors.userName?.message}</p>)}
                 <input
@@ -186,13 +186,13 @@ export const RegistrationInfo = ({user}) => {
                     {...register("userName")}
                     placeholder={t("register_info.username")}
                     autoComplete='true'
-                    className='w-full p-4 italic rounded-md shadow-sm outline-none'
+                    className='shadow-sm p-4 rounded-md w-full italic outline-none'
                 />
                 {errors.userType && (<p>{errors.userType?.message}</p>)}
                 <select name="typeSelect"
                     {...register("userType")}
                     onChange={(e) => setUserType(e.target.value)}
-                    className='w-full p-4 italic rounded-md shadow-sm outline-none'>
+                    className='shadow-sm p-4 rounded-md w-full italic outline-none'>
                     <option value="creator"> {t("register_info.content_creator")}</option>
                     <option value="viewer" selected>{t("register_info.viewer")}</option>
                 </select>
@@ -201,7 +201,7 @@ export const RegistrationInfo = ({user}) => {
                     <>
                         {rolesError && (<p>{rolesError}</p>)}
                         <Select
-                            className='w-full p-4 italic rounded-md shadow-sm outline-none'
+                            className='shadow-sm p-4 rounded-md w-full italic outline-none'
                             options={titleOptions}
                             isMulti
                             placeholder="Your preferred roles on movie"
@@ -231,12 +231,12 @@ export const RegistrationInfo = ({user}) => {
                     <input
                         type='submit'
                         value={t("register_info.create_account")}
-                        className='w-full p-4 font-bold text-white transition-all duration-300 bg-nbgreenmain rounded-md shadow-sm cursor-pointer hover:bg-nbgreenlight hover:tracking-wider'
+                        className='bg-nbgreenmain hover:bg-nbgreenlight shadow-sm p-4 rounded-md w-full font-bold text-white hover:tracking-wider transition-all duration-300 cursor-pointer'
                     />
                 )}
 
                 {loading && (
-                    <div className='flex items-center justify-center w-full'>
+                    <div className='flex justify-center items-center w-full'>
                         <Loading size={'30px'} />
                     </div>
                 )}

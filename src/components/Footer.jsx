@@ -32,35 +32,30 @@ const Footer = ({ user, userObject }) => {
         <div className="justify-start lg:justify-center gap-8 grid sm:grid-cols-2 lg:grid-cols-4">
           <div id="gridCol" className="flex flex-col items-start gap-2.5 grow-1 base-1/4">
             <div className="flex items-start gap-2.5 pb-1">
-              <h2 className="font-h2-title font-semibold text-nbgreylight text-sm leading-5">Rólunk</h2>
+              <h2 className="font-h2-title font-semibold text-nbgreylight text-sm leading-5">{t("footer.title_about")}</h2>
             </div>
             <div className="flex flex-col items-start gap-1.5">
-              <p className="max-w-sm font-normal font-p-paragraph text-nbgreylight text-xs leading-4">A Near-Balkan egy
-                olyan előadóművészeti, versenyalapú (last-project-standing) közösségi finanszírozási felület és
-                tartalomgyártó cég, ahol a 21. század kelet-európai független
-                rövidfilmesei, színházi, zenei és táncművészeti kreatívjai nyilvánosságot, networking-lehetőséget,
-                finanszírozást és végső soron megvalósítást
-                találhatnak projektterveikhez.
+              <p className="max-w-sm font-normal font-p-paragraph text-nbgreylight text-xs leading-4">{t("footer.about_description")}
               </p>
-              <a href="#" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+              <Link to="/about" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                 <svg
-                  className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
+                  className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreylight"
                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                   <path
                     d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                 </svg>
                 <p
-                  className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
-                  tovább</p>
-              </a>
+                  className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
+                  {t("footer.about_link")}</p>
+              </Link>
             </div>
           </div>
           <div id="gridCol" className="flex flex-col items-start gap-2.5 grow-1 base-1/4">
             <div className="flex items-start gap-2.5 pb-1">
-              <h2 className="font-h2-title font-semibold text-nbgreylight text-sm leading-5">Szolgáltatásaink</h2>
+              <h2 className="font-h2-title font-semibold text-nbgreylight text-sm leading-5">{t("footer.title_services")}</h2>
             </div>
             <div className="gap-2.5 grid grid-cols-2 sm:grid-cols-1 2xl:grid-cols-2 text-wrap">
-              <a href="#" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+              <Link to="/" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                 <svg
                   className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreylight"
                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -69,9 +64,9 @@ const Footer = ({ user, userObject }) => {
                 </svg>
                 <p
                   className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
-                  aktuális verseny</p>
-              </a>
-              <a href="#" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                  {t("footer.competition")}</p>
+              </Link>
+              <Link to="/films" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                 <svg
                   className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -80,9 +75,9 @@ const Footer = ({ user, userObject }) => {
                 </svg>
                 <p
                   className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
-                  megtekinthető filmek</p>
-              </a>
-              <a href="#" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                  {t("footer.films")}</p>
+              </Link>
+              <Link to="/events" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                 <svg
                   className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -91,9 +86,9 @@ const Footer = ({ user, userObject }) => {
                 </svg>
                 <p
                   className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
-                  jövőbeli események</p>
-              </a>
-              <a href="#" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                  {t("footer.future_events")}</p>
+              </Link>
+              <Link to="/past-events" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                 <svg
                   className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreylight"
                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -102,9 +97,9 @@ const Footer = ({ user, userObject }) => {
                 </svg>
                 <p
                   className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
-                  lezárult események</p>
-              </a>
-              <a href="#" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                  {t("footer.past_events")}</p>
+              </Link>
+              <Link to="/search" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                 <svg
                   className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -113,9 +108,9 @@ const Footer = ({ user, userObject }) => {
                 </svg>
                 <p
                   className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
-                  keresés</p>
-              </a>
-              <a href="#" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                  {t("footer.search")}</p>
+              </Link>
+              <Link to="/profile" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                 <svg
                   className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreylight"
                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -124,9 +119,9 @@ const Footer = ({ user, userObject }) => {
                 </svg>
                 <p
                   className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
-                  profil</p>
-              </a>
-              <a href="#" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                  {t("footer.profile")}</p>
+              </Link>
+              <Link to="/upload-demo" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                 <svg
                   className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreylight"
                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -135,9 +130,9 @@ const Footer = ({ user, userObject }) => {
                 </svg>
                 <p
                   className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
-                  filmterv feltöltés</p>
-              </a>
-              <a href="#" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                  {t("footer.upload_demo")}</p>
+              </Link>
+              <Link to="/favourites" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                 <svg
                   className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreylight"
                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -146,19 +141,16 @@ const Footer = ({ user, userObject }) => {
                 </svg>
                 <p
                   className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
-                  kedvencek</p>
-              </a>
+                  {t("footer.favourites")}</p>
+              </Link>
             </div>
           </div>
           <div id="gridCol" className="flex flex-col items-start gap-2.5 grow-1 base-1/4">
             <div className="flex items-start gap-2.5 pb-1">
-              <h2 className="font-h2-title font-semibold text-nbgreymain text-sm leading-5">Bankkártyás fizetés</h2>
+              <h2 className="font-h2-title font-semibold text-nbgreymain text-sm leading-5">{t("footer.title_credit-card")}</h2>
             </div>
             <div className="flex items-start gap-2.5 pb-1">
-              <p className="max-w-sm font-normal font-p-paragraph text-nbgreymain text-xs leading-4">Kényelmes és
-                biztonságos
-                online fizetést a Barion Payment Zrt. biztosítja. Magyar Nemzeti Bank engedély száma: H-EN-I-1064/2013
-                Bankkártya adatai áruházunkhoz nem jutnak el.
+              <p className="max-w-sm font-normal font-p-paragraph text-nbgreymain text-xs leading-4">{t("footer.credit-card_description")}
               </p>
             </div>
             <div className="flex items-center gap-2.5 w-full">
@@ -277,7 +269,7 @@ const Footer = ({ user, userObject }) => {
           </div>
           <div id="gridCol" className="flex flex-col items-start gap-2.5 grow-1 base-1/4">
             <div className="flex items-start gap-2.5 pb-1">
-              <h2 className="font-h2-title font-semibold text-nbgreylight text-sm leading-5">Elérhetőségeink</h2>
+              <h2 className="font-h2-title font-semibold text-nbgreylight text-sm leading-5">{t("footer.title_contact")}</h2>
             </div>
             <div className="flex items-center gap-2.5">
               <svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10" fill="none">
@@ -286,7 +278,7 @@ const Footer = ({ user, userObject }) => {
                   stroke="#E9EFF0" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               <a href="mailto:productions@near-balkan.com"
-                className="font-normal font-p-paragraph text-nbgreylight text-xs leading-4">productions@near-balkan.com
+                className="font-normal font-p-paragraph text-nbgreylight text-xs leading-4">{t("footer.email")}
               </a>
             </div>
             <div className="flex items-center gap-2.5">
@@ -295,8 +287,7 @@ const Footer = ({ user, userObject }) => {
                   d="M1 2.11111C1 1.49746 1.49746 1 2.11111 1H3.93291C4.17204 1 4.38434 1.15302 4.45996 1.37987L5.29206 3.87623C5.3795 4.13851 5.26078 4.42517 5.0135 4.54882L3.75945 5.17583C4.37181 6.534 5.466 7.62822 6.82417 8.24056L7.45117 6.9865C7.57483 6.73922 7.8615 6.6205 8.12378 6.70794L10.6201 7.54006C10.847 7.61567 11 7.82794 11 8.06711V9.88889C11 10.5026 10.5026 11 9.88889 11H9.33333C4.73096 11 1 7.26906 1 2.66667V2.11111Z"
                   stroke="#E9EFF0" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
-              <a href="tel:0036705337066" className="font-normal font-p-paragraph text-nbgreylight text-xs leading-4">+36 70
-                533 7066
+              <a href="tel:0036705337066" className="font-normal font-p-paragraph text-nbgreylight text-xs leading-4">{t("footer.phone")}
               </a>
             </div>
             <div className="flex items-center gap-2.5">
@@ -306,7 +297,7 @@ const Footer = ({ user, userObject }) => {
                   stroke="#E9EFF0" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               <a href="https://near-balkan.com" className="font-normal font-p-paragraph text-nbgreylight text-xs leading-4">
-                near-balkan.com</a>
+              {t("footer.url")}</a>
             </div>
           </div>
         </div>
@@ -355,12 +346,12 @@ const Footer = ({ user, userObject }) => {
                 </svg>
               </div>
             </div>
-            <h3 className="font-h3-subtitle font-medium text-nbgreylight text-xs">©2023 Near-Balkan</h3>
+            <h3 className="font-h3-subtitle font-medium text-nbgreylight text-xs">{t("footer.copyright")}</h3>
           </div>
           <div className="flex flex-col items-start bg-nbgreylight h-px self-stretch">
           </div>
           <div className="flex items-center gap-2.5 py-2.5">
-            <a href="#" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+            <Link to="/privacy" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
               <svg
                 className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -369,9 +360,9 @@ const Footer = ({ user, userObject }) => {
               </svg>
               <p
                 className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
-                ÁSZF</p>
-            </a>
-            <a href="#" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                {t("footer.privacy")}</p>
+            </Link>
+            <Link to="/terms-and-policies" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
               <svg
                 className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -380,8 +371,8 @@ const Footer = ({ user, userObject }) => {
               </svg>
               <p
                 className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
-                adatvédelmi nyilatkozat</p>
-            </a>
+                {t("footer.terms_and_policies")}</p>
+            </Link>
           </div>
         </div>
       </nav>

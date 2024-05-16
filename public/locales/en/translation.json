@@ -8,7 +8,32 @@
     "register": "register",
     "profile": "profile",
     "favourites": "favourites",
-    "logout": "logout"
+    "logout": "logout",
+    "upload_demo": "upload a demo"
+  },
+  "footer": {
+    "title_about": "About Us",
+    "about_description": "Near-Balkan is a performing-arts-based, 'last-project-standing' competition-type crowdfunding platform and production company where independent short film, theatre, music and dance creatives of the 21st century in Eastern Europe can find their future audience, start their networking, funding and ultimately realisation for their project drafts.",
+    "about_link": "more",
+    "title_services": "Servies",
+    "competition": "current competition",
+    "films": "films to watch",
+    "future_events": "future events",
+    "past_events": "past events",
+    "search": "search",
+    "profile": "profile",
+    "upload_demo": "upload a demo",
+    "favourites": "favourites",
+    "about_us": "about us",
+    "title_credit-card": "Credit Card Payment",
+    "credit-card_description": "Convenient and secure online payment is provided by Barion Payment Zrt. Hungarian National Bank licence number: H-EN-I-1064/2013 Your bank card details will not be transmitted to our store.",
+    "title_contact": "Contact Us",
+    "email": "productions@near-balkan.com",
+    "phone": "+36 70 533 7066",
+    "url": "near-balkan.com",
+    "copyright": "©2023 Near-Balkan",
+    "privacy": "privacy",
+    "terms_and_policies": "terms and policies"
   },
   "404": {
     "description": "well, looks like the wrong place"
@@ -16,7 +41,7 @@
   "home": {
     "description": "Find a movie to watch or to support",
     "no_results": "No results found",
-    "search": "Search..."
+    "search": "search..."
   },
   "register": {
     "first_name": "First Name",
@@ -28,9 +53,9 @@
     "create_account": "Create Account",
     "already_have": "Already have an account?",
     "log_in": "Log in",
-    "register_and_enjoy": "Register and enjoy all functions"
+    "register": "Register"
   },
-  "register_info":{
+  "register_info": {
     "register_info": "Since this is your first time here we need some extra information about you",
     "first_name": "First Name",
     "last_name": "Last Name",
@@ -38,7 +63,7 @@
     "username": "Username",
     "date_of_birth": "Date of Birth",
     "content_creator": "Content-creator",
-    "viewer": "Viewer", 
+    "viewer": "Viewer",
     "filmography": "Filmography:",
     "create_account": "Create Account"
   },
@@ -52,13 +77,13 @@
     "log_in": "Log in"
   },
   "details": {
-    "views":"Views:",
+    "views": "Views:",
     "check_script": "Check script",
     "support": "support",
     "moneygoal": "Money goal"
   },
   "favourites": {
-    "favourites":"Favourites",
+    "favourites": "Favourites",
     "no_favs": "No favorites added"
   },
   "new_reviews": {
@@ -67,26 +92,26 @@
     "film": "Film",
     "script": "Script (pdf only)",
     "genre": "Genre",
-    "title":"English title",
-          "original_title":"Original title",
-          "desc":"Description",
-          "original_desc":"Original description",
-          "needed_money":"Needed funds for this idea (EUR)",
-          "pls_title":"Please provide the title",
-          "pls_number":"please provide a number",
-          "number_small":"Number is too small",
-          "number_high":"Number is too high",
-          "pls_fill":"Please fill this field",
-          "pls_genre":"Please choose a genre for your film",
-          "desc_short":"Description too short",
-          "desc_long":"Description too long",
-          "pls_desc":"Please provide a description",
-          "pls_poster":"please provide a poster for your film",
-          "pls_trailer":"Please provide a trailer for your film",
-          "pls_script":"Please provide a script for your film"
+    "title": "English title",
+    "original_title": "Original title",
+    "desc": "Description",
+    "original_desc": "Original description",
+    "needed_money": "Needed funds for this idea (EUR)",
+    "pls_title": "Please provide the title",
+    "pls_number": "please provide a number",
+    "number_small": "Number is too small",
+    "number_high": "Number is too high",
+    "pls_fill": "Please fill this field",
+    "pls_genre": "Please choose a genre for your film",
+    "desc_short": "Description too short",
+    "desc_long": "Description too long",
+    "pls_desc": "Please provide a description",
+    "pls_poster": "please provide a poster for your film",
+    "pls_trailer": "Please provide a trailer for your film",
+    "pls_script": "Please provide a script for your film"
   },
   "profile": {
-    "empty_fields":"Fill the empty fields",
+    "empty_fields": "Fill the empty fields",
     "password_equal": "Passwords must be equal",
     "update_profile": "Update Profile",
     "password": "Password",
@@ -121,14 +146,6 @@
     "sports": "Sports",
     "thriller": "Thriller",
     "western": "Western"
-  },
-  "header":{
-    "login":"Login",
-    "register":"Register",
-    "profile":"Profile",
-    "new_film":"New film",
-    "favorites":"Favorites",
-    "signout":"Sign out"
   },
   "language": "en"
 }

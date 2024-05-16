@@ -22,7 +22,7 @@ const Card = ({ image, title, genre, rating }) => {
       <img
         src={image}
         alt='poster'
-        className=' w-full h-[480px] sm:h-[360px] md:h-[300px] xl:h-[420px] object-cover shadow-lg'
+        className='sm:block hidden w-full h-[480px] sm:h-[360px] md:h-[300px] xl:h-[420px] object-cover shadow-lg'
       />
       <div className=''>
         <div className='flex items-center justify-between'>
@@ -35,6 +35,11 @@ const Card = ({ image, title, genre, rating }) => {
         </div>
         <h3 className='text-xl font-bold '>{title}</h3>
       </div>
+      <img
+        src={image}
+        alt='poster'
+        className='sm:hidden block w-full h-[480px] sm:h-[360px] md:h-[300px] xl:h-[420px] object-cover shadow-lg'
+      />
     </div>
   );
 };

@@ -12,13 +12,10 @@ const NotFound = ({ user, userObject }) => {
     };
 
     return (
-        <main id="innerGrid" className="container">
-            <h1 className="m-auto text-center">404
-                <br />
-                <h2 className="text-xs">{t("404.description")}</h2>
-            </h1>
-            <Outlet />
-        </main>
+        <section>
+            <h1 className="m-auto font-semibold text-center text-nbgreydark">404</h1>
+            <h2 className="text-center text-nbgreydark text-xs">{t("404.description")}</h2>
+        </section>
     );
 
 

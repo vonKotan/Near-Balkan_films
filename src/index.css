@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.min-h-16 {
-  min-height: 4rem !important;
-}
-
 /*
 * {
   margin: 0;
@@ -193,7 +189,7 @@ body {
   color: var(--nbgreenmain);
 }
 
-#root:has(.App > .justify-center > section.bg-nbgreylight) {
+#root:has(.App > .justify-center) {
   background-color: var(--nbgreylight);
   color: var(--nbgreenmain);
 }
@@ -214,7 +210,7 @@ footer {
 
 /* tailwind flexgrid assistance */
 #innerGrid {
-  min-height: 70vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;

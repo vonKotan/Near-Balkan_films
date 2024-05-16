@@ -21,6 +21,8 @@ import Profile from './pages/Profile';
 import NewReview from './pages/NewReview';
 import Loading from './components/Loading';
 import Favorites from './pages/Favorites';
+import Search from './pages/Search';
+import About from './pages/About';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -53,11 +55,11 @@ function App() {
         <Route path="/" element={<WhiteLayout />}>
           <Route
             path='/profile'
-            element={!user ? <Navigate to='/' /> : <Profile user={user} />}
+            element={!user ? <Navigate to='/login' /> : <Profile user={user} />}
           />
           <Route
-            path='/add-review'
-            element={!user ? <Navigate to='/' /> : <NewReview user={user} />}
+            path='/upload-demo'
+            element={!user ? <Navigate to='/login' /> : <NewReview user={user} />}
           />
           <Route
             path='/register/*'
@@ -66,21 +68,27 @@ function App() {
             }
           />
           <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
+          <Route path='/*' element={<NotFound />} />
+          <Route path="/about" element={<NotFound />} />
         </Route>
         <Route path="/" element={<Layout />} user={user}>
           <Route index element={<Home />} />
+          <Route path="/search" element={!user ? <Navigate to='/login' /> : <Search />} />
+          <Route
+            path='/favorites'
+            element={!user ? <Navigate to='/login' /> : <Favorites user={user} />}
+          />
+          <Route path='/details/:id' element={<Details user={user} />} />
+          <Route path='/details/:id' element={<Details />} />
           <Route
             path='/events'
             element={!user ? <Navigate to='/login' /> : <Events user={user} />}
           />
-          <Route path='/details/:id' element={<Details user={user} />} />
           <Route
-            path='/favorites'
-            element={!user ? <Navigate to='/' /> : <Favorites user={user} />}
+            path='/past-events'
+            element={!user ? <Navigate to='/login' /> : <Events user={user} />}
           />
-          <Route path='/details/:id' element={<Details />} />
         </Route>
-        <Route path='/*' element={<NotFound />} />
       </Routes>
       <Footer />
     </div >
