@@ -59,7 +59,7 @@ function App() {
           />
           <Route
             path='/upload-demo'
-            element={!user ? <Navigate to='/login' /> : <NewReview user={user} />}
+            element={user && userObject && userObject.userType === 'creator' ? (<NewReview user={user} />) : (<Navigate to='/login' />)}
           />
           <Route
             path='/register/*'
@@ -75,7 +75,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/search" element={!user ? <Navigate to='/login' /> : <Search />} />
           <Route
-            path='/favorites'
+            path='/favourites'
             element={!user ? <Navigate to='/login' /> : <Favorites user={user} />}
           />
           <Route path='/details/:id' element={<Details user={user} />} />

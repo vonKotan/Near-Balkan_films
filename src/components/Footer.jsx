@@ -66,7 +66,7 @@ const Footer = ({ user, userObject }) => {
                   className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
                   {t("footer.competition")}</p>
               </Link>
-              <Link to="/films" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+              <Link to="/films" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
                 <svg
                   className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -77,7 +77,7 @@ const Footer = ({ user, userObject }) => {
                   className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
                   {t("footer.films")}</p>
               </Link>
-              <Link to="/events" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+              <Link to="/events" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
                 <svg
                   className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -101,13 +101,13 @@ const Footer = ({ user, userObject }) => {
               </Link>
               <Link to="/search" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                 <svg
-                  className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
+                  className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreylight"
                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                   <path
                     d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                 </svg>
                 <p
-                  className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
+                  className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
                   {t("footer.search")}</p>
               </Link>
               <Link to="/profile" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
@@ -278,7 +278,7 @@ const Footer = ({ user, userObject }) => {
                   stroke="#E9EFF0" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               <a href="mailto:productions@near-balkan.com"
-                className="font-normal font-p-paragraph text-nbgreylight text-xs leading-4">{t("footer.email")}
+                className="font-normal font-p-paragraph text-nbgreylight text-xs hover:text-nbgreenmain active:text-nbgreenlight leading-4">{t("footer.email")}
               </a>
             </div>
             <div className="flex items-center gap-2.5">
@@ -287,7 +287,7 @@ const Footer = ({ user, userObject }) => {
                   d="M1 2.11111C1 1.49746 1.49746 1 2.11111 1H3.93291C4.17204 1 4.38434 1.15302 4.45996 1.37987L5.29206 3.87623C5.3795 4.13851 5.26078 4.42517 5.0135 4.54882L3.75945 5.17583C4.37181 6.534 5.466 7.62822 6.82417 8.24056L7.45117 6.9865C7.57483 6.73922 7.8615 6.6205 8.12378 6.70794L10.6201 7.54006C10.847 7.61567 11 7.82794 11 8.06711V9.88889C11 10.5026 10.5026 11 9.88889 11H9.33333C4.73096 11 1 7.26906 1 2.66667V2.11111Z"
                   stroke="#E9EFF0" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
-              <a href="tel:0036705337066" className="font-normal font-p-paragraph text-nbgreylight text-xs leading-4">{t("footer.phone")}
+              <a href="tel:0036705337066" className="font-normal font-p-paragraph text-nbgreylight text-xs hover:text-nbgreenmain active:text-nbgreenlight leading-4">{t("footer.phone")}
               </a>
             </div>
             <div className="flex items-center gap-2.5">
@@ -296,7 +296,7 @@ const Footer = ({ user, userObject }) => {
                   d="M1 6L2.11111 4.88889M2.11111 4.88889L6 1L9.88889 4.88889M2.11111 4.88889V10.4444C2.11111 10.7513 2.35984 11 2.66667 11H4.33333M9.88889 4.88889L11 6M9.88889 4.88889V10.4444C9.88889 10.7513 9.64017 11 9.33333 11H7.66667M4.33333 11C4.64016 11 4.88889 10.7513 4.88889 10.4444V8.22222C4.88889 7.91539 5.13761 7.66667 5.44444 7.66667H6.55556C6.86239 7.66667 7.11111 7.91539 7.11111 8.22222V10.4444C7.11111 10.7513 7.35983 11 7.66667 11M4.33333 11H7.66667"
                   stroke="#E9EFF0" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
-              <a href="https://near-balkan.com" className="font-normal font-p-paragraph text-nbgreylight text-xs leading-4">
+              <a href="https://near-balkan.com" className="font-normal font-p-paragraph text-nbgreylight text-xs hover:text-nbgreenmain active:text-nbgreenlight leading-4">
               {t("footer.url")}</a>
             </div>
           </div>
@@ -351,7 +351,7 @@ const Footer = ({ user, userObject }) => {
           <div className="flex flex-col items-start bg-nbgreylight h-px self-stretch">
           </div>
           <div className="flex items-center gap-2.5 py-2.5">
-            <Link to="/privacy" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+            <Link to="/privacy" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
               <svg
                 className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -362,7 +362,7 @@ const Footer = ({ user, userObject }) => {
                 className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
                 {t("footer.privacy")}</p>
             </Link>
-            <Link to="/terms-and-policies" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+            <Link to="/terms-and-policies" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
               <svg
                 className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
                 xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
