@@ -29,6 +29,8 @@ function App() {
   //auth object of user
   const [user, setUser] = useState(undefined);
 
+  const [search, setSearch] = useState('')
+
   const [userObject, setUserObject] = useState(undefined);
 
   const { auth, onAuthStateChanged, getUser } = useAuth();
@@ -50,7 +52,7 @@ function App() {
   }
   return (
     <div className='App'>
-      <Header user={user} userObject={userObject} />
+      <Header user={user} userObject={userObject} search={search} setSearch={setSearch} />
       <Routes>
         <Route path="/" element={<WhiteLayout />}>
           <Route
@@ -72,7 +74,7 @@ function App() {
           <Route path="/about" element={<NotFound />} />
         </Route>
         <Route path="/" element={<Layout />} user={user}>
-          <Route index element={<Home />} />
+          <Route index element={<Home search={search}/>} />
           <Route path="/search" element={!user ? <Navigate to='/login' /> : <Search />} />
           <Route
             path='/favorites'
