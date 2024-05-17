@@ -69,7 +69,6 @@ const NewReview = ({ user }) => {
   const schema = yup.object().shape({
     title: yup.string().required("Please provide the title"),
     englishTitle: yup.string(),
-    rating: yup.number().typeError("please provide a number").required("Please provide a rating"),
     moneygoal: yup.number().min(1, "Number is too small").max(1000000, "Number is too high").required("Please fill this field").typeError("Please provide a number"),
     genre: yup.string().required("Please choose a genre for your film"),
     description: yup.string().min(20, "Description too short").max(1500, "Description too long").required("Please provide a description"),
@@ -164,6 +163,7 @@ const NewReview = ({ user }) => {
           accept='image/*'
           className='block w-full p-3 m-0 text-base font-normal text-gray-700 transition ease-in-out border-none rounded shadow-md bg-slate-50 form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
           {...register("image")}
+          onChange={(e) => setImage(e.target.files[0])}
           disabled={loading}
         />
 
@@ -192,37 +192,24 @@ const NewReview = ({ user }) => {
         {errors?.title && (<p>{errors.title?.message}</p>)}
         <input
           type='text'
-          placeholder={t("new_reviews.title")}
+          placeholder={t("new_reviews.original_title")}
           className='p-4 rounded-md shadow-md outline-none bg-slate-50'
-          value={title || ''} // Ezek fölöslegesek voltak sztem eddig is, de most már bizto azok
           {...register('title')}
         />
 
         {errors?.englishTitle && (<p>{errors.englishTitle?.message}</p>)}
         <input
           type='text'
-          placeholder={t("new_reviews.original_title")}
+          placeholder={t("new_reviews.title")}
           className='p-4 rounded-md shadow-md outline-none bg-slate-50'
           {...register('englishTitle')}
         />
-        
-        {/*errors?.rating && (<p>{errors.rating?.message}</p>)}
-        <input // Ezt amugy az egészet kikukázhatnánk sztem mer fölös
-          type='number'
-          placeholder='Rating (0 - 5)'
-          className='p-4 rounded-md shadow-md outline-none bg-slate-50'
-          min={0}
-          max={5}
-          //value={rating || ''}
-          {...register('rating')}
-    />*/}
       
         {errors?.moneygoal && (<p>{errors.moneygoal?.message}</p>)}
         <input
           type='number'
           placeholder={t("new_reviews.needed_money")}
           className='p-4 rounded-md shadow-md outline-none bg-slate-50'
-          //value={moneygoal || ''}
           {...register('moneygoal')}
         />
 
@@ -245,14 +232,14 @@ const NewReview = ({ user }) => {
         {errors?.description && (<p>{errors.description?.message}</p>)}
         <textarea
           type='text'
-          placeholder={t("new_reviews.desc")}
+          placeholder={t("new_reviews.original_desc")}
           className='p-4 rounded-md shadow-md outline-none resize-none bg-slate-50 h-[200px]'
           {...register('description')}
         />
         {errors?.englishDescription && (<p>{errors.englishDescription?.message}</p>)}
         <textarea
           type='text'
-          placeholder={t("new_reviews.original_desc")}
+          placeholder={t("new_reviews.desc")}
           className='p-4 rounded-md shadow-md outline-none resize-none bg-slate-50 h-[200px]'
           {...register('englishDescription')}
         />
