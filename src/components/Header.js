@@ -438,7 +438,7 @@ const Header = ({ user, userObject, search, setSearch }) => {
                       </RadixLink>}
                     <RadixLink>
                       <Link
-                        to='/favorites' role="menuitem" tabindex="-1" id="menu-item-1"
+                        to='/favourites' role="menuitem" tabindex="-1" id="menu-item-1"
                         className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <svg
                           className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
@@ -566,7 +566,7 @@ const Header = ({ user, userObject, search, setSearch }) => {
                       </RadixLink>}
                     <RadixLink>
                       <Link
-                        to='/favorites' role="menuitem" tabindex="-1" id="menu-item-1"
+                        to='/favourites' role="menuitem" tabindex="-1" id="menu-item-1"
                         className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <svg
                           className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"

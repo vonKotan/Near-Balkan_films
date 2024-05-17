@@ -10,7 +10,7 @@ const Favorites = ({ user }) => {
   const { t, i18n } = useTranslation(); 
   console.log(favorites);
   return (
-    <section className='flex flex-col items-start justify-start gap-10 py-16 sectionHeight lg:py-32'>
+    <section className='flex flex-col items-start justify-center pt-7 gap-10'>
       <h1 className='mb-2 text-3xl font-bold sm:text-4xl xl:text-5xl'>
         <span className='text-nbgreenmain border-b-4 border-black '>
           {t('favourites.favourites')}

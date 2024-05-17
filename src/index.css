@@ -173,6 +173,7 @@ body {
   touch-action: pan-y;
   text-align: left;
   word-break: break-word;
+  text-wrap: balance;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: var(--font-h3-subtitle-font-family);

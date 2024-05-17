@@ -72,10 +72,10 @@ function App() {
           <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
           <Route path='/*' element={<NotFound />} />
           <Route path="/about" element={<NotFound />} />
+          <Route path="/search" element={!user ? <Navigate to='/login' /> : <Search />} />
         </Route>
         <Route path="/" element={<Layout />} user={user}>
           <Route index element={<Home search={search}/>} />
-          <Route path="/search" element={!user ? <Navigate to='/login' /> : <Search />} />
           <Route
             path='/favourites'
             element={!user ? <Navigate to='/login' /> : <Favorites user={user} />}
