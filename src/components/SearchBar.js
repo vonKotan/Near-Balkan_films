@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 
-export const SearchBar = () => {
+export const SearchBar = ({search, setSearch}) => {
   const { documents: movies } = useFetchData('films');
   const { t, i18n } = useTranslation();
+  
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
-  const [search, setSearch] = useState(null);
+  //const [search, setSearch] = useState(null);
   const [moviesFilter, setMoviesFilter] = useState([]);
 
   useEffect(() => {

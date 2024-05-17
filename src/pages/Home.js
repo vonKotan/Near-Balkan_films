@@ -10,14 +10,27 @@ import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from '../components/SearchBar';
 
-const Home = (search, moviesFilter) => {
+const Home = ({search}) => {
   const { documents: movies } = useFetchData('films');
   const { t, i18n } = useTranslation();
+  console.log(search);
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
   let [isShowing, setIsShowing] = useState(true)
+  const [moviesFilter, setMoviesFilter] = useState([]);
+
+  useEffect(() => {
+    if (search) {
+      console.log(search)
+      const filter = movies.filter((movie) =>
+        movie.title.toLowerCase().includes(search.toLowerCase()),
+      );
+
+      setMoviesFilter(filter);
+    }
+  }, [search, movies]);
 
   return (
     <>
