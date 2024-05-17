@@ -6,7 +6,7 @@ import { useFetchData } from '../hooks/useFetchData';
 
 import { AiFillStar } from 'react-icons/ai';
 
-export const Card = ({ image, title, genre, rating }) => {
+export const Card = ({movie}) => {
   const { documents: movies } = useFetchData('films');
   const [stars, setStars] = useState([]);
 
@@ -26,7 +26,7 @@ export const Card = ({ image, title, genre, rating }) => {
     <section id="gridRow" className="flex flex-col lg:flex-row sm:items-stretch justify-stretch bg-nbgreylight rounded-lg max-w-screen-lg h-auto overflow-clip relative hover:bg-slate-200 transition-colors delay-150 lg:max-h-56 active:lg:max-h-none shadow-md">
       <div id="gridCol"
         className="min-w-full max-h-56 lg:max-w-[35%] sm:min-w-36 w-full lg:ml-5 lg:my-5 ring-1 ring-gray-900/5 ring-inset overflow-clip relative active:max-h-max lg:rounded-md lg:active:h-full">
-        <img src={image} alt="poster" class="h-full w-full object-cover object-center select-none" />
+        <img src={movie.image} alt="poster" class="h-full w-full object-cover object-center select-none" />
         <svg className='peer/arrow z-10 absolute bottom-2 right-2 h-5 w-5 peer-active:hidden transition-all stroke-nbgreylight hover:stroke-nbgreenmain hover:h-6 hover:w-6 duration-700' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25" />
         </svg>

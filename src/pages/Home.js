@@ -62,10 +62,7 @@ const Home = ({ search }) => {
           //   className='flex items-center'
           // >
             <Card
-              image={movie.image}
-              title={movie.title}
-            // genre={movie.genre}
-            // rating={movie.rating}
+              movie = {movie}
             />
           // </Link>
         ))}
