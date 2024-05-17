@@ -169,6 +169,8 @@
 }
 
 body {
+  scrollbar-width: none;
+  scrollbar-height: none;
   overflow-x: hidden;
   touch-action: pan-y;
   text-align: left;
