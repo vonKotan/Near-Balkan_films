@@ -18,9 +18,9 @@ export const Card = ({movie}) => {
     return arr;
   };
 
-  useEffect(() => {
-    setStars(setRatingStars(rating));
-  }, [rating]);
+ /* useEffect(() => {
+    //setStars(setRatingStars(rating));
+  }, [rating]);*/
 
   return (
     <section id="gridRow" className="flex flex-col lg:flex-row sm:items-stretch justify-stretch bg-nbgreylight rounded-lg max-w-screen-lg h-auto overflow-clip relative hover:bg-slate-200 transition-colors delay-150 lg:max-h-56 active:lg:max-h-none shadow-md">
@@ -40,7 +40,7 @@ export const Card = ({movie}) => {
           <a className="font-bold font-h4-lead text-base text-nbgreenmain animate-pulse tracking-tighter uppercase sm:block hidden">versenyben</a>
         </div>
         <div id="gridCol" className='flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-8'>
-          <a className="font-black font-h2-title text-4xl text-nbgreydark tracking-tight leading-tight pb-1 underline decoration-nbgreenmain decoration-4 underline-offset-4 hover:text-nbgreenmain active:text-nbgreenlight active:decoration-nbgreenlight transition-colors sm:min-w-max">{title}</a>
+          <a className="font-black font-h2-title text-4xl text-nbgreydark tracking-tight leading-tight pb-1 underline decoration-nbgreenmain decoration-4 underline-offset-4 hover:text-nbgreenmain active:text-nbgreenlight active:decoration-nbgreenlight transition-colors sm:min-w-max">{movie.title}</a>
           <div class="flex flex-row items-stretch sm:items-center justify-between gap-4  overflow-x-scroll sm:overflow-x-hidden lg:overflow-x-visible py-1">
             <div class="flex flex-row items-end sm:items-center justify-start gap-4 overflow-visible">
               <a className='flex flex-row gap-2 items-center group/button'>
@@ -75,7 +75,7 @@ export const Card = ({movie}) => {
               </div>
               <div className="w-full bg-nbgreylight rounded-full h-5 overflow-clip flex items-center group/slider">
                 <button href="#"
-                  className="bg-nbgreenmain hover:bg-nbgreydark active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 rounded-full min-w-fit min-h-fit transition-all select-none group/button h-5 group-active/graphfield:bg-nbgreenlight group-active/graphfield:w-full hover:w-full delay-300 duration-700 group-hover/slider:w-full w-[45%]">
+                  className="bg-nbgreenmain hover:bg-nbgreydark active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 rounded-full min-w-fit min-h-fit transition-all select-none group/button h-5 group-active/graphfield:bg-nbgreenlight group-active/graphfield:w-full hover:w-full delay-300 duration-700 group-hover/slider:w-full w-[${45}%]">
                   <div className="collapse transition-all delay-300 duration-700 group-hover/slider:visible flex items-start justify-center gap-1">
                     <svg
                       className="group-active/button:fill-nbgreenlight group-disabled/button:fill-nbgreymiddark h-3 translate-y-1 fill-nbgreylight"
