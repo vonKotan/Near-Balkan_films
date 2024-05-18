@@ -74,7 +74,7 @@ export function Filmography({ sendData, user }) {
             </div> */}
             <div
                 className="col-span-full flex flex-col justify-center boreder border-dashed rounded-lg border-2 border-nborangemain mb-4 text-center p-10">
-                {errorMesage && <p>{errorMesage}</p>}
+                
                 <label for="photo" className=" h2-title block text-sm font-medium leading-6 text-gray-900">Add your
                     filmography</label>
                 <div className="relative max-w-sm left-1/2 -translate-x-1/2 p-5">
@@ -85,9 +85,10 @@ export function Filmography({ sendData, user }) {
 
                         </svg>
                     </div>
+                    
                     <input type="date"
-                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg hover:border-nbgreenlight hover:border-2 focus:ring-nbgreenmain focus:border-nbgreenmain block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Select date" onChange={(e) => setDate(e.target.value)}/>
+                        className="peer bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg hover:border-nbgreenlight hover:border-2 focus:ring-nbgreenmain focus:border-nbgreenmain block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Select date" onChange={(e) => setDate(e.target.value)} />
                 </div>
                 <div>
                     <label
@@ -123,11 +124,13 @@ export function Filmography({ sendData, user }) {
                         <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">{image?.name}</p>
                         <p className="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
                     </div>
-
+                    
                 </div>
-                <div >
+                
+                <div className='p-2'>
                     <input type='button' onClick={() => sendFilmData()} value="Add Filmography" className='rounded-md bg-nbgreenmain px-2.5 py-1.5 text-sm font-semibold text-nbgreylight shadow-sm hover:bg-nbgreendark focus:bg-nbgreendark focus:ring-1 focus:ring-nbgreenmain ring-offset'></input>
                 </div>
+                {errorMesage && <p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errorMesage}</p>}
 
             </div>
         </section>

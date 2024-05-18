@@ -196,7 +196,7 @@ export const RegistrationAuth = () => {
                     <div class="mt-10 sm:mx-auto sm:w-full min-w-max">
                         <form class="space-y-6" onSubmit={handleSubmit(handleRegister)}>
                             <div>
-                                {errors.email && (<p>{errors.email?.message}</p>)}
+                                
                                 <label
                                     for="email"
                                     class="block text-sm text-left font-medium leading-6 text-gray-900"
@@ -209,15 +209,15 @@ export const RegistrationAuth = () => {
                                         type="email"
                                         autocomplete="email"
                                         {...register("email")}
-                                        required
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
                                     />
+                                    {errors.email && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.email?.message}</p>)}
                                 </div>
                             </div>
 
                             <div>
                                 <div class="flex items-center justify-between">
-                                    {errors.password && (<p>{errors.password?.message}</p>)}
+                                    
                                     <label
                                         for="password"
                                         class="block text-sm font-medium leading-6 text-gray-900"
@@ -232,9 +232,9 @@ export const RegistrationAuth = () => {
                                         type="password"
                                         {...register("password")}
                                         autocomplete="current-password"
-                                        required
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
                                     />
+                                    {errors.password && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.password?.message}</p>)}
                                 </div>
                             </div>
                             <div class="flex items-center justify-between">
@@ -253,9 +253,9 @@ export const RegistrationAuth = () => {
                                     type="password"
                                     {...register("confirmPassword")}
                                     autocomplete="current-password"
-                                    required
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
                                 />
+                                {errors.confirmPassword && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.confirmPassword?.message}</p>)}
                             </div>
 
                             <div>

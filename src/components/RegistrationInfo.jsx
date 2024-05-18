@@ -304,7 +304,7 @@ export const RegistrationInfo = ({ user }) => {
                     <form class="space-y-6" onSubmit={handleSubmit(handleRegister)}>
                         <div class="mt-10 sm:mx-auto sm:w-full min-w-max">
 
-                            {errors.firstName && (<p>{errors.firstName?.message}</p>)}
+
                             <div>
                                 <label for="firstname"
                                     class="block text-sm text-left font-medium leading-6 text-gray-900">{t("register_info.first_name")}</label>
@@ -313,9 +313,9 @@ export const RegistrationInfo = ({ user }) => {
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
                                         {...register("firstName")}
                                         placeholder={t("register_info.first_name")} />
+                                    {errors.firstName && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.firstName?.message}</p>)}
                                 </div>
                             </div>
-                            {errors.lastName && (<p>{errors.lastName?.message}</p>)}
                             <div>
 
                                 <label for="lastName"
@@ -325,24 +325,25 @@ export const RegistrationInfo = ({ user }) => {
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
                                         {...register("lastName")}
                                         placeholder={t("register_info.last_name")} />
+                                    {errors.lastName && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.lastName?.message}</p>)}
                                 </div>
                             </div>
 
                             <div>
-                                {errors.userName && (<p>{errors.userName?.message}</p>)}
                                 <label for="username"
                                     class="block text-sm text-left font-medium leading-6 text-gray-900">Username</label>
                                 <div class="mt-2">
-                                    <input id="username" name="username" type="text" autocomplete="username" 
+                                    <input id="username" name="username" type="text" autocomplete="username"
                                         {...register("userName")}
                                         placeholder={t("register_info.username")}
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
-                                         />
+                                    />
+                                    {errors.userName && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.userName?.message}</p>)}
                                 </div>
                             </div>
 
                             <form class="max-w-sm mx-auto">
-                                {errors.phoneNumber && (<p>{errors.phoneNumber?.message}</p>)}
+
                                 <label for="phone-input"
                                     class="block mb-2 text-sm text-left font-medium text-gray-900 dark:text-white">{t("register_info.phone_number")}</label>
                                 <div class="relative">
@@ -355,9 +356,10 @@ export const RegistrationInfo = ({ user }) => {
                                     </div>
                                     <input type="text" id="phone-input" aria-describedby="helper-text-explanation"
                                         class="block w-full ps-10 p-2.5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
-                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                                         {...register("phoneNumber")}
                                         placeholder={t("register_info.phone_number")} />
+                                    {errors.phoneNumber && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.phoneNumber?.message}</p>)}
                                 </div>
 
                                 <div class="col-span-full flex flex-col justify-center text-center p-10">
@@ -392,11 +394,12 @@ export const RegistrationInfo = ({ user }) => {
                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                         </svg>
                                     </div>
-                                    {errors.birthDate && (<p>{errors.birthDate?.message}</p>)}
+
                                     <input type="date"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg hover:border-nbgreenlight hover:border-2 focus:ring-nbgreenmain focus:border-nbgreenmain block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         {...register("birthDate")}
                                         placeholder={t("register_info.date_of_birth")} />
+                                    {errors.birthDate && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.birthDate?.message}</p>)}
                                 </div>
 
                                 <div class="inline-flex items-center justify-center w-full">
@@ -405,9 +408,9 @@ export const RegistrationInfo = ({ user }) => {
                                 </div>
                                 <fieldset>
                                     <legend class="text-nbblack">Are you a content creator or a viewer?</legend>
-                                    {errors.userType && (<p>{errors.userType?.message}</p>)}
-                                    <input class="text-nbblack focus:ring-nborangemain text-nbblack peer/Viewer" value ='creator' id="Creator"
-                                        type="radio" name="status" 
+
+                                    <input class="text-nbblack focus:ring-nborangemain text-nbblack peer/Viewer" value='creator' id="Creator"
+                                        type="radio" name="status"
                                         {...register("userType")}
                                         onClick={(e) => setUserType('creator')} />
                                     <label for="Viewer" class="text-nbblack peer-checked/Viewer:text-nborangemain">Content creator</label>
@@ -417,6 +420,7 @@ export const RegistrationInfo = ({ user }) => {
                                         onClick={(e) => setUserType('viewer')} />
                                     <label for="Content creator"
                                         class="text-nbblack peer-checked/Content creator:text-nborangemain">Viewer</label>
+                                    {errors.userType && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.userType?.message}</p>)}
 
                                     {/* <div class="text-nbblack focus:ring-nborangemain text-nbblack hidden peer-checked/Viewer:block">Choose your prefered roles.</div> */}
                                 </fieldset>
@@ -424,10 +428,11 @@ export const RegistrationInfo = ({ user }) => {
                         </div>
 
                         {userType === 'creator' && <>
-                            {rolesError && (<p>{rolesError}</p>)}
+
                             <CustomSelect isMulti={true} options={titleOptions} onSelect={setRoles}></CustomSelect>
-                            {filmographyError && (<p>{filmographyError}</p>)}
+                            {rolesError && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{rolesError}</p>)}
                             <Filmography user={user} sendData={addFilmograpy}></Filmography>
+                            {filmographyError && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{filmographyError}</p>)}
 
                         </>}
                         <div>

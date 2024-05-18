@@ -154,8 +154,7 @@ const NewReview = ({ user }) => {
       <form
         onSubmit={handleSubmit(handleUpload)}
         className='flex flex-col max-w-[600px] w-[90%] mx-auto gap-3 mb-16'
-      >
-        {errors?.image && (<p>{errors.image?.message}</p>)}
+      >     
         <label htmlFor='poster'>{t("new_reviews.poster")}</label>
 
         <div className="mt-2 flex justify-center mx-4 rounded-lg border border-dashed border-nbgreenmain px-6 py-10">
@@ -176,6 +175,7 @@ const NewReview = ({ user }) => {
                   onChange={(e) => setImage(e.target.files[0])}
                   disabled={loading}
                 />
+                {errors?.image && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.image?.message}</p>)}
               </label>
             </div>
             <p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{image?.name}</p>
@@ -192,7 +192,7 @@ const NewReview = ({ user }) => {
           disabled={loading}
         /> */}
 
-        {errors?.video && (<p>{errors.video?.message}</p>)}
+        
         <label htmlFor='film'>{t("new_reviews.film")}</label>
         <div className="mt-2 flex justify-center mx-4 rounded-lg border border-dashed border-nbgreenmain px-6 py-10">
           <div className="text-center">
@@ -212,6 +212,7 @@ const NewReview = ({ user }) => {
                   onChange={(e) => setVideo(e.target.files[0])}
                   disabled={loading}
                 />
+                {errors?.video && (<p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{errors.video?.message}</p>)}
               </label>
             </div>
             <p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{video?.name}</p>
@@ -226,7 +227,7 @@ const NewReview = ({ user }) => {
           disabled={loading}
         /> */}
 
-        {errors?.script && (<p>{errors.script?.message}</p>)}
+        
         <label htmlFor='film'>{t("new_reviews.script")}</label>
         <div className="mt-2 flex justify-center mx-4 rounded-lg border border-dashed border-nbgreenmain px-6 py-10">
           <div className="text-center">
@@ -246,6 +247,7 @@ const NewReview = ({ user }) => {
                   onChange={(e) => setScript(e.target.files[0])}
                   disabled={loading}
                 />
+                {errors?.script && (<p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{errors.script?.message}</p>)}
               </label>
             </div>
             <p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{script?.name}</p>
@@ -260,7 +262,7 @@ const NewReview = ({ user }) => {
           disabled={loading}
         /> */}
 
-        {errors?.title && (<p>{errors.title?.message}</p>)}
+        
         {/* <input
           type='text'
           placeholder={t("new_reviews.original_title")}
@@ -278,12 +280,13 @@ const NewReview = ({ user }) => {
                 className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
                 {...register('title')}
               />
+              {errors?.title && (<p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{errors.title?.message}</p>)}
             </div>
           </div>
 
         </div>
 
-        {errors?.englishTitle && (<p>{errors.englishTitle?.message}</p>)}
+        
         <p className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left">{t("new_reviews.title")}</p>
         <div className="mt-2 space-y-6">
 
@@ -295,6 +298,7 @@ const NewReview = ({ user }) => {
                 className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
                 {...register('englishTitle')}
               />
+              {errors?.englishTitle && (<p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{errors.englishTitle?.message}</p>)}
             </div>
           </div>
 
@@ -306,7 +310,7 @@ const NewReview = ({ user }) => {
           {...register('englishTitle')}
         /> */}
 
-        {errors?.moneygoal && (<p>{errors.moneygoal?.message}</p>)}
+       
         <p className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left">{t("new_reviews.needed_money")}</p>
         <div className="mt-2 space-y-6">
           <div className="flex justify-start mt-2">
@@ -317,6 +321,7 @@ const NewReview = ({ user }) => {
                 className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
                 {...register('moneygoal')}
               />
+               {errors?.moneygoal && (<p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{errors.moneygoal?.message}</p>)}
             </div>
           </div>
         </div>
@@ -327,7 +332,7 @@ const NewReview = ({ user }) => {
           {...register('moneygoal')}
         /> */}
 
-        {errors?.genre && (<p>{errors.genre?.message}</p>)}
+        
         {/* <select
           className={`p-4  rounded-md shadow-md outline-none bg-slate-50 ${genre === '' && 'text-gray-400'
             }`}
@@ -343,9 +348,9 @@ const NewReview = ({ user }) => {
           ))}
         </select> */}
         <CustomSelect isMulti={false} options={i18n.language=='hu' ? genreOptionsHU: genreOptions} onSelect={setGenre}></CustomSelect>
-        
+        {errors?.genre && (<p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{errors.genre?.message}</p>)}
 
-        {errors?.description && (<p>{errors.description?.message}</p>)}
+        {errors?.description && (<p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{errors.description?.message}</p>)}
         <p className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left">{t("new_reviews.original_desc")}</p>
         <div className="mt-2 space-y-6">
           <div className="flex justify-start mt-2">
@@ -356,6 +361,7 @@ const NewReview = ({ user }) => {
                 className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 resize-y'
                 {...register('description')}
               />
+              {errors?.englishDescription && (<p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{errors.englishDescription?.message}</p>)}
             </div>
           </div>
         </div>
@@ -365,7 +371,7 @@ const NewReview = ({ user }) => {
           className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
           {...register('description')}
         /> */}
-        {errors?.englishDescription && (<p>{errors.englishDescription?.message}</p>)}
+        
         <p className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left">{t("new_reviews.desc")}</p>
         <div className="mt-2 space-y-6">
           <div className="flex justify-start mt-2">
@@ -376,6 +382,7 @@ const NewReview = ({ user }) => {
                 className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 resize-y'
                 {...register('englishDescription')}
               />
+              {errors?.englishDescription && (<p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{errors.englishDescription?.message}</p>)}
             </div>
           </div>
         </div>
