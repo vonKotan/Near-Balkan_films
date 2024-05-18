@@ -4,44 +4,43 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useFetchData } from '../hooks/useFetchData';
 
+// Components
+import { CountdownTimer, CurrentRace, RaceState } from './CountdownTimer';
+import { GraphFieldRace } from './GraphFieldRace';
+import { useTranslation } from 'react-i18next';
+
 import { AiFillStar } from 'react-icons/ai';
 
-export const Card = ({ image, title, genre, rating }) => {
-  const { documents: movies } = useFetchData('films');
-  const [stars, setStars] = useState([]);
+export const Card = ({ movie, targetDate, haveWon }) => {
 
-  const setRatingStars = (size) => {
-    const arr = [];
-    for (let i = 1; i <= size; i++) {
-      arr.push(i);
-    }
-    return arr;
+  const { documents: movies } = useFetchData('films');
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
   };
 
-  useEffect(() => {
-    setStars(setRatingStars(rating));
-  }, [rating]);
-
   return (
-    <section id="gridRow" className="flex flex-col lg:flex-row sm:items-stretch justify-stretch bg-nbgreylight rounded-lg max-w-screen-lg h-auto overflow-clip relative hover:bg-slate-200 transition-colors delay-150 lg:max-h-56 active:lg:max-h-none shadow-md">
+    <section id="gridRow" className="flex flex-col lg:flex-row sm:items-stretch justify-stretch bg-nbgreylight rounded-lg max-w-screen-lg h-auto overflow-clip relative hover:bg-slate-200 transition-colors delay-150 shadow-md w-full">
       <div id="gridCol"
-        className="min-w-full max-h-56 lg:max-w-[35%] sm:min-w-36 w-full lg:ml-5 lg:my-5 ring-1 ring-gray-900/5 ring-inset overflow-clip relative active:max-h-max lg:rounded-md lg:active:h-full">
-        <img src={image} alt="poster" class="h-full w-full object-cover object-center select-none" />
-        <svg className='peer/arrow z-10 absolute bottom-2 right-2 h-5 w-5 peer-active:hidden transition-all stroke-nbgreylight hover:stroke-nbgreenmain hover:h-6 hover:w-6 duration-700' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
+        className="min-w-full max-h-56 sm:min-w-24 w-full lg:ml-5 lg:my-5 ring-1 ring-gray-900/5 ring-inset overflow-clip relative active:max-h-max lg:rounded-md lg:max-w-28 lg:min-h-40">
+        <div class="peer aspect-h-4 aspect-w-3 active:aspect-h-3 active:aspect-w-2 lg:active:aspect-none lg:aspect-none transition-all lg:h-full">
+          <img src={movie.image} alt="poster" class="h-full w-full object-cover object-center select-none" />
+        </div>
+        <svg className='peer/arrow z-10 absolute bottom-2 right-2 h-5 w-5 peer-active:hidden lg:hidden transition-all stroke-nbgreylight hover:stroke-nbgreenmain hover:h-6 hover:w-6 duration-700' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25" />
         </svg>
       </div>
       <div id="gridCol" className="flex-auto flex flex-col justify-between pr-7 lg:pl-3 pl-7 pb-5 lg:pt-5">
         <div id="timeTags" className="flex flex-row justify-between w-full mb-1">
-          <a className="inline-flex flex-row items-center gap-2">
-            <div class="h-1 w-1 animate-ping rounded-full bg-nbgreenmain opacity-75"></div>
-            <h4 className="font-bold font-h3-subtitle text-base text-nbgreenmain tracking-tighter">2024 május-június</h4>
-          </a>
-          <a className="font-bold font-h4-lead text-base text-nbgreenmain animate-pulse tracking-tighter uppercase sm:block hidden">versenyben</a>
+          <CurrentRace targetDate={targetDate} />
+          <RaceState targetDate={targetDate} />
         </div>
         <div id="gridCol" className='flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-8'>
-          <a className="font-black font-h2-title text-4xl text-nbgreydark tracking-tight leading-tight pb-1 underline decoration-nbgreenmain decoration-4 underline-offset-4 hover:text-nbgreenmain active:text-nbgreenlight active:decoration-nbgreenlight transition-colors sm:min-w-max">{title}</a>
-          <div class="flex flex-row items-stretch sm:items-center justify-between gap-4  overflow-x-scroll sm:overflow-x-hidden lg:overflow-x-visible py-1">
+          <Link
+            key={movie.id}
+            to={`/details/${movie.id}`}
+            className="font-black font-h2-title text-4xl text-nbgreydark tracking-tight leading-tight pb-1 underline decoration-nbgreenmain decoration-4 underline-offset-4 hover:text-nbgreenmain active:text-nbgreenlight active:decoration-nbgreenlight transition-colors sm:min-w-max">{movie.title}</Link>
+          <div class="flex flex-row items-stretch sm:items-center justify-between gap-4 overflow-x-hidden lg:overflow-x-visible py-1">
             <div class="flex flex-row items-end sm:items-center justify-start gap-4 overflow-visible">
               <a className='flex flex-row gap-2 items-center group/button'>
                 <button type="button"
@@ -55,69 +54,32 @@ export const Card = ({ image, title, genre, rating }) => {
                 </button>
                 <h3
                   className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight  font-bold font-h2-title text-base text-left text-nbgreydark leading-none tracking-tight cursor-pointer text-nowrap text-ellipsis max-w-32 sm:max-w-44 lg:max-w-none">
-                  Magyar 'Machine' Ádám 'Gun' Gergely</h3>
+                  {movie.user}</h3>
               </a>
             </div>
           </div>
 
         </div>
-        <div
-          id="graphField" className="flex flex-col justify-center bg-gray-50 rounded-2xl text-start ring-1 ring-gray-900/5 ring-inset mt-3 sm:mt-2 active:bg-slate-200 group/graphfield transition-colors delay-1000 duration-1000">
-          <div className="px-6 py-5 flex flex-col gap-2">
-            <div class="flex flex-col gap-1 sm:gap-2 group/island">
-              <div className="group/labels peer/labels flex flex-col sm:flex-row justify-between gap-1">
-                <div class="pointer-events-none mx-0 leading-none">
-                  <span className="text-xs sm:text-base font-bold text-nbgreenmain transition-all">520.540 HUF</span>
-                  <span className="text-xs sm:text-base font-bold text-nbgreymain"> / </span>
-                  <span className="text-xs sm:text-base group-hover/graphfield:text-nbredmain group-active/island:text-nbgreydark font-bold text-nbgreenlight transition-all">1.200.000 HUF</span>
-                </div>
-                <span className="order-first flex align-center font-semibold text-nbgreylight text-sm bg-nbredmain hover:bg-red-400 max-w-fit px-2 pt-px rounded-md leading-normal cursor-pointer select-none">30d 21h 32m</span>
-              </div>
-              <div className="w-full bg-nbgreylight rounded-full h-5 overflow-clip flex items-center group/slider">
-                <button href="#"
-                  className="bg-nbgreenmain hover:bg-nbgreydark active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 rounded-full min-w-fit min-h-fit transition-all select-none group/button h-5 group-active/graphfield:bg-nbgreenlight group-active/graphfield:w-full hover:w-full delay-300 duration-700 group-hover/slider:w-full w-[45%]">
-                  <div className="collapse transition-all delay-300 duration-700 group-hover/slider:visible flex items-start justify-center gap-1">
-                    <svg
-                      className="group-active/button:fill-nbgreenlight group-disabled/button:fill-nbgreymiddark h-3 translate-y-1 fill-nbgreylight"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                      <path
-                        d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                    </svg>
-                    <p
-                      className="group-active/button:text-nbgreenlight group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-xs leading-5 tracking-tight">
-                      támogatom</p>
-                  </div>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} />
       </div>
     </section>
   );
 };
 
-export const CardComplex = ({ image, title, genre, rating }) => {
-  const [stars, setStars] = useState([]);
+export const CardComplex = ({ movie, targetDate, haveWon }) => {
 
-  const setRatingStars = (size) => {
-    const arr = [];
-    for (let i = 1; i <= size; i++) {
-      arr.push(i);
-    }
-    return arr;
+  const { documents: movies } = useFetchData('films');
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
   };
-
-  useEffect(() => {
-    setStars(setRatingStars(rating));
-  }, [rating]);
 
   return (
     <section id="gridRow" className="flex flex-col lg:flex-row sm:items-stretch justify-stretch items-center bg-nbgreylight rounded-lg max-w-screen-lg overflow-clip relative hover:bg-slate-200 transition-colors delay-150">
       <div id="gridCol"
         className="min-w-full lg:max-w-[35%] sm:min-w-0 w-full lg:ml-5 lg:my-5 ring-1 ring-gray-900/5 ring-inset relative">
-        <div class="h-full overflow-hidden bg-white lg:rounded-md aspect-h-1 aspect-w-2 active:aspect-h-3 active:aspect-w-2 transition-all active:max-h-40 peer-hover/arrow:hue-rotate-15">
-          <img src={image} alt="poster" class="h-full w-full object-cover object-center select-none" />
+        <div class="h-full overflow-hidden bg-white lg:rounded-md aspect-h-1 aspect-w-2 active:aspect-h-3 active:aspect-w-2 transition-all peer-hover/arrow:hue-rotate-15">
+          <img src={movie.image} alt="poster" class="h-full w-full object-cover object-center select-none" />
         </div>
         <svg className='peer/arrow z-10 absolute bottom-2 right-2 h-5 w-5 peer-active:hidden transition-all stroke-nbgreylight hover:stroke-nbgreenmain hover:h-6 hover:w-6 duration-700' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 19.5-15-15m0 0v11.25m0-11.25h11.25" />
@@ -132,8 +94,18 @@ export const CardComplex = ({ image, title, genre, rating }) => {
           <a href="/" className="font-bold font-h4-lead text-base text-nbgreenmain animate-pulse tracking-tighter uppercase sm:block hidden">versenyben</a>
         </div>
         <div id="gridCol" className='flex flex-col'>
-          <a href=""
-            className="font-black font-h2-title text-4xl text-nbgreydark tracking-tight leading-tight pb-1 underline decoration-nbgreenmain decoration-4 underline-offset-4 hover:text-nbgreenmain active:text-nbgreenlight active:decoration-nbgreenlight transition-colors">{title}</a>
+          {i18n.language === 'hu' && (
+            <Link
+              key={movie.id}
+              to={`/details/${movie.id}`}
+              className="font-black font-h2-title text-4xl text-nbgreydark tracking-tight leading-tight pb-1 underline decoration-nbgreenmain decoration-4 underline-offset-4 hover:text-nbgreenmain active:text-nbgreenlight active:decoration-nbgreenlight transition-colors">{movie.title}
+            </Link>)}
+          {i18n.language === 'en' && (
+            <Link
+              key={movie.id}
+              to={`/details/${movie.id}`}
+              className="font-black font-h2-title text-4xl text-nbgreydark tracking-tight leading-tight pb-1 underline decoration-nbgreenmain decoration-4 underline-offset-4 hover:text-nbgreenmain active:text-nbgreenlight active:decoration-nbgreenlight transition-colors">{movie.englishTitle}
+            </Link>)}
           <div class="min-w-40 w-52 sm:w-full max-w-screen-md overflow-x-scroll sm:overflow-x-visible sm:border-r-transparent border-r-2 border-nbgreymain mb-3 scroll-pr-6">
             <div class="flex flex-row items-center sm:items-center justify-between gap-4 overflow-visible py-1">
               <div class="flex flex-row items-end sm:items-center justify-start gap-4 overflow-visible">
@@ -196,69 +168,11 @@ export const CardComplex = ({ image, title, genre, rating }) => {
             </Link> */}
             </div>
           </div>
-          <p className="font-p-paragraph text-base text-nbgreymiddark leading-7 line-clamp-3 sm:line-clamp-none">Carolyn Marsh legújabb romantikus sikerkönyvének a hőse egy vérbeli felföldi legény: Duncan MacLeod. Mind a könyv pozitív hőse, MacLeod, mind a regénybeli rosszfiú, Terence Coventry találkozni akar az írónővel.</p>
+          <p className="font-p-paragraph text-base text-nbgreymiddark leading-7 line-clamp-3 sm:line-clamp-6 mb-2">Carolyn Marsh legújabb romantikus sikerkönyvének a hőse egy vérbeli felföldi legény: Duncan MacLeod. Mind a könyv pozitív hőse, MacLeod, mind a regénybeli rosszfiú, Terence Coventry találkozni akar az írónővel.</p>
         </div>
-        <div
-          id="graphField" className="flex flex-col justify-center bg-gray-50 rounded-2xl text-start ring-1 ring-gray-900/5 ring-inset mt-5 active:bg-slate-200 group/graphfield transition-colors delay-1000 duration-1000">
-          <div className="px-6 py-5 flex flex-col gap-2">
-            <div class="flex flex-col gap-1 sm:gap-2 group/island">
-              <div className="group/labels peer/labels flex flex-col sm:flex-row justify-between gap-1">
-                <div class="pointer-events-none mx-0 leading-none">
-                  <span className="text-xs sm:text-base font-bold text-nbgreenmain transition-all">520.540 HUF</span>
-                  <span className="text-xs sm:text-base font-bold text-nbgreymain"> / </span>
-                  <span className="text-xs sm:text-base group-hover/graphfield:text-nbredmain group-active/island:text-nbgreydark font-bold text-nbgreenlight transition-all">1.200.000 HUF</span>
-                </div>
-                <span className="order-first flex align-center font-semibold text-nbgreylight text-sm bg-nbredmain hover:bg-red-400 max-w-fit px-2 pt-px rounded-md leading-normal cursor-pointer select-none">30d 21h 32m</span>
-              </div>
-              <div className="w-full bg-nbgreylight rounded-full h-5 overflow-clip flex items-center group/slider">
-                {/* <div className="bg-nbgreenmain h-2.5 rounded-full w-[45%]"></div> */}
-                <a href=""
-                  className="bg-nbgreenmain hover:bg-nbgreydark active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 rounded-full min-w-fit min-h-fit transition-all select-none group/button h-5 group-active/graphfield:bg-nbgreenlight group-active/graphfield:w-full hover:w-full delay-300 duration-700 group-hover/slider:w-full w-[45%]">
-                  <div className="collapse transition-all delay-300 duration-700 group-hover/slider:visible flex items-start justify-center gap-1">
-                    <svg
-                      className="group-active/button:fill-nbgreenlight group-disabled/button:fill-nbgreymiddark h-3 translate-y-1 fill-nbgreylight"
-                      xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                      <path
-                        d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                    </svg>
-                    <p
-                      className="group-active/button:text-nbgreenlight group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-xs leading-5 tracking-tight">
-                      támogatom</p>
-                  </div>
-                </a>
-                {/* <div className="peer/empty sm:flex items-start group/button justify-center gap-1 hidden group-hover/slider:hidden hover:hidden w-[55%]">
-                <svg
-                  className="group-active/button:fill-nbgreenlight group-disabled/button:fill-nbgreymiddark h-3 translate-y-1 fill-nbgreenmain"
-                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                  <path
-                    d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                </svg>
-                <p
-                  className="group-active/button:text-nbgreenlight group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreenmain text-xs leading-5 tracking-tight">
-                  támogatom</p>
-              </div> */}
-              </div>
-            </div>
-            {/* <button href="#"
-            className="bg-nbgreendark hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain mb-1 mt-2">
-            <div className="flex items-start justify-center gap-2">
-              <svg
-                className="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymiddark h-4 translate-y-0.5 fill-nbgreenmain"
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                <path
-                  d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-              </svg>
-              <p
-                className="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-sm leading-5 tracking-tight">
-                fund project</p>
-            </div>
-          </button> */}
-            {/* <p className="text-gray-600 text-xs leading-4">Click on the button, assign your profile and get
-            verified!</p> */}
-          </div>
-        </div>
+        <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} />
       </div>
-    </section>
+    </section >
   );
 };
 

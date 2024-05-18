@@ -5,7 +5,7 @@ import { Transition } from '@headlessui/react';
 import { Link } from 'react-router-dom';
 
 // Components
-import Card from '../components/Card';
+import Card from '../components/Card.1';
 import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from '../components/SearchBar';

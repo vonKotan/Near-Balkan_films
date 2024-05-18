@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Transition } from '@headlessui/react';
 
 // Router
 import { Link } from 'react-router-dom';
@@ -17,8 +16,6 @@ const Search = () => {
         i18n.changeLanguage(lng);
     };
 
-    let [isShowing, setIsShowing] = useState(true)
-
     const [search, setSearch] = useState(null);
     const [moviesFilter, setMoviesFilter] = useState([]);
 
@@ -33,11 +30,11 @@ const Search = () => {
     }, [search, movies]);
 
     return (
-        <section className='flex flex-col justify-center items-center gap-8 m-auto'>
+        <>
             <div className="flex flex-col gap-4">
                 <p className="max-w-52 text-balance text-gray-600 text-xs leading-4">Project Drafts, Films and People...</p>
                 <div
-                    className="flex items-start gap-1 -mb-0.5 px-2 py-1 rounded-full w-full min-h-fit select-none group/anchor ring-1 ring-nbgreenlight">
+                    className="flex items-start gap-1 -mb-0.5 px-2 py-1 rounded-full w-full max-w-52 min-h-fit select-none group/anchor ring-1 ring-nbgreenlight">
                     <svg
                         className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreendark h-3 transition-all translate-y-1 fill-nbgreendark"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
@@ -47,50 +44,23 @@ const Search = () => {
                     <SearchBar search={search} setSearch={setSearch} />
                 </div>
             </div>
-            {search && moviesFilter.length === 0 && (
-                <Transition
-                    show={isShowing}
-                    enter="transition duration-[400ms]"
-                    enterFrom="scale-50 opacity-0"
-                    enterTo="scale-100 opacity-100"
-                    leave="transition duration-200 ease-in-out"
-                    leaveFrom="scale-100 opacity-100"
-                    leaveTo="scale-95 opacity-0"
-                >
+            {
+                search && moviesFilter.length === 0 && (
                     <div className='flex justify-center items-center gap-8 py-8'>
                         <p>{t("home.no_results")}</p>
                     </div>
-                </Transition>
-            )}
-            <div className='flex justify-center items-center gap-8'>
-                {search &&
-                    moviesFilter.length > 0 &&
-                    moviesFilter?.map((movie) => (
-                        <Transition
-                            show={isShowing}
-                            enter="transition duration-[400ms]"
-                            enterFrom="scale-50 opacity-0"
-                            enterTo="scale-100 opacity-100"
-                            leave="transition duration-200 ease-in-out"
-                            leaveFrom="scale-100 opacity-100"
-                            leaveTo="scale-95 opacity-0"
-                        >
-                            <Link
-                                key={movie.id}
-                                to={`/details/${movie.id}`}
-                                className='flex items-center'
-                            >
-                                <Card
-                                    image={movie.image}
-                                    title={movie.title}
-                                    genre={movie.genre}
-                                    rating={movie.rating}
-                                />
-                            </Link>
-                        </Transition>
-                    ))}
-            </div>
-        </section>
+                )
+            }
+            {
+                search &&
+                moviesFilter.length > 0 &&
+                moviesFilter?.map((movie) => (
+                    <Card
+                        movie={movie}
+                    />
+                ))
+            }
+        </>
     );
 };
 

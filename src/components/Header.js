@@ -338,7 +338,7 @@ const Header = ({ user, userObject, search, setSearch }) => {
                     <img
                       src={user.photoURL}
                       alt='user'
-                      className='lg:flex justify-center items-end gap-1 hidden bg-nbgreydark hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreymiddark rounded-full w-7 min-w-fit h-7 min-h-fit overflow-hidden select-none group/button'
+                      className='lg:block hidden max-h-7 max-w-7 w-full h-full rounded-full'
                     />
                     <button type="button" id="menu-button" aria-expanded="true" aria-haspopup="true"
                       className="flex items-end gap-1 lg:hidden min-w-fit min-h-fit select-none group/button">
