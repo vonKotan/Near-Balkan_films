@@ -10,7 +10,7 @@ import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 // import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from '../components/SearchBar';
 
-const Home = ({ search }) => {
+const Home = ({ search, targetDate }) => {
   const { documents: movies } = useFetchData('films');
   const { t, i18n } = useTranslation();
   console.log(search);
@@ -41,11 +41,6 @@ const Home = ({ search }) => {
     generateRandomMovie();
   });
 
-  // target date
-  const RELATIVE_TIME_FROM_NOW = new Date().getTime() + 3 * 24 * 60 * 60 * 1000;
-  const EXACT_DATE_IN_FUTURE = new Date("May 3, 2024 12:00:00").getTime();
-  const targetDate = EXACT_DATE_IN_FUTURE;
-
   return (
     <>
       <section id="gridRow sectionTitle" className="flex flex-row flex-wrap justify-start items-center">
@@ -65,12 +60,11 @@ const Home = ({ search }) => {
           targetDate={targetDate}
         />
       ))}
-      {!search &&
-        movies?.map((movie) => (
+      {movies?.map((movie) => (
           <>
-            <CardComplex
+            {/* <CardComplex
               movie={movie} targetDate={targetDate} haveWon={true}
-            />
+            /> */}
             <Card
               movie={movie} targetDate={targetDate} haveWon={false}
             />
@@ -79,8 +73,8 @@ const Home = ({ search }) => {
       {search &&
         moviesFilter.length > 0 &&
         moviesFilter?.map((movie) => (
-          <Card
-            movie={movie} targetDate={targetDate} haveWon={false}
+          <CardComplex
+            movie={movie} targetDate={targetDate} haveWon={true}
           />
         ))}
     </>

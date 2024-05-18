@@ -9,7 +9,7 @@ import SearchBar from '../components/SearchBar';
 import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 
-const Search = () => {
+const Search = ({ targetDate }) => {
     const { documents: movies } = useFetchData('films');
     const { t, i18n } = useTranslation();
     const changeLanguage = (lng) => {
@@ -56,7 +56,7 @@ const Search = () => {
                 moviesFilter.length > 0 &&
                 moviesFilter?.map((movie) => (
                     <Card
-                        movie={movie}
+                        movie={movie} targetDate={targetDate} haveWon={false}
                     />
                 ))
             }

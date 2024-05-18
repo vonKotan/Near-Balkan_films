@@ -23,6 +23,7 @@ import Loading from './components/Loading';
 import Favorites from './pages/Favorites';
 import Search from './pages/Search';
 import About from './pages/About';
+import PastCompetitions from './pages/PastCompetitions';
 import NotFound from './pages/NotFound';
 
 function App() {
@@ -34,6 +35,11 @@ function App() {
   const [userObject, setUserObject] = useState(undefined);
 
   const { auth, onAuthStateChanged, getUser } = useAuth();
+
+  // target date
+  const RELATIVE_TIME_FROM_NOW = new Date().getTime() + 3 * 24 * 60 * 60 * 1000;
+  const EXACT_DATE_IN_FUTURE = new Date("May 3, 2024 12:00:00").getTime();
+  const targetDate = EXACT_DATE_IN_FUTURE;
 
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
@@ -72,13 +78,13 @@ function App() {
           <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
           <Route path='/*' element={<NotFound />} />
           <Route path="/about" element={<NotFound />} />
-          <Route path="/search" element={!user ? <Navigate to='/login' /> : <Search />} />
+          <Route path="/search" element={!user ? <Navigate to='/login' /> : <Search targetDate={targetDate} />} />
         </Route>
         <Route path="/" element={<Layout />} user={user}>
-          <Route index element={<Home search={search}/>} />
+          <Route index element={<Home search={search} targetDate={targetDate}/>} />
           <Route
             path='/favourites'
-            element={!user ? <Navigate to='/login' /> : <Favorites user={user} />}
+            element={!user ? <Navigate to='/login' /> : <Favorites user={user} targetDate={targetDate} />}
           />
           <Route path='/details/:id' element={<Details user={user} />} />
           <Route path='/details/:id' element={<Details />} />

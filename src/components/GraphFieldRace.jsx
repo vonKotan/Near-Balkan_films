@@ -28,7 +28,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                         </span>
                                         <span className="font-bold text-nbgreymain text-sm sm:text-base"> / </span>
                                         <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-nbgreenlight text-sm sm:text-base transition-all">{movie.moneygoal ?? 0}<span className="font-thin">HUF</span></span>
-                                        <span className="group-hover/labels:inline hidden font-bold text-nborangemain text-sm sm:text-base transition-all">min {movie.moneyMin ?? ((movie.moneygoal * 0.075) ?? 0)}<span className="font-thin">HUF</span></span>
+                                        <span className="group-hover/labels:inline hidden font-bold text-nborangemain text-sm sm:text-base transition-all">min {movie.moneyMin ?? ((movie.moneygoal * 0.060) ?? 0)}<span className="font-thin">HUF</span></span>
                                     </>
                                 )}
                                 {!haveWon && (
@@ -36,7 +36,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                         <span className="font-bold text-nbredmain text-sm sm:text-base line-through transition-all decoration-2">{movie.collected ?? 0}<span className="font-thin">HUF</span></span>
                                         <span className="font-bold text-nbgreymain text-sm sm:text-base"> / </span>
                                         <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-nbredlight text-sm sm:text-base transition-all">{movie.moneygoal ?? 0}<span className="font-thin">HUF</span></span>
-                                        <span className="group-hover/labels:inline hidden font-bold text-nborangemain text-sm sm:text-base transition-all">min {movie.moneyMin ?? ((movie.moneygoal * 0.075) ?? 0)}<span className="font-thin">HUF</span></span>
+                                        <span className="group-hover/labels:inline hidden font-bold text-nborangemain text-sm sm:text-base transition-all">min {movie.moneyMin ?? ((movie.moneygoal * 0.060) ?? 0)}<span className="font-thin">HUF</span></span>
                                     </>
                                 )}
                             </div>
@@ -116,7 +116,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                 <span className="font-bold text-nbgreenmain text-sm sm:text-base transition-all">{movie.collected ?? 0}<span className="font-thin">HUF</span></span>
                                 <span className="font-bold text-nbgreymain text-sm sm:text-base"> / </span>
                                 <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-nbgreenlight text-sm sm:text-base transition-all">{movie.moneygoal ?? 0}<span className="font-thin">HUF</span></span>
-                                <span className="group-hover/labels:inline hidden font-bold text-nborangemain text-sm sm:text-base transition-all">min {movie.moneyMin ?? ((movie.moneygoal * 0.075) ?? 0)}<span className="font-thin">HUF</span></span>
+                                <span className="group-hover/labels:inline hidden font-bold text-nborangemain text-sm sm:text-base transition-all">min {movie.moneyMin ?? ((movie.moneygoal * 0.060) ?? 0)}<span className="font-thin">HUF</span></span>
                             </div>
                             <CountdownTimer haveWon={0} targetDate={targetDate} />
                         </div>
@@ -138,7 +138,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                 </div>
                             </Link>
                             {movie.moneyMin ? (
-                                <div className={`transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nborangemain rounded-full opacity-0 sm:group-hover/island:opacity-75 flex flex-row justify-end pe-2 w-[60%]`}>
+                                <div className={`transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nborangemain rounded-full opacity-0 sm:group-hover/island:opacity-100 flex flex-row justify-end pe-2 w-[60%]`}>
                                     <h6 className="text-nbgreylight text-xs leading-normal select-none">min</h6>
                                 </div>
                             ) : null}
