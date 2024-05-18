@@ -5,50 +5,50 @@ import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from 'yup';
-
+import { CustomSelect } from '../components/CustomSelect';
 
 const genreOptions = [
-  'action',
-  'adventure',
-  'animation',
-  'comedy',
-  'documentary',
-  'drama',
-  'family-friendly',
-  'fantasy',
-  'historical',
-  'horror',
-  'musical',
-  'mystery',
-  'romance',
-  'science Fiction',
-  'sports',
-  'thriller',
-  'western',
+  { label: 'Action', value: 'action' },
+  { label: 'Adventure', value: 'adventure' },
+  { label: 'Animation', value: 'animation' },
+  { label: 'Comedy', value: 'comedy' },
+  { label: 'Documentary', value: 'documentary' },
+  { label: 'Drama', value: 'drama' },
+  { label: 'Family-friendly', value: 'family-friendly' },
+  { label: 'Fantasy', value: 'fantasy' },
+  { label: 'Historical', value: 'historical' },
+  { label: 'Horror', value: 'horror' },
+  { label: 'Musical', value: 'musical' },
+  { label: 'Mystery', value: 'mystery' },
+  { label: 'Romance', value: 'romance' },
+  { label: 'Science fiction', value: 'science fiction' },
+  { label: 'Sports', value: 'sports' },
+  { label: 'Thriller', value: 'thriller' },
+  { label: 'Western', value: 'western' }
 ];
 
-const genreOptionsHUN = [
-  'akció',
-  'kaland',
-  'animáció',
-  'vígjáték',
-  'dokumentum',
-  'dráma',
-  'családi',
-  'fantasy',
-  'történelmi',
-  'horror',
-  'musical',
-  'rejtély',
-  'romantikus',
-  'sci-fi',
-  'sport',
-  'thriller',
-  'western',
+const genreOptionsHU = [
+  { label: 'Akció', value: 'action' },
+  { label: 'Kaland', value: 'adventure' },
+  { label: 'Animáció', value: 'animation' },
+  { label: 'Vígjáték', value: 'comedy' },
+  { label: 'Dokumentumfilm', value: 'documentary' },
+  { label: 'Dráma', value: 'drama' },
+  { label: 'Családbarát', value: 'family-friendly' },
+  { label: 'Fantasy', value: 'fantasy' },
+  { label: 'Történelmi', value: 'historical' },
+  { label: 'Horror', value: 'horror' },
+  { label: 'Musical', value: 'musical' },
+  { label: 'Misztikus', value: 'mystery' },
+  { label: 'Románc', value: 'romance' },
+  { label: 'Tudományos-fantasztikus', value: 'science fiction' },
+  { label: 'Sport', value: 'sports' },
+  { label: 'Thriller', value: 'thriller' },
+  { label: 'Western', value: 'western' }
 ];
 
 const NewReview = ({ user }) => {
-  const { t, i18n } = useTranslation(); 
+  const { t, i18n } = useTranslation();
   const [image, setImage] = useState('');             //kep
   const [title, setTitle] = useState('');             //cim
   const [rating, setRating] = useState('');           //ertekeles - felesleges valszeg - helyette a szavazasokat kellene hasznalni(?)
@@ -70,7 +70,6 @@ const NewReview = ({ user }) => {
     title: yup.string().required("Please provide the title"),
     englishTitle: yup.string(),
     moneygoal: yup.number().min(1, "Number is too small").max(1000000, "Number is too high").required("Please fill this field").typeError("Please provide a number"),
-    genre: yup.string().required("Please choose a genre for your film"),
     description: yup.string().min(20, "Description too short").max(1500, "Description too long").required("Please provide a description"),
     englishDescription: yup.string(),
     image: yup.mixed().required("please provide a poster for your film"),
@@ -91,7 +90,7 @@ const NewReview = ({ user }) => {
     loading,
   } = useAddReview(user);
 
-  const handleUpload = ( formData) => {
+  const handleUpload = (formData) => {
     //e.preventDefault();
     firebaseSetError(null);
     firebaseSetSuccess(null);
@@ -100,6 +99,7 @@ const NewReview = ({ user }) => {
     const data = {
       user: user.uid,
       ...formData,
+      genre,
       views, //Ennek itt mi a szerepe
       collected, // meg ennek?
     };
@@ -138,7 +138,7 @@ const NewReview = ({ user }) => {
   }, [error, success, loading]);
 
   return (
-    <section className='flex flex-col items-center justify-center bg-amber-200 sectionHeight'>
+    <section className='flex flex-col items-center justify-center sectionHeight md:w-[50%] w-full'>
       <h1 className='my-8 sm:text-xl md:text-2xl font-bold text-zinc-800 w-[90%] text-center '>
         {t("new_reviews.upload_films")}
       </h1>
@@ -157,64 +157,178 @@ const NewReview = ({ user }) => {
       >
         {errors?.image && (<p>{errors.image?.message}</p>)}
         <label htmlFor='poster'>{t("new_reviews.poster")}</label>
-        <input
+
+        <div className="mt-2 flex justify-center mx-4 rounded-lg border border-dashed border-nbgreenmain px-6 py-10">
+          <div className="text-center">
+            <svg className="mx-auto h-12 w-12 text-nbgreenmain" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+            </svg>
+            <div className="mt-4 flex text-sm justify-center leading-6 text-gray-600">
+              <label htmlFor="poster" className="relative cursor-pointer p-2 rounded-md bg-nbgreenlight font-semibold text-nbgreydark focus-within:outline-none focus-within:ring-2 focus-within:ring-nbgreydark focus-within:ring-offset-2 hover:text-white">
+                <span>Upload a file</span>
+                <input
+                  type='file'
+                  name='poster'
+                  id='poster'
+                  accept='image/*'
+                  className='sr-only'
+                  {...register("image")}
+                  onChange={(e) => setImage(e.target.files[0])}
+                  disabled={loading}
+                />
+              </label>
+            </div>
+            <p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{image?.name}</p>
+          </div>
+        </div>
+        {/* <input
           type='file'
           name='poster'
+          id='poster'
           accept='image/*'
-          className='block w-full p-3 m-0 text-base font-normal text-gray-700 transition ease-in-out border-none rounded shadow-md bg-slate-50 form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
+          className='sr-only'
           {...register("image")}
           onChange={(e) => setImage(e.target.files[0])}
           disabled={loading}
-        />
+        /> */}
 
         {errors?.video && (<p>{errors.video?.message}</p>)}
         <label htmlFor='film'>{t("new_reviews.film")}</label>
-        <input
+        <div className="mt-2 flex justify-center mx-4 rounded-lg border border-dashed border-nbgreenmain px-6 py-10">
+          <div className="text-center">
+            <svg className="mx-auto h-12 w-12 text-nbgreenmain" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+            </svg>
+            <div className="mt-4 flex text-sm justify-center leading-6 text-gray-600">
+              <label htmlFor="video" className="relative cursor-pointer p-2 rounded-md bg-nbgreenlight font-semibold text-nbgreydark focus-within:outline-none focus-within:ring-2 focus-within:ring-nbgreydark focus-within:ring-offset-2 hover:text-white">
+                <span>Upload a file</span>
+                <input
+                  type='file'
+                  name='video'
+                  id='video'
+                  accept='video/mp4'
+                  className='sr-only'
+                  {...register("video")}
+                  onChange={(e) => setVideo(e.target.files[0])}
+                  disabled={loading}
+                />
+              </label>
+            </div>
+            <p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{video?.name}</p>
+          </div>
+        </div>
+        {/* <input
           type='file'
           name='film'
           accept='video/mp4'
           className='block w-full p-3 m-0 text-base font-normal text-gray-700 transition ease-in-out border-none rounded shadow-md bg-slate-50 form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
           {...register("video")}
           disabled={loading}
-        />
+        /> */}
 
         {errors?.script && (<p>{errors.script?.message}</p>)}
         <label htmlFor='film'>{t("new_reviews.script")}</label>
-        <input
+        <div className="mt-2 flex justify-center mx-4 rounded-lg border border-dashed border-nbgreenmain px-6 py-10">
+          <div className="text-center">
+            <svg className="mx-auto h-12 w-12 text-nbgreenmain" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
+            </svg>
+            <div className="mt-4 flex text-sm justify-center leading-6 text-gray-600">
+              <label htmlFor="script" className="relative cursor-pointer p-2 rounded-md bg-nbgreenlight font-semibold text-nbgreydark focus-within:outline-none focus-within:ring-2 focus-within:ring-nbgreydark focus-within:ring-offset-2 hover:text-white">
+                <span>Upload a file</span>
+                <input
+                  type='file'
+                  name='script'
+                  id='script'
+                  accept='.pdf'
+                  className='sr-only'
+                  {...register("script")}
+                  onChange={(e) => setScript(e.target.files[0])}
+                  disabled={loading}
+                />
+              </label>
+            </div>
+            <p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{script?.name}</p>
+          </div>
+        </div>
+        {/* <input
           type='file'
           name='script'
           accept='.pdf'
           className='block w-full p-3 m-0 text-base font-normal text-gray-700 transition ease-in-out border-none rounded shadow-md bg-slate-50 form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
           {...register("script")}
           disabled={loading}
-        />
+        /> */}
 
         {errors?.title && (<p>{errors.title?.message}</p>)}
-        <input
+        {/* <input
           type='text'
           placeholder={t("new_reviews.original_title")}
-          className='p-4 rounded-md shadow-md outline-none bg-slate-50'
+          className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
           {...register('title')}
-        />
+        /> */}
+        <p className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left">{t("new_reviews.original_title")}</p>
+        <div className="mt-2 space-y-6">
+
+          <div className="flex justify-start mt-2">
+            <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-nbgreenmain w-full">
+              <input
+                type='text'
+                placeholder={t("new_reviews.original_title")}
+                className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
+                {...register('title')}
+              />
+            </div>
+          </div>
+
+        </div>
 
         {errors?.englishTitle && (<p>{errors.englishTitle?.message}</p>)}
-        <input
+        <p className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left">{t("new_reviews.title")}</p>
+        <div className="mt-2 space-y-6">
+
+          <div className="flex justify-start mt-2">
+            <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-nbgreenmain w-full">
+              <input
+                type='text'
+                placeholder={t("new_reviews.title")}
+                className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
+                {...register('englishTitle')}
+              />
+            </div>
+          </div>
+
+        </div>
+        {/*  <input
           type='text'
           placeholder={t("new_reviews.title")}
-          className='p-4 rounded-md shadow-md outline-none bg-slate-50'
+          className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
           {...register('englishTitle')}
-        />
-      
+        /> */}
+
         {errors?.moneygoal && (<p>{errors.moneygoal?.message}</p>)}
-        <input
+        <p className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left">{t("new_reviews.needed_money")}</p>
+        <div className="mt-2 space-y-6">
+          <div className="flex justify-start mt-2">
+            <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-nbgreenmain w-full">
+              <input
+                type='number'
+                placeholder={t("new_reviews.needed_money")}
+                className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
+                {...register('moneygoal')}
+              />
+            </div>
+          </div>
+        </div>
+        {/* <input
           type='number'
           placeholder={t("new_reviews.needed_money")}
-          className='p-4 rounded-md shadow-md outline-none bg-slate-50'
+          className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
           {...register('moneygoal')}
-        />
+        /> */}
 
         {errors?.genre && (<p>{errors.genre?.message}</p>)}
-        <select
+        {/* <select
           className={`p-4  rounded-md shadow-md outline-none bg-slate-50 ${genre === '' && 'text-gray-400'
             }`}
           {...register('genre')}
@@ -227,22 +341,50 @@ const NewReview = ({ user }) => {
               {genre}
             </option>
           ))}
-        </select>
+        </select> */}
+        <CustomSelect isMulti={false} options={i18n.language=='hu' ? genreOptionsHU: genreOptions} onSelect={setGenre}></CustomSelect>
+        
 
         {errors?.description && (<p>{errors.description?.message}</p>)}
-        <textarea
+        <p className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left">{t("new_reviews.original_desc")}</p>
+        <div className="mt-2 space-y-6">
+          <div className="flex justify-start mt-2">
+            <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-nbgreenmain w-full">
+              <textarea
+                type='text'
+                placeholder={t("new_reviews.original_desc")}
+                className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 resize-y'
+                {...register('description')}
+              />
+            </div>
+          </div>
+        </div>
+        {/* <textarea
           type='text'
           placeholder={t("new_reviews.original_desc")}
-          className='p-4 rounded-md shadow-md outline-none resize-none bg-slate-50 h-[200px]'
+          className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
           {...register('description')}
-        />
+        /> */}
         {errors?.englishDescription && (<p>{errors.englishDescription?.message}</p>)}
-        <textarea
+        <p className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left">{t("new_reviews.desc")}</p>
+        <div className="mt-2 space-y-6">
+          <div className="flex justify-start mt-2">
+            <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-nbgreenmain w-full">
+              <textarea
+                type='text'
+                placeholder={t("new_reviews.desc")}
+                className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6 resize-y'
+                {...register('englishDescription')}
+              />
+            </div>
+          </div>
+        </div>
+        {/* <textarea
           type='text'
           placeholder={t("new_reviews.desc")}
           className='p-4 rounded-md shadow-md outline-none resize-none bg-slate-50 h-[200px]'
           {...register('englishDescription')}
-        />
+        /> */}
 
         {loading ? (
           <div className='flex items-center justify-center w-full'>
