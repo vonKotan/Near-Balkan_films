@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 // Components
 import { Card, CardComplex } from '../components/Card';
+import { SectionTitle } from '../components/SectionTitle';
 import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 // import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from '../components/SearchBar';
@@ -43,11 +44,7 @@ const Home = ({ search, targetDate }) => {
 
   return (
     <>
-      <section id="gridRow sectionTitle" className="flex flex-row flex-wrap justify-start items-center">
-        <div className="flex flex-col items-start gap-2.5 px-2 pt-2.5 pb-4 self-stretch">
-          <h1 className="font-h1-primetitle text-4xl text-nbgreenmain underline underline-offset-4 leading-3 decoration-2 decoration-nbgreylight decoration-wavy">verseny</h1>
-        </div>
-      </section>
+      <SectionTitle title={t("home.competition")} />
       {movies?.filter((movie, index) => (
         index === movie[Math.floor(Math.random() * movies.length)] &&
         <CardComplex
@@ -55,13 +52,12 @@ const Home = ({ search, targetDate }) => {
           targetDate={targetDate}
         />
       ))}
-      {movies?.map((movie) => (
-        <>
-          <CardComplex
+      {!search &&
+        movies?.map((movie) => (
+          <Card
             movie={movie} targetDate={targetDate} haveWon={false}
           />
-        </>
-      ))}
+        ))}
       {search &&
         moviesFilter.length > 0 &&
         moviesFilter?.map((movie) => (
@@ -90,3 +86,9 @@ export default Home;
           leaveFrom="scale-100 opacity-100"
           leaveTo="scale-95 opacity-0"
       > */}
+
+{/*           <div className="relative flex justify-center items-center w-full max-w-[900px]">
+      <div className='-left-12 absolute lg:flex justify-center items-center hidden bg-nbgreylight shadow-sm px-4 py-2 rounded-full w-20 h-20 cursor-pointer ring-8 ring-inset ring-nbgreenmain'>
+              <h3 className="font-black font-h3-subtitle text-4xl text-nbgreydark">1</h3>
+            </div>
+          </div> */}

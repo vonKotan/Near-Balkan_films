@@ -60,7 +60,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                         </svg>
                                         <p
                                             className="group-disabled/button:text-nbgreymiddark opacity-0 group-hover/button:opacity-100 group-active/button:opacity-100 min-w-max font-button font-semibold text-nbgreylight text-xs leading-5 tracking-tight">
-                                            mi lett velük?</p>
+                                            {t("card.what_happened")}</p>
                                     </div>
                                 </Link>
                                 {movie.moneyMin ? (
@@ -89,7 +89,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                         </svg>
                                         <p
                                             className="group-disabled/button:text-nbgreymiddark opacity-0 group-hover/button:opacity-100 group-active/button:opacity-100 min-w-max font-button font-semibold text-nbgreylight text-xs leading-5 tracking-tight">
-                                            mi lett velük?</p>
+                                            {t("card.what_happened")}</p>
                                     </div>
                                 </Link>
                                 {movie.moneyMin ? (
@@ -106,7 +106,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
     } else {
         return (
             <div
-                id="graphField" className="flex flex-col justify-center bg-gray-50 active:bg-slate-200 mt-3 sm:mt-2 rounded-2xl text-start transition-colors duration-1000 delay-1000 group/graphfield ring-1 ring-gray-900/5 ring-inset">
+                id="graphField" className="flex flex-col justify-center bg-gray-50 active:bg-slate-200 rounded-2xl text-start transition-colors duration-1000 delay-1000 group/graphfield ring-1 ring-gray-900/5 ring-inset">
                 <div className="flex flex-col gap-2 px-6 py-5">
                     <div class="flex flex-col gap-2 sm:gap-2 group/island">
                         <div className="flex sm:flex-row flex-col justify-between gap-2 group/labels peer/labels">
@@ -132,7 +132,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                     </svg>
                                     <p
                                         className="group-active/button:text-nbgreenlight group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-xs leading-5 tracking-tight">
-                                        mellettük versenyzem!</p>
+                                        {t("card.on_their_side")}</p>
                                 </div>
                             </Link>
                             {movie.moneyMin ? (

@@ -23,14 +23,14 @@ export const Card = ({ movie, targetDate, haveWon }) => {
   };
 
   return (
-    <section id="gridRow" className=" flex flex-col lg:flex-row sm:items-stretch bg-nbgreylight rounded-lg max-w-screen-lg h-auto overflow-clip relative hover:bg-slate-200 transition-colors delay-150 shadow-md w-full">
+    <section id="gridRow" className="relative flex lg:flex-row flex-col sm:items-stretch bg-nbgreylight hover:bg-slate-200 shadow-md rounded-lg w-full max-w-screen-lg h-auto transition-colors delay-150 overflow-clip">
       <PosterContainerSmall movie={movie} />
-      <div id="gridCol" className="flex-auto flex flex-col justify-between gap-3 pr-7 lg:pl-3 pl-7 pb-5 lg:pt-5">
-        <div id="timeTags" className="flex flex-row justify-between w-full -mb-1">
+      <div id="gridCol" className="flex flex-col flex-auto justify-between gap-3 lg:pt-5 pr-7 pb-5 pl-7 lg:pl-3">
+        <div id="timeTags" className="flex flex-row justify-between -mb-1 w-full">
           <CurrentRace targetDate={targetDate} />
           <RaceState targetDate={targetDate} />
         </div>
-        <div id="gridCol" className='flex lg:flex-row flex-col lg:justify-between lg:items-center gap-2 lg:gap-2'>
+        <div id="gridCol" className='flex lg:flex-row flex-col lg:justify-between lg:items-center gap-2'>
           <DemoTitle movie={movie} />
           <UserIcon movie={movie} />
         </div>
@@ -49,18 +49,18 @@ export const CardComplex = ({ movie, targetDate, haveWon }) => {
   };
 
   return (
-    <section id="gridRow" className="flex flex-col lg:flex-row sm:items-stretch justify-stretch items-center bg-nbgreylight rounded-lg max-w-screen-lg overflow-clip relative hover:bg-slate-200 transition-colors delay-150">
+    <section id="gridRow" className="relative flex lg:flex-row flex-col justify-stretch items-center sm:items-stretch bg-nbgreylight hover:bg-slate-200 rounded-lg max-w-screen-lg transition-colors delay-150 overflow-hidden">
       <PosterContainer movie={movie} />
-      <div id="gridCol" className="flex-auto flex flex-col gap-2 justify-between pr-7 pl-7 lg:pl-3 pb-5 lg:pt-5">
+      <div id="gridCol" className="flex flex-col flex-auto justify-between gap-3 lg:pt-5 pr-7 pb-5 pl-7 lg:pl-3">
         <div id="timeTags" className="flex flex-row justify-between w-full">
           <CurrentRace targetDate={targetDate} />
           <RaceState targetDate={targetDate} />
         </div>
         <div id="gridCol" className='flex flex-col gap-2'>
           <DemoTitle movie={movie} />
-          <UserIcon movie={movie} />
+          <UserIconList movie={movie} />
+          <DemoDescription movie={movie} />
         </div>
-        <p className="font-p-paragraph text-base text-nbgreymiddark leading-7 line-clamp-3 sm:line-clamp-6 mb-2">Carolyn Marsh legújabb romantikus sikerkönyvének a hőse egy vérbeli felföldi legény: Duncan MacLeod. Mind a könyv pozitív hőse, MacLeod, mind a regénybeli rosszfiú, Terence Coventry találkozni akar az írónővel.</p>
         <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} />
       </div>
     </section >

@@ -42,7 +42,25 @@
   "home": {
     "description": "Találj egy filmet amit megvalósítanál!",
     "no_results": "nincs találat",
-    "search": "keresés..."
+    "search": "keresés...",
+    "competition": "friss versenyzők"
+  },
+  "card": {
+    "team_up": "munka",
+    "won_all": "mindent nyert",
+    "lost": "vesztett",
+    "date_past_competition": "2024 március-április",
+    "date_current_competition": "2024 május-június",
+    "previous_competition": "korábbi verseny",
+    "in_competition": "versenyben",
+    "what_happend": "mi lett velük?",
+    "on_their_side": "mellettük versenyzem!"
+  },
+  "details": {
+    "views": "Megtekintések:",
+    "check_script": "Forgatókönyv ellenőrzése",
+    "support": "támogatás",
+    "moneygoal": "Pénzügyi cél"
   },
   "register": {
     "register": "Regisztráció",
@@ -77,12 +95,6 @@
     "log_in": "Bejelentkezés",
     "new_here": "Új vagy itt?",
     "register": "Regisztráció"
-  },
-  "details": {
-    "views": "Megtekintések:",
-    "check_script": "Forgatókönyv ellenőrzése",
-    "support": "támogatás",
-    "moneygoal": "Pénzügyi cél"
   },
   "favourites": {
     "favourites": "kedvencek",

@@ -7,7 +7,7 @@ import { useCountdown } from '../hooks/useCountdown';
 import { useTranslation } from 'react-i18next';
 
 export const CountdownTimer = ({ targetDate, haveWon }) => {
-    
+
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
     if (days + hours + minutes + seconds <= 0) {
@@ -49,14 +49,17 @@ const ShowCounter = ({ days, hours, minutes, seconds, isDanger }) => {
 
 const ExpiredNotice = ({ haveWon }) => {
     const { t, i18n } = useTranslation();
+    const changeLanguage = (lng) => {
+      i18n.changeLanguage(lng);
+    };
 
     if (haveWon) {
         return (
-                <span className="inline order-first sm:order-none bg-nbgreenmain hover:bg-nbpurplemain px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">mindent nyert</span>
+            <span className="inline order-first sm:order-none bg-nbgreenmain hover:bg-nbpurplemain px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">{t("card.won_all")}</span>
         );
     } else {
         return (
-                <span className="inline order-first sm:order-none bg-nbredmain hover:bg-red-400 px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">vesztett</span>
+            <span className="inline order-first sm:order-none bg-nbredmain hover:bg-red-400 px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">{t("card.lost")}</span>
         );
     }
 };
@@ -64,20 +67,23 @@ const ExpiredNotice = ({ haveWon }) => {
 // Egyeb elemek a versenyhez kotve
 export const CurrentRace = ({ targetDate }) => {
     const { t, i18n } = useTranslation();
+    const changeLanguage = (lng) => {
+      i18n.changeLanguage(lng);
+    };
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
     if (days + hours + minutes + seconds <= 0) {
         return (
             <span className="inline-flex flex-row items-center gap-2">
                 <div class="bg-nbredmain opacity-75 rounded-full w-1.5 h-1.5"></div>
-                <h4 className="font-bold font-h3-subtitle text-base text-nbredmain tracking-tighter">2024 március-április</h4>
+                <h4 className="font-bold font-h3-subtitle text-base text-nbredmain tracking-tighter">{t("card.date_past_competition")}</h4>
             </span>
         );
     } else {
         return (
             <span className="inline-flex flex-row items-center gap-2">
                 <div class="bg-nbgreenmain opacity-75 rounded-full w-1 h-1 animate-ping"></div>
-                <h4 className="font-bold font-h3-subtitle text-base text-nbgreenmain tracking-tighter">2024 május-június</h4>
+                <h4 className="font-bold font-h3-subtitle text-base text-nbgreenmain tracking-tighter">{t("card.date_current_competition")}</h4>
             </span>
         );
     }
@@ -85,12 +91,15 @@ export const CurrentRace = ({ targetDate }) => {
 
 export const RaceState = ({ targetDate }) => {
     const { t, i18n } = useTranslation();
+    const changeLanguage = (lng) => {
+      i18n.changeLanguage(lng);
+    };
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
     if (days + hours + minutes + seconds <= 0) {
-        return (<h4 className="sm:block hidden font-bold font-h4-lead text-base text-nbredmain uppercase tracking-tighter">korábbi verseny</h4>);
+        return (<h4 className="sm:block hidden font-bold font-h4-lead text-base text-nbredmain uppercase tracking-tighter">{t("card.previous_competition")}</h4>);
     } else {
-        return (<h4 className="sm:block hidden font-bold font-h4-lead text-base text-nbgreenmain uppercase tracking-tighter animate-pulse">versenyben</h4>);
+        return (<h4 className="sm:block hidden font-bold font-h4-lead text-base text-nbgreenmain uppercase tracking-tighter animate-pulse">{t("card.in_competition")}</h4>);
     }
 };
 

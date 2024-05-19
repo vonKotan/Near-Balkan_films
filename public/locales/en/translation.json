@@ -41,8 +41,26 @@
   },
   "home": {
     "description": "Find a movie to watch or to support",
-    "no_results": "No results found",
-    "search": "search..."
+    "no_results": "no results found",
+    "search": "search...",
+    "competition": "fresh contenders"
+  },
+  "card": {
+    "team_up": "team up",
+    "won_all": "won all",
+    "lost": "lost",
+    "date_past_competition": "March-April 2024",
+    "date_current_competition": "May-June 2024",
+    "previous_competition": "previous competition",
+    "in_competition": "in competition",
+    "what_happend": "what happened to them?",
+    "on_their_side": "on their side!"
+  },
+  "details": {
+    "views": "Views:",
+    "check_script": "Check script",
+    "support": "support",
+    "moneygoal": "Money goal"
   },
   "register": {
     "first_name": "First Name",
@@ -76,12 +94,6 @@
     "new_here": "New here?",
     "register": "Register",
     "log_in": "Log in"
-  },
-  "details": {
-    "views": "Views:",
-    "check_script": "Check script",
-    "support": "support",
-    "moneygoal": "Money goal"
   },
   "favourites": {
     "favourites": "favourites",
