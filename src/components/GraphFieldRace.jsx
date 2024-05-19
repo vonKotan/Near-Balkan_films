@@ -9,7 +9,11 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
     const { t, i18n } = useTranslation();
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
-    console.log(Math.floor(Math.floor(movie.collected) / Math.floor(movie.moneygoal) * 100))
+    // console.log(Math.floor(Math.floor(movie.collected) / Math.floor(movie.moneygoal) * 100))
+    const formatter = new Intl.NumberFormat(i18n.language === 'en' ? 'en-US' : 'de-DE');
+    // const formatter.fromat = (number) => {
+    //     return number.toString().replace(/\\B(?=(\\d{3})+(?!\\d))/g, ",");
+    // }
 
     if (days + hours + minutes + seconds <= 0) {
         return (
@@ -18,28 +22,26 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                 <div className="flex flex-col gap-2 px-6 py-5">
                     <div class="flex flex-col gap-2 sm:gap-2 group/island">
                         <div className="flex sm:flex-row flex-col justify-between gap-2 group/labels peer/labels">
-                            <div class="mx-0 leading-none pointer-events-none select-none">
-                                {haveWon && (
-                                    <>
-                                        <span className="font-bold text-lg text-nbgreenmain sm:text-base underline transition-all decoration-4">{movie.collected || 0}<span className="font-thin">HUF</span></span>
-                                        <span className="inline">
-                                            <span className="font-bold text-lg text-nbpurplemain sm:text-base">+</span>
-                                            <span className="font-bold text-lg text-nbpurplemain sm:text-base underline transition-all decoration-4">{movie.moneyRest || 0}<span className="font-thin">HUF</span></span>
-                                        </span>
-                                        <span className="font-bold text-lg text-nbgreymain sm:text-base"> / </span>
-                                        <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbgreenlight sm:text-base transition-all">{movie.moneygoal || 0}<span className="font-thin">HUF</span></span>
-                                        <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min {movie.moneyMin || ((movie.moneygoal * 0.060) || 0)}<span className="font-thin">HUF</span></span>
-                                    </>
-                                )}
-                                {!haveWon && (
-                                    <>
-                                        <span className="font-bold text-lg text-nbredmain sm:text-base line-through transition-all decoration-2">{movie.collected || 0}<span className="font-thin">HUF</span></span>
-                                        <span className="font-bold text-lg text-nbgreymain sm:text-base"> / </span>
-                                        <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbredlight sm:text-base transition-all">{movie.moneygoal || 0}<span className="font-thin">HUF</span></span>
-                                        <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min {movie.moneyMin || ((movie.moneygoal * 0.060) || 0)}<span className="font-thin">HUF</span></span>
-                                    </>
-                                )}
-                            </div>
+                            {haveWon && (
+                                <div class="mx-0 leading-none pointer-events-none select-none">
+                                    <span className="font-bold text-lg text-nbgreenmain sm:text-base underline transition-all decoration-4">{movie.collected || 0}<span className="font-thin">HUF</span></span>
+                                    <span className="inline">
+                                        <span className="font-bold text-lg text-nbpurplemain sm:text-base">+</span>
+                                        <span className="font-bold text-lg text-nbpurplemain sm:text-base underline transition-all decoration-4">{movie.moneyRest || 0}<span className="font-thin">HUF</span></span>
+                                    </span>
+                                    <span className="font-bold text-lg text-nbgreymain sm:text-base"> / </span>
+                                    <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbgreenlight sm:text-base transition-all">{movie.moneygoal || 0}<span className="font-thin">HUF</span></span>
+                                    <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min {movie.moneyMin || ((movie.moneygoal * 0.060) || 0)}<span className="font-thin">HUF</span></span>
+                                </div>
+                            )}
+                            {!haveWon && (
+                                <div class="mx-0 leading-none pointer-events-none select-none">
+                                    <span className="font-bold text-lg text-nbredmain sm:text-base line-through transition-all decoration-2">{formatter.format(movie.collected || 0)}<span className="font-thin">HUF</span></span>
+                                    <span className="font-bold text-lg text-nbgreymain sm:text-base"> / </span>
+                                    <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbredlight sm:text-base transition-all">{movie.moneygoal || 0}<span className="font-thin">HUF</span></span>
+                                    <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min {movie.moneyMin || ((movie.moneygoal * 0.060) || 0)}<span className="font-thin">HUF</span></span>
+                                </div>
+                            )}
                             {haveWon && (
                                 <CountdownTimer haveWon={true} targetDate={targetDate} />
                             )}
@@ -103,7 +105,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                         )}
                     </div>
                 </div>
-            </div>
+            </div >
         );
     } else {
         return (
@@ -113,10 +115,10 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                     <div class="flex flex-col gap-2 sm:gap-2 group/island">
                         <div className="flex sm:flex-row flex-col justify-between gap-2 group/labels peer/labels">
                             <div class="mx-0 leading-none pointer-events-none select-none">
-                                <span className="font-bold text-lg text-nbgreenmain sm:text-base transition-all">{movie.collected || 0}<span className="font-thin">HUF</span></span>
+                                <span className="font-bold text-lg text-nbgreenmain sm:text-base transition-all">{formatter.format(movie.collected || 0)}<span className="font-thin">HUF</span></span>
                                 <span className="font-bold text-lg text-nbgreymain sm:text-base"> / </span>
-                                <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbgreenlight sm:text-base transition-all">{movie.moneygoal || 0}<span className="font-thin">HUF</span></span>
-                                <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min {movie.moneyMin || ((movie.moneygoal * 0.060) || 0)}<span className="font-thin">HUF</span></span>
+                                <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbgreenlight sm:text-base transition-all">{formatter.format(movie.moneygoal || 0)}<span className="font-thin">HUF</span></span>
+                                <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min {formatter.format(movie.moneyMin) || ((movie.moneygoal * 0.060) || 0)}<span className="font-thin">HUF</span></span>
                             </div>
                             <CountdownTimer haveWon={0} targetDate={targetDate} />
                         </div>
