@@ -16,7 +16,7 @@ const Favorites = ({ user, targetDate, }) => {
       {favorites &&
         favorites.length > 0 &&
         favorites?.map((movie) => (
-          <div className='relative w-full max-w-screen-md' key={movie.id}>
+          <div className='relative w-full max-w-screen-lg' key={movie.id}>
             <Card
               movie={movie} targetDate={targetDate} haveWon={true}
             />

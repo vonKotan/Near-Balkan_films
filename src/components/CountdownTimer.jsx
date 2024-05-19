@@ -2,6 +2,7 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useCountdown } from '../hooks/useCountdown';
 
 // Router
+import { Link } from 'react-router-dom';
 
 // Components
 import { useTranslation } from 'react-i18next';
@@ -55,11 +56,11 @@ const ExpiredNotice = ({ haveWon }) => {
 
     if (haveWon) {
         return (
-            <span className="inline order-first sm:order-none bg-nbgreenmain hover:bg-nbpurplemain px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">{t("card.won_all")}</span>
+            <Link to="/" className="inline order-first sm:order-none bg-nbgreenmain hover:bg-nbpurplemain px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">{t("card.won_all")}</Link>
         );
     } else {
         return (
-            <span className="inline order-first sm:order-none bg-nbredmain hover:bg-red-400 px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">{t("card.lost")}</span>
+            <Link to="/" className="inline order-first sm:order-none bg-nbredmain hover:bg-red-400 px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">{t("card.lost")}</Link>
         );
     }
 };
@@ -74,17 +75,17 @@ export const CurrentRace = ({ targetDate }) => {
 
     if (days + hours + minutes + seconds <= 0) {
         return (
-            <span className="inline-flex flex-row items-center gap-2">
+            <Link to="/" className="inline-flex flex-row items-center gap-2">
                 <div class="bg-nbredmain opacity-75 rounded-full w-1.5 h-1.5"></div>
                 <h4 className="font-bold font-h3-subtitle text-base text-nbredmain tracking-tighter">{t("card.date_past_competition")}</h4>
-            </span>
+            </Link>
         );
     } else {
         return (
-            <span className="inline-flex flex-row items-center gap-2">
+            <Link to="/" className="inline-flex flex-row items-center gap-2">
                 <div class="bg-nbgreenmain opacity-75 rounded-full w-1 h-1 animate-ping"></div>
                 <h4 className="font-bold font-h3-subtitle text-base text-nbgreenmain tracking-tighter">{t("card.date_current_competition")}</h4>
-            </span>
+            </Link>
         );
     }
 };
@@ -97,9 +98,9 @@ export const RaceState = ({ targetDate }) => {
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
     if (days + hours + minutes + seconds <= 0) {
-        return (<h4 className="sm:block hidden font-bold font-h4-lead text-base text-nbredmain uppercase tracking-tighter">{t("card.previous_competition")}</h4>);
+        return (<Link to="/" className="sm:block hidden font-bold font-h4-lead text-base text-nbredmain uppercase tracking-tighter">{t("card.previous_competition")}</Link>);
     } else {
-        return (<h4 className="sm:block hidden font-bold font-h4-lead text-base text-nbgreenmain uppercase tracking-tighter animate-pulse">{t("card.in_competition")}</h4>);
+        return (<Link to="/" className="sm:block hidden font-bold font-h4-lead text-base text-nbgreenmain uppercase tracking-tighter animate-pulse">{t("card.in_competition")}</Link>);
     }
 };
 

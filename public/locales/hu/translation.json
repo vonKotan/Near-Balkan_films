@@ -53,7 +53,7 @@
     "date_current_competition": "2024 május-június",
     "previous_competition": "korábbi verseny",
     "in_competition": "versenyben",
-    "what_happend": "mi lett velük?",
+    "what_happened": "mi lett velük?",
     "on_their_side": "mellettük versenyzem!"
   },
   "details": {
@@ -95,6 +95,9 @@
     "log_in": "Bejelentkezés",
     "new_here": "Új vagy itt?",
     "register": "Regisztráció"
+  },
+  "search": {
+    "search_description": "projetdemók, események, filmek és emberek..."
   },
   "favourites": {
     "favourites": "kedvencek",

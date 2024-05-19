@@ -32,9 +32,9 @@ const Search = ({ targetDate }) => {
     return (
         <>
             <div className="flex flex-col gap-4">
-                <p className="max-w-52 text-balance text-gray-600 text-xs leading-4">Project Drafts, Films and People...</p>
+                <p className="max-w-52 text-balance text-gray-600 text-xs leading-4">{t("search.search_description")}</p>
                 <div
-                    className="flex items-start gap-1 -mb-0.5 px-2 py-1 rounded-full w-full max-w-52 min-h-fit select-none group/anchor ring-1 ring-nbgreenlight">
+                    className="flex items-start gap-1 -mb-0.5 px-2 py-1 rounded-full w-full min-h-fit select-none group/anchor ring-1 ring-nbgreenlight">
                     <svg
                         className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreendark h-3 transition-all translate-y-1 fill-nbgreendark"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
