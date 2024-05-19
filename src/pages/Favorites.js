@@ -5,41 +5,35 @@ import Card from '../components/Card';
 import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 
-const Favorites = ({ user }) => {
+const Favorites = ({ user, targetDate, }) => {
   const { documents: favorites } = useFetchData(`users/${user?.uid}/favorites`);
-  const { t, i18n } = useTranslation(); 
+  const { t, i18n } = useTranslation();
   console.log(favorites);
   return (
-    <section className='flex flex-col items-start justify-center pt-7 gap-10'>
-      <h1 className='mb-2 text-3xl font-bold sm:text-4xl xl:text-5xl'>
-        <span className='text-nbgreenmain border-b-4 border-black '>
-          {t('favourites.favourites')}
-        </span>
-      </h1>
-      <div className='grid items-start grid-flow-row grid-cols-1 gap-8 py-8 justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-        {favorites &&
-          favorites.length > 0 &&
-          favorites?.map((movie) => (
-            <div className='relative ' key={movie.id}>
-              <Link to={`/details/${movie.id}`} className='flex items-center '>
-                <Card
-                  image={movie.image}
-                  title={movie.title}
-                  genre={movie.genre}
-                  rating={movie.rating}
-                />
-              </Link>
-              <div className='absolute top-0 right-0 p-2 bg-[rgba(0,0,0,0.7)] cursor-pointer'>
-                <AddFavorite movieId={movie.id} user={user} />
-              </div>
+    <>
+      <section id="gridRow sectionTitle" className="flex flex-row flex-wrap justify-start items-center max-w-screen-lg w-full">
+        <div className="flex flex-col items-start gap-2.5 px-2 pt-2.5 pb-4 self-stretch">
+          <h1 className="font-h1-primetitle text-4xl text-nbgreenmain underline underline-offset-4 leading-3 decoration-2 decoration-nbgreylight decoration-wavy">{t("favourites.favourites")}</h1>
+        </div>
+      </section>
+      {favorites &&
+        favorites.length > 0 &&
+        favorites?.map((movie) => (
+          <div className='relative' key={movie.id}>
+            <Card
+              movie={movie} targetDate={targetDate} haveWon={true}
+            />
+            <div className='absolute top-2 left-2 p-2 bg-nbredmain cursor-pointer rounded-full shadow-md hover:bg-red-400'>
+              <AddFavorite movieId={movie.id} user={user} />
             </div>
-          ))}
-      </div>
-
+          </div>
+        ))}
       {favorites && favorites.length === 0 && (
-        <p className='italic text-gray-400'>{t("favourites.no_favs")}</p>
+        <div className='flex justify-center items-center gap-8 py-8 w-full max-w-screen-lg h-[65dvh]'>
+          <p>{t("favourites.no_favs")}</p>
+        </div>
       )}
-    </section>
+    </>
   );
 };
 

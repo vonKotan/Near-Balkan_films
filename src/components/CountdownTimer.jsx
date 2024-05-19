@@ -35,7 +35,7 @@ const ShowCounter = ({ days, hours, minutes, seconds, isDanger }) => {
     const { t, i18n } = useTranslation();
 
     return (
-        <h3 className={`inline order-first sm:order-none font-h3-subtitle px-2 pt-px rounded-md max-w-fit font-semibold text-nbgreylight text-xs sm:text-sm leading-normal cursor-pointer select-none align-center ${isDanger ? 'bg-nbredmain hover:bg-red-400' : 'bg-nborangemain hover:opacity-70'}`}>
+        <h3 className={`inline order-first sm:order-none font-h3-subtitle px-2 pt-px rounded-md max-w-fit font-semibold text-nbgreylight text-base sm:text-sm leading-normal cursor-pointer select-none align-center ${isDanger ? 'bg-nbredmain hover:bg-red-400' : 'bg-nborangemain hover:opacity-70'}`}>
             <DateTimeDisplay value={days} type={'d'} />
             {" "}
             <DateTimeDisplay value={hours} type={'h'} isDanger={false} />
@@ -52,11 +52,11 @@ const ExpiredNotice = ({ haveWon }) => {
 
     if (haveWon) {
         return (
-                <span className="inline order-first sm:order-none bg-nbgreenmain hover:bg-nbpurplemain px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-nbgreylight text-xs sm:text-sm leading-normal cursor-pointer select-none align-center">mindent nyert</span>
+                <span className="inline order-first sm:order-none bg-nbgreenmain hover:bg-nbpurplemain px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">mindent nyert</span>
         );
     } else {
         return (
-                <span className="inline order-first sm:order-none bg-nbredmain hover:bg-red-400 px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-nbgreylight text-xs sm:text-sm leading-normal cursor-pointer select-none align-center">vesztett</span>
+                <span className="inline order-first sm:order-none bg-nbredmain hover:bg-red-400 px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">vesztett</span>
         );
     }
 };

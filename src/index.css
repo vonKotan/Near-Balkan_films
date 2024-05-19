@@ -160,12 +160,18 @@
   display: none;
 }
 
+html {
+  overflow: -moz-scrollbars-none;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   caret-color: var(--nbgreenmain);
   caret-shape: block;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 body {

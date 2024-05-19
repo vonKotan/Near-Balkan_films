@@ -47,6 +47,18 @@ const Header = ({ user, userObject, search, setSearch }) => {
               {t("navbar.competition")}</p>
           </Link>
           <Link
+            to='/events' className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+            <svg
+              className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+              <path
+                d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+            </svg>
+            <p
+              className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
+              {t("navbar.events")}</p>
+          </Link>
+          <Link
             to='/films'
             className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
             <svg
@@ -58,18 +70,6 @@ const Header = ({ user, userObject, search, setSearch }) => {
             <p
               className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
               {t("navbar.films")}</p>
-          </Link>
-          <Link
-            to='/events' className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-            <svg
-              className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreendark"
-              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-              <path
-                d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-            </svg>
-            <p
-              className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
-              {t("navbar.events")}</p>
           </Link>
           {!user && (
             <Link
@@ -232,21 +232,6 @@ const Header = ({ user, userObject, search, setSearch }) => {
                     </RadixLink>
                     <RadixLink>
                       <Link
-                        to='/films'
-                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
-                        <svg
-                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
-                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                          <path
-                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                        </svg>
-                        <p
-                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
-                          {t("navbar.films")}</p>
-                      </Link>
-                    </RadixLink>
-                    <RadixLink>
-                      <Link
                         to='/events'
                         className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <svg
@@ -258,6 +243,21 @@ const Header = ({ user, userObject, search, setSearch }) => {
                         <p
                           className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
                           {t("navbar.events")}</p>
+                      </Link>
+                    </RadixLink>
+                    <RadixLink>
+                      <Link
+                        to='/films'
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
+                        <svg
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
+                          {t("navbar.films")}</p>
                       </Link>
                     </RadixLink>
                     <RadixLink>
@@ -487,21 +487,6 @@ const Header = ({ user, userObject, search, setSearch }) => {
                     </RadixLink>
                     <RadixLink>
                       <Link
-                        to='/films'
-                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
-                        <svg
-                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
-                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                          <path
-                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                        </svg>
-                        <p
-                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
-                          {t("navbar.films")}</p>
-                      </Link>
-                    </RadixLink>
-                    <RadixLink>
-                      <Link
                         to='/events'
                         className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                         <svg
@@ -513,6 +498,21 @@ const Header = ({ user, userObject, search, setSearch }) => {
                         <p
                           className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreendark leading-5 tracking-tight transition-all">
                           {t("navbar.events")}</p>
+                      </Link>
+                    </RadixLink>
+                    <RadixLink>
+                      <Link
+                        to='/films'
+                        className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
+                        <svg
+                          className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreenlight"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                          <path
+                            d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                        </svg>
+                        <p
+                          className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreenlight min-w-max font-a-anchor font-semibold text-base text-nbgreenlight leading-5 tracking-tight transition-all">
+                          {t("navbar.films")}</p>
                       </Link>
                     </RadixLink>
                     <RadixLink>

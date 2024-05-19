@@ -17,6 +17,7 @@
     "about_link": "more",
     "title_services": "Services",
     "competition": "current competition",
+    "past-competitions": "past competitions",
     "films": "films to watch",
     "future_events": "future events",
     "past_events": "past events",
@@ -83,8 +84,8 @@
     "moneygoal": "Money goal"
   },
   "favourites": {
-    "favourites": "Favourites",
-    "no_favs": "No favorites added"
+    "favourites": "favourites",
+    "no_favs": "no favorites added"
   },
   "new_reviews": {
     "upload_films": "Upload film",

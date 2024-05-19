@@ -48,11 +48,6 @@ const Home = ({ search, targetDate }) => {
           <h1 className="font-h1-primetitle text-4xl text-nbgreenmain underline underline-offset-4 leading-3 decoration-2 decoration-nbgreylight decoration-wavy">verseny</h1>
         </div>
       </section>
-      {search && moviesFilter.length === 0 && (
-        <div className='flex justify-center items-center gap-8 py-8 w-full max-w-screen-lg'>
-          <p>{t("home.no_results")}</p>
-        </div>
-      )}
       {movies?.filter((movie, index) => (
         index === movie[Math.floor(Math.random() * movies.length)] &&
         <CardComplex
@@ -61,22 +56,24 @@ const Home = ({ search, targetDate }) => {
         />
       ))}
       {movies?.map((movie) => (
-          <>
-            {/* <CardComplex
-              movie={movie} targetDate={targetDate} haveWon={true}
-            /> */}
-            <Card
-              movie={movie} targetDate={targetDate} haveWon={false}
-            />
-          </>
-        ))}
+        <>
+          <CardComplex
+            movie={movie} targetDate={targetDate} haveWon={false}
+          />
+        </>
+      ))}
       {search &&
         moviesFilter.length > 0 &&
         moviesFilter?.map((movie) => (
-          <CardComplex
+          <Card
             movie={movie} targetDate={targetDate} haveWon={true}
           />
         ))}
+      {search && moviesFilter.length === 0 && (
+        <div className='flex justify-center items-center gap-8 py-8 w-full max-w-screen-lg'>
+          <p>{t("home.no_results")}</p>
+        </div>
+      )}
     </>
   );
 };

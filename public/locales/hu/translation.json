@@ -17,6 +17,7 @@
     "about_link": "tovább",
     "title_services": "Szolgáltatásaink",
     "competition": "aktuális verseny",
+    "past-competitions": "lezárult versenyek",
     "films": "megtekinthető filmek",
     "future_events": "jövőbeli események",
     "past_events": "lezárult események",
@@ -84,8 +85,8 @@
     "moneygoal": "Pénzügyi cél"
   },
   "favourites": {
-    "favourites": "Kedvencek",
-    "no_favs": "Nincsenek hozzáadott kedvencek"
+    "favourites": "kedvencek",
+    "no_favs": "még nincsenek kedvenceid"
   },
   "new_reviews": {
     "upload_films": "Film feltöltése",
