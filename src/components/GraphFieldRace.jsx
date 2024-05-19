@@ -9,6 +9,8 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
     const { t, i18n } = useTranslation();
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
+    console.log(Math.floor(Math.floor(movie.collected) / Math.floor(movie.moneygoal) * 100))
+
     if (days + hours + minutes + seconds <= 0) {
         return (
             <div
@@ -22,7 +24,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                         <span className="font-bold text-lg text-nbgreenmain sm:text-base underline transition-all decoration-4">{movie.collected || 0}<span className="font-thin">HUF</span></span>
                                         <span className="inline">
                                             <span className="font-bold text-lg text-nbpurplemain sm:text-base">+</span>
-                                            <span className="font-bold text-lg text-nbpurplemain sm:text-base underline transition-all decoration-4">230000<span className="font-thin">HUF</span></span>
+                                            <span className="font-bold text-lg text-nbpurplemain sm:text-base underline transition-all decoration-4">{movie.moneyRest || 0}<span className="font-thin">HUF</span></span>
                                         </span>
                                         <span className="font-bold text-lg text-nbgreymain sm:text-base"> / </span>
                                         <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbgreenlight sm:text-base transition-all">{movie.moneygoal || 0}<span className="font-thin">HUF</span></span>
@@ -50,7 +52,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                 <Link
                                     key={movie.id}
                                     to={`/details/${movie.id}`}
-                                    className={`bg-nbgreenmain disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 active:bg-nbgreenlight hover:bg-nbgreydark group-hover/slider:w-full group-active/slider:w-full delay-300 duration-700 z-50 w-[${Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}%]`}>
+                                    className={`bg-nbgreenmain disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 active:bg-nbgreenlight hover:bg-nbgreydark group-hover/slider:w-full group-active/slider:w-full delay-300 duration-700 z-50 nb-w-${Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}`}>
                                     <div className="group-hover/slider:flex justify-center items-start gap-1 hidden mx-3 transition-all duration-700 delay-300">
                                         <svg
                                             className="group-disabled/button:fill-nbgreymiddark opacity-0 group-hover/button:opacity-100 group-active/button:opacity-100 h-3 translate-y-1 fill-nbgreylight"
@@ -64,12 +66,12 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                     </div>
                                 </Link>
                                 {movie.moneyMin ? (
-                                    <div className={`transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nborangemain rounded-full opacity-100 flex flex-row justify-end pe-2 z-10 w-[60%]`}>
+                                    <div className={`transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nborangemain rounded-full opacity-100 flex flex-row justify-end pe-2 z-10 nb-w-${Math.floor(Math.floor(movie.moneyMin || 0) / Math.floor(movie.moneygoal || 0) * 100)}`}>
                                         <h6 className="text-nbgreylight text-xs leading-normal select-none">min</h6>
                                     </div>
                                 ) : null}
                                 <div className={`transition-all delay-1000 duration-1000 absolute h-5 right-0 bg-nbpurplemain rounded-full opacity-100 flex flex-row justify-end px-2 w-min-fit z-50`}>
-                                    <h6 className="text-nbgreylight text-xs leading-normal select-none">+123%</h6>
+                                    <h6 className="text-nbgreylight text-xs leading-normal select-none">+{Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
                                 </div>
                                 <div className={`transition-all delay-1000 duration-1000 absolute h-5 right-0 bg-nbpurplemain rounded-full opacity-50 flex flex-row justify-end pe-2 w-full`}></div>
                             </div>
@@ -79,7 +81,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                 <Link
                                     key={movie.id}
                                     to={`/details/${movie.id}`}
-                                    className={`line-pattern bg-nbredlight disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 group-active/slider:bg-nbredlight group-hover/slider:bg-nbgreydark group-hover/slider:w-full group-active/slider:w-full delay-300 duration-700 z-50 w-[${Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}%]`}>
+                                    className={`line-pattern bg-nbredlight disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 group-active/slider:bg-nbredlight group-hover/slider:bg-nbgreydark group-hover/slider:w-full group-active/slider:w-full delay-300 duration-700 z-50 nb-w-${Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}`}>
                                     <div className="group-hover/slider:flex justify-center items-start gap-1 hidden mx-3 transition-all duration-700 delay-300">
                                         <svg
                                             className="group-disabled/button:fill-nbgreymiddark opacity-0 group-hover/button:opacity-100 group-active/button:opacity-100 h-3 translate-y-1 fill-nbgreylight"
@@ -93,7 +95,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                     </div>
                                 </Link>
                                 {movie.moneyMin ? (
-                                    <div className={`transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nborangemain rounded-full opacity-100 flex flex-row justify-end pe-2 w-[60%]`}>
+                                    <div className={`transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nborangemain rounded-full opacity-100 flex flex-row justify-end pe-2 nb-w-${Math.floor(Math.floor(movie.moneyMin || 0) / Math.floor(movie.moneygoal || 0) * 100)}`}>
                                         <h6 className="text-nbgreylight text-xs leading-normal select-none">min</h6>
                                     </div>
                                 ) : null}
@@ -122,7 +124,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                             <Link
                                 key={movie.id}
                                 to={`/details/${movie.id}`}
-                                className={`bg-nbgreenmain hover:bg-nbgreydark active:bg-nbgreenlight disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 group-active/graphfield:bg-nbgreenlight group-active/graphfield:w-full hover:w-full delay-300 duration-700 z-50 group-hover/slider:w-full w-[${Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}%]`}>
+                                className={`bg-nbgreenmain hover:bg-nbgreydark active:bg-nbgreenlight disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 group-active/graphfield:bg-nbgreenlight group-active/graphfield:w-full hover:w-full delay-300 duration-700 z-50 group-hover/slider:w-full nb-w-${Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}`}>
                                 <div className="group-hover/slider:flex justify-center items-start gap-1 hidden mx-3 transition-all duration-700 delay-300">
                                     <svg
                                         className="group-active/button:fill-nbgreenlight group-disabled/button:fill-nbgreymiddark h-3 translate-y-1 fill-nbgreylight"
@@ -136,7 +138,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
                                 </div>
                             </Link>
                             {movie.moneyMin ? (
-                                <div className={`transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nborangemain rounded-full opacity-0 sm:group-hover/island:opacity-100 flex flex-row justify-end pe-2 w-[60%]`}>
+                                <div className={`transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nborangemain rounded-full opacity-0 sm:group-hover/island:opacity-100 flex flex-row justify-end pe-2 nb-w-${Math.floor(Math.floor(movie.moneyMin || 0) / Math.floor(movie.moneygoal || 0) * 100)}`}>
                                     <h6 className="text-nbgreylight text-xs leading-normal select-none">min</h6>
                                 </div>
                             ) : null}
