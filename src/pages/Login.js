@@ -58,7 +58,6 @@ const Login = () => {
           >
             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
               <a
-                href="#"
                 class="nbLogo transition-all flex justify-center items-end shrink gap-2 lg:ml-6 mr-4"
               >
                 <svg
@@ -142,7 +141,7 @@ const Login = () => {
             </div>
 
             <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              <form class="space-y-6">
+              <div class="space-y-6">
                 <div>
                   <label
                     for="email"
@@ -171,7 +170,6 @@ const Login = () => {
                     >
                     <div class="text-sm">
                       <a
-                        href="#"
                         class="font-semibold text-nbpurpledark hover:text-nbpurplemain"
                       >Forgot password?</a
                       >
@@ -192,8 +190,7 @@ const Login = () => {
 
                 <div>
                   <button
-                    type="submit"
-
+                    onClick={(e) => handleLogin()}
                     class="flex w-full justify-center rounded-full bg-nbgreendark px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-nbbluedark focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     {t("login.log_in")}
@@ -211,7 +208,7 @@ const Login = () => {
                 <div>
                   
                 </div>
-              </form>
+              </div>
               <button
                     onClick={(e) => { googleLogin(e) }}
                     class="flex w-full justify-center rounded-full bg-nbblack px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-nbbluedark focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
