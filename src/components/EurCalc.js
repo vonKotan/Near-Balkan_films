@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from "react";
 // import CurrencyInput from "react-currency-input-field";
 
-export const EurCalc = ({ amount }) => {
+// Components
+import { useTranslation } from 'react-i18next';
+
+export const EurCalc = ({ inputAmount }) => {
+    const { t, i18n } = useTranslation();
+    const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng);
+    };
+
+    const formatter = new Intl.NumberFormat(i18n.language === 'en' ? 'en-US' : 'de-DE');
+
     const [rates, setRates] = useState();
+    const [amount, setAmount] = useState(0);
     const [ratesFetched, setRatesFetched] = useState(false);
     const [fromCurrency, setFromCurrency] = useState("EUR");
     const [toCurrency, setToCurrency] = useState("HUF");
@@ -37,11 +48,20 @@ export const EurCalc = ({ amount }) => {
     };
 
     useEffect(() => {
+        setAmount(inputAmount);
+        setFromCurrency("EUR");
+        setToCurrency("HUF");
         calculateOutput();
-    }, []);
+    }, [output]);
 
     return (
-        { output }
+        <span>
+            {/* {i18n.language === 'hu' && (formatter.format(Math.floor(output)))}
+            {i18n.language === 'en' && (formatter.format(inputAmount))}
+            <span className="font-thin">{t("card.currency")}</span> */}
+            {formatter.format(inputAmount)}
+            <span className="font-thin">EUR</span>
+        </span>
     );
 }
 

@@ -66,9 +66,14 @@ const PastCompetitions = ({ search, targetDate }) => {
       {search &&
         moviesFilter.length > 0 &&
         moviesFilter?.map((movie) => (
-          <Card
-            movie={movie} targetDate={targetDate} haveWon={true}
-          />
+          <div className="relative flex justify-center items-center w-full max-w-screen-lg">
+            <Card
+              movie={movie} targetDate={targetDate} haveWon={true}
+            />
+            <div className='-left-12 absolute lg:flex justify-center items-center hidden bg-nbgreylight shadow-sm px-4 py-2 rounded-full w-20 h-20 cursor-pointer ring-8 ring-inset ring-nbredmain'>
+              <h3 className="font-black font-h3-subtitle text-4xl text-nbgreydark">1</h3>
+            </div>
+          </div>
         ))}
       {search && moviesFilter.length === 0 && (
         <div className='flex justify-center items-center gap-8 py-8 w-full max-w-screen-lg'>

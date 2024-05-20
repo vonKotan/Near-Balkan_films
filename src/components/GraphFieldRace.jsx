@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useCountdown } from '../hooks/useCountdown';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +9,7 @@ import { EurCalc } from './EurCalc';
 export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
     const { t, i18n } = useTranslation();
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
+    const [collected, setcollected] = useState();
 
     // console.log(Math.floor(Math.floor(movie.collected) / Math.floor(movie.moneygoal) * 100))
     const formatter = new Intl.NumberFormat(i18n.language === 'en' ? 'en-US' : 'de-DE');
@@ -17,10 +18,10 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon }) => {
     // }
 
     // useEffect(() => {
-    //     i18n.language === 'en' && (
-    //     const = movie.collected to EurCalc_amount;
-    //     )
-    // }, []);
+    //    if(i18n.language === 'en') {
+    //     setCollected(<EurCalc amount={movie.collected} />);
+    //    }
+    // }, [movie]);
 
 if (days + hours + minutes + seconds <= 0) {
     return (
@@ -31,34 +32,34 @@ if (days + hours + minutes + seconds <= 0) {
                     <div className="flex sm:flex-row flex-col justify-between gap-2 group/labels peer/labels">
                         {haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)) >= 100) && (
                             <div class="mx-0 leading-none pointer-events-none select-none">
-                                <span className="font-bold text-lg text-nbgreenmain sm:text-base underline underline-offset-4 transition-all decoration-4">{formatter.format(movie.collected || 0)}<span className="font-thin">{t("card.currency")}</span></span>
+                                <span className="font-bold text-lg text-nbgreenmain sm:text-base underline underline-offset-4 transition-all decoration-4"><EurCalc inputAmount={movie.collected || 0}/></span>
                                 <span className="inline">
                                     <span className="font-bold text-lg text-nbpurplemain sm:text-base">+</span>
-                                    <span className="font-bold text-lg text-nbpurplemain sm:text-base underline underline-offset-4 transition-all decoration-4">{formatter.format(movie.moneyRest || 0)}<span className="font-thin">{t("card.currency")}</span></span>
+                                    <span className="font-bold text-lg text-nbpurplemain sm:text-base underline underline-offset-4 transition-all decoration-4"><EurCalc inputAmount={movie.moneyRest || 0}/></span>
                                 </span>
                                 <span className="font-bold text-lg text-nbgreymain sm:text-base"> / </span>
-                                <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbgreenlight sm:text-base transition-all">{formatter.format(movie.moneygoal || 0)}<span className="font-thin">{t("card.currency")}</span></span>
-                                <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min {formatter.format(movie.moneyMin || ((movie.moneygoal * 0.060) || 0))}<span className="font-thin">{t("card.currency")}</span></span>
+                                <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbgreenlight sm:text-base transition-all"><EurCalc inputAmount={movie.moneygoal || 0}/></span>
+                                <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min <EurCalc inputAmount={movie.moneyMin || ((movie.moneygoal * 0.060) || 0)}/></span>
                             </div>
                         )}
                         {haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)) < 100) && (
                             <div class="mx-0 leading-none pointer-events-none select-none">
-                                <span className="font-bold text-lg text-nbredmain sm:text-base line-through transition-all decoration-2">{formatter.format(movie.collected || 0)}<span className="font-thin">{t("card.currency")}</span></span>
+                                <span className="font-bold text-lg text-nbredmain sm:text-base line-through transition-all decoration-2"><EurCalc inputAmount={movie.collected || 0}/></span>
                                 <span className="inline">
                                     <span className="font-bold text-lg text-nbpurplemain sm:text-base">+</span>
-                                    <span className="font-bold text-lg text-nbpurplemain sm:text-base line-through transition-all decoration-2 decoration-nbredmain">{formatter.format(movie.moneyRest || 0)}<span className="font-thin">{t("card.currency")}</span></span>
+                                    <span className="font-bold text-lg text-nbpurplemain sm:text-base line-through transition-all decoration-2 decoration-nbredmain"><EurCalc inputAmount={movie.moneyRest || 0}/></span>
                                 </span>
                                 <span className="font-bold text-lg text-nbgreymain sm:text-base"> / </span>
-                                <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbredlight sm:text-base transition-all">{formatter.format(movie.moneygoal || 0)}<span className="font-thin">{t("card.currency")}</span></span>
-                                <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min {formatter.format(movie.moneyMin || ((movie.moneygoal * 0.060) || 0))}<span className="font-thin">{t("card.currency")}</span></span>
+                                <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbredlight sm:text-base transition-all"><EurCalc inputAmount={movie.moneygoal || 0}/></span>
+                                <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min <EurCalc inputAmount={movie.moneyMin || ((movie.moneygoal * 0.060) || 0)}/></span>
                             </div>
                         )}
                         {!haveWon && (
                             <div class="mx-0 leading-none pointer-events-none select-none">
-                                <span className="font-bold text-lg text-nbredmain sm:text-base line-through transition-all decoration-2">{formatter.format(movie.collected || 0)}<span className="font-thin">{t("card.currency")}</span></span>
+                                <span className="font-bold text-lg text-nbredmain sm:text-base line-through transition-all decoration-2"><EurCalc inputAmount={movie.collected || 0}/></span>
                                 <span className="font-bold text-lg text-nbgreymain sm:text-base"> / </span>
-                                <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbredlight sm:text-base transition-all">{formatter.format(movie.moneygoal || 0)}<span className="font-thin">{t("card.currency")}</span></span>
-                                <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min {formatter.format(movie.moneyMin || ((movie.moneygoal * 0.060) || 0))}<span className="font-thin">{t("card.currency")}</span></span>
+                                <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbredlight sm:text-base transition-all"><EurCalc inputAmount={movie.moneygoal || 0}/></span>
+                                <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min <EurCalc inputAmount={movie.moneyMin || ((movie.moneygoal * 0.060) || 0)}/></span>
                             </div>
                         )}
                         {haveWon && (
@@ -177,10 +178,10 @@ if (days + hours + minutes + seconds <= 0) {
                 <div class="flex flex-col gap-2 sm:gap-2 group/island">
                     <div className="flex sm:flex-row flex-col justify-between gap-2 group/labels peer/labels">
                         <div class="mx-0 leading-none pointer-events-none select-none">
-                            <span className="font-bold text-lg text-nbgreenmain sm:text-base transition-all">{formatter.format(movie.collected || 0)}<span className="font-thin">{t("card.currency")}</span></span>
+                            <span className="font-bold text-lg text-nbgreenmain sm:text-base transition-all"><EurCalc inputAmount={movie.collected || 0}/></span>
                             <span className="font-bold text-lg text-nbgreymain sm:text-base"> / </span>
-                            <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbgreenlight sm:text-base transition-all">{formatter.format(movie.moneygoal || 0)}<span className="font-thin">{t("card.currency")}</span></span>
-                            <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min {formatter.format(movie.moneyMin) || ((movie.moneygoal * 0.060) || 0)}<span className="font-thin">{t("card.currency")}</span></span>
+                            <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-lg text-nbgreenlight sm:text-base transition-all"><EurCalc inputAmount={movie.moneygoal || 0}/></span>
+                            <span className="group-hover/labels:inline hidden font-bold text-lg text-nborangemain sm:text-base transition-all">min <EurCalc inputAmount={movie.moneyMin || ((movie.moneygoal * 0.060) || 0)}/></span>
                         </div>
                         <CountdownTimer haveWon={0} targetDate={targetDate} movie={movie} />
                     </div>

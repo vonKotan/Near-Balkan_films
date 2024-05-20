@@ -82,7 +82,7 @@ function App() {
         </Route>
         <Route path="/" element={<Layout />} user={user}>
           <Route index element={<Home search={search} targetDate={targetDate}/>} />
-          <Route path="/past-competitions" element={<NotFound />} />
+          <Route path="/past-competitions" element={<PastCompetitions search={search} targetDate={targetDate}/>} />
           <Route
             path='/favourites'
             element={!user ? <Navigate to='/login' /> : <Favorites user={user} targetDate={targetDate} />}
