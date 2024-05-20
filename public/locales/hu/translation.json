@@ -48,13 +48,15 @@
   "card": {
     "team_up": "munka",
     "won_all": "mindent nyert",
+    "lost_not_min": "nem érte el a minimumot",
     "lost": "vesztett",
     "date_past_competition": "2024 március-április",
     "date_current_competition": "2024 május-június",
     "previous_competition": "korábbi verseny",
     "in_competition": "versenyben",
     "what_happened": "mi lett velük?",
-    "on_their_side": "mellettük versenyzem!"
+    "on_their_side": "mellettük versenyzem!",
+    "currency": "HUF"
   },
   "details": {
     "views": "Megtekintések:",

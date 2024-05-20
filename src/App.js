@@ -38,7 +38,7 @@ function App() {
 
   // target date
   const RELATIVE_TIME_FROM_NOW = new Date().getTime() + 3 * 24 * 60 * 60 * 1000;
-  const EXACT_DATE_IN_FUTURE = new Date("May 26, 2024 12:00:00").getTime();
+  const EXACT_DATE_IN_FUTURE = new Date("May 3, 2024 12:00:00").getTime();
   const targetDate = EXACT_DATE_IN_FUTURE;
 
   useEffect(() => {

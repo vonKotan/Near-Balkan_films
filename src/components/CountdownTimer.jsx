@@ -7,12 +7,12 @@ import { Link } from 'react-router-dom';
 // Components
 import { useTranslation } from 'react-i18next';
 
-export const CountdownTimer = ({ targetDate, haveWon }) => {
+export const CountdownTimer = ({ targetDate, haveWon, movie }) => {
 
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
     if (days + hours + minutes + seconds <= 0) {
-        return <ExpiredNotice haveWon={haveWon} />;
+        return <ExpiredNotice haveWon={haveWon} movie={movie} />;
     } else {
         return (
             <ShowCounter
@@ -48,17 +48,22 @@ const ShowCounter = ({ days, hours, minutes, seconds, isDanger }) => {
     );
 };
 
-const ExpiredNotice = ({ haveWon }) => {
+const ExpiredNotice = ({ haveWon, movie }) => {
     const { t, i18n } = useTranslation();
     const changeLanguage = (lng) => {
-      i18n.changeLanguage(lng);
+        i18n.changeLanguage(lng);
     };
 
-    if (haveWon) {
+    if (haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)) >= 100)) {
         return (
             <Link to="/" className="inline order-first sm:order-none bg-nbgreenmain hover:bg-nbpurplemain px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">{t("card.won_all")}</Link>
         );
-    } else {
+    } if (haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)) < 100)) {
+        return (
+            <Link to="/" className="inline order-first sm:order-none bg-nbredmain hover:bg-nbpurplelight px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">{t("card.lost_not_min")}</Link>
+        );
+    }
+    else {
         return (
             <Link to="/" className="inline order-first sm:order-none bg-nbredmain hover:bg-red-400 px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-base text-nbgreylight sm:text-sm leading-normal cursor-pointer select-none align-center">{t("card.lost")}</Link>
         );
@@ -69,7 +74,7 @@ const ExpiredNotice = ({ haveWon }) => {
 export const CurrentRace = ({ targetDate }) => {
     const { t, i18n } = useTranslation();
     const changeLanguage = (lng) => {
-      i18n.changeLanguage(lng);
+        i18n.changeLanguage(lng);
     };
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
@@ -93,7 +98,7 @@ export const CurrentRace = ({ targetDate }) => {
 export const RaceState = ({ targetDate }) => {
     const { t, i18n } = useTranslation();
     const changeLanguage = (lng) => {
-      i18n.changeLanguage(lng);
+        i18n.changeLanguage(lng);
     };
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
 

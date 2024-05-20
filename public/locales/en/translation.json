@@ -48,13 +48,15 @@
   "card": {
     "team_up": "team up",
     "won_all": "won all",
+    "lost_not_min": "did not meet minimum",
     "lost": "lost",
     "date_past_competition": "March-April 2024",
     "date_current_competition": "May-June 2024",
     "previous_competition": "previous competition",
     "in_competition": "in competition",
     "what_happened": "what happened to them?",
-    "on_their_side": "on their side!"
+    "on_their_side": "on their side!",
+    "currency": "EUR"
   },
   "details": {
     "views": "Views:",
