@@ -51,13 +51,13 @@ const AddFavorite = ({ movieId, user }) => {
       {isFavorite ? (
         <TbHeartMinus
           size={30}
-          className='text-nbgreenmain'
+          className='text-nbgreylight'
           onClick={removeFavorite}
         />
       ) : (
         <TbHeartPlus
           size={30}
-          className='text-nbgreenmain'
+          className='text-nbgreylight'
           onClick={addFavorite}
         />
       )}

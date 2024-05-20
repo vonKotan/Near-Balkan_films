@@ -9,10 +9,9 @@ import { Card, CardComplex } from '../components/Card';
 import { SectionTitle } from '../components/SectionTitle';
 import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
-import { EurCalc } from '../components/EurCalc';
 // import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from '../components/SearchBar';
 
-const Home = ({ search, targetDate }) => {
+const PastCompetitions = ({ search, targetDate }) => {
   const { documents: movies } = useFetchData('films');
   const { t, i18n } = useTranslation();
   console.log(search);
@@ -55,16 +54,26 @@ const Home = ({ search, targetDate }) => {
       ))}
       {!search &&
         movies?.map((movie) => (
-          <Card
-            movie={movie} targetDate={targetDate} haveWon={false}
-          />
+          <div className="relative flex justify-center items-center w-full max-w-screen-lg">
+            <Card
+              movie={movie} targetDate={targetDate} haveWon={false}
+            />
+            <div className='-left-12 absolute lg:flex justify-center items-center hidden bg-nbgreylight shadow-sm px-4 py-2 rounded-full w-20 h-20 cursor-pointer ring-8 ring-inset ring-nbredmain'>
+              <h3 className="font-black font-h3-subtitle text-4xl text-nbgreydark">1</h3>
+            </div>
+          </div>
         ))}
       {search &&
         moviesFilter.length > 0 &&
         moviesFilter?.map((movie) => (
-          <Card
-            movie={movie} targetDate={targetDate} haveWon={true}
-          />
+          <div className="relative flex justify-center items-center w-full max-w-screen-lg">
+            <Card
+              movie={movie} targetDate={targetDate} haveWon={true}
+            />
+            <div className='-left-12 absolute lg:flex justify-center items-center hidden bg-nbgreylight shadow-sm px-4 py-2 rounded-full w-20 h-20 cursor-pointer ring-8 ring-inset ring-nbredmain'>
+              <h3 className="font-black font-h3-subtitle text-4xl text-nbgreydark">1</h3>
+            </div>
+          </div>
         ))}
       {search && moviesFilter.length === 0 && (
         <div className='flex justify-center items-center gap-8 py-8 w-full max-w-screen-lg'>
@@ -75,4 +84,21 @@ const Home = ({ search, targetDate }) => {
   );
 };
 
-export default Home;
+export default PastCompetitions;
+
+
+{/* <Transition
+          show={isShowing}
+          enter="transition duration-[400ms]"
+          enterFrom="scale-50 opacity-0"
+          enterTo="scale-100 opacity-100"
+          leave="transition duration-200 ease-in-out"
+          leaveFrom="scale-100 opacity-100"
+          leaveTo="scale-95 opacity-0"
+      > */}
+
+{/*           <div className="relative flex justify-center items-center w-full max-w-[900px]">
+      <div className='-left-12 absolute lg:flex justify-center items-center hidden bg-nbgreylight shadow-sm px-4 py-2 rounded-full w-20 h-20 cursor-pointer ring-8 ring-inset ring-nbgreenmain'>
+              <h3 className="font-black font-h3-subtitle text-4xl text-nbgreydark">1</h3>
+            </div>
+          </div> */}

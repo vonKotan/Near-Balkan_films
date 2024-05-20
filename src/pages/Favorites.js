@@ -2,44 +2,35 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AddFavorite from '../components/AddFavorite';
 import Card from '../components/Card';
+import SectionTitle from '../components/SectionTitle';
 import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 
-const Favorites = ({ user }) => {
+const Favorites = ({ user, targetDate, }) => {
   const { documents: favorites } = useFetchData(`users/${user?.uid}/favorites`);
-  const { t, i18n } = useTranslation(); 
+  const { t, i18n } = useTranslation();
   console.log(favorites);
   return (
-    <section className='flex flex-col items-center justify-start gap-10 py-16 sectionHeight lg:py-32'>
-      <h1 className='mb-2 text-3xl font-bold sm:text-4xl xl:text-5xl'>
-        <span className='text-nbgreenmain border-b-4 border-black '>
-          {t('favourites.favourites')}
-        </span>
-      </h1>
-      <div className='grid items-start grid-flow-row grid-cols-1 gap-8 py-8 justify-items-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
-        {favorites &&
-          favorites.length > 0 &&
-          favorites?.map((movie) => (
-            <div className='relative ' key={movie.id}>
-              <Link to={`/details/${movie.id}`} className='flex items-center '>
-                <Card
-                  image={movie.image}
-                  title={movie.title}
-                  genre={movie.genre}
-                  rating={movie.rating}
-                />
-              </Link>
-              <div className='absolute top-0 right-0 p-2 bg-[rgba(0,0,0,0.7)] cursor-pointer'>
-                <AddFavorite movieId={movie.id} user={user} />
-              </div>
+    <>
+      <SectionTitle title={t("favourites.favourites")} />
+      {favorites &&
+        favorites.length > 0 &&
+        favorites?.map((movie) => (
+          <div className='relative w-full max-w-screen-lg' key={movie.id}>
+            <Card
+              movie={movie} targetDate={targetDate} haveWon={true}
+            />
+            <div className='absolute top-2 left-2 p-2 bg-nbredmain cursor-pointer rounded-full shadow-md hover:bg-red-400'>
+              <AddFavorite movieId={movie.id} user={user} />
             </div>
-          ))}
-      </div>
-
+          </div>
+        ))}
       {favorites && favorites.length === 0 && (
-        <p className='italic text-gray-400'>{t("favourites.no_favs")}</p>
+        <div className='flex justify-center items-center gap-8 py-8 w-full max-w-screen-lg h-[65dvh]'>
+          <p>{t("favourites.no_favs")}</p>
+        </div>
       )}
-    </section>
+    </>
   );
 };
 

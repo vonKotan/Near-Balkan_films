@@ -80,7 +80,7 @@ const Details = ({ user }) => {
             className='object-cover lg:w-[500px] lg:h-[700px] max-h-[500px] md:max-h-[700px]'
           />
           {user && (
-            <div className='absolute top-0 left-0 p-2 bg-[rgba(0,0,0,0.7)]  cursor-pointer'>
+            <div className='absolute top-2 left-2 p-2 bg-nbredmain cursor-pointer rounded-full shadow-md hover:bg-red-400'>
               <AddFavorite movieId={id} user={user} />
             </div>
           )}
