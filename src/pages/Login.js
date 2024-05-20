@@ -142,7 +142,7 @@ const Login = () => {
             </div>
 
             <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-              <form class="space-y-6" action="#" method="POST">
+              <form class="space-y-6">
                 <div>
                   <label
                     for="email"
@@ -209,16 +209,15 @@ const Login = () => {
                   >
                 </div>
                 <div>
-                  <button
-                    type="submit"
+                  
+                </div>
+              </form>
+              <button
                     onClick={(e) => { googleLogin(e) }}
                     class="flex w-full justify-center rounded-full bg-nbblack px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-nbbluedark focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
                     Sign in with Google
                   </button>
-                </div>
-              </form>
-
               <p class="mt-10 text-center text-sm text-gray-500">
                 Not a member?
                 <Link
