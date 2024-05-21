@@ -14,9 +14,9 @@ export const UserIcon = ({ movie }) => {
                     key={movie.id}
                     to={`/details/${movie.id}`}
                     className='flex flex-row items-center gap-2 group/button'>
-                    {movie.userProfile ? (
+                    {movie.user.profilePicture ? (
                         <img
-                            src={movie.userProfile}
+                            src={movie.user.profilePicture}
                             alt='user'
                             className='lg:block hidden rounded-full w-full max-w-7 h-full max-h-7'
                         />
@@ -52,9 +52,9 @@ export const UserIconList = ({ movie }) => {
                     key={movie.id}
                     to={`/details/${movie.id}`}
                     className='flex flex-row items-center gap-2 group/button'>
-                    {movie.userProfile ? (
+                    {movie.user.profilePicture ? (
                         <img
-                            src={movie.userProfile}
+                            src={movie.user.profilePicture}
                             alt='user'
                             className='lg:block hidden rounded-full w-full max-w-7 h-full max-h-7'
                         />
