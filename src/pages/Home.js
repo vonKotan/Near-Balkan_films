@@ -38,6 +38,7 @@ const Home = ({ search, targetDate }) => {
     const generateRandomMovie = () => {
       const randomMovie = movies[Math.floor(Math.random() * movies.length)];
       setRandomMovie(randomMovie)
+      console.log(randomMovie);
     }
 
     generateRandomMovie();
@@ -46,15 +47,15 @@ const Home = ({ search, targetDate }) => {
   return (
     <>
       <SectionTitle title={t("home.competition")} />
-      {movies?.filter((movie, index) => (
-        index === movie[Math.floor(Math.random() * movies.length)] &&
+      {randomMovie &&
         <CardComplex
-          movie={movie[Math.floor(Math.random() * movies.length)]}
+          movie={randomMovie}
           targetDate={targetDate}
-        />
-      ))}
+        />}
+
       {!search &&
         movies?.map((movie) => (
+          (!randomMovie || movie.id !== randomMovie.id) &&
           <Card
             movie={movie} targetDate={targetDate} haveWon={false}
           />
@@ -62,6 +63,7 @@ const Home = ({ search, targetDate }) => {
       {search &&
         moviesFilter.length > 0 &&
         moviesFilter?.map((movie) => (
+          (!randomMovie || movie.id !== randomMovie.id ) &&
           <Card
             movie={movie} targetDate={targetDate} haveWon={true}
           />

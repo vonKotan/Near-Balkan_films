@@ -12,7 +12,6 @@ const AddFavorite = ({ movieId, user }) => {
 
   const { documents: favorites } = useFetchData(`users/${user?.uid}/favorites`);
   const { documents: movies } = useFetchData(`films`);
-  const { t, i18n } = useTranslation();   
 
   const addFavorite = async () => {
     try {

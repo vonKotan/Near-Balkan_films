@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
 // Components
-import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from './SearchBar';
 
@@ -22,7 +21,6 @@ import { useAuth } from '../hooks/useAuth';
 const Header = ({ user, userObject, search, setSearch }) => {
   const { signOutUser } = useAuth();
 
-  const { documents: movies } = useFetchData('films');
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);

@@ -2,17 +2,7 @@
 import { Link } from 'react-router-dom';
 
 // Components
-import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
-
-// Radix Imports
-import {
-  Root,
-  Item,
-  Trigger,
-  Content,
-  Link as RadixLink,
-} from '@radix-ui/react-navigation-menu';
 
 // Icons
 import { useAuth } from '../hooks/useAuth';
@@ -20,7 +10,6 @@ import { useAuth } from '../hooks/useAuth';
 const Footer = ({ user, userObject }) => {
   const { signOutUser } = useAuth();
 
-  const { documents: movies } = useFetchData('films');
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);

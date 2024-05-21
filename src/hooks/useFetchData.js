@@ -10,7 +10,7 @@ import { database } from '../firebase/config';
 
 export const useFetchData = (docCollection, genre = null) => {
   const [documents, setDocuments] = useState([]);
-
+  
   useEffect(() => {
     const fetchData = () => {
       const collectionRef = collection(database, docCollection);
