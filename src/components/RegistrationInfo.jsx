@@ -8,12 +8,11 @@ import { useEffect, useRef } from "react";
 import { Filmography } from "./Fimography";
 import { useTranslation } from "react-i18next";
 
-import Select from "react-select"
 import * as yup from 'yup';
 import { CustomSelect } from "./CustomSelect";
 
 export const RegistrationInfo = ({ user }) => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
 
     const titleOptions = [
         { value: 'screenwriter', label: 'Screenwriter' },
@@ -52,7 +51,7 @@ export const RegistrationInfo = ({ user }) => {
 
     const hiddenInput = useRef(null);
 
-    const { registerUserInfo, loading, error: firebaseError } = useAuth()
+    const { registerUserInfo, error: firebaseError } = useAuth()
 
     const [filmography, setFilmography] = useState([])
 
@@ -76,7 +75,7 @@ export const RegistrationInfo = ({ user }) => {
         if (validateExtraFields()) {
             user = CreateUserObj(user);
             registerUserInfo(user);
-            navigate("/");
+            //navigate("/");
         }
     }
 
@@ -87,6 +86,10 @@ export const RegistrationInfo = ({ user }) => {
 
         if (filmography && filmography.length > 0) {
             user = { ...user, filmography: filmography }
+        }
+
+        if(profilePicture){
+            user = {...user, profilePicture: profilePicture}
         }
         return user;
     }
@@ -120,7 +123,6 @@ export const RegistrationInfo = ({ user }) => {
         birthDate: yup.date("This field is required").max(new Date(), "Your birthDate can not be later than today").required("This field is required"),
         userName: yup.string().matches('^[a-zA-Z]+$', "your username should only contain letters").required("This field is required"),
         userType: yup.string().oneOf(['viewer', 'creator']).required("This field is required"),
-        profilePicture: yup.mixed()
     });
 
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -256,7 +258,7 @@ export const RegistrationInfo = ({ user }) => {
             <div class="gridCol basis-2/4 bg-nbwhite ring-2 ring-nbblack rounded-lg px-5 py-2">
                 <div class="flex min-h-full flex-col sm:min-w-96 min-w-60 lg:min-w-96 justify-center px-6 py-12 lg:px-8">
                     <div class="sm:mx-auto sm:w-full">
-                        <a href="#" class="nbLogo transition-all flex justify-center items-end shrink gap-2 lg:ml-6 mr-4">
+                        <a class="nbLogo transition-all flex justify-center items-end shrink gap-2 lg:ml-6 mr-4">
                             <svg class="logoVectors2 group/logo shrink-0 w-12 h-8" xmlns="http://www.w3.org/2000/svg">
                                 <path class="group-hover/logo:fill-nbgreendark fill-nbgreenmain"
                                     d="M0.647461 16.1046H4.4444V18.5788L7.02756 16.1046H12.0383L15.4929 19.4135V30.95H11.3847V20.4867L10.3265 19.4433H7.71226L4.75562 22.3051V30.95H0.647461V16.1046Z" />
@@ -309,7 +311,7 @@ export const RegistrationInfo = ({ user }) => {
                                 <label for="firstname"
                                     class="block text-sm text-left font-medium leading-6 text-gray-900">{t("register_info.first_name")}</label>
                                 <div class="mt-2">
-                                    <input id="lastName" type="text"
+                                    <input id="firstName" type="text"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
                                         {...register("firstName")}
                                         placeholder={t("register_info.first_name")} />
@@ -342,7 +344,7 @@ export const RegistrationInfo = ({ user }) => {
                                 </div>
                             </div>
 
-                            <form class="max-w-sm mx-auto">
+                            <div class="max-w-sm mx-auto">
 
                                 <label for="phone-input"
                                     class="block mb-2 text-sm text-left font-medium text-gray-900 dark:text-white">{t("register_info.phone_number")}</label>
@@ -356,7 +358,7 @@ export const RegistrationInfo = ({ user }) => {
                                     </div>
                                     <input type="text" id="phone-input" aria-describedby="helper-text-explanation"
                                         class="block w-full ps-10 p-2.5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
-                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                                        //pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" ez jelenleg így nem az igazi de majd lehetne használni csak máshogy 
                                         {...register("phoneNumber")}
                                         placeholder={t("register_info.phone_number")} />
                                     {errors.phoneNumber && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.phoneNumber?.message}</p>)}
@@ -376,10 +378,15 @@ export const RegistrationInfo = ({ user }) => {
                                                 <button type="button"
                                                     onClick={() => hiddenInput?.current?.click()}
                                                     class="rounded-md bg-nbgreenmain px-2.5 py-1.5 text-sm font-semibold text-nbgreylight shadow-sm hover:bg-nbgreendark focus:bg-nbgreendark focus:ring-1 focus:ring-nbgreenmain ring-offset">Upload file</button>
-                                                <input type="file"
-                                                    {...register('profilePicture')}
+                                                <input
+                                                    type="file"
+                                                    id = "profilePicture"
+                                                    name = "profilePicture"
+                                                    accept='image/*'
+                                                    {...register("profilePicture")}
                                                     onChange={e => setProfilePicture(e.target.files[0])}
-                                                    ref={hiddenInput} className='hidden' />
+                                                    ref={hiddenInput} 
+                                                    className='sr-only' />
                                             </div>
                                             <p>{profilePicture.name}</p>
                                         </div>
@@ -424,7 +431,7 @@ export const RegistrationInfo = ({ user }) => {
 
                                     {/* <div class="text-nbblack focus:ring-nborangemain text-nbblack hidden peer-checked/Viewer:block">Choose your prefered roles.</div> */}
                                 </fieldset>
-                            </form>
+                            </div>
                         </div>
 
                         {userType === 'creator' && <>
@@ -448,9 +455,8 @@ export const RegistrationInfo = ({ user }) => {
 
                 <p class="mt-10 text-center text-sm text-gray-500">
                     Already a member?
-                    <a href="#" class="font-semibold leading-6 text-nbpurpledark hover:text-nbpurplemain">Sign in</a>
+                    <a href="/login" class="font-semibold leading-6 text-nbpurpledark hover:text-nbpurplemain">Sign in</a>
                 </p>
-                {roles && roles.map(role => <p key={role}>{role}</p>)}
             </div>
 
 
