@@ -1,6 +1,6 @@
 
 
-const EventCard = ({ user, userObject, images }) => {
+const EventCard = ({ user, userObject, event }) => {
 
   return (
     <section id="gridRow" className="flex flex-row flex-wrap justify-center items-center">
@@ -555,34 +555,33 @@ const EventCard = ({ user, userObject, images }) => {
           <div className="gap-3 lg:gap-3 grid lg:grid-cols-3 lg:grid-flow-dense mx-auto max-w-2xl">
             <div
               className="block lg:col-span-2 bg-nbgreydark rounded-2xl max-h-48 lg:max-h-none overflow-hidden aspect-video">
-              <video controls src="./public/images/Love_Once_Again.mov"
+              <video controls src={event?.video || ""}
                 className="w-full h-full object-center object-cover"></video>
             </div>
             <div className="block rounded-2xl max-h-48 lg:max-h-none overflow-hidden aspect-auto">
-              <img src="./public/images/IMG_2271.jpg" className="w-full h-full object-center object-cover" />
-              {/* src={images[0]} */}
+              <img src={event?.images[0]} className="w-full h-full object-center object-cover" />
             </div>
             <div className="gap-y-3 grid grid-cols-1">
               <div className="rounded-2xl max-h-48 lg:max-h-none overflow-hidden aspect-auto">
-                <img src="./public/images/IMG_20230728_221158.jpg" className="w-full h-full object-center object-cover" />
+                <img src={event?.images[1]} className="w-full h-full object-center object-cover" />
               </div>
               <div className="rounded-2xl max-h-48 lg:max-h-none overflow-hidden aspect-auto">
-                <img src="./public/images/IMG_20230711_174225.jpg" className="w-full h-full object-center object-cover" />
+                <img src={event?.images[2]} className="w-full h-full object-center object-cover" />
               </div>
             </div>
             <div className="gap-y-3 grid grid-cols-1">
               <div className="block rounded-2xl max-h-48 lg:max-h-none overflow-hidden aspect-auto">
-                <img src="./public/images/IMG_7504.jpg" className="w-full h-full object-center object-cover" />
+                <img src={event?.images[3]} className="w-full h-full object-center object-cover" />
               </div>
               <div className="block rounded-2xl max-h-48 lg:max-h-none overflow-hidden aspect-auto">
-                <img src="./public/images/20230724_230936.jpg" className="w-full h-full object-center object-cover" />
+                <img src={event?.images[4]} className="w-full h-full object-center object-cover" />
               </div>
             </div>
             <div className="block rounded-2xl max-h-48 lg:max-h-none overflow-hidden aspect-auto">
-              <img src="./public/images/IMG_7435.jpg" className="w-full h-full object-center object-cover" />
+              <img src={event?.images[5]} className="w-full h-full object-center object-cover" />
             </div>
             <div className="block rounded-2xl max-h-48 lg:max-h-none overflow-hidden aspect-auto">
-              <img src="./public/images/IMG_7438.jpg" className="w-full h-full object-center object-cover" />
+              <img src={event?.images[6]} className="w-full h-full object-center object-cover" />
             </div>
             <div
               className="flex justify-center lg:col-span-2 bg-nbblack p-0 rounded-2xl sm:max-h-none overflow-hidden aspect-video">
