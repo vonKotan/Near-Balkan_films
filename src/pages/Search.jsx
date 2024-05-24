@@ -6,25 +6,16 @@ import { Link } from 'react-router-dom';
 // Components
 import Card from '../components/Card';
 import SearchBar from '../components/SearchBar';
-import { useFetchData } from '../hooks/useFetchData';
+import { useFetchMovies } from '../hooks/useFetchMovies';
+import { useFilterMovies } from '../hooks/useFilterMovies';
 import { useTranslation } from 'react-i18next';
 
 const Search = ({ targetDate }) => {
-    const { documents: movies } = useFetchData('films');
+    const { movies } = useFetchMovies({ fieldToOrderBy: 'collected', isDescending: true });
     const { t } = useTranslation();
 
     const [search, setSearch] = useState(null);
-    const [moviesFilter, setMoviesFilter] = useState([]);
-
-    useEffect(() => {
-        if (search) {
-            const filter = movies.filter((movie) =>
-                movie.title.toLowerCase().includes(search.toLowerCase()),
-            );
-
-            setMoviesFilter(filter);
-        }
-    }, [search, movies]);
+    const { filteredMovies: moviesFilter } = useFilterMovies(movies, search)
 
     return (
         <>
@@ -42,7 +33,7 @@ const Search = ({ targetDate }) => {
                 </div>
             </div>
             {
-                search && moviesFilter.length === 0 && (
+                search && moviesFilter?.length === 0 && (
                     <div className='flex justify-center items-center gap-8 py-8'>
                         <p>{t("home.no_results")}</p>
                     </div>
@@ -50,7 +41,7 @@ const Search = ({ targetDate }) => {
             }
             {
                 search &&
-                moviesFilter.length > 0 &&
+                moviesFilter?.length > 0 &&
                 moviesFilter?.map((movie) => (
                     <Card
                         movie={movie} targetDate={targetDate} haveWon={false}
