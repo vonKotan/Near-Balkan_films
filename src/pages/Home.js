@@ -10,16 +10,12 @@ import { SectionTitle } from '../components/SectionTitle';
 import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 import { EurCalc } from '../components/EurCalc';
+import { useFetchMovies } from '../hooks/useFetchMovies';
 // import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from '../components/SearchBar';
 
 const Home = ({ search, targetDate }) => {
-  const { documents: movies } = useFetchData('films');
-  const { t, i18n } = useTranslation();
-  console.log(search);
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
-
+  const { movies } = useFetchMovies({ fieldToOrderBy: 'collected', isDescending: true });
+  const { t } = useTranslation();
   const [moviesFilter, setMoviesFilter] = useState([]);
   const [randomMovie, setRandomMovie] = useState(0);
 
@@ -39,20 +35,19 @@ const Home = ({ search, targetDate }) => {
       const randomMovie = movies[Math.floor(Math.random() * movies.length)];
       setRandomMovie(randomMovie)
     }
-
+    console.log(movies);
     generateRandomMovie();
-  });
+  }, [movies]);
 
   return (
     <>
       <SectionTitle title={t("home.competition")} />
-      {movies?.filter((movie, index) => (
-        index === movie[Math.floor(Math.random() * movies.length)] &&
+      {randomMovie &&
         <CardComplex
-          movie={movie[Math.floor(Math.random() * movies.length)]}
+          movie={randomMovie}
           targetDate={targetDate}
-        />
-      ))}
+        />}
+
       {!search &&
         movies?.map((movie) => (
           <Card

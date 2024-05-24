@@ -7,7 +7,7 @@ import { CustomSelect } from './CustomSelect'
 
 export function Filmography({ sendData, user }) {
 
-    const { uploadImage } = useUploadImage(user)
+    const { uploadImage } = useUploadImage(user.user.email)
 
     const titleOptions = [
         { value: 'screenwriter', label: 'Screenwriter' },

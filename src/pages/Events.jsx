@@ -9,7 +9,7 @@ import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 
 const Events = () => {
-  const { documents: events } = useFetchData('events');
+  //const { documents: events } = useFetchData('events'); ezt most kiszedem mert foloslegesen lassít
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);

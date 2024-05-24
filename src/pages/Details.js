@@ -138,7 +138,7 @@ const Details = ({ user }) => {
             
           </div>
           {/* Comments section */}
-          <Comments id={id} user={user} />
+          <Comments movie={movie} user={user} />
         </Item>
         )}
       </div>

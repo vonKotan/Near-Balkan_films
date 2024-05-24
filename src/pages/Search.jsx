@@ -11,10 +11,7 @@ import { useTranslation } from 'react-i18next';
 
 const Search = ({ targetDate }) => {
     const { documents: movies } = useFetchData('films');
-    const { t, i18n } = useTranslation();
-    const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng);
-    };
+    const { t } = useTranslation();
 
     const [search, setSearch] = useState(null);
     const [moviesFilter, setMoviesFilter] = useState([]);

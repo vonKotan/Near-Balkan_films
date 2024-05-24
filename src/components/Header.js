@@ -1,11 +1,10 @@
 // Routes
 import { Link } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 // Components
-import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
-import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from './SearchBar';
+import SearchBar from './SearchBar';
 
 // Radix Imports
 import {
@@ -22,7 +21,6 @@ import { useAuth } from '../hooks/useAuth';
 const Header = ({ user, userObject, search, setSearch }) => {
   const { signOutUser } = useAuth();
 
-  const { documents: movies } = useFetchData('films');
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -333,10 +331,10 @@ const Header = ({ user, userObject, search, setSearch }) => {
           {user && (
             <Item>
               <div className='flex justify-end items-center gap-4'>
-                {user.photoURL ? (
+                {user.photoURL || userObject?.profilePicture ? (
                   <Trigger className='flex items-center gap-2'>
                     <img
-                      src={user.photoURL}
+                      src={userObject.profilePicture || user.photoURL}
                       alt='user'
                       className='lg:block hidden max-h-7 max-w-7 w-full h-full rounded-full'
                     />
