@@ -11,24 +11,15 @@ import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 import { EurCalc } from '../components/EurCalc';
 import { useFetchMovies } from '../hooks/useFetchMovies';
+import { useFilterMovies } from '../hooks/useFilterMovies';
 // import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from '../components/SearchBar';
 
 const Home = ({ search, targetDate }) => {
   const { movies } = useFetchMovies({ fieldToOrderBy: 'collected', isDescending: true });
-  const { t } = useTranslation();
-  const [moviesFilter, setMoviesFilter] = useState([]);
+  const { t, i18n } = useTranslation();
+
   const [randomMovie, setRandomMovie] = useState(0);
-
-  useEffect(() => {
-    if (search) {
-      console.log(search)
-      const filter = movies.filter((movie) =>
-        movie.title.toLowerCase().includes(search.toLowerCase()),
-      );
-
-      setMoviesFilter(filter);
-    }
-  }, [search, movies]);
+  const {filteredMovies: moviesFilter} = useFilterMovies(movies, search)
 
   useEffect(() => {
     const generateRandomMovie = () => {
@@ -42,7 +33,7 @@ const Home = ({ search, targetDate }) => {
   return (
     <>
       <SectionTitle title={t("home.competition")} />
-      {randomMovie &&
+      {randomMovie && !search &&
         <CardComplex
           movie={randomMovie}
           targetDate={targetDate}

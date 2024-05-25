@@ -5,12 +5,8 @@ import React, { useState, useEffect } from "react";
 import { useTranslation } from 'react-i18next';
 
 export const EurCalc = ({ inputAmount }) => {
-    const { t, i18n } = useTranslation();
-    const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng);
-    };
-
-    const formatter = new Intl.NumberFormat(i18n.language === 'en' ? 'en-US' : 'de-DE');
+    const { i18n } = useTranslation();
+    const [formatter, setFormatter] = useState(null)
 
     const [rates, setRates] = useState();
     const [amount, setAmount] = useState(0);
@@ -31,35 +27,42 @@ export const EurCalc = ({ inputAmount }) => {
             setRatesFetched(true);
         }
     };
+    useEffect(() => setFormatter(
+        new Intl.NumberFormat(i18n.language === 'en' ? 'en-US' : 'de-DE')
+    ), [i18n.language])
 
-    useEffect(() => {
+    /* useEffect(() => {
         getRates();
-    }, []);
+    },[]); */
 
-    const calculateOutput = async () => {
-        // fetch the selected from currency rates
-        const response = await fetch(
-            `https://v6.exchangerate-api.com/v6/5f96a3dbbd4cccb1f9f337a6/latest/${fromCurrency}`
-        ).then((response) => response.json());
-        const fetchedRates = response.conversion_rates;
-        const CurrencyRate = fetchedRates[toCurrency];
-        const output = amount * CurrencyRate;
-        setOutput(output);
-    };
+    
 
-    useEffect(() => {
+    /* useEffect(() => {
+        const calculateOutput = async () => {
+            // fetch the selected from currency rates
+            const response = await fetch(
+                `https://v6.exchangerate-api.com/v6/5f96a3dbbd4cccb1f9f337a6/latest/${fromCurrency}`
+            ).then((response) => {
+                response?.json()
+                const fetchedRates = response.conversion_rates;
+                const CurrencyRate = fetchedRates[toCurrency];
+                const output = amount * CurrencyRate;
+                setOutput(output);
+            });
+    
+        };
         setAmount(inputAmount);
         setFromCurrency("EUR");
         setToCurrency("HUF");
         calculateOutput();
-    }, [output]);
+    }, [inputAmount, toCurrency, amount, fromCurrency]); */
 
     return (
         <span>
             {/* {i18n.language === 'hu' && (formatter.format(Math.floor(output)))}
             {i18n.language === 'en' && (formatter.format(inputAmount))}
             <span className="font-thin">{t("card.currency")}</span> */}
-            {formatter.format(inputAmount)}
+            {formatter?.format(inputAmount)}
             <span className="font-thin">EUR</span>
         </span>
     );
