@@ -9,7 +9,7 @@ import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 
 const Events = () => {
-  //const { documents: events } = useFetchData('events'); ezt most kiszedem mert foloslegesen lassít
+  const { documents: events } = useFetchData('events');
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -23,7 +23,7 @@ const Events = () => {
         </div>
       </section>
       <EventCard
-        // images={events[0].images}
+        event={events[0]}
       />
     </>
   );
