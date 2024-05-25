@@ -334,7 +334,7 @@ const Header = ({ user, userObject, search, setSearch }) => {
                 {user.photoURL || userObject?.profilePicture ? (
                   <Trigger className='flex items-center gap-2'>
                     <img
-                      src={userObject.profilePicture || user.photoURL}
+                      src={userObject?.profilePicture || user?.photoURL}
                       alt='user'
                       className='lg:block hidden max-h-7 max-w-7 w-full h-full rounded-full'
                     />
