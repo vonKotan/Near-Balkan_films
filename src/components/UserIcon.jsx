@@ -18,7 +18,7 @@ export const UserIcon = ({ movie }) => {
                         <img
                             src={movie.user.profilePicture}
                             alt='user'
-                            className='lg:block hidden rounded-full w-full max-w-7 h-full max-h-7'
+                            className='lg:block hidden rounded-full w-full max-w-7 h-full max-h-7 min-h-7 max-h-7'
                         />
                     ) : (
                         <button type="button"
