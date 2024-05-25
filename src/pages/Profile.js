@@ -179,6 +179,7 @@ const Profile = ({ user }) => {
         <div className='flex items-center w-full gap-3'>
           <input
             type='file'
+            accept = 'image/*'
             className='block w-full p-4 m-0 text-base font-normal text-gray-700 transition ease-in-out border-none rounded shadow-md bg-slate-50 form-control bg-clip-padding focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
             onChange={(e) => setImage(e.target.files[0])}
           />

@@ -334,9 +334,9 @@ const Header = ({ user, userObject, search, setSearch }) => {
                 {user.photoURL || userObject?.profilePicture ? (
                   <Trigger className='flex items-center gap-2'>
                     <img
-                      src={userObject.profilePicture || user.photoURL}
+                      src={userObject?.profilePicture || user?.photoURL}
                       alt='user'
-                      className='lg:block hidden max-h-7 max-w-7 w-full h-full rounded-full'
+                      className='lg:block hidden max-h-7 max-w-7 w-full h-full rounded-full min-h-7 max-h-7'
                     />
                     <button type="button" id="menu-button" aria-expanded="true" aria-haspopup="true"
                       className="flex items-end gap-1 lg:hidden min-w-fit min-h-fit select-none group/button">

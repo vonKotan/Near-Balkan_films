@@ -81,7 +81,7 @@ function App() {
           <Route path="/search" element={!user ? <Navigate to='/login' /> : <Search targetDate={targetDate} />} />
         </Route>
         <Route path="/" element={<Layout />} user={user}>
-          <Route index element={<Home search={search} targetDate={targetDate}/>} />
+          <Route index element={<Home search={search} targetDate={targetDate} user={user}/>} />
           <Route path="/past-competitions" element={<PastCompetitions search={search} targetDate={targetDate}/>} />
           <Route
             path='/favourites'
