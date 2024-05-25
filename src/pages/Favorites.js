@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import AddFavorite from '../components/AddFavorite';
 import Card from '../components/Card';
 import SectionTitle from '../components/SectionTitle';
-import { useFetchData } from '../hooks/useFetchData';
+import { useFetchFavourites } from '../hooks/useFetchFavourites';
 import { useTranslation } from 'react-i18next';
 
-const Favorites = ({ user, targetDate, }) => {
-  const { documents: favorites } = useFetchData(`users/${user?.uid}/favorites`);
+const Favorites = ({ user, targetDate, userObj}) => {
+  const { favorites } = useFetchFavourites(user);
   const { t, i18n } = useTranslation();
   console.log(favorites);
   return (
@@ -21,7 +21,7 @@ const Favorites = ({ user, targetDate, }) => {
               movie={movie} targetDate={targetDate} haveWon={true}
             />
             <div className='absolute top-2 left-2 p-2 bg-nbredmain cursor-pointer rounded-full shadow-md hover:bg-red-400'>
-              <AddFavorite movieId={movie.id} user={user} />
+              <AddFavorite movie={movie} user={user} userObj = {userObj} />
             </div>
           </div>
         ))}

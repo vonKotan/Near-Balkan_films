@@ -2,7 +2,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Hooks
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useAuth } from './hooks/useAuth';
 
 // Components
@@ -26,13 +26,15 @@ import About from './pages/About';
 import PastCompetitions from './pages/PastCompetitions';
 import NotFound from './pages/NotFound';
 
+export const UserContext = createContext({name:'valami'})
+
 function App() {
   //auth object of user
   const [user, setUser] = useState(undefined);
 
   const [search, setSearch] = useState('')
 
-  const [userObject, setUserObject] = useState(undefined);
+  const [userObject, setUserObject] = useState(null);
 
   const { auth, onAuthStateChanged, getUser } = useAuth();
 
@@ -45,9 +47,11 @@ function App() {
     onAuthStateChanged(auth, async (user) => {
       setUser(user);
       let userObj = await getUser();
-      setUserObject(userObj ?? undefined);
+      setUserObject(userObj ?? null);
     });
   }, [auth, onAuthStateChanged]);
+
+
 
   if (user === undefined) {
     return (
@@ -58,6 +62,7 @@ function App() {
   }
   return (
     <div className='App'>
+      <UserContext.Provider value={userObject}>
       <Header user={user} userObject={userObject} search={search} setSearch={setSearch} />
       <Routes>
         <Route path="/" element={<WhiteLayout />}>
@@ -99,7 +104,8 @@ function App() {
           />
         </Route>
       </Routes>
-      <Footer />
+      <Footer />         
+      </UserContext.Provider>
     </div >
   );
 }

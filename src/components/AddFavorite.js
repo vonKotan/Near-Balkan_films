@@ -1,25 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 import { database } from '../firebase/config';
 import { deleteDoc, doc, setDoc, Timestamp } from 'firebase/firestore';
+import UserContext from '../App';
 
 import { TbHeartPlus, TbHeartMinus } from 'react-icons/tb';
 import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 
-const AddFavorite = ({ movieId, user }) => {
+const AddFavorite = ({ movie,  user}) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const { documents: favorites } = useFetchData(`users/${user?.uid}/favorites`);
-  const { documents: movies } = useFetchData(`films`);
+  const userObject = useContext(UserContext);
 
   const addFavorite = async () => {
     try {
-      const movieData = movies.filter((movie) => movie.id === movieId);
-      const data = { ...movieData[0], createdAt: Timestamp.now() };
+      userObject.favorites.push(movie.id)
       await setDoc(
-        doc(database, `users/${user?.uid}/favorites`, movieId),
-        data,
+        doc(database, 'users', user.uid),
+        userObject,
       );
     } catch (err) {
       console.log(err.message);
@@ -28,22 +27,26 @@ const AddFavorite = ({ movieId, user }) => {
 
   const removeFavorite = async () => {
     try {
-      await deleteDoc(doc(database, `users/${user?.uid}/favorites`, movieId));
+      userObject.favorites.pop(movie.id)
+      await setDoc(
+        doc(database, 'users', user.uid),
+        userObject,
+      );
     } catch (err) {
       console.log(err.message);
     }
   };
 
   useEffect(() => {
-    if (favorites) {
-      const verify = favorites.filter((favorite) => favorite.id === movieId);
-      if (verify.length > 0) {
+    console.log(userObject);
+    if (userObject) {
+      if (userObject?.favourites.includes(movie.id)) {
         setIsFavorite(true);
       } else {
         setIsFavorite(false);
       }
     }
-  }, [favorites, movieId]);
+  }, [movie, userObject]);
 
   return (
     <>

@@ -81,7 +81,7 @@ const Details = ({ user }) => {
           />
           {user && (
             <div className='absolute top-2 left-2 p-2 bg-nbredmain cursor-pointer rounded-full shadow-md hover:bg-red-400'>
-              <AddFavorite movieId={id} user={user} />
+              <AddFavorite movie={movie} user={user} />
             </div>
           )}
 
