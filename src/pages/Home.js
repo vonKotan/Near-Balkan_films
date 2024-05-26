@@ -40,12 +40,12 @@ const Home = ({user, search, targetDate }) => {
   return (
     <>
 
-      {!user && <div className = 'py-4 max-w-screen-lg rounded-lg overflow-hidden'><video
+      {/* {!user && <div className = 'py-4 max-w-screen-lg rounded-lg overflow-hidden'><video
         src = {adUrl}
         autoPlay
         controls
         >
-      </video></div>}
+      </video></div>} */}
       <SectionTitle title={t("home.competition")} />
 
       {randomMovie && !search &&
