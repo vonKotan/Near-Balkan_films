@@ -30,26 +30,17 @@ export const UserContext = createContext({name:'valami'})
 
 function App() {
   //auth object of user
-  const [user, setUser] = useState(undefined);
 
   const [search, setSearch] = useState('')
 
-  const [userObject, setUserObject] = useState(null);
-
-  const { auth, onAuthStateChanged, getUser } = useAuth();
+  const { user, dbUser:userObject } = useAuth();
 
   // target date
   const RELATIVE_TIME_FROM_NOW = new Date().getTime() + 3 * 24 * 60 * 60 * 1000;
   const EXACT_DATE_IN_FUTURE = new Date("May 3, 2024 12:00:00").getTime();
   const targetDate = EXACT_DATE_IN_FUTURE;
 
-  useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
-      setUser(user);
-      let userObj = await getUser();
-      setUserObject(userObj ?? null);
-    });
-  }, [auth, onAuthStateChanged]);
+  
 
 
 

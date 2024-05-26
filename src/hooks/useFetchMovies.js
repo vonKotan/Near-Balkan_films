@@ -13,7 +13,6 @@ export function useFetchMovies({ fieldToOrderBy, isDescending = false }) {
     const [movies, setMovies] = useState([]);
 
 
-
     useEffect(() => {
         async function fetchMovies() {
             const collectionRef = collection(database, 'films')

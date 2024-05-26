@@ -28,7 +28,7 @@ const Details = ({ user }) => {
       const docRef = doc(database, 'films', id); 
       const docSnap = await getDoc(docRef);
 
-      setMovie(docSnap.data());
+      setMovie({id, ...(docSnap.data())});
     };
     loadDocument();
   }, [id]);

@@ -5,9 +5,13 @@ import Card from '../components/Card';
 import SectionTitle from '../components/SectionTitle';
 import { useFetchFavourites } from '../hooks/useFetchFavourites';
 import { useTranslation } from 'react-i18next';
+import { useContext } from 'react'
+import { UserContext } from '../App'
 
-const Favorites = ({ user, targetDate, userObj}) => {
-  const { favorites } = useFetchFavourites(user);
+const Favorites = ({ targetDate, user}) => {
+
+  const userObject = useContext(UserContext)
+  const { favorites } = useFetchFavourites(userObject);
   const { t, i18n } = useTranslation();
   console.log(favorites);
   return (
@@ -21,7 +25,7 @@ const Favorites = ({ user, targetDate, userObj}) => {
               movie={movie} targetDate={targetDate} haveWon={true}
             />
             <div className='absolute top-2 left-2 p-2 bg-nbredmain cursor-pointer rounded-full shadow-md hover:bg-red-400'>
-              <AddFavorite movie={movie} user={user} userObj = {userObj} />
+              <AddFavorite movie={movie} user={user} />
             </div>
           </div>
         ))}

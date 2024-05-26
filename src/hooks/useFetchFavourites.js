@@ -10,17 +10,20 @@ import {
 } from 'firebase/firestore'
 import { database } from '../firebase/config'
 
-export function useFetchFavourites(user) {
+export function useFetchFavourites(userObject) {
 
     const [favorites, setFavorites] = useState(null)
 
 
     useEffect(() => {
         const fetchFavourites = async () => {
-            const userDoc = await getDoc(doc(database, 'users', user.uid))
-            if (!userDoc.exists()) return
-            const favouriteIds = userDoc.data().favourites
-            const q = query (collection(database, 'films'), 'films', where(documentId(), 'in', favouriteIds))
+            if (!userObject) return
+            const favouriteIds = userObject.favourites
+            if (favouriteIds.length === 0) {
+                setFavorites(null)
+                return
+            }
+            const q = query(collection(database, 'films'), 'films', where(documentId(), 'in', favouriteIds))
             onSnapshot(q, async (querySnapshot) => {
                 setFavorites(
                     await Promise.all(querySnapshot.docs.map(async (document) => {
@@ -42,6 +45,6 @@ export function useFetchFavourites(user) {
         }
 
         fetchFavourites();
-    }, [])
+    }, [userObject])
     return { favorites }
 }

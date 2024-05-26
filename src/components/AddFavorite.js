@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 
 import { database } from '../firebase/config';
 import { deleteDoc, doc, setDoc, Timestamp } from 'firebase/firestore';
-import UserContext from '../App';
+import {UserContext} from '../App';
 
 import { TbHeartPlus, TbHeartMinus } from 'react-icons/tb';
 import { useFetchData } from '../hooks/useFetchData';
@@ -15,10 +15,12 @@ const AddFavorite = ({ movie,  user}) => {
 
   const addFavorite = async () => {
     try {
-      userObject.favorites.push(movie.id)
+      console.log(userObject.favourites)
+      console.log(movie.id)
       await setDoc(
         doc(database, 'users', user.uid),
-        userObject,
+        {favourites: [...userObject.favourites, movie.id]},
+        {merge:true}
       );
     } catch (err) {
       console.log(err.message);
@@ -27,7 +29,7 @@ const AddFavorite = ({ movie,  user}) => {
 
   const removeFavorite = async () => {
     try {
-      userObject.favorites.pop(movie.id)
+      userObject.favourites.pop(movie.id)
       await setDoc(
         doc(database, 'users', user.uid),
         userObject,
