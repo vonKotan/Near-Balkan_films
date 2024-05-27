@@ -1,70 +1,125 @@
-import React, { useEffect, useState } from 'react';
-import { Transition } from '@headlessui/react';
+import React, { useEffect, useState, useMemo } from 'react';
 
-// Router
-import { Link } from 'react-router-dom';
+import {
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+  doc, getDoc,
+  where,
+  documentId
+} from 'firebase/firestore'
+import { database } from '../firebase/config';
 
 // Components
+import { useTranslation } from 'react-i18next';
 import { Card, CardComplex } from '../components/Card';
 import { SectionTitle } from '../components/SectionTitle';
 import { useFetchData } from '../hooks/useFetchData';
-import { useTranslation } from 'react-i18next';
-import { EurCalc } from '../components/EurCalc';
 import { useFetchMovies } from '../hooks/useFetchMovies';
 import { useFilterMovies } from '../hooks/useFilterMovies';
 // import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from '../components/SearchBar';
 
 const Home = ({user, search, targetDate }) => {
   const { movies } = useFetchMovies({ fieldToOrderBy: 'collected', isDescending: true });
-  const { t, i18n } = useTranslation();
+  const {documents: competitions} = useFetchData('competitions'); //documents nelkul is szar
+
+  const { t, i18n} = useTranslation();
   const [adUrl, setAdUrl] = useState('')
 
   const [randomMovie, setRandomMovie] = useState(0);
-  const {filteredMovies: moviesFilter} = useFilterMovies(movies, search)
+
+  const currentDate = useMemo(() => new Date(), []);
+  const formattedDate = currentDate.toLocaleDateString();
+  const [currentCompetition, setCurrentCompetition] = useState(null); // Use null instead of 0 for a more meaningful initial state
+  const [currentCompetitionFilms, setCurrentCompetitionFilms] = useState(null);
+  const {filteredMovies: moviesFilter} = useFilterMovies(currentCompetitionFilms, search)
 
   useEffect(() => {
-    const generateRandomMovie = () => {
-      const randomMovie = movies[Math.floor(Math.random() * movies.length)];
-      setRandomMovie(randomMovie)
+    if (competitions && competitions.length > 0) {
+      const findCurrentCompetition = () => {
+       const currentCompetition = competitions.find(competition => {
+          const startDate = competition.startDate.toDate(); 
+          const endDate = competition.endDate.toDate(); 
+          return startDate <= currentDate && endDate >= currentDate;
+        }
+      );
+      setCurrentCompetition(currentCompetition);
+      };
+      findCurrentCompetition();
     }
-    const adUrls = [
-      'https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/films%2Ffarkaszsigmond%2F1716435235191?alt=media&token=53a1c883-fd59-489e-a9a6-4e265a3dbd17',
-      'https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/films%2Fkovacszalan%2F1716386835153?alt=media&token=655b2454-9334-4a04-a5ad-4ac1590b55ec'
-    ]
-    const url = adUrls[Math.floor(Math.random() * 2)]
-    setAdUrl(url)
-    console.log(movies);
-    generateRandomMovie();
-  }, [movies]);
+    //currentCompetition.films
+  }, [competitions, currentDate]);
+
+  useEffect(() => {
+    if (currentCompetition) {
+      const q = query(collection(database, 'films'), 'films', where(documentId(), 'in', currentCompetition.films))
+        // Set up a real-time listener for the query
+      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        const films = [];
+        querySnapshot.forEach((doc) => {
+          films.push({ id: doc.id, ...doc.data() });
+        });
+        // Update state with the fetched films
+        setCurrentCompetitionFilms(films);
+      });
+      return () => unsubscribe();
+    }
+  }, [currentCompetition]);
+
+  useEffect(() => {
+    if (currentCompetitionFilms && currentCompetitionFilms.length > 0) {
+      const generateRandomMovie = () => {
+        const randomMovie = currentCompetitionFilms[Math.floor(Math.random() * currentCompetitionFilms.length)];
+        setRandomMovie(randomMovie);
+      };
+
+      const adUrls = [
+        'https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/films%2Ffarkaszsigmond%2F1716435235191?alt=media&token=53a1c883-fd59-489e-a9a6-4e265a3dbd17',
+        'https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/films%2Fkovacszalan%2F1716386835153?alt=media&token=655b2454-9334-4a04-a5ad-4ac1590b55ec'
+      ];
+      const url = adUrls[Math.floor(Math.random() * adUrls.length)];
+      setAdUrl(url);
+
+      generateRandomMovie();
+    }
+  }, [currentCompetitionFilms]);
 
   return (
     <>
-
-      {!user && <div className = 'py-4 max-w-screen-lg rounded-lg overflow-hidden'><video
-        src = {adUrl}
+      {!user && <div className='py-4 max-w-screen-lg rounded-lg overflow-hidden'><video
+        src={adUrl}
         autoPlay
         controls
-        >
+      >
       </video></div>}
-      <SectionTitle title={t("home.competition")} />
 
+      <div>
+      {/*parasztos nmegoldás*/}  
+      {currentCompetition && (
+        <SectionTitle 
+          title={i18n.language === 'hu' ? currentCompetition.title : currentCompetition.engTitle} 
+        />
+      )}
+      </div>
+        
       {randomMovie && !search &&
         <CardComplex
           movie={randomMovie}
-          targetDate={targetDate}
+          targetDate={currentCompetition.endDate.toDate()}
         />}
 
       {!search &&
-        movies?.map((movie) => (
+        currentCompetitionFilms?.map((movie) => (
           <Card
-            movie={movie} targetDate={targetDate} haveWon={false}
+            movie={movie} targetDate={currentCompetition.endDate.toDate()} haveWon={false}
           />
         ))}
       {search &&
         moviesFilter.length > 0 &&
         moviesFilter?.map((movie) => (
           <Card
-            movie={movie} targetDate={targetDate} haveWon={true}
+            movie={movie} targetDate={currentCompetition.endDate.toDate()} haveWon={true}
           />
         ))}
       {search && moviesFilter.length === 0 && (
