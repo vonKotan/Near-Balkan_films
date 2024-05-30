@@ -20,8 +20,27 @@ import { useFetchMovies } from '../hooks/useFetchMovies';
 import { useFilterMovies } from '../hooks/useFilterMovies';
 // import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from '../components/SearchBar';
 
-const Home = ({user, search, targetDate }) => {
-  const { movies } = useFetchMovies({ fieldToOrderBy: 'collected', isDescending: true });
+const fetchUsersForFilms = async (films) => {
+  const filmsWithUser = await Promise.all(
+    films.map(async (film) => {
+      const userRef = doc(database, 'users', film.user); // Reference to the user document
+      const userDoc = await getDoc(userRef); // Fetch the user document
+
+      if (userDoc.exists()) {
+        return { ...film, user: { id: userDoc.id, ...userDoc.data() } };
+      } else {
+        console.log(`User with ID ${film.user} does not exist.`);
+        return film;
+      }
+    })
+  );
+
+  return filmsWithUser;
+};
+
+
+
+const Home = ({user, search}) => {
   const {documents: competitions} = useFetchData('competitions'); //documents nelkul is szar
 
   const { t, i18n} = useTranslation();
@@ -53,16 +72,23 @@ const Home = ({user, search, targetDate }) => {
 
   useEffect(() => {
     if (currentCompetition) {
-      const q = query(collection(database, 'films'), 'films', where(documentId(), 'in', currentCompetition.films))
-        // Set up a real-time listener for the query
-      const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const q = query(
+        collection(database, 'films'),
+        where(documentId(), 'in', currentCompetition.films)
+      );
+
+      // Set up a real-time listener for the query
+      const unsubscribe = onSnapshot(q, async (querySnapshot) => {
         const films = [];
         querySnapshot.forEach((doc) => {
           films.push({ id: doc.id, ...doc.data() });
         });
-        // Update state with the fetched films
-        setCurrentCompetitionFilms(films);
+
+        const filmsWithUser = await fetchUsersForFilms(films);
+        // Update state with the fetched films and user data
+        setCurrentCompetitionFilms(filmsWithUser);
       });
+
       return () => unsubscribe();
     }
   }, [currentCompetition]);
