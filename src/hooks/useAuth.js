@@ -87,6 +87,7 @@ export const useAuth = () => {
       await setDoc(doc(database, 'users', userId), {...userInfo, email:auth.currentUser?.email, profilePicture:imageurl ?? ""})
 
       setLoading(false);
+      navigate("/")
     } catch (e) {
       setError(e.message);
       console.log(e.message);

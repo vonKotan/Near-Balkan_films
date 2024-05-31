@@ -7,7 +7,7 @@ import { CustomSelect } from './CustomSelect'
 
 export function Filmography({ sendData, user }) {
 
-    const { uploadImage } = useUploadImage(user.user.email)
+    const { uploadImage } = useUploadImage()
 
     const titleOptions = [
         { value: 'screenwriter', label: 'Screenwriter' },
@@ -27,7 +27,7 @@ export function Filmography({ sendData, user }) {
 
     async function sendFilmData() {
         if (validateData()) {
-            const url = await uploadImage(image, title);
+            const url = await uploadImage('filmography', image, title, user.user.email);
             const data = {
                 title: title,
                 date: date,
