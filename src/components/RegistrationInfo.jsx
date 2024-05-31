@@ -4,15 +4,17 @@ import { useForm } from 'react-hook-form';
 import { useAuth } from "../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup"
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useContext } from "react";
 import { Filmography } from "./Fimography";
 import { useTranslation } from "react-i18next";
+import { UserContext } from '../App'
 
 import * as yup from 'yup';
 import { CustomSelect } from "./CustomSelect";
 
-export const RegistrationInfo = ({ user }) => {
+export const RegistrationInfo = () => {
     const { t } = useTranslation();
+    const { user } = useContext(UserContext);
 
     const titleOptions = [
         { value: 'screenwriter', label: 'Screenwriter' },
@@ -88,8 +90,8 @@ export const RegistrationInfo = ({ user }) => {
             user = { ...user, filmography: filmography }
         }
 
-        if(profilePicture){
-            user = {...user, profilePicture: profilePicture}
+        if (profilePicture) {
+            user = { ...user, profilePicture: profilePicture }
         }
         return user;
     }
@@ -380,12 +382,12 @@ export const RegistrationInfo = ({ user }) => {
                                                     class="rounded-md bg-nbgreenmain px-2.5 py-1.5 text-sm font-semibold text-nbgreylight shadow-sm hover:bg-nbgreendark focus:bg-nbgreendark focus:ring-1 focus:ring-nbgreenmain ring-offset">Upload file</button>
                                                 <input
                                                     type="file"
-                                                    id = "profilePicture"
-                                                    name = "profilePicture"
+                                                    id="profilePicture"
+                                                    name="profilePicture"
                                                     accept='image/*'
                                                     {...register("profilePicture")}
                                                     onChange={e => setProfilePicture(e.target.files[0])}
-                                                    ref={hiddenInput} 
+                                                    ref={hiddenInput}
                                                     className='sr-only' />
                                             </div>
                                             <p>{profilePicture.name}</p>

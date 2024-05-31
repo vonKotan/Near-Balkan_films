@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Transition } from '@headlessui/react';
+import {UserContext} from '../App';
 
 // Router
 import { Link } from 'react-router-dom';
@@ -14,10 +15,11 @@ import { useFetchMovies } from '../hooks/useFetchMovies';
 import { useFilterMovies } from '../hooks/useFilterMovies';
 // import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from '../components/SearchBar';
 
-const Home = ({user, search, targetDate }) => {
+const Home = ({ search, targetDate }) => {
   const { movies } = useFetchMovies({ fieldToOrderBy: 'collected', isDescending: true });
   const { t, i18n } = useTranslation();
   const [adUrl, setAdUrl] = useState('')
+  const {user} = useContext(UserContext)
 
   const [randomMovie, setRandomMovie] = useState(0);
   const {filteredMovies: moviesFilter} = useFilterMovies(movies, search)

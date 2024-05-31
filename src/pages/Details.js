@@ -1,6 +1,7 @@
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, updateDoc, useContext } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import {UserContext} from '../App';
 
 // Icons
 import { AiFillStar } from 'react-icons/ai';
@@ -16,12 +17,13 @@ import {
   Item,
 } from '@radix-ui/react-navigation-menu';
 
-const Details = ({ user }) => {
+const Details = () => {
   const { id } = useParams();
   const videoRef = React.useRef(null);  //megtekintesek novelesehez kell
   const [stars, setStars] = useState([]);
   const [movie, setMovie] = useState({});
   const { t, i18n } = useTranslation(); 
+  const {user, dbUser:userObject} = useContext(UserContext)
 
   useEffect(() => {
     const loadDocument = async () => {
@@ -81,7 +83,7 @@ const Details = ({ user }) => {
           />
           {user && (
             <div className='absolute top-2 left-2 p-2 bg-nbredmain cursor-pointer rounded-full shadow-md hover:bg-red-400'>
-              <AddFavorite movie={movie} user={user} />
+              <AddFavorite movie={movie} />
             </div>
           )}
 

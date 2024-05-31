@@ -26,7 +26,7 @@ import About from './pages/About';
 import PastCompetitions from './pages/PastCompetitions';
 import NotFound from './pages/NotFound';
 
-export const UserContext = createContext({name:'valami'})
+export const UserContext = createContext(null)
 
 function App() {
   //auth object of user
@@ -53,22 +53,22 @@ function App() {
   }
   return (
     <div className='App'>
-      <UserContext.Provider value={userObject}>
-      <Header user={user} userObject={userObject} search={search} setSearch={setSearch} />
+      <UserContext.Provider value={{userObject, user}}>
+      <Header search={search} setSearch={setSearch} />
       <Routes>
         <Route path="/" element={<WhiteLayout />}>
           <Route
             path='/profile'
-            element={!user ? <Navigate to='/login' /> : <Profile user={user} />}
+            element={!user ? <Navigate to='/login' /> : <Profile />}
           />
           <Route
             path='/upload-demo'
-            element={user && userObject && userObject.userType === 'creator' ? (<NewReview user={user} />) : (<Navigate to='/login' />)}
+            element={user && userObject && userObject.userType === 'creator' ? (<NewReview />) : (<Navigate to='/login' />)}
           />
           <Route
             path='/register/*'
             element={
-              user && userObject ? <Navigate to='/' /> : <Register user={user} />
+              user && userObject ? <Navigate to='/' /> : <Register />
             }
           />
           <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
@@ -76,22 +76,22 @@ function App() {
           <Route path="/about" element={<NotFound />} />
           <Route path="/search" element={!user ? <Navigate to='/login' /> : <Search targetDate={targetDate} />} />
         </Route>
-        <Route path="/" element={<Layout />} user={user}>
-          <Route index element={<Home search={search} targetDate={targetDate} user={user}/>} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home search={search} targetDate={targetDate} />} />
           <Route path="/past-competitions" element={<PastCompetitions search={search} targetDate={targetDate}/>} />
           <Route
             path='/favourites'
-            element={!user ? <Navigate to='/login' /> : <Favorites user={user} targetDate={targetDate} />}
+            element={!user ? <Navigate to='/login' /> : <Favorites targetDate={targetDate} />}
           />
-          <Route path='/details/:id' element={<Details user={user} />} />
           <Route path='/details/:id' element={<Details />} />
+          {/* <Route path='/details/:id' element={<Details />} /> */}
           <Route
             path='/events'
-            element={!user ? <Navigate to='/login' /> : <Events user={user} />}
+            element={!user ? <Navigate to='/login' /> : <Events />}
           />
           <Route
             path='/past-events'
-            element={!user ? <Navigate to='/login' /> : <Events user={user} />}
+            element={!user ? <Navigate to='/login' /> : <Events />}
           />
         </Route>
       </Routes>

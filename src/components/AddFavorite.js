@@ -8,10 +8,10 @@ import { TbHeartPlus, TbHeartMinus } from 'react-icons/tb';
 import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 
-const AddFavorite = ({ movie,  user}) => {
+const AddFavorite = ({movie}) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const userObject = useContext(UserContext);
+  const {user, userObject} = useContext(UserContext);
 
   const addFavorite = async () => {
     try {

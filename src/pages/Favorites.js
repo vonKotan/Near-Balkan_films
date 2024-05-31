@@ -8,9 +8,9 @@ import { useTranslation } from 'react-i18next';
 import { useContext } from 'react'
 import { UserContext } from '../App'
 
-const Favorites = ({ targetDate, user}) => {
+const Favorites = ({ targetDate }) => {
 
-  const userObject = useContext(UserContext)
+  const { userObject } = useContext(UserContext)
   const { favorites } = useFetchFavourites(userObject);
   const { t, i18n } = useTranslation();
   console.log(favorites);
@@ -25,7 +25,7 @@ const Favorites = ({ targetDate, user}) => {
               movie={movie} targetDate={targetDate} haveWon={true}
             />
             <div className='absolute top-2 left-2 p-2 bg-nbredmain cursor-pointer rounded-full shadow-md hover:bg-red-400'>
-              <AddFavorite movie={movie} user={user} />
+              <AddFavorite movie={movie} />
             </div>
           </div>
         ))}
