@@ -277,7 +277,6 @@ export const RegistrationAuth = () => {
                             </div>
                             <div>
                                 <button
-                                    type="submit"
                                     onClick={(e) => { googleLogin(e) }}
                                     class="flex w-full justify-center rounded-full bg-nbgreendark px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-nbbluedark focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >

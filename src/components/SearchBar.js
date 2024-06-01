@@ -1,27 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useFetchData } from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 
 export const SearchBar = ({ search, setSearch }) => {
-  const { documents: movies } = useFetchData('films');
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  };
-
-  //const [search, setSearch] = useState(null);
-  const [moviesFilter, setMoviesFilter] = useState([]);
-
-  useEffect(() => {
-    if (search) {
-      const filter = movies.filter((movie) =>
-        movie.title.toLowerCase().includes(search.toLowerCase()),
-      );
-
-      setMoviesFilter(filter);
-    }
-  }, [search, movies]);
 
   return (
     <input

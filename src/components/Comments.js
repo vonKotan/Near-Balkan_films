@@ -6,11 +6,11 @@ import { FaLock } from 'react-icons/fa';
 import { TiDelete } from 'react-icons/ti';
 import { Link } from 'react-router-dom';
 
-const Comments = ({ id, user }) => {
+const Comments = ({ movie, user }) => {
   const [newComment, setNewComment] = useState('');
 
-  const { documents: comments } = useFetchData(`films/${id}/comments`);
-  const { insertComment, deleteComment } = useComment(`films/${id}/comments`);
+  const { documents: comments } = useFetchData(`films/${movie.id}/comments`);
+  const { insertComment, deleteComment } = useComment(`films/${movie.id}/comments`);
 
   const commentHandler = (e) => {
     e.preventDefault();

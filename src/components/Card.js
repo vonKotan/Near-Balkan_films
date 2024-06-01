@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 // Router
 import { Link } from 'react-router-dom';
-import { useFetchData } from '../hooks/useFetchData';
 
 // Components
 import { CountdownTimer, CurrentRace, RaceState } from './CountdownTimer';
@@ -42,7 +41,6 @@ export const Card = ({ movie, targetDate, haveWon }) => {
 
 export const CardComplex = ({ movie, targetDate, haveWon }) => {
 
-  const { documents: movies } = useFetchData('films');
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);

@@ -231,7 +231,7 @@ const Details = ({ user, targetDate, haveWon }) => {
           </Link>
         </section>
       </section>
-      <Comments id={id} user={user} />
+      <Comments movie={movie} user={user} />
     </>
   );
 };

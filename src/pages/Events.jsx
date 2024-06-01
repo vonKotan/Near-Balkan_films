@@ -23,7 +23,7 @@ const Events = () => {
         </div>
       </section>
       <EventCard
-        // images={events[0].images}
+        event={events[0]}
       />
     </>
   );

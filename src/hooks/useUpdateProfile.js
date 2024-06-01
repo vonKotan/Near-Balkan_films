@@ -1,5 +1,5 @@
 // Firebase Config
-import { app, storage } from '../firebase/config';
+import { app, storage, database } from '../firebase/config';
 
 // Firebase functions
 import {
@@ -8,6 +8,11 @@ import {
   updateProfile,
   updateEmail,
 } from 'firebase/auth';
+
+import {
+  setDoc,
+  doc
+} from 'firebase/firestore';
 
 // React Hooks
 import { useState } from 'react';
@@ -58,6 +63,7 @@ export const useUpdateProfile = () => {
           const url = await getDownloadURL(uploadTask.snapshot.ref);
 
           await updateProfile(user, { photoURL: url });
+          await setDoc(doc(database,'users', user.uid), {profilePicture: url}, {merge:'true'})
           setSuccessImg('Profile image successfully updated');
           setLoadImg(false);
         },

@@ -17,6 +17,7 @@ import {
 // React Hooks
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useUploadImage } from './useUploadImage';
 
 export const useAuth = () => {
   const [message, setMessage] = useState(null);
@@ -24,10 +25,11 @@ export const useAuth = () => {
   const [loading, setLoading] = useState(null);
   const provider = new GoogleAuthProvider();
   const navigate = useNavigate();
+  
 
   // Get auth from firebase
   const auth = getAuth(app);
-
+  const {uploadImage} = useUploadImage(auth.currentUser)
   auth.languageCode = 'eng';
 
   // Set redirect URL to localhost  //whats this bullshit?
@@ -71,13 +73,24 @@ export const useAuth = () => {
 
     try {
       const userId = auth.currentUser.uid;
-
+      let imageurl = ''
+      console.log(userInfo);
+      if(userInfo.profilePicture){
+        console.log(userInfo.profilePicture);
+        imageurl = await uploadImage('profilepictures', userInfo.profilePicture, Date.now(), auth.currentUser.email);
+        delete userInfo.profilePicture;
+      } else if(auth.currentUser.photoURL){
+        imageurl = auth.currentUser.photoURL;
+      }
+    
       //create doc in our database with the same id as the auth object
-      await setDoc(doc(database, 'users', userId), {...userInfo, email:auth.currentUser?.email})
+      await setDoc(doc(database, 'users', userId), {...userInfo, email:auth.currentUser?.email, profilePicture:imageurl ?? ""})
 
       setLoading(false);
+      navigate("/")
     } catch (e) {
       setError(e.message);
+      console.log(e.message);
       setLoading(false);
     }
   };
@@ -88,7 +101,7 @@ export const useAuth = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      checkFirstSignIn();
+      //checkFirstSignIn();
       setLoading(false);
     } catch (e) {
       setError(e.message);

@@ -14,11 +14,11 @@ export const UserIcon = ({ movie }) => {
                     key={movie.id}
                     to={`/details/${movie.id}`}
                     className='flex flex-row items-center gap-2 group/button'>
-                    {movie.userProfile ? (
+                    {movie.user.profilePicture ? (
                         <img
-                            src={movie.userProfile}
+                            src={movie.user.profilePicture}
                             alt='user'
-                            className='lg:block hidden rounded-full w-full max-w-7 h-full max-h-7'
+                            className='lg:block hidden rounded-full w-full max-w-7 h-full max-h-7 min-h-7 max-h-7'
                         />
                     ) : (
                         <button type="button"
@@ -32,7 +32,7 @@ export const UserIcon = ({ movie }) => {
                         </button>)}
                     <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-base text-left text-nbgreydark truncate leading-none tracking-tight cursor-pointer">
-                        {movie.user}</h3>
+                        {movie.user?.firstName + ' ' + movie.user?.lastName || movie.user.userName || 'unknown user'}</h3>
                 </Link>
             </div>
         </div>
@@ -42,7 +42,7 @@ export const UserIcon = ({ movie }) => {
 export const UserIconList = ({ movie }) => {
     const { t, i18n } = useTranslation();
     const changeLanguage = (lng) => {
-      i18n.changeLanguage(lng);
+        i18n.changeLanguage(lng);
     };
 
     return (
@@ -52,9 +52,9 @@ export const UserIconList = ({ movie }) => {
                     key={movie.id}
                     to={`/details/${movie.id}`}
                     className='flex flex-row items-center gap-2 group/button'>
-                    {movie.userProfile ? (
+                    {movie.user.profilePicture ? (
                         <img
-                            src={movie.userProfile}
+                            src={movie.user.profilePicture}
                             alt='user'
                             className='lg:block hidden rounded-full w-full max-w-7 h-full max-h-7'
                         />
@@ -70,7 +70,7 @@ export const UserIconList = ({ movie }) => {
                         </button>)}
                     <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-base text-left text-nbgreydark truncate leading-none tracking-tight cursor-pointer">
-                        {movie.user}</h3>
+                        {movie.user?.firstName + ' ' + movie.user?.lastName || movie.user.userName || 'unknown user'}</h3>
                 </Link>
             </div>
             <Link
