@@ -29,10 +29,28 @@ const Comments = ({ id, user }) => {
   };
 
   return (
-    <div className='flex flex-col gap-8 my-4 lg:my-8'>
-      <h2 className='pl-4 text-2xl font-bold border-l-8 border-nbgreenmain lg:text-4xl '>
-        Comments
-      </h2>
+    <section className='flex flex-col gap-2 rounded-md bg-teal-700 px-7 py-5'>
+      <h3 className="text-lg font-semibold font-h2-title text-nbgreylight opacity-70">comments</h3>
+      {comments
+        ?.sort((a, b) => b.order - a.order)
+        .map((comment, index) => (
+          <div className='py-1 ' key={index}>
+            <p className='mb-1 font-bold lg:text-xl '>{comment.username}</p>
+            <div className='flex items-center justify-between w-full gap-4'>
+              <p className='w-full py-2 overflow-hidden text-sm italic text-gray-700 break-words'>
+                "{comment.comments}"
+              </p>
+              {user && user.uid === comment.userId && (
+                <p
+                  onClick={() => deleteComment(comment.id)}
+                  className='text-2xl text-red-500'
+                >
+                  <TiDelete />
+                </p>
+              )}
+            </div>
+          </div>
+        ))}
       {user ? (
         <form className='relative' onSubmit={commentHandler}>
           <input
@@ -57,28 +75,8 @@ const Comments = ({ id, user }) => {
         </p>
       )}
       <div>
-        {comments
-          ?.sort((a, b) => b.order - a.order)
-          .map((comment, index) => (
-            <div className='py-1 ' key={index}>
-              <p className='mb-1 font-bold lg:text-xl '>{comment.username}</p>
-              <div className='flex items-center justify-between w-full gap-4'>
-                <p className='w-full py-2 overflow-hidden text-sm italic text-gray-700 break-words'>
-                  "{comment.comments}"
-                </p>
-                {user && user.uid === comment.userId && (
-                  <p
-                    onClick={() => deleteComment(comment.id)}
-                    className='text-2xl text-red-500'
-                  >
-                    <TiDelete />
-                  </p>
-                )}
-              </div>
-            </div>
-          ))}
       </div>
-    </div>
+    </section>
   );
 };
 
