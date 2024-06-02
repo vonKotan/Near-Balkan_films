@@ -40,10 +40,10 @@ const fetchUsersForFilms = async (films) => {
 
 
 
-const Home = ({user, search}) => {
-  const {documents: competitions} = useFetchData('competitions'); //documents nelkul is szar
+const Home = ({ user, search }) => {
+  const { documents: competitions } = useFetchData('competitions'); //documents nelkul is szar
 
-  const { t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   const [adUrl, setAdUrl] = useState('')
 
   const [randomMovie, setRandomMovie] = useState(0);
@@ -52,18 +52,18 @@ const Home = ({user, search}) => {
   const formattedDate = currentDate.toLocaleDateString();
   const [currentCompetition, setCurrentCompetition] = useState(null); // Use null instead of 0 for a more meaningful initial state
   const [currentCompetitionFilms, setCurrentCompetitionFilms] = useState(null);
-  const {filteredMovies: moviesFilter} = useFilterMovies(currentCompetitionFilms, search)
+  const { filteredMovies: moviesFilter } = useFilterMovies(currentCompetitionFilms, search)
 
   useEffect(() => {
     if (competitions && competitions.length > 0) {
       const findCurrentCompetition = () => {
-       const currentCompetition = competitions.find(competition => {
-          const startDate = competition.startDate.toDate(); 
-          const endDate = competition.endDate.toDate(); 
+        const currentCompetition = competitions.find(competition => {
+          const startDate = competition.startDate.toDate();
+          const endDate = competition.endDate.toDate();
           return startDate <= currentDate && endDate >= currentDate;
         }
-      );
-      setCurrentCompetition(currentCompetition);
+        );
+        setCurrentCompetition(currentCompetition);
       };
       findCurrentCompetition();
     }
@@ -101,8 +101,8 @@ const Home = ({user, search}) => {
       };
 
       const adUrls = [
-        'https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/films%2Ffarkaszsigmond%2F1716435235191?alt=media&token=53a1c883-fd59-489e-a9a6-4e265a3dbd17',
-        'https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/films%2Fkovacszalan%2F1716386835153?alt=media&token=655b2454-9334-4a04-a5ad-4ac1590b55ec'
+        'https://www.youtube.com/embed/bWfI239Qf68?si=1i8C14OaddOsgcBq&amp;controls=0',
+        'https://www.youtube.com/embed/bSwYTU1f-oI?si=ulg8OWQ1G3e7XMWE&amp;controls=0'
       ];
       const url = adUrls[Math.floor(Math.random() * adUrls.length)];
       setAdUrl(url);
@@ -122,16 +122,23 @@ const Home = ({user, search}) => {
         >
       </video></div>} */}
 
+      {!user && (
+        <section className='flex justify-center max-w-screen-xl py-10'>
+          <div class="rounded-md hover:shadow-md transition md:min-h-96 aspect-video videoPlayer relative overflow-clip col-span-5 bg-nbblack py-auto w-full max-w-screen-md">
+            <iframe className="w-full min-h-48 sm:min-h-64 md:min-h-96 aspect-video" src={adUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+        </section>
+      )}
+
 
       <div>
-      {/*parasztos nmegoldás*/}  
-      {currentCompetition && (
-        <SectionTitle 
-          title={i18n.language === 'hu' ? currentCompetition.title : currentCompetition.engTitle} 
-        />
-      )}
+        {/*parasztos nmegoldás*/}
+        {currentCompetition && (
+          <SectionTitle
+            title={i18n.language === 'hu' ? currentCompetition.title : currentCompetition.engTitle}
+          />
+        )}
       </div>
-        
       {randomMovie && !search &&
         <CardComplex
           movie={randomMovie}

@@ -59,10 +59,19 @@
     "currency": "HUF"
   },
   "details": {
-    "views": "Megtekintések:",
-    "check_script": "Forgatókönyv ellenőrzése",
+    "views": "megtekintések:",
+    "check_script": "forgatókönyv megnyitása",
     "support": "támogatás",
-    "moneygoal": "Pénzügyi cél"
+    "moneygoal": "pénzügyi cél"
+    ,
+    "cast-and-crew": "stáblista",
+    "writer": "forgatókönyvíró",
+    "director": "rendező",
+    "director-of-photography": "operatőr",
+    "actors": "színészek",
+    "would-you-like-to-see": "Szeretnéd látni az előzetest?",
+    "log-in": "Jelentkezz be!",
+    "click-on-the-button": "Kattints a gombra és gyere vissza egy gyors bejelentkezés után!"
   },
   "register": {
     "register": "Regisztráció",
@@ -139,8 +148,11 @@
     "username": "Felhasználónév"
   },
   "comments": {
-    "comments": "Megjegyzések",
-    "comment": "megjegyzés"
+    "comments": "kommentek",
+    "comment": "komment",
+    "write-your-comment": "írj kommentet...",
+    "update-by-creator": "frissítés a készítőtől",
+    "log-in-to-write": "jelentkezz be, hogy kommentet írhass..."
   },
   "reset": {
     "reset": "Visszaállítás",
