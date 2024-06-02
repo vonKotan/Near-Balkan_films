@@ -35,8 +35,9 @@ const Details = ({ user, targetDate, haveWon }) => {
     const loadDocument = async () => {
       const docRef = doc(database, 'films', id);
       const docSnap = await getDoc(docRef);
+      const userSnap = await getDoc(doc(database, 'users', docSnap.data().user));
 
-      setMovie(docSnap.data());
+      setMovie({...docSnap.data(), user:userSnap.data()});
     };
     loadDocument();
   }, [id]);
@@ -102,7 +103,7 @@ const Details = ({ user, targetDate, haveWon }) => {
           </div>
         )}
         <div class={`${user && "hidden sm:block"} ${!user && "block opacity-30 sm:opacity-100"} bg-white rounded-md aspect-w-2 aspect-h-3 h-full transition-all overflow-clip col-span-2`}>
-          <img src={movie.image} alt="poster" class={`${!user && ""} w-full h-full select-none object-center object-cover`} />
+          <img src={movie?.image} alt="poster" class={`${!user && ""} w-full h-full select-none object-center object-cover`} />
         </div>
         {!user && (
           <div class="sm:hidden flex flex-col justify-center items-center w-full bg-transparent py-4 lg:py-6 rounded-md text-center ring-1 ring-gray-900/5 ring-inset col-span-5 h-full absolute">
@@ -176,7 +177,7 @@ const Details = ({ user, targetDate, haveWon }) => {
                         </button>
                         <h3
                           className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-base text-left text-nbgreylight truncate leading-none tracking-tight cursor-pointer">
-                          {movie.user?.firstName + ' ' + movie.user?.lastName || movie.user.userName || 'unknown user'}</h3>
+                          {movie.user?.firstName + ' ' + movie.user?.lastName || movie.user?.userName || 'unknown user'}</h3>
                       </Link>
                     </div>
                   </div>
