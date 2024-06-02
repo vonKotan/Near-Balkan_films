@@ -58,7 +58,7 @@ function App() {
   }
   return (
     <div className='App'>
-      <Header user={user} userObject={userObject} search={search} setSearch={setSearch} />
+      <Header user={user} userObject={userObject} search={search} setSearch={setSearch} betaVersion={`beta v0.01`} />
       <Routes>
         <Route path="/" element={<WhiteLayout />}>
           <Route

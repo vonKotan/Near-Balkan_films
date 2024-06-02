@@ -18,7 +18,7 @@ import {
 // Icons
 import { useAuth } from '../hooks/useAuth';
 
-const Header = ({ user, userObject, search, setSearch }) => {
+const Header = ({ user, userObject, search, setSearch, betaVersion }) => {
   const { signOutUser } = useAuth();
 
   const { t, i18n } = useTranslation();
@@ -145,6 +145,7 @@ const Header = ({ user, userObject, search, setSearch }) => {
           {!user && (
             <Item>
               <div className='flex justify-end items-center gap-4'>
+                <h5 className="hidden lg:block font-h3-subtitle font-normal text-nbgreydark text-xs italic">{betaVersion}</h5>
                 <Trigger>
                   <button type="button" id="menu-button" aria-expanded="true" aria-haspopup="true"
                     className="flex items-end gap-1 min-w-fit min-h-fit select-none group/button">
@@ -307,7 +308,7 @@ const Header = ({ user, userObject, search, setSearch }) => {
                           {t("navbar.register")}</p>
                       </Link>
                     </RadixLink>
-                    <div className='inline-flex items-baseline gap-0.5'>
+                    <div className='inline-flex items-baseline gap-0.5 justify-between w-full'>
                       {i18n.language === 'hu' && (
                         <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                           <p
@@ -323,6 +324,7 @@ const Header = ({ user, userObject, search, setSearch }) => {
                             hu</p>
                         </button>
                       )}
+                      <h5 className="block font-h3-subtitle font-normal text-nbgreydark text-xs italic">{betaVersion}</h5>
                     </div>
                   </ul>
                 </div>
@@ -332,6 +334,7 @@ const Header = ({ user, userObject, search, setSearch }) => {
           {user && (
             <Item>
               <div className='flex justify-end items-center gap-4'>
+                <h5 className="hidden lg:block font-h3-subtitle font-normal text-nbgreydark text-xs italic">{betaVersion}</h5>
                 {user.photoURL || userObject?.profilePicture ? (
                   <Trigger className='flex items-center gap-2'>
                     <img
@@ -593,7 +596,7 @@ const Header = ({ user, userObject, search, setSearch }) => {
                           {t("navbar.logout")}</p>
                       </a>
                     </RadixLink>
-                    <div className='inline-flex items-baseline gap-0.5'>
+                    <div className='inline-flex items-baseline justify-between gap-0.5 w-full'>
                       {i18n.language === 'hu' && (
                         <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                           <p
@@ -609,6 +612,7 @@ const Header = ({ user, userObject, search, setSearch }) => {
                             hu</p>
                         </button>
                       )}
+                      <h5 className="font-h3-subtitle font-normal text-nbgreydark text-xs italic">{betaVersion}</h5>
                     </div>
                   </ul>
                 </div>

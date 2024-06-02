@@ -57,7 +57,7 @@ const Login = () => {
             class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8"
           >
             <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-              <a
+              {/* <a
                 class="nbLogo transition-all flex justify-center items-end shrink gap-2 lg:ml-6 mr-4"
               >
                 <svg
@@ -132,11 +132,11 @@ const Login = () => {
                     />
                   </g>
                 </svg>
-              </a>
+              </a> */}
               <h2
                 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
               >
-                Sign in to your account
+                {t("login.sign-in")}
               </h2>
             </div>
 
@@ -146,8 +146,7 @@ const Login = () => {
                   <label
                     for="email"
                     class="block text-sm text-left font-medium leading-6 text-gray-900"
-                  >Email address</label
-                  >
+                  >{t("login.email")}</label                  >
                   <div class="mt-2">
                     <input
                       id="email"
@@ -166,13 +165,12 @@ const Login = () => {
                     <label
                       for="password"
                       class="block text-sm font-medium leading-6 text-gray-900"
-                    >Password</label
-                    >
+                    >{t("login.password")}</label                    >
                     <div class="text-sm">
-                      <a
+                      <ResetPassword
                         class="font-semibold text-nbpurpledark hover:text-nbpurplemain"
-                      >Forgot password?</a
-                      >
+                      >{t("login.reset-password")}
+                      </ResetPassword>
                     </div>
                   </div>
                   <div class="mt-2">
@@ -213,14 +211,14 @@ const Login = () => {
                     onClick={(e) => { googleLogin(e) }}
                     class="flex w-full justify-center rounded-full bg-nbblack px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-nbbluedark focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                   >
-                    Sign in with Google
+                    {t("login.log_in_google")}
                   </button>
               <p class="mt-10 text-center text-sm text-gray-500">
-                Not a member?
+              {t("login.not-a-member")}
                 <Link
                   to='/register'
                   class="font-semibold leading-6 text-nbpurpledark hover:text-nbpurplemain"
-                >Sign up</Link>
+                > {t("login.register")}</Link>
               </p>
             </div>
           </div>

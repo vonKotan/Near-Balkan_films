@@ -74,17 +74,20 @@
     "click-on-the-button": "Kattints a gombra és gyere vissza egy gyors bejelentkezés után!"
   },
   "register": {
-    "register": "Regisztráció",
-    "first_name": "Keresztnév",
-    "last_name": "Vezetéknév",
-    "phone_number": "Telefonszám",
-    "Username": "Felhasználónév",
-    "viewer": "Néző",
-    "creator": "Készítő",
+    "register": "regisztráció",
+    "first_name": "keresztnév",
+    "last_name": "vezetéknév",
+    "phone_number": "telefonszám",
+    "Username": "felhasználónév",
+    "viewer": "néző",
+    "creator": "készítő",
     "create_account": "Fiók létrehozása",
-    "already_have": "Már van fiókod?",
+    "create-account": "Fiók létrehozása",
+    "already": "Már van fiókod?",
     "log_in": "Bejelentkezés",
-    "register_and_enjoy": "Regisztrálj és élvezd az összes funkciót"
+    "register_and_enjoy": "Regisztrálj és élvezd az összes funkciót",
+    "confirm_password": "jelszó megerősítése",
+    "sign-up-google": "Google bejelentkezés"
   },
   "register_info": {
     "register_info": "Mivel ez az első látogatásod, szükségünk van néhány extra információra rólad",
@@ -99,13 +102,17 @@
     "create_account": "Fiók létrehozása"
   },
   "login": {
-    "login": "Bejelentkezés",
+    "login": "bejelentkezés",
     "log_in_to": "Jelentkezz be a filmek megtekintéséhez és támogatásához",
-    "password": "Jelszó",
-    "forgot": "Elfelejtetted a jelszavad?",
+    "password": "jelszó",
+    "reset-password": "elfelejtett jelszó",
     "log_in": "Bejelentkezés",
     "new_here": "Új vagy itt?",
-    "register": "Regisztráció"
+    "register": "Regisztráció",
+    "log_in_google": "Google belépés",
+    "sign-in": "Jelentkezz be fiókodba!",
+    "email": "email-cím",
+    "not-a-member": "Nincs még fiókod?"
   },
   "search": {
     "search_description": "projetdemók, események, filmek és emberek..."

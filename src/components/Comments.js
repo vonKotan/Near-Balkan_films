@@ -26,8 +26,8 @@ const Comments = ({ id, movie, user }) => {
     }
     const commentData = {
       order: comments.length + 1,
-      userId: user.uid,
-      username: user.displayName,
+      userId: user?.uid,
+      username: user?.displayName,
       comments: newComment,
     };
     insertComment(commentData);
@@ -59,7 +59,7 @@ const Comments = ({ id, movie, user }) => {
         ?.sort((a, b) => a.order - b.order)
         .map((comment, index) => (
           <>
-            {user && user.uid === comment.userId && (
+            {user && (user?.uid || "none") === comment.userId && (
               <>
                 {comment.userId !== movie.user && (
                   <div className='py-1 flex flex-col items-end' key={index}>
@@ -129,7 +129,7 @@ const Comments = ({ id, movie, user }) => {
                   </div>
                 )}
               </>
-            )} {user.uid !== comment.userId && (
+            )} {(user?.uid || "none") !== comment.userId && (
               <>
                 {comment.userId !== movie.user && (
                   <div className='py-1 flex flex-col items-start' key={index}>
@@ -158,10 +158,10 @@ const Comments = ({ id, movie, user }) => {
                 )}
                 {comment.userId === movie.user && (
                   <div className='my-1 p-4 flex flex-col items-start bg-nbgreydark rounded-lg pt-2 @container/update' key={index}>
-                    <div class="flex flex-col @[235px]/update:justify-between @[235px]/update:items-center gap-x-2 @[235px]/update:flex-row pb-2 w-full">
+                    <div class="flex flex-col @[255px]/update:justify-between @[255px]/update:items-center gap-x-2 @[255px]/update:flex-row pb-2 w-full">
                       <h3 className="text-base font-semibold font-h2-title text-nbgreylight opacity-70">{t("comments.update-by-creator")}</h3>
                       {/* <div class="bg-nbgreymain hidden sm:block opacity-75 rounded-full w-1 h-1"></div> */}
-                      <h4 class="font-bold font-h3-subtitle text-xs text-nbgreymain opacity-70 tracking-tighter">{i18n.language === 'en' && (formatterEN.format(comment.createdAt) || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(comment.createdAt).replace(' ', '').replace(' ', '') || 'unknown time')}</h4>
+                      <h4 class="font-bold font-h3-subtitle text-xs text-nbgreymain opacity-70 tracking-tighter">{i18n.language === 'en' && (formatterEN.format(comment.createdAt).replace(',', '') || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(comment.createdAt).replace(' ', '').replace(' ', '') || 'unknown time')}</h4>
                     </div>
                     <Link
                       to=""

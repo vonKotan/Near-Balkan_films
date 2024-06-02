@@ -79,10 +79,14 @@
     "Username": "Username",
     "viewer": "Viewer",
     "creator": "Creator",
-    "create_account": "Create Account",
+    "create_account": "Create an account",
     "already_have": "Already have an account?",
-    "log_in": "Log in",
-    "register": "Register"
+    "log_in": "Sign in",
+    "register": "register",
+    "confirm_password": "confirm password",
+    "create-account": "Create account",
+    "sign-up-google": "Sign up with Google",
+    "already": "Already a member?"
   },
   "register_info": {
     "register_info": "Since this is your first time here we need some extra information about you",
@@ -97,13 +101,18 @@
     "create_account": "Create Account"
   },
   "login": {
-    "password": "Password",
     "login": "Login",
     "log_in_to": "Log in to watch and support films",
     "forgot": "Forgot your password",
     "new_here": "New here?",
-    "register": "Register",
-    "log_in": "Log in"
+    "register": "Sign up",
+    "log_in": "Sign in",
+    "log_in_google": "Sign in with Google",
+    "sign-in": "Sign in to your account",
+    "email": "email address",
+    "password": "password",
+    "reset-password": "forgot password?",
+    "not-a-member": "Not a member?"
   },
   "search": {
     "search_description": "project demos, events, films and people..."

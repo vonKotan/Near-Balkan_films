@@ -97,7 +97,7 @@ const Details = ({ user, targetDate, haveWon }) => {
     <>
       <section className="w-full max-w-screen-xl flex flex-col sm:grid grid-cols-7 gap-4 relative">
         {user && (
-          <div className='absolute top-2 left-2 p-2 bg-nbredmain cursor-pointer rounded-full shadow-md hover:bg-red-400 z-50'>
+          <div className='absolute top-2 left-2 p-2 bg-nbredmain cursor-pointer rounded-full shadow-md hover:bg-red-400 z-20'>
             <AddFavorite movieId={id} user={user} />
           </div>
         )}
