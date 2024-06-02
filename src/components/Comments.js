@@ -61,7 +61,7 @@ const Comments = ({ id, movie, user }) => {
           <>
             {user && (user?.uid || "none") === comment.userId && (
               <>
-                {comment.userId !== movie.user && (
+                {comment.userId !== movie.userId && (
                   <div className='py-1 flex flex-col items-end' key={index}>
                     <Link
                       to=""
@@ -92,7 +92,7 @@ const Comments = ({ id, movie, user }) => {
                     </div>
                   </div>
                 )}
-                {comment.userId === movie.user && (
+                {comment.userId === movie.userId && (
                   <div className='my-1 p-4 flex flex-col items-end bg-nbgreydark rounded-lg pt-2 @container/update' key={index}>
                     <div class="flex flex-col @[255px]/update:justify-between @[255px]/update:items-center gap-x-2 @[255px]/update:flex-row pb-2 w-full">
                       <h3 className="text-base font-semibold font-h2-title text-nbgreylight opacity-70">{t("comments.update-by-creator")}</h3>
@@ -131,7 +131,7 @@ const Comments = ({ id, movie, user }) => {
               </>
             )} {(user?.uid || "none") !== comment.userId && (
               <>
-                {comment.userId !== movie.user && (
+                {comment.userId !== movie.userId && (
                   <div className='py-1 flex flex-col items-start' key={index}>
                     <Link
                       to=""
@@ -156,7 +156,7 @@ const Comments = ({ id, movie, user }) => {
                     </div>
                   </div>
                 )}
-                {comment.userId === movie.user && (
+                {comment.userId === movie.userId && (
                   <div className='my-1 p-4 flex flex-col items-start bg-nbgreydark rounded-lg pt-2 @container/update' key={index}>
                     <div class="flex flex-col @[255px]/update:justify-between @[255px]/update:items-center gap-x-2 @[255px]/update:flex-row pb-2 w-full">
                       <h3 className="text-base font-semibold font-h2-title text-nbgreylight opacity-70">{t("comments.update-by-creator")}</h3>

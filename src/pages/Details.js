@@ -37,7 +37,7 @@ const Details = ({ user, targetDate, haveWon }) => {
       const docSnap = await getDoc(docRef);
       const userSnap = await getDoc(doc(database, 'users', docSnap.data().user));
 
-      setMovie({...docSnap.data(), user:userSnap.data()});
+      setMovie({ ...docSnap.data(), userId: userSnap.id, user: userSnap.data() });
     };
     loadDocument();
   }, [id]);
@@ -107,23 +107,23 @@ const Details = ({ user, targetDate, haveWon }) => {
         </div>
         {!user && (
           <div class="sm:hidden flex flex-col justify-center items-center w-full bg-transparent py-4 lg:py-6 rounded-md text-center ring-1 ring-gray-900/5 ring-inset col-span-5 h-full absolute">
-          <div class="mx-auto px-8 max-w-sm">
-            <p class="font-semibold text-nbgreylight text-sm">{t("details.would-you-like-to-see")}</p>
-            <Link to='/login'>
-              <button class="bg-nbgreylight hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight mt-3 px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain">
-                <div class="flex items-start gap-2 -mb-0.5">
-                  <svg class="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymiddark h-4 translate-y-px fill-nbgreenmain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                    <path d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z"></path>
-                  </svg>
-                  <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreydark text-sm leading-5 tracking-tight">
-                  {t("details.log-in")}
-                  </p>
-                </div>
-              </button>
-            </Link>
-            <p class="mt-4 text-nbgreylight text-xs leading-4">{t("details.click-on-the-button")}</p>
+            <div class="mx-auto px-8 max-w-sm">
+              <p class="font-semibold text-nbgreylight text-sm">{t("details.would-you-like-to-see")}</p>
+              <Link to='/login'>
+                <button class="bg-nbgreylight hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight mt-3 px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain">
+                  <div class="flex items-start gap-2 -mb-0.5">
+                    <svg class="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymiddark h-4 translate-y-px fill-nbgreenmain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                      <path d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z"></path>
+                    </svg>
+                    <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreydark text-sm leading-5 tracking-tight">
+                      {t("details.log-in")}
+                    </p>
+                  </div>
+                </button>
+              </Link>
+              <p class="mt-4 text-nbgreylight text-xs leading-4">{t("details.click-on-the-button")}</p>
+            </div>
           </div>
-        </div>
         )}
         {user && (<div class="rounded-md hover:shadow-md transition videoPlayer relative overflow-clip col-span-5 bg-nbblack py-auto">
           <video ref={videoRef} controls src={movie.videoUrl} className='w-full h-full' />
