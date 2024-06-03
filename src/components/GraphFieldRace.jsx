@@ -268,14 +268,14 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                     className={`${detailPage && "pointer-events-none"} overflow-clip bg-nbgreenmain hover:bg-nbgreydark active:bg-nbgreenlight disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 group-active/graphfield:bg-nbgreenlight group-active/graphfield:w-full hover:w-full delay-300 duration-700 z-20 group-hover/slider:w-full nb-w-${Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}`}>
                                     <div className="group-hover/slider:flex justify-center items-start gap-1 hidden mx-3 transition-all duration-700 delay-300">
                                         <svg
-                                            className="group-active/button:fill-nbgreenlight group-disabled/button:fill-nbgreymiddark h-3 translate-y-1 fill-nbgreylight"
+                                            className={`${detailPage && "hidden"} group-active/button:fill-nbgreenlight group-disabled/button:fill-nbgreymiddark h-3 translate-y-1 fill-nbgreylight`}
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                                             <path
                                                 d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                                         </svg>
                                         <p
                                             className="group-active/button:text-nbgreenlight group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-xs leading-5 tracking-tight">
-                                            {detailPage ? t("card.back_them") : t("card.on_their_side")}</p>
+                                            {detailPage ? t("") : t("card.on_their_side")}</p>
                                     </div>
                                 </Link>
                             )}
@@ -291,14 +291,14 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                     </div>
                                     <div className="group-hover/slider:flex justify-center items-start gap-1 hidden mx-3 transition-all duration-700 delay-300">
                                         <svg
-                                            className="group-active/button:fill-nbgreenlight group-disabled/button:fill-nbgreymiddark h-3 translate-y-1 fill-nbgreylight"
+                                            className={`${detailPage && "hidden"}group-active/button:fill-nbgreenlight group-disabled/button:fill-nbgreymiddark h-3 translate-y-1 fill-nbgreylight`}
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
                                             <path
                                                 d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
                                         </svg>
                                         <p
                                             className="group-active/button:text-nbgreenlight group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-xs leading-5 tracking-tight">
-                                            {detailPage ? t("card.back_them") : t("card.on_their_side")}</p>
+                                            {detailPage ? t("") : t("card.on_their_side")}</p>
                                     </div>
                                 </Link>
                             )}

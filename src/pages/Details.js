@@ -150,8 +150,7 @@ const Details = ({ user, targetDate, haveWon }) => {
         )}
       </section >
       <FundingButtons targetDate={targetDate} movie={movie} user={user} haveWon={haveWon} />
-      {
-        user && (
+      {user && (
           <>
             <section className="max-w-screen-xl lg:grid grid-cols-7 flex flex-col justify-between gap-4">
               <section className='flex flex-col gap-2 rounded-md bg-teal-700 px-7 py-5 col-span-5'>
