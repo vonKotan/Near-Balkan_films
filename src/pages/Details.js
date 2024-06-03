@@ -102,7 +102,7 @@ const Details = ({ user, targetDate, haveWon }) => {
             <AddFavorite movieId={id} user={user} />
           </div>
         )}
-        <div class={`${user && "hidden sm:block"} ${!user && "block opacity-30 sm:opacity-100"} bg-white rounded-md aspect-w-2 aspect-h-3 h-full transition-all overflow-clip col-span-2`}>
+        <div class={`${user && "hidden sm:block"} ${!user && "block opacity-30 sm:opacity-100"} bg-white rounded-md aspect-w-2 aspect-h-3 transition-all overflow-clip col-span-2`}>
           <img src={movie?.image} alt="poster" class={`${!user && ""} w-full h-full select-none object-center object-cover`} />
         </div>
         {!user && (

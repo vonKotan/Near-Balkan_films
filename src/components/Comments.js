@@ -113,7 +113,7 @@ const Comments = ({ id, movie, user }) => {
                       </button>
                       <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-xs text-left text-nbgreylight truncate leading-none tracking-tight cursor-pointer">
-                        {comment.user.firstName + ' ' + comment.user.lastName || 'unknown user'}</h3>
+                        {comment.user?.firstName + ' ' + comment.user?.lastName || 'unknown user'}</h3>
                     </Link>
                     <div className='flex items-center justify-start gap-1 rounded-full bg-nbgreenmain mt-1 pl-3 pr-1 w-5 min-w-fit hover:rounded-lg text-wrap max-w-96 text-ellipsis group cursor-default'>
                       <p className='w-full py-1 overflow-hidden text-sm text-gray-700 font-semibold break-words font-p-paragraph group-hover:line-clamp-none line-clamp-1'>
@@ -148,7 +148,7 @@ const Comments = ({ id, movie, user }) => {
                       </button>
                       <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-xs text-left text-nbgreylight truncate leading-none tracking-tight cursor-pointer">
-                        {comment.user.firstName + ' ' + comment.user.lastName || 'unknown user'}</h3>
+                        {comment.user?.firstName + ' ' + comment.user?.lastName || 'unknown user'}</h3>
                     </Link>
                     <div className='flex items-center justify-start gap-1 rounded-full bg-nbgreenlight mt-1 px-3 w-5 min-w-fit hover:rounded-lg text-wrap max-w-96 text-ellipsis group cursor-default'>
                       <p className='w-full py-1 overflow-hidden text-sm text-gray-700 font-semibold break-words font-p-paragraph group-hover:line-clamp-none line-clamp-1'>
@@ -178,7 +178,7 @@ const Comments = ({ id, movie, user }) => {
                       </button>
                       <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-xs text-left text-nbgreylight truncate leading-none tracking-tight cursor-pointer">
-                        {comment.user.firstName + ' ' + comment.user.lastName || 'unknown user'}</h3>
+                        {comment.user?.firstName + ' ' + comment.user?.lastName || 'unknown user'}</h3>
                     </Link>
                     <div className='flex items-center justify-start gap-1 rounded-full bg-nbgreenlight mt-1 px-3 w-5 min-w-fit hover:rounded-lg text-wrap max-w-96 text-ellipsis group cursor-default'>
                       <p className='w-full py-1 overflow-hidden text-sm text-gray-700 font-semibold break-words font-p-paragraph group-hover:line-clamp-none line-clamp-1'>
