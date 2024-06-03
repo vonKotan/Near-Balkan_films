@@ -265,7 +265,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                 <Link
                                     key={detailPage ? ("") : (movie.id)}
                                     to={detailPage ? ("") : ("/details/" + movie.id)}
-                                    className={`overflow-clip bg-nbgreenmain hover:bg-nbgreydark active:bg-nbgreenlight disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 group-active/graphfield:bg-nbgreenlight group-active/graphfield:w-full hover:w-full delay-300 duration-700 z-20 group-hover/slider:w-full nb-w-${Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}`}>
+                                    className={`${detailPage && "pointer-events-none"} overflow-clip bg-nbgreenmain hover:bg-nbgreydark active:bg-nbgreenlight disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 group-active/graphfield:bg-nbgreenlight group-active/graphfield:w-full hover:w-full delay-300 duration-700 z-20 group-hover/slider:w-full nb-w-${Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}`}>
                                     <div className="group-hover/slider:flex justify-center items-start gap-1 hidden mx-3 transition-all duration-700 delay-300">
                                         <svg
                                             className="group-active/button:fill-nbgreenlight group-disabled/button:fill-nbgreymiddark h-3 translate-y-1 fill-nbgreylight"
@@ -283,7 +283,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                 <Link
                                     key={detailPage ? ("") : (movie.id)}
                                     to={detailPage ? ("") : ("/details/" + movie.id)}
-                                    className={`overflow-clip bg-nbgreenmain hover:bg-nbgreydark active:bg-nbgreenlight disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 group-active/graphfield:bg-nbgreenlight group-active/graphfield:w-full hover:w-full delay-300 duration-700 z-20 group-hover/slider:w-full nb-w-100`}>
+                                    className={`${detailPage && "pointer-events-none"} overflow-clip bg-nbgreenmain hover:bg-nbgreydark active:bg-nbgreenlight disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 group-active/graphfield:bg-nbgreenlight group-active/graphfield:w-full hover:w-full delay-300 duration-700 z-20 group-hover/slider:w-full nb-w-100`}>
                                     <div className="right-0 absolute flex">
                                         <div className={`transition-all delay-1000 duration-1000 h-5 bg-nbgreenmain shadow-md rounded-full opacity-100 flex flex-row justify-end px-2 min-w-fit z-20`}>
                                             <h6 className="font-medium text-nbwhite text-xs leading-normal select-none">{Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>

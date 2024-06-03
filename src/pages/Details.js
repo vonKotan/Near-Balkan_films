@@ -150,7 +150,7 @@ const Details = ({ user, targetDate, haveWon }) => {
         )}
       </section >
       <>
-      <div class="gap-4 md:gap-0 flex flex-col md:grid grid-cols-1 grid-rows-3 md:grid-cols-9 md:grid-rows-1"> 
+      <div class="gap-4 md:gap-0 flex flex-col justify-evenly md:justify-start md:grid grid-cols-1 grid-rows-3 md:grid-cols-9 md:grid-rows-1"> 
         <div className="md:col-start-1 md:col-span-7 md:row-start-1 md:row-span-1 z-20">
           <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} detailPage={true} />
         </div>
