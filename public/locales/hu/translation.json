@@ -1,4 +1,15 @@
 {
+  "adbloc": {
+    "crowdfunding-streaming": "crowdfunding + streaming platform",
+    "publicity": "nyilvánosság",
+    "networking": "networking",
+    "funding": "finanszírozás",
+    "for_filmmakers": "filmeseknek",
+    "personal input": "beleszólás",
+    "exclusivity": "exkluzivitás",
+    "patronage": "mecénásság",
+    "for_movie_consumers": "filmfogyasztóknak"
+  },
   "navbar": {
     "competition": "verseny",
     "films": "filmek",

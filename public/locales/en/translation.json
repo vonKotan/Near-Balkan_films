@@ -1,4 +1,15 @@
 {
+  "adbloc": {
+    "crowdfunding-streaming": "crowdfunding + streaming platform",
+    "publicity": "publicity",
+    "networking": "networking",
+    "funding": "funding",
+    "for_filmmakers": "for filmmakers",
+    "personal_input": "personal input",
+    "exclusivity": "exclusivity",
+    "patronage": "patronage",
+    "for_movie_consumers": "for movie consumers"
+  },
   "navbar": {
     "competition": "competition",
     "films": "films",

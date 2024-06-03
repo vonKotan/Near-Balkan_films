@@ -12,24 +12,24 @@ export const AdBloc = ({ adUrl }) => {
     };
 
     return (
-            <div className="md:flex flex-col justify-center items-center gap-6 hidden bg-teal-600 mb-5 py-8 p-6 rounded-lg w-full min-w-fit max-w-screen-xl">
-                <h1 className='-mb-2 font-bold font-h2-title text-4xl text-nbgreylight leading-2'>crowdfunding + streaming platform</h1>
+            <div className="md:flex flex-col justify-center items-center gap-6 hidden bg-teal-600 mb-5 p-6 pt-8 pb-10 rounded-lg w-full min-w-fit max-w-screen-xl">
+                <h1 className='-mb-2 font-bold font-h2-title text-4xl text-nbwhite leading-2'>{t("adbloc.crowdfunding-streaming")}</h1>
                 <div className="flex flex-col justify-center items-center gap-1">
                     <div className='flex flex-row flex-wrap items-baseline gap-2'>
-                        <h2 className='font-h2-title font-semibold text-2xl text-nbwhite underline underline-offset-2 decoration-2 decoration-nbgreenmain'>publicity</h2>
+                        <h2 className='font-h2-title font-semibold text-2xl text-nbwhite underline underline-offset-2 decoration-2 decoration-nbgreenmain'>{t("adbloc.publicity")}</h2>
                         <span className='font-h2-title font-semibold text-2xl text-nbwhite'>+</span>
-                        <h2 className='font-h2-title font-semibold text-2xl text-nbwhite underline underline-offset-2 decoration-2 decoration-nbgreenmain'>networking</h2>
+                        <h2 className='font-h2-title font-semibold text-2xl text-nbwhite underline underline-offset-2 decoration-2 decoration-nbgreenmain'>{t("adbloc.networking")}</h2>
                         <span className='font-h2-title font-semibold text-2xl text-nbwhite'>+</span>
-                        <h2 className='font-h2-title font-semibold text-2xl text-nbwhite underline underline-offset-2 decoration-2 decoration-nbgreenmain'>funding</h2>
-                        <h2 className='bg-nbpurplemain px-1 -py-2 font-h2-title font-semibold text-2xl text-nbwhite leading-5'>for filmmakers</h2>
+                        <h2 className='font-h2-title font-semibold text-2xl text-nbwhite underline underline-offset-2 decoration-2 decoration-nbgreenmain'>{t("adbloc.funding")}</h2>
+                        <h2 className='bg-nbpurplemain ml-1 px-1 -py-2 font-h2-title font-semibold text-2xl text-nbwhite leading-5'>{t("adbloc.for_filmmakers")}</h2>
                     </div>
                     <div className='flex flex-row flex-wrap items-baseline gap-2'>
-                        <h2 className='font-h2-title font-semibold text-2xl text-nbwhite underline underline-offset-2 decoration-2 decoration-nbgreenmain'>publicity</h2>
+                        <h2 className='font-h2-title font-semibold text-2xl text-nbwhite underline underline-offset-2 decoration-2 decoration-nbgreenmain'>{t("adbloc.personal_input")}</h2>
                         <span className='font-h2-title font-semibold text-2xl text-nbwhite'>+</span>
-                        <h2 className='font-h2-title font-semibold text-2xl text-nbwhite underline underline-offset-2 decoration-2 decoration-nbgreenmain'>networking</h2>
+                        <h2 className='font-h2-title font-semibold text-2xl text-nbwhite underline underline-offset-2 decoration-2 decoration-nbgreenmain'>{t("adbloc.exclusivity")}</h2>
                         <span className='font-h2-title font-semibold text-2xl text-nbwhite'>+</span>
-                        <h2 className='font-h2-title font-semibold text-2xl text-nbwhite underline underline-offset-2 decoration-2 decoration-nbgreenmain'>funding</h2>
-                        <h2 className='bg-nborangemain px-1 -py-2 font-h2-title font-semibold text-2xl text-nbwhite leading-5'>for <span>movie</span> consumers</h2>
+                        <h2 className='font-h2-title font-semibold text-2xl text-nbwhite underline underline-offset-2 decoration-2 decoration-nbgreenmain'>{t("adbloc.patronage")}</h2>
+                        <h2 className='bg-nborangemain ml-1 px-1 -py-2 font-h2-title font-semibold text-2xl text-nbwhite leading-5'>{t("adbloc.for_movie_consumers")}</h2>
                     </div>
                 </div>
                 <div className="justify-center items-center gap-4 grid grid-cols-3 grid-rows-2 grid-flow-col-dense max-w-4xl">
