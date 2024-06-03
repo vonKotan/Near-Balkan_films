@@ -14,7 +14,7 @@ import { database } from '../firebase/config';
 import AddFavorite from '../components/AddFavorite';
 import { useTranslation } from 'react-i18next';
 import { PosterContainer, PosterContainerSmall } from '../components/PosterContainer';
-import { CountdownTimer, CurrentRace, RaceState } from '../components/CountdownTimer';
+import { CountdownTimer, CurrentRace, RaceState, FundingButtons } from '../components/CountdownTimer';
 import { DemoTitle } from '../components/DemoTitle';
 import { GraphFieldRace } from '../components/GraphFieldRace';
 import { UserIcon, UserIconList } from '../components/UserIcon';
@@ -149,21 +149,7 @@ const Details = ({ user, targetDate, haveWon }) => {
           </div>
         )}
       </section >
-      <>
-      <div class="gap-4 md:gap-0 flex flex-col justify-evenly md:justify-start md:grid grid-cols-1 grid-rows-3 md:grid-cols-9 md:grid-rows-1"> 
-        <div className="md:col-start-1 md:col-span-7 md:row-start-1 md:row-span-1 z-20">
-          <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} detailPage={true} />
-        </div>
-        <div className="md:col-start-1 md:col-span-9 md:row-start-1 md:row-span-1 flex flex-row md:flex-col justify-center bg-teal-700 rounded-2xl text-start transition-colors duration-1000 delay-1000 group/graphfield ring-1 ring-gray-900/5 ring-inset overflow-clip md:divide-y-2 divide-y-none divide-x-2 md:divide-x-none divide-nbgreydark">
-          <a className="opacity-90 bg-emerald-500 ring-nbgreylight hover:bg-nbgreenmain active:bg-nbgreenlight group/button w-full h-full transition md:grid md:grid-rows-1 md:grid-cols-9 cursor-pointer p-3 md:p-0">
-            <h3 className="font-semibold font-h2-title text-lg md:col-start-8 md:col-span-2 flex justify-center items-center select-none hover:underline decoration-2 underline-offset-2 active:decoration-nbgreenmain text-nbwhite group-hover/button:text-nbwhite group-active/button:text-nbgreydark">{t("details.back-them")}</h3>
-          </a>
-          <a className="opacity-90 bg-emerald-700 hover:bg-nbredmain active:bg-nbredlight group/button w-full h-full transition md:grid md:grid-rows-1 md:grid-cols-9 cursor-pointer p-3 md:p-0">
-            <h3 className="font-semibold font-h2-title text-lg md:col-start-8 md:col-span-2 flex justify-center items-center select-none hover:underline decoration-2 underline-offset-2 active:decoration-nbredmain text-nbgreymain group-hover/button:text-nbwhite group-active/button:text-nbgreydark">{t("details.own-them")}</h3>
-          </a>
-        </div>
-      </div>
-      </>
+      <FundingButtons targetDate={targetDate} movie={movie} user={user} haveWon={haveWon} />
       {
         user && (
           <>

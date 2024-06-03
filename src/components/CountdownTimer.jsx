@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 // Components
 import { useTranslation } from 'react-i18next';
+import { GraphFieldRace } from './GraphFieldRace';
 
 export const CountdownTimer = ({ targetDate, haveWon, movie }) => {
 
@@ -121,6 +122,48 @@ export const RaceState = ({ targetDate, detailPage }) => {
         return (<Link to="/" className={`sm:block hidden font-bold font-h4-lead text-base ${detailPage ? "text-nbgreylight" : "text-nbredmain"} uppercase tracking-tighter`}>{t("card.previous_competition")}</Link>);
     } else {
         return (<Link to="/" className="sm:block hidden font-bold font-h4-lead text-base text-nbgreenmain uppercase tracking-tighter animate-pulse">{t("card.in_competition")}</Link>);
+    }
+};
+
+export const FundingButtons = ({ targetDate, movie, user, haveWon }) => {
+    const { t, i18n } = useTranslation();
+    const changeLanguage = (lng) => {
+        i18n.changeLanguage(lng);
+    };
+    const [days, hours, minutes, seconds] = useCountdown(targetDate);
+
+    if (days + hours + minutes + seconds <= 0) {
+        return (
+            <div class="flex flex-col justify-evenly md:justify-start gap-4 md:gap-0 md:grid grid-cols-1 md:grid-cols-9 grid-rows-3 md:grid-rows-1">
+                <div className="z-20 md:col-span-7 md:col-start-1 md:row-span-1 md:row-start-1">
+                    <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} detailPage={true} />
+                </div>
+                <div className="flex flex-row md:flex-col justify-center md:col-span-9 md:col-start-1 md:row-span-1 md:row-start-1 bg-teal-700 rounded-2xl divide-x-2 md:divide-x-none divide-y-none md:divide-y-2 divide-nbgreydark text-start transition-colors duration-1000 delay-1000 overflow-clip group/graphfield ring-1 ring-gray-900/5 ring-inset">
+                    <Link to={!user ? ("/login") : ("")} className="md:grid md:grid-cols-9 md:grid-rows-1 bg-nbgreymain opacity-60 p-3 md:p-0 w-full h-full transition cursor-default pointer-events-none group/button line-pattern ring-nbgreylight">
+                        <h3 className="flex justify-center items-center md:col-span-2 md:col-start-8 font-h2-title font-semibold text-lg text-nbwhite underline-offset-2 select-none decoration-2">{t("details.back-them")}</h3>
+                    </Link>
+                    <Link to={!user ? ("/login") : ("")} className="md:grid md:grid-cols-9 md:grid-rows-1 bg-emerald-700 hover:bg-nbredmain active:bg-nbredlight opacity-90 p-3 md:p-0 w-full h-full transition cursor-pointer group/button">
+                        <h3 className="group-hover/button:text-nbwhite group-active/button:text-nbgreydark flex justify-center items-center md:col-span-2 md:col-start-8 font-h2-title font-semibold text-lg text-nbgreylight underline-offset-2 hover:underline select-none decoration-2 active:decoration-nbredmain">{t("details.own-them")}</h3>
+                    </Link>
+                </div>
+            </div>
+        );
+    } else {
+        return (
+            <div class="flex flex-col justify-evenly md:justify-start gap-4 md:gap-0 md:grid grid-cols-1 md:grid-cols-9 grid-rows-3 md:grid-rows-1">
+                <div className="z-20 md:col-span-7 md:col-start-1 md:row-span-1 md:row-start-1">
+                    <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} detailPage={true} />
+                </div>
+                <div className="flex flex-row md:flex-col justify-center md:col-span-9 md:col-start-1 md:row-span-1 md:row-start-1 bg-teal-700 rounded-2xl divide-x-2 md:divide-x-none divide-y-none md:divide-y-2 divide-nbgreydark text-start transition-colors duration-1000 delay-1000 overflow-clip group/graphfield ring-1 ring-gray-900/5 ring-inset">
+                    <Link to={!user ? ("/login") : ("")} className="md:grid md:grid-cols-9 md:grid-rows-1 bg-emerald-500 hover:bg-nbgreenmain active:bg-nbgreenlight opacity-90 p-3 md:p-0 w-full h-full transition cursor-pointer group/button ring-nbgreylight">
+                        <h3 className="group-hover/button:text-nbwhite group-active/button:text-nbgreydark flex justify-center items-center md:col-span-2 md:col-start-8 font-h2-title font-semibold text-lg text-nbwhite underline-offset-2 hover:underline select-none decoration-2 active:decoration-nbgreenmain">{t("details.back-them")}</h3>
+                    </Link>
+                    <Link to={!user ? ("/login") : ("")} className="md:grid md:grid-cols-9 md:grid-rows-1 bg-emerald-700 hover:bg-nbredmain active:bg-nbredlight opacity-90 p-3 md:p-0 w-full h-full transition cursor-pointer group/button">
+                        <h3 className="group-hover/button:text-nbwhite group-active/button:text-nbgreydark flex justify-center items-center md:col-span-2 md:col-start-8 font-h2-title font-semibold text-lg text-nbgreymain underline-offset-2 hover:underline select-none decoration-2 active:decoration-nbredmain">{t("details.own-them")}</h3>
+                    </Link>
+                </div>
+            </div>
+        );
     }
 };
 
