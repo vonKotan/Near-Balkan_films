@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useComment } from '../hooks/useComment';
-import { useFetchData } from '../hooks/useFetchData';
+import { useFetchComments } from '../hooks/usefetchComments';
 
 import { FaLock } from 'react-icons/fa';
 import { TiDelete } from 'react-icons/ti';
@@ -15,7 +15,7 @@ const Comments = ({ id, movie, user }) => {
 
   const [newComment, setNewComment] = useState('');
 
-  const { documents: comments } = useFetchData(`films/${id}/comments`);
+  const { comments } = useFetchComments(id);
   const { insertComment, deleteComment } = useComment(`films/${id}/comments`);
 
   const commentHandler = (e) => {
@@ -59,10 +59,9 @@ const Comments = ({ id, movie, user }) => {
         ?.sort((a, b) => a.order - b.order)
         .map((comment, index) => (
           <>
-            {user && (user?.uid || "none") === comment.userId && (
               <>
-                {comment.userId !== movie.user && (
-                  <div className='py-1 flex flex-col items-end min-w-max' key={index}>
+                {comment.userId !== movie.userId && (
+                  <div className={user && (user?.uid || "none") === comment.userId ? 'py-1 flex flex-col items-end': 'py-1 flex flex-col items-start'} key={index}>
                     <Link
                       to=""
                       className='flex flex-row items-center gap-2 group/button max-w-fit'>
@@ -77,27 +76,28 @@ const Comments = ({ id, movie, user }) => {
                       </button>
                       <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-xs text-left text-nbgreylight truncate leading-none tracking-tight cursor-pointer">
-                        {comment.username || 'unknown user'}</h3>
+                        {comment.user?.firstName + ' ' + comment.user?.lastName || 'unknown user'}</h3>
                     </Link>
                     <div className='flex items-center justify-end gap-1 rounded-full bg-nbgreenmain mt-1 pl-3 pr-1 w-5 min-w-fit hover:rounded-lg text-wrap max-w-96 text-ellipsis group'>
                       <p className='w-full py-1 overflow-hidden text-sm text-gray-700 font-semibold break-words font-p-paragraph group-hover:line-clamp-none line-clamp-1'>
                         {comment.comments}
                       </p>
+                      {user && (user?.uid || "none") === comment.userId && (
                       <p
                         onClick={() => deleteComment(comment.id)}
                         className='text-2xl cursor-pointer text-red-500 hover:text-nbredlight'
                       >
                         <TiDelete />
-                      </p>
+                      </p>)}
                     </div>
                   </div>
                 )}
-                {comment.userId === movie.user && (
-                  <div className='my-1 p-4 flex flex-col items-end bg-nbgreydark rounded-lg pt-2 @container/update' key={index}>
+                {comment.userId === movie.userId && (
+                  <div className={user && (user?.uid || "none") === comment.userId ? 'my-1 p-4 flex flex-col items-end bg-nbgreydark rounded-lg pt-2 @container/update' : 'my-1 p-4 flex flex-col items-start bg-nbgreydark rounded-lg pt-2 @container/update'} key={index}>
                     <div class="flex flex-col @[255px]/update:justify-between @[255px]/update:items-center gap-x-2 @[255px]/update:flex-row pb-2 w-full">
                       <h3 className="text-base font-semibold font-h2-title text-nbgreylight opacity-70">{t("comments.update-by-creator")}</h3>
                       {/* <div class="bg-nbgreymain hidden sm:block opacity-75 rounded-full w-1 h-1"></div> */}
-                      <h4 class="font-bold font-h3-subtitle text-xs text-nbgreymain opacity-70 tracking-tighter">{i18n.language === 'en' && (formatterEN.format(comment.createdAt).replace(',', '') || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(comment.createdAt).replace(' ', '').replace(' ', '') || 'unknown time')}</h4>
+                      <h4 class="font-bold font-h3-subtitle text-xs text-nbgreymain opacity-70 tracking-tighter">{i18n.language === 'en' && (formatterEN.format(new Date(comment.createdAt.seconds*1000)).replace(',', '') || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(new Date(comment.createdAt.seconds*1000)).replace(' ', '').replace(' ', '') || 'unknown time')}</h4>
                     </div>
                     <Link
                       to=""
@@ -113,26 +113,27 @@ const Comments = ({ id, movie, user }) => {
                       </button>
                       <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-xs text-left text-nbgreylight truncate leading-none tracking-tight cursor-pointer">
-                        {comment.username || 'unknown user'}</h3>
+                        {comment.user.firstName + ' ' + comment.user.lastName || 'unknown user'}</h3>
                     </Link>
                     <div className='flex items-center justify-start gap-1 rounded-full bg-nbgreenmain mt-1 pl-3 pr-1 w-5 min-w-fit text-wrap max-w-96 text-ellipsis group'>
                       <p className='w-full py-1 overflow-hidden text-sm text-gray-700 font-semibold break-words font-p-paragraph group-hover:line-clamp-none line-clamp-1'>
                         {comment.comments}
                       </p>
+                      {user && (user?.uid || "none") === comment.userId && (
                       <p
                         onClick={() => deleteComment(comment.id)}
                         className='text-2xl cursor-pointer text-red-500 hover:text-nbredlight'
                       >
                         <TiDelete />
-                      </p>
+                      </p>)}
                     </div>
                   </div>
                 )}
               </>
-            )} {(user?.uid || "none") !== comment.userId && (
+             {/* {(user?.uid || "none") !== comment.userId && (
               <>
-                {comment.userId !== movie.user && (
-                  <div className='py-1 flex flex-col items-start max-w-96' key={index}>
+                {comment.userId !== movie.userId && (
+                  <div className='py-1 flex flex-col items-start' key={index}>
                     <Link
                       to=""
                       className='flex flex-row items-center gap-2 group/button max-w-fit'>
@@ -147,7 +148,7 @@ const Comments = ({ id, movie, user }) => {
                       </button>
                       <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-xs text-left text-nbgreylight truncate leading-none tracking-tight cursor-pointer">
-                        {comment.username || 'unknown user'}</h3>
+                        {comment.user.firstName + ' ' + comment.user.lastName || 'unknown user'}</h3>
                     </Link>
                     <div className='flex items-center justify-start gap-1 rounded-full bg-nbgreenlight mt-1 px-3 w-5 min-w-fit hover:rounded-lg text-wrap max-w-96 text-ellipsis group'>
                       <p className='w-full py-1 overflow-hidden text-sm text-gray-700 font-semibold break-words font-p-paragraph group-hover:line-clamp-none line-clamp-1'>
@@ -156,11 +157,11 @@ const Comments = ({ id, movie, user }) => {
                     </div>
                   </div>
                 )}
-                {comment.userId === movie.user && (
+                {comment.userId === movie.userId && (
                   <div className='my-1 p-4 flex flex-col items-start bg-nbgreydark rounded-lg pt-2 @container/update' key={index}>
                     <div class="flex flex-col @[255px]/update:justify-between @[255px]/update:items-center gap-x-2 @[255px]/update:flex-row pb-2 w-full">
                       <h3 className="text-base font-semibold font-h2-title text-nbgreylight opacity-70">{t("comments.update-by-creator")}</h3>
-                      {/* <div class="bg-nbgreymain hidden sm:block opacity-75 rounded-full w-1 h-1"></div> */}
+                      {/* <div class="bg-nbgreymain hidden sm:block opacity-75 rounded-full w-1 h-1"></div> }
                       <h4 class="font-bold font-h3-subtitle text-xs text-nbgreymain opacity-70 tracking-tighter">{i18n.language === 'en' && (formatterEN.format(comment.createdAt).replace(',', '') || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(comment.createdAt).replace(' ', '').replace(' ', '') || 'unknown time')}</h4>
                     </div>
                     <Link
@@ -177,7 +178,7 @@ const Comments = ({ id, movie, user }) => {
                       </button>
                       <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-xs text-left text-nbgreylight truncate leading-none tracking-tight cursor-pointer">
-                        {comment.username || 'unknown user'}</h3>
+                        {comment.user.firstName + ' ' + comment.user.lastName || 'unknown user'}</h3>
                     </Link>
                     <div className='flex items-center justify-start gap-1 rounded-full bg-nbgreenlight mt-1 px-3 w-5 min-w-fit text-wrap max-w-96 text-ellipsis group'>
                       <p className='w-full py-1 overflow-hidden text-sm text-gray-700 font-semibold break-words font-p-paragraph group-hover:line-clamp-none line-clamp-1'>
@@ -185,9 +186,9 @@ const Comments = ({ id, movie, user }) => {
                       </p>
                     </div>
                   </div>
-                )}
+                )} 
               </>
-            )}
+            )}*/}
           </>
         ))
       }

@@ -37,7 +37,7 @@ const Details = ({ user, targetDate, haveWon }) => {
       const docSnap = await getDoc(docRef);
       const userSnap = await getDoc(doc(database, 'users', docSnap.data().user));
 
-      setMovie({ ...docSnap.data(), user: userSnap.data() });
+      setMovie({ ...docSnap.data(), userId: userSnap.id, user: userSnap.data() });
     };
     loadDocument();
   }, [id]);
