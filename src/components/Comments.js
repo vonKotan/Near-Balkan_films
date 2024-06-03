@@ -62,7 +62,7 @@ const Comments = ({ id, movie, user }) => {
             {user && (user?.uid || "none") === comment.userId && (
               <>
                 {comment.userId !== movie.user && (
-                  <div className='py-1 flex flex-col items-end' key={index}>
+                  <div className='py-1 flex flex-col items-end min-w-max' key={index}>
                     <Link
                       to=""
                       className='flex flex-row items-center gap-2 group/button max-w-fit'>
@@ -132,7 +132,7 @@ const Comments = ({ id, movie, user }) => {
             )} {(user?.uid || "none") !== comment.userId && (
               <>
                 {comment.userId !== movie.user && (
-                  <div className='py-1 flex flex-col items-start' key={index}>
+                  <div className='py-1 flex flex-col items-start max-w-96' key={index}>
                     <Link
                       to=""
                       className='flex flex-row items-center gap-2 group/button max-w-fit'>

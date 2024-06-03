@@ -37,7 +37,7 @@ const Details = ({ user, targetDate, haveWon }) => {
       const docSnap = await getDoc(docRef);
       const userSnap = await getDoc(doc(database, 'users', docSnap.data().user));
 
-      setMovie({...docSnap.data(), user:userSnap.data()});
+      setMovie({ ...docSnap.data(), user: userSnap.data() });
     };
     loadDocument();
   }, [id]);
@@ -107,29 +107,29 @@ const Details = ({ user, targetDate, haveWon }) => {
         </div>
         {!user && (
           <div class="sm:hidden flex flex-col justify-center items-center w-full bg-transparent py-4 lg:py-6 rounded-md text-center ring-1 ring-gray-900/5 ring-inset col-span-5 h-full absolute">
-          <div class="mx-auto px-8 max-w-sm">
-            <p class="font-semibold text-nbgreylight text-sm">{t("details.would-you-like-to-see")}</p>
-            <Link to='/login'>
-              <button class="bg-nbgreylight hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight mt-3 px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain">
-                <div class="flex items-start gap-2 -mb-0.5">
-                  <svg class="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymiddark h-4 translate-y-px fill-nbgreenmain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                    <path d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z"></path>
-                  </svg>
-                  <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreydark text-sm leading-5 tracking-tight">
-                  {t("details.log-in")}
-                  </p>
-                </div>
-              </button>
-            </Link>
-            <p class="mt-4 text-nbgreylight text-xs leading-4">{t("details.click-on-the-button")}</p>
+            <div class="mx-auto px-8 max-w-sm">
+              <p class="font-semibold text-nbgreylight text-sm">{t("details.would-you-like-to-see")}</p>
+              <Link to='/login'>
+                <button class="bg-nbgreylight hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight mt-3 px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain">
+                  <div class="flex items-start gap-2 -mb-0.5">
+                    <svg class="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymiddark h-4 translate-y-px fill-nbgreenmain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                      <path d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z"></path>
+                    </svg>
+                    <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreydark text-sm leading-5 tracking-tight">
+                      {t("details.log-in")}
+                    </p>
+                  </div>
+                </button>
+              </Link>
+              <p class="mt-4 text-nbgreylight text-xs leading-4">{t("details.click-on-the-button")}</p>
+            </div>
           </div>
-        </div>
         )}
         {user && (<div class="rounded-md hover:shadow-md transition videoPlayer relative overflow-clip col-span-5 bg-nbblack py-auto">
           <video ref={videoRef} controls src={movie.videoUrl} className='w-full h-full' />
         </div>)}
         {!user && (
-          <div class="hidden sm:block sm:flex sm:flex-col sm:justify-center bg-teal-700 py-4 lg:py-6 rounded-md text-center ring-1 ring-gray-900/5 ring-inset col-span-5 h-full">
+          <div class="hidden sm:flex sm:flex-col sm:justify-center bg-teal-700 py-4 lg:py-6 rounded-md text-center ring-1 ring-gray-900/5 ring-inset col-span-5 h-full">
             <div class="mx-auto px-8 max-w-sm">
               <p class="font-semibold text-nbgreylight text-sm">{t("details.would-you-like-to-see")}</p>
               <Link to='/login'>
@@ -149,15 +149,30 @@ const Details = ({ user, targetDate, haveWon }) => {
           </div>
         )}
       </section >
-      <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} />
+      <>
+      <div class="gap-4 md:gap-0 flex flex-col md:grid grid-cols-1 grid-rows-3 md:grid-cols-9 md:grid-rows-1"> 
+        <div className="md:col-start-1 md:col-span-7 md:row-start-1 md:row-span-1 z-20">
+          <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} detailPage={true} />
+        </div>
+        <div className="md:col-start-1 md:col-span-9 md:row-start-1 md:row-span-1 flex flex-row md:flex-col justify-center bg-teal-700 rounded-2xl text-start transition-colors duration-1000 delay-1000 group/graphfield ring-1 ring-gray-900/5 ring-inset overflow-clip md:divide-y-2 divide-y-none divide-x-2 md:divide-x-none divide-nbgreydark">
+          <a className="opacity-90 bg-emerald-500 ring-nbgreylight hover:bg-nbgreenmain active:bg-nbgreenlight group/button w-full h-full transition md:grid md:grid-rows-1 md:grid-cols-9 cursor-pointer p-3 md:p-0">
+            <h3 className="font-semibold font-h2-title text-lg md:col-start-8 md:col-span-2 flex justify-center items-center select-none hover:underline decoration-2 underline-offset-2 active:decoration-nbgreenmain text-nbwhite group-hover/button:text-nbwhite group-active/button:text-nbgreydark">{t("details.back-them")}</h3>
+          </a>
+          <a className="opacity-90 bg-emerald-700 hover:bg-nbredmain active:bg-nbredlight group/button w-full h-full transition md:grid md:grid-rows-1 md:grid-cols-9 cursor-pointer p-3 md:p-0">
+            <h3 className="font-semibold font-h2-title text-lg md:col-start-8 md:col-span-2 flex justify-center items-center select-none hover:underline decoration-2 underline-offset-2 active:decoration-nbredmain text-nbgreymain group-hover/button:text-nbwhite group-active/button:text-nbgreydark">{t("details.own-them")}</h3>
+          </a>
+        </div>
+      </div>
+      </>
       {
         user && (
           <>
             <section className="max-w-screen-xl lg:grid grid-cols-7 flex flex-col justify-between gap-4">
               <section className='flex flex-col gap-2 rounded-md bg-teal-700 px-7 py-5 col-span-5'>
                 <div class="flex justify-between">
-                  <a class="inline-flex flex-row items-center gap-2" href="/"><div class="bg-nbgreenmain opacity-75 rounded-full w-1 h-1 animate-ping"></div><h4 class="font-bold font-h3-subtitle text-base text-nbgreenmain tracking-tighter">{i18n.language === 'en' && (formatterEN.format(movie.createdAt) || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(movie.createdAt).replace(' ', '').replace(' ', '') || 'unknown time')}</h4></a>
-                  <RaceState targetDate={targetDate} />
+                  {/* <a class="inline-flex flex-row items-center gap-2" href="/"><div class="bg-nbgreenmain opacity-75 rounded-full w-1 h-1 animate-ping"></div><h4 class="font-bold font-h3-subtitle text-base text-nbgreenmain tracking-tighter">{i18n.language === 'en' && (formatterEN.format(movie.createdAt) || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(movie.createdAt).replace(' ', '').replace(' ', '') || 'unknown time')}</h4></a> */}
+                  <CurrentRace targetDate={targetDate} detailPage={true} movie={movie} />
+                  <RaceState targetDate={targetDate} detailPage={true} />
                 </div>
                 <div id="gridCol" className='flex xl:flex-row flex-col xl:justify-between xl:items-center gap-2'>
                   <h2 className="font-black font-h2-title text-4xl text-nbwhite underline underline-offset-4 leading-tight tracking-tight transition-colors decoration-4 decoration-nbgreenmain active:decoration-nbgreenlight -mt-2">{i18n.language === 'en' && (movie.englishTitle || movie.title)} {i18n.language === 'hu' && (movie.title || movie.englishTitle)}</h2>

@@ -56,7 +56,9 @@
     "in_competition": "versenyben",
     "what_happened": "mi lett velük?",
     "on_their_side": "mellettük versenyzem!",
-    "currency": "HUF"
+    "currency": "HUF",
+    "back_them": "támogatom őket!",
+    "no_way_to_back": "ezt már nem támogathatod"
   },
   "details": {
     "views": "megtekintések:",
@@ -71,7 +73,9 @@
     "actors": "színészek",
     "would-you-like-to-see": "Szeretnéd látni az előzetest?",
     "log-in": "Jelentkezz be!",
-    "click-on-the-button": "Kattints a gombra és gyere vissza egy gyors bejelentkezés után!"
+    "click-on-the-button": "Kattints a gombra és gyere vissza egy gyors bejelentkezés után!",
+    "back-them": "támogatás",
+    "own-them": "felvásárlás"
   },
   "register": {
     "register": "regisztráció",
