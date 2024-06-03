@@ -254,12 +254,12 @@ export const RegistrationInfo = ({ user }) => {
     ) */
 
     return (
-        <div class="gridRow flex flex-wrap justify-center items-center">
-            <div class="gridCol basis-2/4 bg-nbwhite ring-2 ring-nbblack rounded-lg px-5 py-2">
-                <div class="flex min-h-full flex-col sm:min-w-96 min-w-60 lg:min-w-96 justify-center px-6 py-12 lg:px-8">
+        <div class="flex flex-wrap justify-center items-center gridRow">
+            <div class="gridCol bg-nbwhite px-5 py-2 rounded-lg max-w-md basis-2/4 ring-2 ring-nbblack">
+                <div class="flex flex-col justify-center px-6 lg:px-8 py-12 min-w-60 sm:min-w-96 lg:min-w-96 min-h-full">
                     <div class="sm:mx-auto sm:w-full">
-                        <a class="nbLogo transition-all flex justify-center items-end shrink gap-2 lg:ml-6 mr-4">
-                            <svg class="logoVectors2 group/logo shrink-0 w-12 h-8" xmlns="http://www.w3.org/2000/svg">
+                        {/* <a class="flex justify-center items-end gap-2 mr-4 lg:ml-6 transition-all nbLogo shrink">
+                            <svg class="w-12 h-8 group/logo logoVectors2 shrink-0" xmlns="http://www.w3.org/2000/svg">
                                 <path class="group-hover/logo:fill-nbgreendark fill-nbgreenmain"
                                     d="M0.647461 16.1046H4.4444V18.5788L7.02756 16.1046H12.0383L15.4929 19.4135V30.95H11.3847V20.4867L10.3265 19.4433H7.71226L4.75562 22.3051V30.95H0.647461V16.1046Z" />
                                 <path class="group-hover/logo:fill-nbgreenmain fill-nbgreendark"
@@ -273,7 +273,7 @@ export const RegistrationInfo = ({ user }) => {
                                 <path class="group-hover/logo:fill-nbgreendark fill-nbgreenmain"
                                     d="M35.8644 7.44473L32.8128 10.4963L37.1675 14.8674L40.252 11.8324L43.2871 14.8674L47.6582 10.4633L44.6396 7.44473L47.6582 4.42616L43.2871 0.0220277L40.252 3.05709L37.2169 0.0220272L32.8128 4.35194L35.8644 7.44473Z" />
                             </svg>
-                            <svg class="logoTextVectors2 group/logotext shrink-0 w-16 h-7" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="w-16 h-7 group/logotext logoTextVectors2 shrink-0" xmlns="http://www.w3.org/2000/svg">
                                 <g class="group-hover/logotext:fill-nbgreenmain fill-nbgreendark">
                                     <path
                                         d="M36.2686 0.496582H38.8092V2.22504L40.4752 0.496582H43.4323V2.82896H41.0374L39.0174 4.91144V10.8673H36.2686V0.496582Z" />
@@ -298,58 +298,58 @@ export const RegistrationInfo = ({ user }) => {
                                         d="M0.658203 24.7009V12.0811H3.40708V18.0161L4.92729 16.5792H8.7174L10.8624 18.745V24.7842L8.7174 26.95H2.88646L0.658203 24.7009ZM7.32214 24.6176L8.11348 23.8054V19.7238L7.32214 18.9116H5.28131L3.40708 20.7858V23.8054L4.19842 24.6176H7.32214Z" />
                                 </g>
                             </svg>
-                        </a>
-                        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+                        </a> */}
+                        <h2 class="mt-10 font-bold text-2xl text-center text-gray-900 leading-9 tracking-tight">
                             Create Your Profile
                         </h2>
                     </div>
                     <form class="space-y-6" onSubmit={handleSubmit(handleRegister)}>
-                        <div class="mt-10 sm:mx-auto sm:w-full min-w-max">
+                        <div class="sm:mx-auto mt-10 sm:w-full min-w-max">
 
 
                             <div>
                                 <label for="firstname"
-                                    class="block text-sm text-left font-medium leading-6 text-gray-900">{t("register_info.first_name")}</label>
+                                    class="block font-medium text-gray-900 text-left text-sm leading-6">{t("register_info.first_name")}</label>
                                 <div class="mt-2">
                                     <input id="firstName" type="text"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
+                                        class="block border-0 shadow-sm py-1.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
                                         {...register("firstName")}
                                         placeholder={t("register_info.first_name")} />
-                                    {errors.firstName && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.firstName?.message}</p>)}
+                                    {errors.firstName && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.firstName?.message}</p>)}
                                 </div>
                             </div>
                             <div>
 
                                 <label for="lastName"
-                                    class="block text-sm text-left font-medium leading-6 text-gray-900">{t("register_info.last_name")}</label>
+                                    class="block font-medium text-gray-900 text-left text-sm leading-6">{t("register_info.last_name")}</label>
                                 <div class="mt-2">
                                     <input id="lastName" type="text"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
+                                        class="block border-0 shadow-sm py-1.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
                                         {...register("lastName")}
                                         placeholder={t("register_info.last_name")} />
-                                    {errors.lastName && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.lastName?.message}</p>)}
+                                    {errors.lastName && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.lastName?.message}</p>)}
                                 </div>
                             </div>
 
                             <div>
                                 <label for="username"
-                                    class="block text-sm text-left font-medium leading-6 text-gray-900">Username</label>
+                                    class="block font-medium text-gray-900 text-left text-sm leading-6">Username</label>
                                 <div class="mt-2">
                                     <input id="username" name="username" type="text" autocomplete="username"
                                         {...register("userName")}
                                         placeholder={t("register_info.username")}
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
+                                        class="block border-0 shadow-sm py-1.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
                                     />
-                                    {errors.userName && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.userName?.message}</p>)}
+                                    {errors.userName && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.userName?.message}</p>)}
                                 </div>
                             </div>
 
-                            <div class="max-w-sm mx-auto">
+                            <div class="mx-auto max-w-sm">
 
                                 <label for="phone-input"
-                                    class="block mb-2 text-sm text-left font-medium text-gray-900 dark:text-white">{t("register_info.phone_number")}</label>
+                                    class="block mb-2 font-medium text-gray-900 text-left text-sm dark:text-white">{t("register_info.phone_number")}</label>
                                 <div class="relative">
-                                    <div class="absolute inset-y-0 start-0 top-0 flex items-center ps-3.5 pointer-events-none">
+                                    <div class="top-0 absolute inset-y-0 flex items-center pointer-events-none ps-3.5 start-0">
                                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
                                             <path
@@ -357,19 +357,19 @@ export const RegistrationInfo = ({ user }) => {
                                         </svg>
                                     </div>
                                     <input type="text" id="phone-input" aria-describedby="helper-text-explanation"
-                                        class="block w-full ps-10 p-2.5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
+                                        class="block border-0 shadow-sm py-1.5 p-2.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ps-10 ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
                                         //pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" ez jelenleg így nem az igazi de majd lehetne használni csak máshogy 
                                         {...register("phoneNumber")}
                                         placeholder={t("register_info.phone_number")} />
-                                    {errors.phoneNumber && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.phoneNumber?.message}</p>)}
+                                    {errors.phoneNumber && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.phoneNumber?.message}</p>)}
                                 </div>
 
-                                <div class="col-span-full flex flex-col justify-center text-center p-10">
-                                    <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">Profile picture</label>
-                                    <div class="mt-4 p-4 border-2 border-dashed border-nbblack rounded-lg">
-                                        <div class="mt-2 flex justify-center">
+                                <div class="flex flex-col justify-center col-span-full p-10 text-center">
+                                    <label for="photo" class="block font-medium text-gray-900 text-sm leading-6">Profile picture</label>
+                                    <div class="border-2 border-nbblack mt-4 p-4 border-dashed rounded-lg">
+                                        <div class="flex justify-center mt-2">
                                             <div class="inline-flex items-center gap-x-3">
-                                                <svg class="h-12 w-12 text-nbgreenmain" viewBox="0 0 24 24" fill="currentColor"
+                                                <svg class="w-12 h-12 text-nbgreenmain" viewBox="0 0 24 24" fill="currentColor"
                                                     aria-hidden="true">
                                                     <path fill-rule="evenodd"
                                                         d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
@@ -377,7 +377,7 @@ export const RegistrationInfo = ({ user }) => {
                                                 </svg>
                                                 <button type="button"
                                                     onClick={() => hiddenInput?.current?.click()}
-                                                    class="rounded-md bg-nbgreenmain px-2.5 py-1.5 text-sm font-semibold text-nbgreylight shadow-sm hover:bg-nbgreendark focus:bg-nbgreendark focus:ring-1 focus:ring-nbgreenmain ring-offset">Upload file</button>
+                                                    class="bg-nbgreenmain hover:bg-nbgreendark focus:bg-nbgreendark shadow-sm px-2.5 py-1.5 rounded-md font-semibold text-nbgreylight text-sm focus:ring-1 focus:ring-nbgreenmain ring-offset">Upload file</button>
                                                 <input
                                                     type="file"
                                                     id = "profilePicture"
@@ -394,24 +394,24 @@ export const RegistrationInfo = ({ user }) => {
 
                                 </div>
 
-                                <div class="relative max-w-sm left-1/2 -translate-x-1/2 p-5">
-                                    <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">{t("register_info.date_of_birth")}</label>
-                                    <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                                <div class="relative left-1/2 p-5 max-w-sm -translate-x-1/2">
+                                    <label for="photo" class="block font-medium text-gray-900 text-sm leading-6">{t("register_info.date_of_birth")}</label>
+                                    <div class="absolute inset-y-0 flex items-center pointer-events-none ps-3.5 start-0">
                                         <svg class="w-4 h-4 text-nbgreenmain dark:text-gray-400" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                         </svg>
                                     </div>
 
                                     <input type="date"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg hover:border-nbgreenlight hover:border-2 focus:ring-nbgreenmain focus:border-nbgreenmain block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        class="block border-gray-300 hover:border-nbgreenlight hover:border-2 focus:border-nbgreenmain dark:border-gray-600 bg-gray-50 dark:bg-gray-700 p-2.5 border rounded-lg w-full text-gray-900 text-sm focus:ring-nbgreenmain dark:text-white ps-10 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         {...register("birthDate")}
                                         placeholder={t("register_info.date_of_birth")} />
-                                    {errors.birthDate && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.birthDate?.message}</p>)}
+                                    {errors.birthDate && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.birthDate?.message}</p>)}
                                 </div>
 
-                                <div class="inline-flex items-center justify-center w-full">
-                                    <hr class="w-full h-0.5 my-8 bg-nborangemain" />
-                                    <span class="absolute px-3 font-medium text-nbblack -translate-x-1/2 bg-white left-1/2"></span>
+                                <div class="inline-flex justify-center items-center w-full">
+                                    <hr class="bg-nborangemain my-8 w-full h-0.5" />
+                                    <span class="left-1/2 absolute bg-white px-3 font-medium text-nbblack -translate-x-1/2"></span>
                                 </div>
                                 <fieldset>
                                     <legend class="text-nbblack">Are you a content creator or a viewer?</legend>
@@ -426,10 +426,10 @@ export const RegistrationInfo = ({ user }) => {
                                         {...register('userType')}
                                         onClick={(e) => setUserType('viewer')} />
                                     <label for="Content creator"
-                                        class="text-nbblack peer-checked/Content creator:text-nborangemain">Viewer</label>
-                                    {errors.userType && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.userType?.message}</p>)}
+                                        class="text-nbblack creator:text-nborangemain peer-checked/Content">Viewer</label>
+                                    {errors.userType && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.userType?.message}</p>)}
 
-                                    {/* <div class="text-nbblack focus:ring-nborangemain text-nbblack hidden peer-checked/Viewer:block">Choose your prefered roles.</div> */}
+                                    {/* <div class="text-nbblack focus:ring-nborangemain peer-checked/Viewer:block hidden text-nbblack">Choose your prefered roles.</div> */}
                                 </fieldset>
                             </div>
                         </div>
@@ -437,14 +437,14 @@ export const RegistrationInfo = ({ user }) => {
                         {userType === 'creator' && <>
 
                             <CustomSelect isMulti={true} options={titleOptions} onSelect={setRoles}></CustomSelect>
-                            {rolesError && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{rolesError}</p>)}
+                            {rolesError && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{rolesError}</p>)}
                             <Filmography user={user} sendData={addFilmograpy}></Filmography>
-                            {filmographyError && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{filmographyError}</p>)}
+                            {filmographyError && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{filmographyError}</p>)}
 
                         </>}
                         <div>
                             <button type="submit"
-                                class="flex w-full justify-center rounded-full bg-nbblack px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-nbbluedark focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create
+                                class="flex justify-center bg-nbblack hover:bg-nbbluedark shadow-sm px-3 py-1.5 rounded-full w-full font-semibold text-sm text-white leading-6 focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create
                                 Profile</button>
                         </div>
                     </form>
@@ -453,9 +453,9 @@ export const RegistrationInfo = ({ user }) => {
 
 
 
-                <p class="mt-10 text-center text-sm text-gray-500">
+                <p class="mt-10 text-center text-gray-500 text-sm">
                     Already a member?
-                    <a href="/login" class="font-semibold leading-6 text-nbpurpledark hover:text-nbpurplemain">Sign in</a>
+                    <a href="/login" class="font-semibold text-nbpurpledark hover:text-nbpurplemain leading-6">Sign in</a>
                 </p>
             </div>
 

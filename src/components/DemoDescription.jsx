@@ -10,7 +10,7 @@ export const DemoDescription = ({ movie }) => {
   };
 
   return (
-    <p className="line-clamp-3 sm:line-clamp-6 font-p-paragraph text-base text-nbgreymiddark leading-7">{i18n.language === 'en' && (movie.englishDescription || movie.description)} {i18n.language === 'hu' && (movie.description || movie.englishDescription)}</p>
+    <p className="line-clamp-3 sm:line-clamp-4 font-p-paragraph text-base text-nbgreymiddark leading-7">{i18n.language === 'en' && (movie.englishDescription || movie.description)} {i18n.language === 'hu' && (movie.description || movie.englishDescription)}</p>
   )
 }
 

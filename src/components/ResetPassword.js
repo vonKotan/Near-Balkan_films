@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
 import { useAuth } from '../hooks/useAuth';
+import { useTranslation } from 'react-i18next';
 
 const ResetPassword = ({ userEmail }) => {
   const [email, setEmail] = useState(userEmail);
   const { resetPassword } = useAuth();
+
+  const { t, i18n } = useTranslation();
 
   const handleReset = () => {
     resetPassword(email);
@@ -19,7 +22,7 @@ const ResetPassword = ({ userEmail }) => {
           className='italic font-bold text-nbgreenmain outline-none cursor-pointer'
           size='large'
         >
-          Reset
+          {t("login.reset-password")}
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>
