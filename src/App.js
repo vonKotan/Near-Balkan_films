@@ -91,7 +91,7 @@ function App() {
           <Route path='/details/:id' element={<Details targetDate={targetDate}/>} />
           <Route
             path='/events'
-            element={!user ? <Navigate to='/login' /> : <Events user={user} />}
+            element={<Events user={user} />}
           />
           <Route
             path='/past-events'
