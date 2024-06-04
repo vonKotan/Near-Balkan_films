@@ -64,7 +64,7 @@ const Comments = ({ id, movie, user }) => {
                   <div className='py-1 flex flex-col items-end' key={index}>
                     <Link
                       to=""
-                      className='flex flex-row items-center gap-1 group/button max-w-fit'>
+                      className='flex flex-row items-center gap-1.5 group/button max-w-fit'>
                       {comment.user?.profilePicture ? (
                         <img
                           src={comment.user?.profilePicture}
@@ -107,7 +107,7 @@ const Comments = ({ id, movie, user }) => {
                     </div>
                     <Link
                       to=""
-                      className='flex flex-row items-center gap-1 group/button max-w-fit'>
+                      className='flex flex-row items-center gap-1.5 group/button max-w-fit'>
                       {comment.user?.profilePicture ? (
                         <img
                           src={comment.user?.profilePicture}
@@ -149,7 +149,7 @@ const Comments = ({ id, movie, user }) => {
                   <div className='py-1 flex flex-col items-start' key={index}>
                     <Link
                       to=""
-                      className='flex flex-row items-center gap-1 group/button max-w-fit'>
+                      className='flex flex-row items-center gap-1.5 group/button max-w-fit'>
                       {comment.user?.profilePicture ? (
                         <img
                           src={comment.user?.profilePicture}
@@ -186,7 +186,7 @@ const Comments = ({ id, movie, user }) => {
                     </div>
                     <Link
                       to=""
-                      className='flex flex-row items-center gap-1 group/button max-w-fit'>
+                      className='flex flex-row items-center gap-1.5 group/button max-w-fit'>
                       {comment.user?.profilePicture ? (
                         <img
                           src={comment.user?.profilePicture}
