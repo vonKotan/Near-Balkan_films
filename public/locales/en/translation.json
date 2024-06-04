@@ -8,7 +8,8 @@
     "personal_input": "personal input",
     "exclusivity": "exclusivity",
     "patronage": "patronage",
-    "for_movie_consumers": "for movie consumers"
+    "for_movie_consumers": "for movie consumers",
+    "for_consumers": "for consumers"
   },
   "navbar": {
     "competition": "competition",
@@ -54,7 +55,8 @@
     "description": "Find a movie to watch or to support",
     "no_results": "no results found",
     "search": "search...",
-    "competition": "fresh contenders"
+    "competition": "fresh contenders",
+    "fresh": "freshly competing"
   },
   "card": {
     "team_up": "team up",
