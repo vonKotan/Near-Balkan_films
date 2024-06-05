@@ -7,7 +7,8 @@ import {
   query,
   doc, getDoc,
   where,
-  documentId
+  documentId,
+  updateDoc
 } from 'firebase/firestore'
 import { database } from '../firebase/config';
 
@@ -52,7 +53,8 @@ const Home = ({user, search}) => {
   const formattedDate = currentDate.toLocaleDateString();
   const [currentCompetition, setCurrentCompetition] = useState(null); // Use null instead of 0 for a more meaningful initial state
   const [currentCompetitionFilms, setCurrentCompetitionFilms] = useState(null);
-  const {filteredMovies: moviesFilter} = useFilterMovies(currentCompetitionFilms, search)
+  const {filteredMovies: moviesFilter} = useFilterMovies(currentCompetitionFilms, search);
+  const [moneyCollected, setMoneyCollected]=useState(null);
 
   useEffect(() => {
     if (competitions && competitions.length > 0) {
@@ -67,7 +69,6 @@ const Home = ({user, search}) => {
       };
       findCurrentCompetition();
     }
-    //currentCompetition.films
   }, [competitions, currentDate]);
 
   useEffect(() => {
@@ -76,14 +77,25 @@ const Home = ({user, search}) => {
         collection(database, 'films'),
         where(documentId(), 'in', currentCompetition.films)
       );
-
-      // Set up a real-time listener for the query
+      //filmek adatainak lekerese
       const unsubscribe = onSnapshot(q, async (querySnapshot) => {
         const films = [];
         querySnapshot.forEach((doc) => {
           films.push({ id: doc.id, ...doc.data() });
         });
 
+        //összeegyűlt pénz
+        /*
+        const collected=0;
+        films.forEach((film) => {
+          collected += film.collected;
+        });
+        currentCompetition.collected=collected;      
+        const docRef = doc(database, "competitions", currentCompetition.id);
+        updateDoc(docRef, currentCompetition);
+        */
+       
+        //filmek feltöltőinek adatainak lekerese
         const filmsWithUser = await fetchUsersForFilms(films);
         // Update state with the fetched films and user data
         setCurrentCompetitionFilms(filmsWithUser);
@@ -92,6 +104,8 @@ const Home = ({user, search}) => {
       return () => unsubscribe();
     }
   }, [currentCompetition]);
+
+
 
   useEffect(() => {
     if (currentCompetitionFilms && currentCompetitionFilms.length > 0) {
@@ -121,7 +135,7 @@ const Home = ({user, search}) => {
       </video></div>}
 
       <div>
-      {/*parasztos nmegoldás*/}  
+      {/*<SectionTitle title={currentCompetition.collected.toString()} />*/}  
       {currentCompetition && (
         <SectionTitle 
           title={i18n.language === 'hu' ? currentCompetition.title : currentCompetition.engTitle} 
