@@ -19,6 +19,7 @@ import { SectionTitle } from '../components/SectionTitle';
 import { useFetchData } from '../hooks/useFetchData';
 import { useFetchMovies } from '../hooks/useFetchMovies';
 import { useFilterMovies } from '../hooks/useFilterMovies';
+import { AdBloc } from '../components/AdBloc';
 // import SearchBar, { search, searchBar, moviesFilter, setMoviesFilter } from '../components/SearchBar';
 
 const fetchUsersForFilms = async (films) => {
@@ -41,10 +42,10 @@ const fetchUsersForFilms = async (films) => {
 
 
 
-const Home = ({user, search}) => {
-  const {documents: competitions} = useFetchData('competitions'); //documents nelkul is szar
+const Home = ({ user, search }) => {
+  const { documents: competitions } = useFetchData('competitions'); //documents nelkul is szar
 
-  const { t, i18n} = useTranslation();
+  const { t, i18n } = useTranslation();
   const [adUrl, setAdUrl] = useState('')
 
   const [randomMovie, setRandomMovie] = useState(0);
@@ -56,16 +57,17 @@ const Home = ({user, search}) => {
   const {filteredMovies: moviesFilter} = useFilterMovies(currentCompetitionFilms, search);
   const [moneyCollected, setMoneyCollected]=useState(null);
 
+
   useEffect(() => {
     if (competitions && competitions.length > 0) {
       const findCurrentCompetition = () => {
-       const currentCompetition = competitions.find(competition => {
-          const startDate = competition.startDate.toDate(); 
-          const endDate = competition.endDate.toDate(); 
+        const currentCompetition = competitions.find(competition => {
+          const startDate = competition.startDate.toDate();
+          const endDate = competition.endDate.toDate();
           return startDate <= currentDate && endDate >= currentDate;
         }
-      );
-      setCurrentCompetition(currentCompetition);
+        );
+        setCurrentCompetition(currentCompetition);
       };
       findCurrentCompetition();
     }
@@ -115,8 +117,8 @@ const Home = ({user, search}) => {
       };
 
       const adUrls = [
-        'https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/films%2Ffarkaszsigmond%2F1716435235191?alt=media&token=53a1c883-fd59-489e-a9a6-4e265a3dbd17',
-        'https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/films%2Fkovacszalan%2F1716386835153?alt=media&token=655b2454-9334-4a04-a5ad-4ac1590b55ec'
+        'https://www.youtube.com/embed/bWfI239Qf68?si=1i8C14OaddOsgcBq&amp;controls=0',
+        'https://www.youtube.com/embed/bSwYTU1f-oI?si=ulg8OWQ1G3e7XMWE&amp;controls=0'
       ];
       const url = adUrls[Math.floor(Math.random() * adUrls.length)];
       setAdUrl(url);
@@ -129,47 +131,43 @@ const Home = ({user, search}) => {
     <>
 
 
-      {/* {!user && <div className = 'py-4 max-w-screen-lg rounded-lg overflow-hidden'><video
-        src = {adUrl}
-        autoPlay
-        controls
-        >
-      </video></div>} */}
-
-
-      <div>
-      {/*<SectionTitle title={currentCompetition.collected.toString()} />*/}  
-      {currentCompetition && (
-        <SectionTitle 
-          title={i18n.language === 'hu' ? currentCompetition.title : currentCompetition.engTitle} 
-        />
+      {!user && (
+        <AdBloc adUrl={adUrl} />
       )}
-      </div>
-        
-      {randomMovie && !search &&
-        <CardComplex
-          movie={randomMovie}
-          targetDate={currentCompetition.endDate.toDate()}
-        />}
 
-      {!search &&
-        currentCompetitionFilms?.map((movie) => (
-          <Card
-            movie={movie} targetDate={currentCompetition.endDate.toDate()} haveWon={false}
-          />
-        ))}
-      {search &&
-        moviesFilter.length > 0 &&
-        moviesFilter?.map((movie) => (
-          <Card
-            movie={movie} targetDate={currentCompetition.endDate.toDate()} haveWon={true}
-          />
-        ))}
-      {search && moviesFilter.length === 0 && (
-        <div className='flex justify-center items-center gap-8 py-8 w-full max-w-screen-lg'>
-          <p>{t("home.no_results")}</p>
+      <div class="section max-w-screen-lg mx-auto flex flex-col gap-4">
+        <div>
+          {/*parasztos nmegoldás*/}
+          {currentCompetition && (
+            <SectionTitle
+              title={i18n.language === 'hu' ? currentCompetition.title : currentCompetition.engTitle}
+            />
+          )}
         </div>
-      )}
+        {randomMovie && !search &&
+          <CardComplex
+            movie={randomMovie}
+            targetDate={currentCompetition.endDate.toDate()}
+          />}
+        {!search &&
+          currentCompetitionFilms?.map((movie) => (
+            <Card
+              movie={movie} targetDate={currentCompetition.endDate.toDate()} haveWon={false}
+            />
+          ))}
+        {search &&
+          moviesFilter.length > 0 &&
+          moviesFilter?.map((movie) => (
+            <Card
+              movie={movie} targetDate={currentCompetition.endDate.toDate()} haveWon={true}
+            />
+          ))}
+        {search && moviesFilter.length === 0 && (
+          <div className='flex justify-center items-center gap-8 py-8 w-full max-w-screen-lg'>
+            <p>{t("home.no_results")}</p>
+          </div>
+        )}
+      </div>
     </>
   );
 };
