@@ -127,12 +127,15 @@ const Home = ({user, search}) => {
 
   return (
     <>
-      {!user && <div className='py-4 max-w-screen-lg rounded-lg overflow-hidden'><video
-        src={adUrl}
+
+
+      {/* {!user && <div className = 'py-4 max-w-screen-lg rounded-lg overflow-hidden'><video
+        src = {adUrl}
         autoPlay
         controls
-      >
-      </video></div>}
+        >
+      </video></div>} */}
+
 
       <div>
       {/*<SectionTitle title={currentCompetition.collected.toString()} />*/}  
