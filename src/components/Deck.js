@@ -47,30 +47,27 @@ export const Deck = ({ competition, search }) => {
   const [moviesFilter, setMoviesFilter] = useState([]);
   //const [debug,setdebug]=useState("debug");
 
-  console.log(search);
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
   useEffect(() => {
     const fetchFilmsForCompetition = async () => {
-            const q = query(
-              collection(database, 'films'),
-              where(documentId(), 'in', competition.films)
-            );
-            const querySnapshot = await getDocs(q);
-            const films = [];
-            querySnapshot.forEach((doc) => {
-              films.push({ id: doc.id, ...doc.data() });
-            });
-            
-            const filmsWithUser = await fetchUsersForFilms(films);
-
-        setCompetitionFilms(filmsWithUser);
-      }
+      const q = query(
+        collection(database, 'films'),
+        where(documentId(), 'in', competition.films)
+      );
+      const querySnapshot = await getDocs(q);
+      const films = [];
+      querySnapshot.forEach((doc) => {
+        films.push({ id: doc.id, ...doc.data() });
+      });
+      const filmsWithUser = await fetchUsersForFilms(films);
+      setCompetitionFilms(filmsWithUser);
+    }
     fetchFilmsForCompetition();
-  },[]);
-  
+  }, [competition.films]);
+
   useEffect(() => {
     if (search) {
       console.log(search)
@@ -82,36 +79,36 @@ export const Deck = ({ competition, search }) => {
   }, [search, competitionFilms]);
 
   return (<>
-      <SectionTitle title={competition.title} />
-      {!search &&
-        competitionFilms?.map((movie) => (
-          <div className="relative flex justify-center items-center w-full max-w-screen-lg">
-            <Card
-              movie={movie} targetDate={competition.endDate.toDate()} haveWon={competition.winner==movie.id}
-            />
-            <div className='-left-12 absolute lg:flex justify-center items-center hidden bg-nbgreylight shadow-sm px-4 py-2 rounded-full w-20 h-20 cursor-pointer ring-8 ring-inset ring-nbredmain'>
-              <h3 className="font-black font-h3-subtitle text-4xl text-nbgreydark">1</h3>
-            </div>
+    <SectionTitle title={competition.title} />
+    {!search &&
+      competitionFilms?.map((movie) => (
+        <div className="relative flex justify-center items-center w-full max-w-screen-lg">
+          <Card
+            movie={movie} targetDate={competition.endDate.toDate()} haveWon={competition.winner == movie.id}
+          />
+          <div className='-left-12 absolute lg:flex justify-center items-center hidden bg-nbgreylight shadow-sm px-4 py-2 rounded-full w-20 h-20 cursor-pointer ring-8 ring-inset ring-nbredmain'>
+            <h3 className="font-black font-h3-subtitle text-4xl text-nbgreydark">1</h3>
           </div>
-        ))}
-      {search &&
-        moviesFilter.length > 0 &&
-        competitionFilms?.map((movie) => (
-          <div className="relative flex justify-center items-center w-full max-w-screen-lg">
-            <Card
-              movie={movie} targetDate={competition.endDate.toDate()} haveWon={competition.winner==movie.id}
-            />
-            <div className='-left-12 absolute lg:flex justify-center items-center hidden bg-nbgreylight shadow-sm px-4 py-2 rounded-full w-20 h-20 cursor-pointer ring-8 ring-inset ring-nbredmain'>
-              <h3 className="font-black font-h3-subtitle text-4xl text-nbgreydark">1</h3>
-            </div>
-          </div>
-        ))}
-      {search && moviesFilter.length === 0 && (
-        <div className='flex justify-center items-center gap-8 py-8 w-full max-w-screen-lg'>
-          <p>{t("home.no_results")}</p>
         </div>
-      )}
-    </>
+      ))}
+    {search &&
+      moviesFilter.length > 0 &&
+      competitionFilms?.map((movie) => (
+        <div className="relative flex justify-center items-center w-full max-w-screen-lg">
+          <Card
+            movie={movie} targetDate={competition.endDate.toDate()} haveWon={competition.winner == movie.id}
+          />
+          <div className='-left-12 absolute lg:flex justify-center items-center hidden bg-nbgreylight shadow-sm px-4 py-2 rounded-full w-20 h-20 cursor-pointer ring-8 ring-inset ring-nbredmain'>
+            <h3 className="font-black font-h3-subtitle text-4xl text-nbgreydark">1</h3>
+          </div>
+        </div>
+      ))}
+    {search && moviesFilter.length === 0 && (
+      <div className='flex justify-center items-center gap-8 py-8 w-full max-w-screen-lg'>
+        <p>{t("home.no_results")}</p>
+      </div>
+    )}
+  </>
   );
 };
 
