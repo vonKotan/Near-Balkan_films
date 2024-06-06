@@ -275,7 +275,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                         </svg>
                                         <p
                                             className="group-active/button:text-nbgreenlight group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-xs leading-5 tracking-tight">
-                                            {detailPage ? t("") : t("card.on_their_side")}</p>
+                                            {detailPage ? "" : t("card.on_their_side")}</p>
                                     </div>
                                 </Link>
                             )}
@@ -298,7 +298,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                         </svg>
                                         <p
                                             className="group-active/button:text-nbgreenlight group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-xs leading-5 tracking-tight">
-                                            {detailPage ? t("") : t("card.on_their_side")}</p>
+                                            {detailPage ? "" : t("card.on_their_side")}</p>
                                     </div>
                                 </Link>
                             )}

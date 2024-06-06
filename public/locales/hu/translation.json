@@ -5,10 +5,11 @@
     "networking": "networking",
     "funding": "finanszírozás",
     "for_filmmakers": "filmeseknek",
-    "personal input": "beleszólás",
+    "personal_input": "beleszólás",
     "exclusivity": "exkluzivitás",
     "patronage": "mecénásság",
-    "for_movie_consumers": "filmfogyasztóknak"
+    "for_movie_consumers": "filmfogyasztóknak",
+    "for_consumers": "fogyasztóknak"
   },
   "navbar": {
     "competition": "verseny",
@@ -54,7 +55,8 @@
     "description": "Találj egy filmet amit megvalósítanál!",
     "no_results": "nincs találat",
     "search": "keresés...",
-    "competition": "friss versenyzők"
+    "competition": "friss versenyzők",
+    "fresh": "frissen nálunk"
   },
   "card": {
     "team_up": "munka",

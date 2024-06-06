@@ -114,36 +114,47 @@ const Home = ({ user, search }) => {
 
   return (
     <>
-
-      {!user && (
-        <AdBloc adUrl={adUrl} />
-      )}
-
       <div class="section max-w-screen-lg mx-auto flex flex-col gap-4">
         <div>
           {/*parasztos nmegoldás*/}
-          {currentCompetition && (
+          {currentCompetition && !search && (
             <SectionTitle
-              title={i18n.language === 'hu' ? currentCompetition.title : currentCompetition.engTitle}
+              title={t("home.fresh")}
             />
           )}
         </div>
         {randomMovie && !search &&
-          <CardComplex
-            movie={randomMovie}
-            targetDate={currentCompetition.endDate.toDate()}
-          />}
+          <div class="pb-8">
+            <CardComplex
+              movie={randomMovie}
+              targetDate={currentCompetition.endDate.toDate()}
+              currentCompetition={currentCompetition}
+            />
+          </div>}
+      </div>
+      {!user && (
+        <AdBloc adUrl={adUrl} />
+      )}
+      <div class="section flex flex-col items-center gap-4">
+        {currentCompetition && (
+          <div class="flex justify-start w-full max-w-screen-lg">
+            <SectionTitle
+              title={i18n.language === 'hu' ? currentCompetition.title : currentCompetition.engTitle}
+            />
+          </div>
+        )}
         {!search &&
           currentCompetitionFilms?.map((movie) => (
             <Card
-              movie={movie} targetDate={currentCompetition.endDate.toDate()} haveWon={false}
+              movie={movie} targetDate={currentCompetition.endDate.toDate()} haveWon={false} currentCompetition={currentCompetition}
             />
           ))}
-        {search &&
+      </div>
+      {search &&
           moviesFilter.length > 0 &&
           moviesFilter?.map((movie) => (
             <Card
-              movie={movie} targetDate={currentCompetition.endDate.toDate()} haveWon={true}
+              movie={movie} targetDate={currentCompetition.endDate.toDate()} haveWon={true} currentCompetition={currentCompetition}
             />
           ))}
         {search && moviesFilter.length === 0 && (
@@ -151,7 +162,6 @@ const Home = ({ user, search }) => {
             <p>{t("home.no_results")}</p>
           </div>
         )}
-      </div>
     </>
   );
 };

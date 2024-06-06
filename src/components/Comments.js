@@ -51,12 +51,11 @@ const Comments = ({ id, movie, user }) => {
     minute: "numeric"
   });
 
-
   return (
     <section className='flex flex-col gap-2 rounded-md bg-teal-700 px-7 py-5'>
       <h3 className="text-lg font-semibold font-h2-title text-nbgreylight opacity-70">{t("comments.comments")}</h3>
       {comments
-        ?.sort((a, b) => a.order - b.order)
+        ?.sort((a, b) => b.order - a.order)
         .map((comment, index) => (
           <>
             {user && (user?.uid || "none") === comment.userId && (
@@ -65,16 +64,23 @@ const Comments = ({ id, movie, user }) => {
                   <div className='py-1 flex flex-col items-end' key={index}>
                     <Link
                       to=""
-                      className='flex flex-row items-center gap-2 group/button max-w-fit'>
-                      <button type="button"
-                        className="group-hover/button:bg-nbgreenmain group-active/button:bg-nbgreenlight group-disabled/button:bg-nbgreymiddark flex justify-center items-end gap-1 bg-nbgreydark rounded-full w-4 h-4 -translate-y-px overflow-hidden select-none peer">
-                        <svg
-                          className="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymain transition-all fill-nbgreymain"
-                          xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M11.7571 0.951111C8.62515 0.951111 6.06264 4.14002 6.06264 8.0692C6.06264 11.9984 8.62515 15.1873 11.7571 15.1873C14.8891 15.1873 17.4516 11.9984 17.4516 8.0692C17.4516 4.14002 14.8891 0.951111 11.7571 0.951111ZM5.80639 15.1873C2.78832 15.3297 0.368164 17.8068 0.368164 20.8818V23.729H23.1461V20.8818C23.1461 17.8068 20.7544 15.3297 17.7078 15.1873C16.1703 16.9241 14.0634 18.0345 11.7571 18.0345C9.45085 18.0345 7.3439 16.9241 5.80639 15.1873Z" />
-                        </svg>
-                      </button>
+                      className='flex flex-row items-center gap-1.5 group/button max-w-fit'>
+                      {comment.user?.profilePicture ? (
+                        <img
+                          src={comment.user?.profilePicture}
+                          alt='user'
+                          className='rounded-full w-full max-w-4 h-full min-h-4 max-h-4 aspect-1'
+                        />
+                      ) : (
+                        <button type="button"
+                          className="group-hover/button:bg-nbgreenmain group-active/button:bg-nbgreenlight group-disabled/button:bg-nbgreymiddark flex justify-center items-end gap-1 bg-nbgreydark rounded-full w-4 h-4 -translate-y-px overflow-hidden select-none peer">
+                          <svg
+                            className="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymain transition-all fill-nbgreymain"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none">
+                            <path
+                              d="M11.7571 0.951111C8.62515 0.951111 6.06264 4.14002 6.06264 8.0692C6.06264 11.9984 8.62515 15.1873 11.7571 15.1873C14.8891 15.1873 17.4516 11.9984 17.4516 8.0692C17.4516 4.14002 14.8891 0.951111 11.7571 0.951111ZM5.80639 15.1873C2.78832 15.3297 0.368164 17.8068 0.368164 20.8818V23.729H23.1461V20.8818C23.1461 17.8068 20.7544 15.3297 17.7078 15.1873C16.1703 16.9241 14.0634 18.0345 11.7571 18.0345C9.45085 18.0345 7.3439 16.9241 5.80639 15.1873Z" />
+                          </svg>
+                        </button>)}
                       <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-xs text-left text-nbgreylight truncate leading-none tracking-tight cursor-pointer">
                         {comment.user?.firstName + ' ' + comment.user?.lastName || 'unknown user'}</h3>
@@ -101,54 +107,68 @@ const Comments = ({ id, movie, user }) => {
                     </div>
                     <Link
                       to=""
-                      className='flex flex-row items-center gap-2 group/button max-w-fit'>
-                      <button type="button"
-                        className="group-hover/button:bg-nbgreenmain group-active/button:bg-nbgreenlight group-disabled/button:bg-nbgreymiddark flex justify-center items-end gap-1 bg-nbgreydark rounded-full w-4 h-4 -translate-y-px overflow-hidden select-none peer">
-                        <svg
-                          className="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymain transition-all fill-nbgreymain"
-                          xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M11.7571 0.951111C8.62515 0.951111 6.06264 4.14002 6.06264 8.0692C6.06264 11.9984 8.62515 15.1873 11.7571 15.1873C14.8891 15.1873 17.4516 11.9984 17.4516 8.0692C17.4516 4.14002 14.8891 0.951111 11.7571 0.951111ZM5.80639 15.1873C2.78832 15.3297 0.368164 17.8068 0.368164 20.8818V23.729H23.1461V20.8818C23.1461 17.8068 20.7544 15.3297 17.7078 15.1873C16.1703 16.9241 14.0634 18.0345 11.7571 18.0345C9.45085 18.0345 7.3439 16.9241 5.80639 15.1873Z" />
-                        </svg>
-                      </button>
+                      className='flex flex-row items-center gap-1.5 group/button max-w-fit'>
+                      {comment.user?.profilePicture ? (
+                        <img
+                          src={comment.user?.profilePicture}
+                          alt='user'
+                          className='rounded-full w-full max-w-4 h-full min-h-4 max-h-4 aspect-1'
+                        />
+                      ) : (
+                        <button type="button"
+                          className="group-hover/button:bg-nbgreenmain group-active/button:bg-nbgreenlight group-disabled/button:bg-nbgreymiddark flex justify-center items-end gap-1 bg-nbgreydark rounded-full w-4 h-4 -translate-y-px overflow-hidden select-none peer">
+                          <svg
+                            className="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymain transition-all fill-nbgreymain"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none">
+                            <path
+                              d="M11.7571 0.951111C8.62515 0.951111 6.06264 4.14002 6.06264 8.0692C6.06264 11.9984 8.62515 15.1873 11.7571 15.1873C14.8891 15.1873 17.4516 11.9984 17.4516 8.0692C17.4516 4.14002 14.8891 0.951111 11.7571 0.951111ZM5.80639 15.1873C2.78832 15.3297 0.368164 17.8068 0.368164 20.8818V23.729H23.1461V20.8818C23.1461 17.8068 20.7544 15.3297 17.7078 15.1873C16.1703 16.9241 14.0634 18.0345 11.7571 18.0345C9.45085 18.0345 7.3439 16.9241 5.80639 15.1873Z" />
+                          </svg>
+                        </button>)}
                       <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-xs text-left text-nbgreylight truncate leading-none tracking-tight cursor-pointer">
-                        {comment.user.firstName + ' ' + comment.user.lastName || 'unknown user'}</h3>
+                        {comment.user?.firstName + ' ' + comment.user?.lastName || 'unknown user'}</h3>
                     </Link>
                     <div className='flex items-center justify-start gap-1 rounded-full bg-nbgreenmain mt-1 pl-3 pr-1 w-5 min-w-fit hover:rounded-lg text-wrap max-w-96 text-ellipsis group cursor-default'>
                       <p className='w-full py-1 overflow-hidden text-sm text-gray-700 font-semibold break-words font-p-paragraph group-hover:line-clamp-none line-clamp-1'>
                         {comment.comments}
                       </p>
-                        <p
-                          onClick={() => deleteComment(comment.id)}
-                          className='text-2xl cursor-pointer text-red-500 hover:text-nbredlight'
-                        >
-                          <TiDelete />
-                        </p>
+                      <p
+                        onClick={() => deleteComment(comment.id)}
+                        className='text-2xl cursor-pointer text-red-500 hover:text-nbredlight'
+                      >
+                        <TiDelete />
+                      </p>
                     </div>
                   </div>
                 )}
               </>
-             )}
-             {(user?.uid || "none") !== comment.userId && (
+            )}
+            {(user?.uid || "none") !== comment.userId && (
               <>
                 {comment.userId !== movie.userId && (
                   <div className='py-1 flex flex-col items-start' key={index}>
                     <Link
                       to=""
-                      className='flex flex-row items-center gap-2 group/button max-w-fit'>
-                      <button type="button"
-                        className="group-hover/button:bg-nbgreenmain group-active/button:bg-nbgreenlight group-disabled/button:bg-nbgreymiddark flex justify-center items-end gap-1 bg-nbgreydark rounded-full w-4 h-4 -translate-y-px overflow-hidden select-none peer">
-                        <svg
-                          className="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymain transition-all fill-nbgreymain"
-                          xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M11.7571 0.951111C8.62515 0.951111 6.06264 4.14002 6.06264 8.0692C6.06264 11.9984 8.62515 15.1873 11.7571 15.1873C14.8891 15.1873 17.4516 11.9984 17.4516 8.0692C17.4516 4.14002 14.8891 0.951111 11.7571 0.951111ZM5.80639 15.1873C2.78832 15.3297 0.368164 17.8068 0.368164 20.8818V23.729H23.1461V20.8818C23.1461 17.8068 20.7544 15.3297 17.7078 15.1873C16.1703 16.9241 14.0634 18.0345 11.7571 18.0345C9.45085 18.0345 7.3439 16.9241 5.80639 15.1873Z" />
-                        </svg>
-                      </button>
+                      className='flex flex-row items-center gap-1.5 group/button max-w-fit'>
+                      {comment.user?.profilePicture ? (
+                        <img
+                          src={comment.user?.profilePicture}
+                          alt='user'
+                          className='rounded-full w-full max-w-4 h-full min-h-4 max-h-4 aspect-1'
+                        />
+                      ) : (
+                        <button type="button"
+                          className="group-hover/button:bg-nbgreenmain group-active/button:bg-nbgreenlight group-disabled/button:bg-nbgreymiddark flex justify-center items-end gap-1 bg-nbgreydark rounded-full w-4 h-4 -translate-y-px overflow-hidden select-none peer">
+                          <svg
+                            className="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymain transition-all fill-nbgreymain"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none">
+                            <path
+                              d="M11.7571 0.951111C8.62515 0.951111 6.06264 4.14002 6.06264 8.0692C6.06264 11.9984 8.62515 15.1873 11.7571 15.1873C14.8891 15.1873 17.4516 11.9984 17.4516 8.0692C17.4516 4.14002 14.8891 0.951111 11.7571 0.951111ZM5.80639 15.1873C2.78832 15.3297 0.368164 17.8068 0.368164 20.8818V23.729H23.1461V20.8818C23.1461 17.8068 20.7544 15.3297 17.7078 15.1873C16.1703 16.9241 14.0634 18.0345 11.7571 18.0345C9.45085 18.0345 7.3439 16.9241 5.80639 15.1873Z" />
+                          </svg>
+                        </button>)}
                       <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-xs text-left text-nbgreylight truncate leading-none tracking-tight cursor-pointer">
-                        {comment.user.firstName + ' ' + comment.user.lastName || 'unknown user'}</h3>
+                        {comment.user?.firstName + ' ' + comment.user?.lastName || 'unknown user'}</h3>
                     </Link>
                     <div className='flex items-center justify-start gap-1 rounded-full bg-nbgreenlight mt-1 px-3 w-5 min-w-fit hover:rounded-lg text-wrap max-w-96 text-ellipsis group cursor-default'>
                       <p className='w-full py-1 overflow-hidden text-sm text-gray-700 font-semibold break-words font-p-paragraph group-hover:line-clamp-none line-clamp-1'>
@@ -162,23 +182,30 @@ const Comments = ({ id, movie, user }) => {
                     <div class="flex flex-col @[255px]/update:justify-between @[255px]/update:items-center gap-x-2 @[255px]/update:flex-row pb-2 w-full">
                       <h3 className="text-base font-semibold font-h2-title text-nbgreylight opacity-70">{t("comments.update-by-creator")}</h3>
                       {/* <div class="bg-nbgreymain hidden sm:block opacity-75 rounded-full w-1 h-1"></div> */}
-                      <h4 class="font-bold font-h3-subtitle text-xs text-nbgreymain opacity-70 tracking-tighter">{i18n.language === 'en' && (formatterEN.format(new Date(comment.createdAt.seconds*1000)).replace(',', '') || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(new Date(comment.createdAt.seconds*1000)).replace(' ', '').replace(' ', '') || 'unknown time')}</h4>
+                      <h4 class="font-bold font-h3-subtitle text-xs text-nbgreymain opacity-70 tracking-tighter">{i18n.language === 'en' && (formatterEN.format(new Date(comment.createdAt.seconds * 1000)).replace(',', '') || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(new Date(comment.createdAt.seconds * 1000)).replace(' ', '').replace(' ', '') || 'unknown time')}</h4>
                     </div>
                     <Link
                       to=""
-                      className='flex flex-row items-center gap-2 group/button max-w-fit'>
-                      <button type="button"
-                        className="group-hover/button:bg-nbgreenmain group-active/button:bg-nbgreenlight group-disabled/button:bg-nbgreymiddark flex justify-center items-end gap-1 bg-nbgreydark rounded-full w-4 h-4 -translate-y-px overflow-hidden select-none peer">
-                        <svg
-                          className="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymain transition-all fill-nbgreymain"
-                          xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none">
-                          <path
-                            d="M11.7571 0.951111C8.62515 0.951111 6.06264 4.14002 6.06264 8.0692C6.06264 11.9984 8.62515 15.1873 11.7571 15.1873C14.8891 15.1873 17.4516 11.9984 17.4516 8.0692C17.4516 4.14002 14.8891 0.951111 11.7571 0.951111ZM5.80639 15.1873C2.78832 15.3297 0.368164 17.8068 0.368164 20.8818V23.729H23.1461V20.8818C23.1461 17.8068 20.7544 15.3297 17.7078 15.1873C16.1703 16.9241 14.0634 18.0345 11.7571 18.0345C9.45085 18.0345 7.3439 16.9241 5.80639 15.1873Z" />
-                        </svg>
-                      </button>
+                      className='flex flex-row items-center gap-1.5 group/button max-w-fit'>
+                      {comment.user?.profilePicture ? (
+                        <img
+                          src={comment.user?.profilePicture}
+                          alt='user'
+                          className='rounded-full w-full max-w-4 h-full min-h-4 max-h-4 aspect-1'
+                        />
+                      ) : (
+                        <button type="button"
+                          className="group-hover/button:bg-nbgreenmain group-active/button:bg-nbgreenlight group-disabled/button:bg-nbgreymiddark flex justify-center items-end gap-1 bg-nbgreydark rounded-full w-4 h-4 -translate-y-px overflow-hidden select-none peer">
+                          <svg
+                            className="group-hover/button:fill-nbgreenlight group-active/button:fill-nbgreenmain group-disabled/button:fill-nbgreymain transition-all fill-nbgreymain"
+                            xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none">
+                            <path
+                              d="M11.7571 0.951111C8.62515 0.951111 6.06264 4.14002 6.06264 8.0692C6.06264 11.9984 8.62515 15.1873 11.7571 15.1873C14.8891 15.1873 17.4516 11.9984 17.4516 8.0692C17.4516 4.14002 14.8891 0.951111 11.7571 0.951111ZM5.80639 15.1873C2.78832 15.3297 0.368164 17.8068 0.368164 20.8818V23.729H23.1461V20.8818C23.1461 17.8068 20.7544 15.3297 17.7078 15.1873C16.1703 16.9241 14.0634 18.0345 11.7571 18.0345C9.45085 18.0345 7.3439 16.9241 5.80639 15.1873Z" />
+                          </svg>
+                        </button>)}
                       <h3
                         className="group-hover/button:text-nbgreenmain group-active/button:text-nbgreenlight group-disabled/button:text-nbgreylight max-w-fit font-bold font-h2-title text-xs text-left text-nbgreylight truncate leading-none tracking-tight cursor-pointer">
-                        {comment.user.firstName + ' ' + comment.user.lastName || 'unknown user'}</h3>
+                        {comment.user?.firstName + ' ' + comment.user?.lastName || 'unknown user'}</h3>
                     </Link>
                     <div className='flex items-center justify-start gap-1 rounded-full bg-nbgreenlight mt-1 px-3 w-5 min-w-fit hover:rounded-lg text-wrap max-w-96 text-ellipsis group cursor-default'>
                       <p className='w-full py-1 overflow-hidden text-sm text-gray-700 font-semibold break-words font-p-paragraph group-hover:line-clamp-none line-clamp-1'>

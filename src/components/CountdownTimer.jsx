@@ -72,7 +72,7 @@ const ExpiredNotice = ({ haveWon, movie }) => {
 };
 
 // Egyeb elemek a versenyhez kotve
-export const CurrentRace = ({ targetDate, detailPage, movie }) => {
+export const CurrentRace = ({ targetDate, detailPage, movie, currentCompetition }) => {
     const { t, i18n } = useTranslation();
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
@@ -98,14 +98,14 @@ export const CurrentRace = ({ targetDate, detailPage, movie }) => {
         return (
             <Link to="/" className="inline-flex flex-row items-center gap-2">
                 <div class={`${detailPage ? "bg-nbgreylight" : "bg-nbredmain"} opacity-75 rounded-full w-1.5 h-1.5`}></div>
-                <h4 className={`font-bold font-h3-subtitle text-base ${detailPage ? "text-nbgreylight" : "text-nbredmain"} tracking-tighter`}>{detailPage ? (i18n.language === 'en' && (formatterEN.format(movie?.createdAt) || 'unknown time') || (i18n.language === 'hu' && (formatterHU.format(movie?.createdAt).replace(' ', '').replace(' ', '') || 'unknown time'))) : (t("card.date_past_competition"))}</h4>
+                <h4 className={`font-bold font-h3-subtitle text-base ${detailPage ? "text-nbgreylight" : "text-nbredmain"} tracking-tighter`}>{detailPage ? (i18n.language === 'en' && (formatterEN.format(movie?.createdAt?.toDate()) || 'unknown time') || (i18n.language === 'hu' && (formatterHU.format(movie?.createdAt?.toDate()).replace(' ', '').replace(' ', '') || 'unknown time'))) : ((i18n.language === 'hu' ? currentCompetition?.title : currentCompetition?.engTitle) || (t("card.date_past_competition")))}</h4>
             </Link>
         );
     } else {
         return (
             <Link to="/" className="inline-flex flex-row items-center gap-2">
                 <div class="bg-nbgreenmain opacity-75 rounded-full w-1 h-1 animate-ping"></div>
-                <h4 className="font-bold font-h3-subtitle text-base text-nbgreenmain tracking-tighter">{detailPage ? (i18n.language === 'en' && (formatterEN.format(movie?.createdAt) || 'unknown time') || (i18n.language === 'hu' && (formatterHU.format(movie?.createdAt).replace(' ', '').replace(' ', '') || 'unknown time'))) : (t("card.date_current_competition"))}</h4>
+                <h4 className="font-bold font-h3-subtitle text-base text-nbgreenmain tracking-tighter">{detailPage ? (i18n.language === 'en' && (formatterEN.format(movie?.createdAt?.toDate()) || 'unknown time') || (i18n.language === 'hu' && (formatterHU.format(movie?.createdAt?.toDate()).replace(' ', '').replace(' ', '') || 'unknown time'))) : ((i18n.language === 'hu' ? currentCompetition?.title : currentCompetition?.engTitle) || (t("card.date_current_competition")))}</h4>
             </Link>
         );
     }
@@ -134,7 +134,7 @@ export const FundingButtons = ({ targetDate, movie, user, haveWon }) => {
 
     if (days + hours + minutes + seconds <= 0) {
         return (
-            <div class="flex flex-col justify-evenly md:justify-start gap-4 md:gap-0 md:grid grid-cols-1 md:grid-cols-9 grid-rows-3 md:grid-rows-1">
+            <>
                 <div className="z-20 md:col-span-7 md:col-start-1 md:row-span-1 md:row-start-1">
                     <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} detailPage={true} />
                 </div>
@@ -146,23 +146,23 @@ export const FundingButtons = ({ targetDate, movie, user, haveWon }) => {
                         <h3 className="group-hover/button:text-nbwhite group-active/button:text-nbgreydark flex justify-center items-center md:col-span-2 md:col-start-8 font-h2-title font-semibold text-lg text-nbgreylight underline-offset-2 hover:underline select-none decoration-2 active:decoration-nbredmain">{t("details.own-them")}</h3>
                     </Link>
                 </div>
-            </div>
+            </>
         );
     } else {
         return (
-            <div class="flex flex-col justify-evenly md:justify-start gap-4 md:gap-0 md:grid grid-cols-1 md:grid-cols-9 grid-rows-3 md:grid-rows-1 md:max-h-[92px]">
+            <>
                 <div className="z-20 md:col-span-7 md:col-start-1 md:row-span-1 md:row-start-1">
                     <GraphFieldRace className="w-full h-full" movie={movie} haveWon={haveWon} targetDate={targetDate} detailPage={true} />
                 </div>
                 <div className="flex flex-row md:flex-col justify-center md:col-span-9 md:col-start-1 md:row-span-1 md:row-start-1 bg-teal-700 rounded-2xl divide-x-2 md:divide-x-none divide-y-none md:divide-y-2 divide-nbgreydark text-start transition-colors duration-1000 delay-1000 overflow-clip group/graphfield ring-1 ring-gray-900/5 ring-inset">
-                    <Link to={!user ? ("/login") : ("")} className="md:grid md:grid-cols-9 md:grid-rows-1 bg-emerald-500 hover:bg-nbgreenmain active:bg-nbgreenlight opacity-90 p-3 md:p-0 w-full h-full max-h-min transition cursor-pointer group/button ring-nbgreylight">
+                    <Link to={!user ? ("/login") : ("")} className="md:grid md:grid-cols-9 md:grid-rows-1 bg-emerald-500 hover:bg-nbgreenmain active:bg-nbgreenlight opacity-90 p-3 md:p-0 w-full h-full transition cursor-pointer group/button ring-nbgreylight">
                         <h3 className="group-hover/button:text-nbwhite group-active/button:text-nbgreydark flex justify-center items-center md:col-span-2 md:col-start-8 font-h2-title font-semibold text-lg text-nbwhite underline-offset-2 hover:underline select-none decoration-2 active:decoration-nbgreenmain">{t("details.back-them")}</h3>
                     </Link>
-                    <Link to={!user ? ("/login") : ("")} className="md:grid md:grid-cols-9 md:grid-rows-1 bg-emerald-700 hover:bg-nbredmain active:bg-nbredlight opacity-90 p-3 md:p-0 w-full h-full max-h-min transition cursor-pointer group/button">
+                    <Link to={!user ? ("/login") : ("")} className="md:grid md:grid-cols-9 md:grid-rows-1 bg-emerald-700 hover:bg-nbredmain active:bg-nbredlight opacity-90 p-3 md:p-0 w-full h-full transition cursor-pointer group/button">
                         <h3 className="group-hover/button:text-nbwhite group-active/button:text-nbgreydark flex justify-center items-center md:col-span-2 md:col-start-8 font-h2-title font-semibold text-lg text-nbgreymain underline-offset-2 hover:underline select-none decoration-2 active:decoration-nbredmain">{t("details.own-them")}</h3>
                     </Link>
                 </div>
-            </div>
+            </>
         );
     }
 };
