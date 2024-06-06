@@ -1,4 +1,16 @@
 {
+  "adbloc": {
+    "crowdfunding-streaming": "crowdfunding + streaming platform",
+    "publicity": "publicity",
+    "networking": "networking",
+    "funding": "funding",
+    "for_filmmakers": "for filmmakers",
+    "personal_input": "personal input",
+    "exclusivity": "exclusivity",
+    "patronage": "patronage",
+    "for_movie_consumers": "for movie consumers",
+    "for_consumers": "for consumers"
+  },
   "navbar": {
     "competition": "competition",
     "films": "films",
@@ -43,7 +55,8 @@
     "description": "Find a movie to watch or to support",
     "no_results": "no results found",
     "search": "search...",
-    "competition": "fresh contenders"
+    "competition": "fresh contenders",
+    "fresh": "freshly competing"
   },
   "card": {
     "team_up": "team up",
@@ -56,13 +69,25 @@
     "in_competition": "in competition",
     "what_happened": "what happened to them?",
     "on_their_side": "on their side!",
-    "currency": "EUR"
+    "currency": "EUR",
+    "back_them": "back them!",
+    "no_way_to_back": "no way to back them"
   },
   "details": {
-    "views": "Views:",
-    "check_script": "Check script",
+    "views": "views:",
+    "check_script": "check script",
     "support": "support",
-    "moneygoal": "Money goal"
+    "moneygoal": "money goal",
+    "cast-and-crew": "cast & crew",
+    "writer": "writer",
+    "director": "director",
+    "director-of-photography": "director of photography",
+    "actors": "actors",
+    "would-you-like-to-see": "Would you like to see the trailer?",
+    "log-in": "Log in",
+    "click-on-the-button": "Click on the button, and get back after a quick login!",
+    "back-them": "back them",
+    "own-them": "own them"
   },
   "register": {
     "first_name": "First Name",
@@ -71,10 +96,14 @@
     "Username": "Username",
     "viewer": "Viewer",
     "creator": "Creator",
-    "create_account": "Create Account",
+    "create_account": "Create an account",
     "already_have": "Already have an account?",
-    "log_in": "Log in",
-    "register": "Register"
+    "log_in": "Sign in",
+    "register": "register",
+    "confirm_password": "confirm password",
+    "create-account": "Create account",
+    "sign-up-google": "Sign up with Google",
+    "already": "Already a member?"
   },
   "register_info": {
     "register_info": "Since this is your first time here we need some extra information about you",
@@ -89,13 +118,18 @@
     "create_account": "Create Account"
   },
   "login": {
-    "password": "Password",
     "login": "Login",
     "log_in_to": "Log in to watch and support films",
     "forgot": "Forgot your password",
     "new_here": "New here?",
-    "register": "Register",
-    "log_in": "Log in"
+    "register": "Sign up",
+    "log_in": "Sign in",
+    "log_in_google": "Sign in with Google",
+    "sign-in": "Sign in to your account",
+    "email": "email address",
+    "password": "password",
+    "reset-password": "forgot password?",
+    "not-a-member": "Not a member?"
   },
   "search": {
     "search_description": "project demos, events, films and people..."
@@ -138,8 +172,11 @@
     "username": "Username"
   },
   "comments": {
-    "comments": "Comments",
-    "comment": "comment"
+    "comments": "comments",
+    "comment": "comment",
+    "write-your-comment": "write your comment...",
+    "update-by-creator": "update by creator",
+    "log-in-to-write": "log in to write your comment..."
   },
   "reset": {
     "reset": "Reset",

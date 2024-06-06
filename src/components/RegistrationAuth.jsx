@@ -6,11 +6,16 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import * as yup from "yup";
 
+// Router
+import { Link } from 'react-router-dom';
+
+import { useTranslation } from 'react-i18next';
+
 
 
 
 export const RegistrationAuth = () => {
-
+    const { t, i18n } = useTranslation();
 
     const { registerUser, googleSignIn, loading, error: firebaseError } = useAuth()
 
@@ -54,7 +59,7 @@ export const RegistrationAuth = () => {
     return (
         <>
             {/* <form
-                className='flex flex-col items-center justify-center w-full gap-2 mt-8'
+                className='flex flex-col justify-center items-center gap-2 mt-8 w-full'
                 onSubmit={handleSubmit(handleRegister)}
             >
                 {errors.email && (<p>{errors.email?.message}</p>)}
@@ -63,7 +68,7 @@ export const RegistrationAuth = () => {
                     {...register("email")}
                     placeholder={'E-mail'}
                     autoComplete='true'
-                    className='w-full p-4 italic rounded-md shadow-sm outline-none'
+                    className='shadow-sm p-4 rounded-md w-full italic outline-none'
                 />
                 {errors.password && (<p>{errors.password?.message}</p>)}
                 <input
@@ -71,7 +76,7 @@ export const RegistrationAuth = () => {
                     {...register("password")}
                     placeholder={'Password'}
                     autoComplete='true'
-                    className='w-full p-4 italic rounded-md shadow-sm outline-none'
+                    className='shadow-sm p-4 rounded-md w-full italic outline-none'
                 />
                 {errors.confirmPassword && (<p>{errors.confirmPassword?.message}</p>)}
                 <input
@@ -79,7 +84,7 @@ export const RegistrationAuth = () => {
                     {...register("confirmPassword")}
                     placeholder={'Confirm Password'}
                     autoComplete='true'
-                    className='w-full p-4 italic rounded-md shadow-sm outline-none'
+                    className='shadow-sm p-4 rounded-md w-full italic outline-none'
                 />
 
                 {!loading && (
@@ -87,14 +92,14 @@ export const RegistrationAuth = () => {
                         <input
                             type='submit'
                             value='Create Account'
-                            className='w-full p-4 font-bold text-white transition-all duration-300 bg-nbgreenmain rounded-md shadow-sm cursor-pointer hover:bg-nbgreenlight hover:tracking-wider'
+                            className='bg-nbgreenmain hover:bg-nbgreenlight shadow-sm p-4 rounded-md w-full font-bold text-white hover:tracking-wider transition-all duration-300 cursor-pointer'
                         />
 
                     </>
                 )}
 
                 {loading && (
-                    <div className='flex items-center justify-center w-full'>
+                    <div className='flex justify-center items-center w-full'>
                         <Loading size={'30px'} />
                     </div>
                 )}
@@ -104,17 +109,17 @@ export const RegistrationAuth = () => {
 
             <button onClick={(e) => { googleLogin(e) }}> Google </button> */}
             <div
-                class="gridCol w-full bg-nbwhite ring-2 ring-nbblack rounded-lg px-5 py-2"
+                class="gridCol bg-nbwhite px-5 py-2 rounded-lg w-full max-w-md ring-2 ring-nbblack"
             >
                 <div
-                    class="flex min-h-full flex-col sm:min-w-96 min-w-60 lg:min-w-96 justify-center px-6 py-12 lg:px-8"
+                    class="flex flex-col justify-center px-6 lg:px-8 py-12 min-w-60 sm:min-w-96 lg:min-w-96 min-h-full"
                 >
                     <div class="sm:mx-auto sm:w-full">
-                        <a
-                            class="nbLogo transition-all flex justify-center items-end shrink gap-2 lg:ml-6 mr-4"
+                        {/* <a
+                            class="flex justify-center items-end gap-2 mr-4 lg:ml-6 transition-all nbLogo shrink"
                         >
                             <svg
-                                class="logoVectors2 group/logo shrink-0 w-12 h-8"
+                                class="w-12 h-8 group/logo logoVectors2 shrink-0"
                                 xmlns="http://www.w3.org/2000/svg"
                             >
                                 <path
@@ -143,7 +148,7 @@ export const RegistrationAuth = () => {
                                 />
                             </svg>
                             <svg
-                                class="logoTextVectors2 group/logotext shrink-0 w-16 h-7"
+                                class="w-16 h-7 group/logotext logoTextVectors2 shrink-0"
                                 xmlns="http://www.w3.org/2000/svg"
                             >
                                 <g
@@ -185,23 +190,22 @@ export const RegistrationAuth = () => {
                                     />
                                 </g>
                             </svg>
-                        </a>
+                        </a> */}
                         <h2
-                            class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
+                            class="mt-10 font-bold text-2xl text-center text-gray-900 leading-9 tracking-tight"
                         >
-                            Create an account
+                            {t("register.create_account")}
                         </h2>
                     </div>
 
-                    <div class="mt-10 sm:mx-auto sm:w-full min-w-max">
+                    <div class="sm:mx-auto mt-10 sm:w-full min-w-max">
                         <form class="space-y-6" onSubmit={handleSubmit(handleRegister)}>
                             <div>
                                 
                                 <label
                                     for="email"
-                                    class="block text-sm text-left font-medium leading-6 text-gray-900"
-                                >Email address</label
-                                >
+                                    class="block font-medium text-gray-900 text-left text-sm leading-6"
+                                >{t("login.email")}</label                                >
                                 <div class="mt-2">
                                     <input
                                         id="email"
@@ -209,20 +213,19 @@ export const RegistrationAuth = () => {
                                         type="email"
                                         autocomplete="email"
                                         {...register("email")}
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
+                                        class="block border-0 shadow-sm py-1.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
                                     />
-                                    {errors.email && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.email?.message}</p>)}
+                                    {errors.email && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.email?.message}</p>)}
                                 </div>
                             </div>
 
                             <div>
-                                <div class="flex items-center justify-between">
+                                <div class="flex justify-between items-center">
                                     
                                     <label
                                         for="password"
-                                        class="block text-sm font-medium leading-6 text-gray-900"
-                                    >Password</label
-                                    >
+                                        class="block font-medium text-gray-900 text-sm leading-6"
+                                    >{t("login.password")}</label                                    >
 
                                 </div>
                                 <div class="mt-2">
@@ -232,65 +235,65 @@ export const RegistrationAuth = () => {
                                         type="password"
                                         {...register("password")}
                                         autocomplete="current-password"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
+                                        class="block border-0 shadow-sm py-1.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
                                     />
-                                    {errors.password && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.password?.message}</p>)}
+                                    {errors.password && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.password?.message}</p>)}
                                 </div>
                             </div>
-                            <div class="flex items-center justify-between">
-                                <label
-                                    for="password"
-                                    class="block text-sm font-medium leading-6 text-gray-900"
-                                >Confirm</label
-                                >
-                            </div>
+                            
 
 
                             <div class="mt-2">
+                            <div class="flex justify-between items-center">
+                                <label
+                                    for="password"
+                                    class="block font-medium text-gray-900 text-sm leading-6"
+                                >{t("register.confirm_password")}</label                                >
+                            </div>
                                 <input
                                     id="password"
                                     name="password"
                                     type="password"
                                     {...register("confirmPassword")}
                                     autocomplete="current-password"
-                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:text-sm sm:leading-6"
+                                    class="block border-0 shadow-sm mt-2 py-1.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
                                 />
-                                {errors.confirmPassword && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.confirmPassword?.message}</p>)}
+                                {errors.confirmPassword && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.confirmPassword?.message}</p>)}
                             </div>
 
                             <div>
                                 <button
                                     type="submit"
-                                    class="flex w-full justify-center rounded-full bg-nbblack px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-nbbluedark focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                    class="flex justify-center bg-nbblack hover:bg-nbbluedark shadow-sm px-3 py-1.5 rounded-full w-full font-semibold text-sm text-white leading-6 focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
-                                    Create account
+                                    {t("register.create-account")}
                                 </button>
                             </div>
-                            <div class="inline-flex items-center justify-center w-full">
+                            <div class="inline-flex justify-center items-center w-full">
                                 <hr
-                                    class="w-full h-0.5 my-8 bg-nbblack"
+                                    class="bg-nbblack my-8 w-full h-0.5"
                                 />
                                 <span
-                                    class="absolute px-3 font-medium text-nbblack -translate-x-1/2 bg-white left-1/2"
+                                    class="left-1/2 absolute bg-white px-3 font-medium text-nbblack -translate-x-1/2"
                                 >or</span
                                 >
                             </div>
                             <div>
                                 <button
                                     onClick={(e) => { googleLogin(e) }}
-                                    class="flex w-full justify-center rounded-full bg-nbgreendark px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-nbbluedark focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                    class="flex justify-center bg-nbgreendark hover:bg-nbbluedark shadow-sm px-3 py-1.5 rounded-full w-full font-semibold text-sm text-white leading-6 focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >
-                                    Sign up with Google
+                                    {t("register.sign-up-google")}
                                 </button>
                             </div>
                         </form >
-                        <p class="mt-10 text-center text-sm text-gray-500">
-                            Already a member?
-                            <a
-                                href="#"
-                                class="font-semibold leading-6 text-nbpurpledark hover:text-nbpurplemain"
-                            >Sign in</a
-                            >
+                        <p class="mt-10 text-center text-gray-500 text-sm">
+                        {t("register.already")}
+                            <Link
+                                to="/login"
+                                class="font-semibold text-nbpurpledark hover:text-nbpurplemain leading-6"
+                            > {t("register.log_in")}
+                            </Link>
                         </p>
                     </div>
                 </div>
