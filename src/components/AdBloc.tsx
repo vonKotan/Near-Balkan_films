@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 // Router
 import { Outlet, Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+interface Props {
+    adUrl:string
+}
 
-export const AdBloc = ({ adUrl }) => {
+export const AdBloc: FC<Props> = ({ adUrl }) => {
 
     const { t, i18n } = useTranslation();
-    const changeLanguage = (lng) => {
-        i18n.changeLanguage(lng);
-    };
 
     return (
         <>
@@ -43,8 +43,8 @@ export const AdBloc = ({ adUrl }) => {
                 </div>
                 <div className="flex-stretch border-nbgreymain order-4 lg:order-none mx-5 my-2 border border-dashed w-full max-w-screen-lg overflow-clip">
                 </div>
-                <div class="relative order-last lg:order-none col-span-5 bg-nbblack hover:shadow-md py-auto rounded-md w-full max-w-screen-md md:min-h-96 transition overflow-clip aspect-video videoPlayer">
-                    <iframe className="w-full min-h-48 sm:min-h-64 md:min-h-96" src={adUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div className="relative order-last lg:order-none col-span-5 bg-nbblack hover:shadow-md py-auto rounded-md w-full max-w-screen-md md:min-h-96 transition overflow-clip aspect-video videoPlayer">
+                    <iframe className="w-full min-h-48 sm:min-h-64 md:min-h-96" src={adUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
             </div>
 

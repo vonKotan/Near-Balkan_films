@@ -2,42 +2,39 @@ import { useState } from 'react';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { database, storage } from '../firebase/config';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
+import { User } from 'firebase/auth'
+import { Film } from '../models/Film';
 
-export const useAddReview = (user) => {
-  const [success, setSuccess] = useState(null); // State variable to track success message
-  const [error, setError] = useState(null); // State variable to track error message
+export const useAddReview = (user: User) => {
+  const [success, setSuccess] = useState<string | null>(null); // State variable to track success message
+  const [error, setError] = useState<string | null>(null); // State variable to track error message
   const [loading, setLoading] = useState(false); // State variable to track loading state
 
-  const addReview = async (data) => {
-    setLoading(true); 
+  const addReview = async (data: FilmUploadDto) => {
+    setLoading(true);
 
     console.log(data)// Set loading state to true
 
     //get the files from the object and then remove them
     //so we dont ty to upload them to db
-    const img = data.image[0];
-    delete data.image
-    const video = data.video[0];
-    delete data.video
-    const script = data.script[0];
-    delete data.script
-    
+
     try {
+      if (!user?.email) return;
       //itt tartok....
-      const urlname=user.email.split('@')[0];
+      const urlname = user.email.split('@')[0];
       // Upload image
       const generateName = `posters/${urlname}/${Date.now()}`; //TESZTELNI KELL, HA MŰÖDIK, AKKOR A FILS ÉS A SCRIPTSNÉL UGYANEZ!
       const storageRef = ref(storage, generateName);
-      const uploadTask = uploadBytesResumable(storageRef, img);
+      const uploadTask = uploadBytesResumable(storageRef, data.poster);
       // Upload video
       const videoRef = ref(storage, `films/${urlname}/${Date.now()}`);     //ITT!!
-      const videoUploadTask = uploadBytesResumable(videoRef, video);
+      const videoUploadTask = uploadBytesResumable(videoRef, data.video);
       //Upload script
       const scriptRef = ref(storage, `scripts/${urlname}/${Date.now()}`);   //ITT!!
-      const scriptUploadTask = uploadBytesResumable(scriptRef, script);
+      const scriptUploadTask = uploadBytesResumable(scriptRef, data.script);
 
 
-      uploadTask.on(
+      /* uploadTask.on(
         'state_changed',
         (snapshot) => {
           const uploadProgress =
@@ -49,10 +46,11 @@ export const useAddReview = (user) => {
         },
         async () => {
             const url = await getDownloadURL(uploadTask.snapshot.ref);
+            //Ez itt eléggé kőbaltás módszer
             window.publicUrl = url;
           console.log('Download URL:', url); // Log download URL
         },
-      );
+      ); */
 
       videoUploadTask.on(
         'state_changed',
@@ -71,23 +69,34 @@ export const useAddReview = (user) => {
           const scriptUrl = await getDownloadURL(scriptUploadTask.snapshot.ref);
           console.log('Script Download URL:', scriptUrl); // Log script download URL
 
+          const imageUrl = await getDownloadURL(uploadTask.snapshot.ref);
+          console.log('Script Download URL:', imageUrl); // Log image download URL
+
           const docRef = collection(database, 'films');
 
-            const docData = {
-            image: window.publicUrl,
+          const newFilm: Film = {
+            image: imageUrl,
             videoUrl: videoUrl,
             scriptUrl: scriptUrl,
             createdAt: Timestamp.now(),
-            ...data,
-            };
+            title: data.title,
+            englishTitle: data.englishTitle,
+            moneygoal: data.moneygoal,
+            description: data.description,
+            englishDescription: data.englishDescription,
+            genre: data.genre,
+            user: data.userId,
+            views: 0,
+            collected: 0
+          };
 
-            await addDoc(docRef, docData); // Add document to Firestore collection
-            setLoading(false); // Set loading state to false
-            setSuccess('Review added successfully'); // Set success message
-            console.log('Review added successfully'); // Log success message
+          await addDoc(docRef, newFilm); // Add document to Firestore collection
+          setLoading(false); // Set loading state to false
+          //setSuccess('Review added successfully'); // Set success message
+          console.log('Review added successfully'); // Log success message
         }
       );
-    } catch (e) {
+    } catch (e: any) {
       setError(e.message); // Set error message
       setLoading(false); // Set loading state to false
       console.error('Error:', e.message); // Log error message

@@ -1,22 +1,24 @@
 import React, { useState, useEffect, FC } from "react"
+
 interface Props {
     isMulti: boolean,
-    options : {label:string, value:string} [],
-    onSelect: (value:string | string []) => void
-    }
-export const CustomSelect: FC<Props> = ({ isMulti, options, onSelect })=> {
+    options: { label: string, value: string }[],
+    onSelect: (value: string | string[]) => void
+}
 
-    const [selected, setSelected] = useState<string []>([])
+export const CustomSelect: FC<Props> = ({ isMulti, options, onSelect }) => {
+
+    const [selected, setSelected] = useState<string[]>([])
 
     function handleClick(e: React.MouseEvent<HTMLInputElement, MouseEvent>, value: string) {
-        if(!isMulti){
+        if (!isMulti) {
             onSelect(value);
             return;
         }
         if ((e.target as HTMLInputElement).checked) {
             setSelected([...selected, value])
         }
-        else{
+        else {
             setSelected(selected.filter(v => v !== value))
         }
     }
@@ -29,7 +31,7 @@ export const CustomSelect: FC<Props> = ({ isMulti, options, onSelect })=> {
                 {options.map((option) =>
                     <label className="mt-4 ml-3" >
                         <input type={isMulti ? "checkbox" : "radio"}
-                            className="peer/buttonSelect hidden" 
+                            className="peer/buttonSelect hidden"
                             onClick={(e) => handleClick(e, option.value)}
                             name="select" />
                         <span

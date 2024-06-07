@@ -96,12 +96,13 @@ const NewReview = ({ user }) => {
     firebaseSetSuccess(null);
 
     console.log('Calling addReview function');
+    formData.image = formData.image[0];
+    formData.video = formData.image[0];
+    formData.script = formData.script[0];
     const data = {
       user: user.uid,
       ...formData,
       genre,
-      views, //Ennek itt mi a szerepe
-      collected, // meg ennek?
     };
 
     addReview(data);
