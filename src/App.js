@@ -99,7 +99,7 @@ function App() {
           />
         </Route>
       </Routes>
-      <Footer />
+      <Footer betaVersion={`beta v1.0.1`} />
     </div >
   );
 }

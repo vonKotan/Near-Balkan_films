@@ -113,8 +113,8 @@ const Home = ({ user, search }) => {
   }, [currentCompetitionFilms]);
 
   return (
-    <>
-      <div class="section max-w-screen-lg mx-auto flex flex-col gap-4">
+    <div className="min-h-fit">
+      <div className="section max-w-screen-lg mx-auto flex flex-col gap-4">
         <div>
           {/*parasztos nmegoldás*/}
           {currentCompetition && !search && (
@@ -124,7 +124,7 @@ const Home = ({ user, search }) => {
           )}
         </div>
         {randomMovie && !search &&
-          <div class="pb-8">
+          <div className="pb-8">
             <CardComplex
               movie={randomMovie}
               targetDate={currentCompetition.endDate.toDate()}
@@ -135,9 +135,9 @@ const Home = ({ user, search }) => {
       {!user && (
         <AdBloc adUrl={adUrl} />
       )}
-      <div class="section flex flex-col items-center gap-4">
+      <div className="section flex flex-col items-center gap-4">
         {currentCompetition && (
-          <div class="flex justify-start w-full max-w-screen-lg">
+          <div className="flex justify-start w-full max-w-screen-lg">
             <SectionTitle
               title={i18n.language === 'hu' ? currentCompetition.title : currentCompetition.engTitle}
             />
@@ -162,7 +162,7 @@ const Home = ({ user, search }) => {
             <p>{t("home.no_results")}</p>
           </div>
         )}
-    </>
+    </div>
   );
 };
 

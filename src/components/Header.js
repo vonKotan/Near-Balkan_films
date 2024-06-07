@@ -145,7 +145,7 @@ const Header = ({ user, userObject, search, setSearch, betaVersion }) => {
           {!user && (
             <Item>
               <div className='flex justify-end items-center gap-4'>
-                <h5 className="hidden lg:block font-h3-subtitle font-normal text-nbgreydark text-xs italic select-none pointer-events-none">{betaVersion}</h5>
+                {/* <h5 className="hidden lg:block font-h3-subtitle font-normal text-nbgreydark text-xs italic select-none pointer-events-none">{betaVersion}</h5> */}
                 <Trigger>
                   <button type="button" id="menu-button" aria-expanded="true" aria-haspopup="true"
                     className="flex items-end gap-1 min-w-fit min-h-fit select-none group/button">
@@ -324,7 +324,7 @@ const Header = ({ user, userObject, search, setSearch, betaVersion }) => {
                             hu</p>
                         </button>
                       )}
-                      <h5 className="block font-h3-subtitle font-normal text-nbgreydark text-xs italic select-none pointer-events-none">{betaVersion}</h5>
+                      {/* <h5 className="block font-h3-subtitle font-normal text-nbgreydark text-xs italic select-none pointer-events-none">{betaVersion}</h5> */}
                     </div>
                   </ul>
                 </div>
@@ -334,13 +334,13 @@ const Header = ({ user, userObject, search, setSearch, betaVersion }) => {
           {user && (
             <Item>
               <div className='flex justify-end items-center gap-4'>
-                <h5 className="hidden lg:block font-h3-subtitle font-normal text-nbgreydark text-xs italic select-none pointer-events-none">{betaVersion}</h5>
+                {/* <h5 className="hidden lg:block font-h3-subtitle font-normal text-nbgreydark text-xs italic select-none pointer-events-none">{betaVersion}</h5> */}
                 {user.photoURL || userObject?.profilePicture ? (
                   <Trigger className='flex items-center gap-2'>
                     <img
                       src={userObject?.profilePicture || user?.photoURL}
                       alt='user'
-                      className='lg:block hidden max-h-7 max-w-7 w-full h-full rounded-full min-h-7 max-h-7'
+                      className='lg:block hidden max-h-7 max-w-7 w-full h-full rounded-full min-h-7 min-w-7 aspect-1'
                     />
                     <button type="button" id="menu-button" aria-expanded="true" aria-haspopup="true"
                       className="flex items-end gap-1 lg:hidden min-w-fit min-h-fit select-none group/button">
@@ -612,7 +612,7 @@ const Header = ({ user, userObject, search, setSearch, betaVersion }) => {
                             hu</p>
                         </button>
                       )}
-                      <h5 className="font-h3-subtitle font-normal text-nbgreydark text-xs italic select-none pointer-events-none">{betaVersion}</h5>
+                      {/* <h5 className="font-h3-subtitle font-normal text-nbgreydark text-xs italic select-none pointer-events-none">{betaVersion}</h5> */}
                     </div>
                   </ul>
                 </div>

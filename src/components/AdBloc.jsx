@@ -13,8 +13,8 @@ export const AdBloc = ({ adUrl }) => {
 
     return (
         <>
-            <div className="flex flex-col justify-center items-center gap-6 bg-teal-600 mb-7 p-6 pt-8 lg:pb-10 rounded-lg w-full min-w-fit max-w-screen-lg">
-                <h1 className='-mb-2 font-bold font-h2-title text-3xl text-center text-nbwhite lg:text-4xl leading-2'>{t("adbloc.crowdfunding-streaming")}</h1>
+            <div className="flex flex-col justify-center items-center gap-6 bg-teal-600 mb-7 p-6 lg:pt-8 lg:pb-10 rounded-lg w-full min-w-fit max-w-screen-lg">
+                <h1 className='-mb-1 lg:-mb-2 font-bold font-h2-title text-3xl text-center text-nbwhite lg:text-4xl leading-2'>{t("adbloc.crowdfunding-streaming")}</h1>
                 <div className="flex lg:flex-col justify-center items-center gap-1 order-3 lg:order-none">
                     <div className='flex lg:flex-row flex-col flex-wrap justify-center items-center lg:items-baseline gap-x-2'>
                         <h2 className='font-h2-title font-semibold text-lg text-nbwhite sm:text-xl md:text-2xl underline underline-offset-2 decoration-2 decoration-nbgreenmain'>{t("adbloc.publicity")}</h2>
