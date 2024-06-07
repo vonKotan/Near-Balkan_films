@@ -1,5 +1,5 @@
-import { doc, getDoc, updateDoc, useContext } from 'firebase/firestore';
-import React, { useEffect, useState } from 'react';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import {UserContext} from '../App';
 

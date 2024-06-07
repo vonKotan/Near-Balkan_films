@@ -42,7 +42,7 @@ const AddFavorite = ({movie}) => {
   useEffect(() => {
     console.log(userObject);
     if (userObject) {
-      if (userObject?.favourites.includes(movie.id)) {
+      if (userObject?.favourites?.includes(movie.id)) {
         setIsFavorite(true);
       } else {
         setIsFavorite(false);
