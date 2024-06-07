@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, FC } from "react"
 interface Props {
     isMulti: boolean,
     options : {label:string, value:string} [],
     onSelect: (value:string | string []) => void
     }
-export function CustomSelect({ isMulti, options, onSelect }: Props) {
+export const CustomSelect: FC<Props> = ({ isMulti, options, onSelect })=> {
 
     const [selected, setSelected] = useState<string []>([])
 
