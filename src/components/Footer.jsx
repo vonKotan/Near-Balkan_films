@@ -376,7 +376,7 @@ const Footer = ({ user, userObject, betaVersion }) => {
               </Link>
             </div>
             <div className="sm:flex items-center gap-2.5 hidden">
-              <h5 className="font-h3-subtitle font-normal text-nbgreymain text-xs italic pointer-events-none select-none">{betaVersion}</h5>
+              <h5 className="font-h3-subtitle font-normal text-nbgreymain text-xs pointer-events-none select-none">{betaVersion}</h5>
             </div>
           </div>
         </div>
