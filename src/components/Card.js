@@ -14,7 +14,7 @@ import { useTranslation } from 'react-i18next';
 
 import { AiFillStar } from 'react-icons/ai';
 
-export const Card = ({ movie, targetDate, haveWon }) => {
+export const Card = ({ movie, targetDate, haveWon, currentCompetition }) => {
 
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
@@ -26,7 +26,7 @@ export const Card = ({ movie, targetDate, haveWon }) => {
       <PosterContainerSmall movie={movie} />
       <div id="gridCol" className="flex flex-col flex-auto justify-between gap-3 lg:pt-5 pr-7 pb-5 pl-7 lg:pl-3">
         <div id="timeTags" className="flex flex-row justify-between -mb-1 w-full">
-          <CurrentRace targetDate={targetDate} />
+          <CurrentRace targetDate={targetDate} currentCompetition={currentCompetition} movie={movie} />
           <RaceState targetDate={targetDate} />
         </div>
         <div id="gridCol" className='flex lg:flex-row flex-col lg:justify-between lg:items-center gap-2'>
@@ -39,7 +39,7 @@ export const Card = ({ movie, targetDate, haveWon }) => {
   );
 };
 
-export const CardComplex = ({ movie, targetDate, haveWon }) => {
+export const CardComplex = ({ movie, targetDate, haveWon, currentCompetition }) => {
 
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
@@ -51,7 +51,7 @@ export const CardComplex = ({ movie, targetDate, haveWon }) => {
       <PosterContainer movie={movie} />
       <div id="gridCol" className="flex flex-col flex-auto justify-between gap-3 lg:pt-5 pr-7 pb-5 pl-7 lg:pl-3">
         <div id="timeTags" className="flex flex-row justify-between w-full">
-          <CurrentRace targetDate={targetDate} />
+          <CurrentRace targetDate={targetDate} currentCompetition={currentCompetition} movie={movie} />
           <RaceState targetDate={targetDate} />
         </div>
         <div id="gridCol" className='flex flex-col gap-2'>

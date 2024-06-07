@@ -37,7 +37,7 @@ function App() {
 
   // target date
   const RELATIVE_TIME_FROM_NOW = new Date().getTime() + 3 * 24 * 60 * 60 * 1000;
-  const EXACT_DATE_IN_FUTURE = new Date("May 3, 2024 12:00:00").getTime();
+  const EXACT_DATE_IN_FUTURE = new Date("June 30, 2024 23:59:59").getTime();
   const targetDate = EXACT_DATE_IN_FUTURE;
 
   
@@ -54,7 +54,7 @@ function App() {
   return (
     <div className='App'>
       <UserContext.Provider value={{userObject, user}}>
-      <Header search={search} setSearch={setSearch} />
+      <Header search={search} setSearch={setSearch} betaVersion={`beta v0.01`} />
       <Routes>
         <Route path="/" element={<WhiteLayout />}>
           <Route
@@ -83,11 +83,10 @@ function App() {
             path='/favourites'
             element={!user ? <Navigate to='/login' /> : <Favorites targetDate={targetDate} />}
           />
-          <Route path='/details/:id' element={<Details />} />
-          {/* <Route path='/details/:id' element={<Details />} /> */}
+          <Route path='/details/:id' element={<Details targetDate={targetDate}/>} />
           <Route
             path='/events'
-            element={!user ? <Navigate to='/login' /> : <Events />}
+            element={<Events/>}
           />
           <Route
             path='/past-events'
