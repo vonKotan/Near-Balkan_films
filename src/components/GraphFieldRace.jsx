@@ -140,7 +140,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                 {(Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100) <= 80) && (
                                     <Link
                                         key={detailPage ? ("") : (movie.id)}
-                                        to={detailPage ? ("") : (movie.id`/details/${movie.id}`)}
+                                        to={detailPage ? ("") : (`/details/${movie.id}`)}
                                         className={`${detailPage && "pointer-events-none"} overflow-clip line-pattern bg-nbredlight disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 group-active/slider:bg-nbredlight group-hover/slider:bg-nbgreydark group-hover/slider:w-full group-active/slider:w-full delay-300 duration-700 z-20 nb-w-${Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}`}>
                                         <div className="group-hover/slider:flex justify-center items-start gap-1 hidden mx-3 transition-all duration-700 delay-300">
                                             <svg
@@ -198,7 +198,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                 {(Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100) <= 80) && (
                                     <Link
                                         key={detailPage ? ("") : (movie.id)}
-                                        to={detailPage ? ("") : (movie.id`/details/${movie.id}`)}
+                                        to={detailPage ? ("") : (`/details/${movie.id}`)}
                                         className={`${detailPage && "pointer-events-none"} overflow-clip line-pattern bg-nbredlight disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 group-active/slider:bg-nbredlight group-hover/slider:bg-nbgreydark group-hover/slider:w-full group-active/slider:w-full delay-300 duration-700 z-20 nb-w-${Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}`}>
                                         <div className="group-hover/slider:flex justify-center items-start gap-1 hidden mx-3 transition-all duration-700 delay-300">
                                             <svg
@@ -216,7 +216,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                 {(Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100) > 80) && (
                                     <Link
                                         key={detailPage ? ("") : (movie.id)}
-                                        to={detailPage ? ("") : (movie.id`/details/${movie.id}`)}
+                                        to={detailPage ? ("") : (`/details/${movie.id}`)}
                                         className={`overflow-clip line-pattern bg-nbredlight disabled:bg-nbgreenlight rounded-full min-h-fit transition-all select-none group/button h-5 group-active/slider:bg-nbredlight group-hover/slider:bg-nbgreydark group-hover/slider:w-full group-active/slider:w-full delay-300 duration-700 z-20 nb-w-100 ${detailPage && "pointer-events-none"}`}>
                                         <div className="right-0 absolute flex">
                                             <div className={`transition-all delay-1000 duration-1000 h-5 bg-nbredmain shadow-md rounded-full opacity-100 flex flex-row justify-end px-2 min-w-fit z-20`}>
