@@ -26,6 +26,7 @@ import About from './pages/About';
 import PastCompetitions from './pages/PastCompetitions';
 import NotFound from './pages/NotFound';
 
+// A usert mostantól ezen a contexten kersztül bármelyik komponensből el lehet érni nincs szükség folyamatosan továbbpasszolgatni
 export const UserContext = createContext(null)
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
   }
   return (
     <div className='App'>
+      
       <UserContext.Provider value={{userObject, user}}>
       <Header search={search} setSearch={setSearch} betaVersion={`beta v0.01`} />
       <Routes>
