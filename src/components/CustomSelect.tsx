@@ -1,16 +1,19 @@
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
+interface Props {
+    isMulti: boolean,
+    options : {label:string, value:string} [],
+    onSelect: (value:string | string []) => void
+    }
+export function CustomSelect({ isMulti, options, onSelect }: Props) {
 
-export function CustomSelect({ isMulti, options, onSelect }) {
+    const [selected, setSelected] = useState<string []>([])
 
-    const [selected, setSelected] = useState([])
-
-    function handleClick(e, value) {
+    function handleClick(e: React.MouseEvent<HTMLInputElement, MouseEvent>, value: string) {
         if(!isMulti){
             onSelect(value);
             return;
         }
-        console.log(e.target.checked)
-        if (e.target.checked) {
+        if ((e.target as HTMLInputElement).checked) {
             setSelected([...selected, value])
         }
         else{
