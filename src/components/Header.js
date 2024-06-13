@@ -158,21 +158,67 @@ const Header = ({ user, userObject, search, setSearch, betaVersion }) => {
                   </button>
                 </Trigger>
                 <div className='lg:inline-flex items-baseline gap-0.5 hidden'>
-                  {i18n.language === 'hu' && (
-                    <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <p
-                        className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                        en</p>
-                    </button>
-                  )}
-                  {i18n.language === 'en' && (
-                    //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
-                    <button onClick={() => changeLanguage("hu")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <p
-                        className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                        hu</p>
-                    </button>
-                  )}
+                {i18n.language === 'hu' && (
+                        <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            hu</p>
+                        </button>
+                      )}
+                      {i18n.language === 'en' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("fr")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            en</p>
+                        </button>
+                      )}
+                      {i18n.language === 'fr' && (
+                        <button onClick={() => changeLanguage("it")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            fr</p>
+                        </button>
+                      )}
+                      {i18n.language === 'it' && (
+                        <button onClick={() => changeLanguage("de")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            it</p>
+                        </button>
+                      )}
+                      {i18n.language === 'de' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("bg")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            de</p>
+                        </button>
+                      )}
+                      {i18n.language === 'bg' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("tr")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            bg</p>
+                        </button>
+                      )}
+                      {i18n.language === 'tr' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("Ω")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            tr</p>
+                        </button>
+                      )}
+                      {i18n.language === 'Ω' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("hu")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            Ω</p>
+                        </button>
+                      )}
                 </div>
               </div>
               <Content id="navbarDropdown" className='top-16 lg:right-0 left-0 lg:left-auto z-50 absolute flex flex-col justify-center items-start bg-nbgreylight shadow-md lg:mt-2.5 lg:mr-12 px-6 lg:px-5 lg:py-4 pb-3 lg:rounded-lg w-full lg:max-w-max'>
@@ -313,15 +359,61 @@ const Header = ({ user, userObject, search, setSearch, betaVersion }) => {
                         <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                           <p
                             className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                            en</p>
+                            hu</p>
                         </button>
                       )}
                       {i18n.language === 'en' && (
                         //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("fr")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            en</p>
+                        </button>
+                      )}
+                      {i18n.language === 'fr' && (
+                        <button onClick={() => changeLanguage("it")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            fr</p>
+                        </button>
+                      )}
+                      {i18n.language === 'it' && (
+                        <button onClick={() => changeLanguage("de")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            it</p>
+                        </button>
+                      )}
+                      {i18n.language === 'de' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("bg")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            de</p>
+                        </button>
+                      )}
+                      {i18n.language === 'bg' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("tr")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            bg</p>
+                        </button>
+                      )}
+                      {i18n.language === 'tr' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("Ω")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            tr</p>
+                        </button>
+                      )}
+                      {i18n.language === 'Ω' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
                         <button onClick={() => changeLanguage("hu")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                           <p
                             className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                            hu</p>
+                            Ω</p>
                         </button>
                       )}
                       {/* <h5 className="block font-h3-subtitle font-normal text-nbgreydark text-xs italic select-none pointer-events-none">{betaVersion}</h5> */}
@@ -379,21 +471,67 @@ const Header = ({ user, userObject, search, setSearch, betaVersion }) => {
                   </>
                 )}
                 <div className='lg:inline-flex items-baseline gap-0.5 hidden'>
-                  {i18n.language === 'hu' && (
-                    <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <p
-                        className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                        en</p>
-                    </button>
-                  )}
-                  {i18n.language === 'en' && (
-                    //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
-                    <button onClick={() => changeLanguage("hu")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                      <p
-                        className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                        hu</p>
-                    </button>
-                  )}
+                {i18n.language === 'hu' && (
+                        <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            hu</p>
+                        </button>
+                      )}
+                      {i18n.language === 'en' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("fr")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            en</p>
+                        </button>
+                      )}
+                      {i18n.language === 'fr' && (
+                        <button onClick={() => changeLanguage("it")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            fr</p>
+                        </button>
+                      )}
+                      {i18n.language === 'it' && (
+                        <button onClick={() => changeLanguage("de")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            it</p>
+                        </button>
+                      )}
+                      {i18n.language === 'de' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("bg")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            de</p>
+                        </button>
+                      )}
+                      {i18n.language === 'bg' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("tr")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            bg</p>
+                        </button>
+                      )}
+                      {i18n.language === 'tr' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("Ω")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            tr</p>
+                        </button>
+                      )}
+                      {i18n.language === 'Ω' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("hu")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            Ω</p>
+                        </button>
+                      )}
                 </div>
               </div>
               <Content id="navbarDropdown" className='top-16 lg:right-0 left-0 lg:left-auto z-50 absolute flex flex-col justify-center items-start bg-nbgreylight shadow-md lg:mt-2.5 lg:mr-12 px-6 lg:px-5 lg:py-4 pb-3 lg:rounded-lg w-full lg:max-w-max'>
@@ -423,21 +561,38 @@ const Header = ({ user, userObject, search, setSearch, betaVersion }) => {
                       </Link>
                     </RadixLink>
                     {userObject && userObject.userType === 'creator' &&
-                      <RadixLink>
-                        <Link
-                          to='/upload-demo' role="menuitem" tabindex="-1" id="menu-item-1"
-                          className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                          <svg
-                            className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                            <path
-                              d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                          </svg>
-                          <p
-                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                            {t("navbar.upload_demo")}</p>
-                        </Link>
-                      </RadixLink>}
+                      <>
+                        <RadixLink>
+                          <Link
+                            to='/upload-demo' role="menuitem" tabindex="-1" id="menu-item-1"
+                            className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                            <svg
+                              className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                              <path
+                                d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                            </svg>
+                            <p
+                              className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                              {t("navbar.upload_demo")}</p>
+                          </Link>
+                        </RadixLink>
+                        <RadixLink>
+                          <Link
+                            to='/upload-event' role="menuitem" tabindex="-1" id="menu-item-1"
+                            className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                            <svg
+                              className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                              <path
+                                d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                            </svg>
+                            <p
+                              className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                              {t("navbar.upload_event")}</p>
+                          </Link>
+                        </RadixLink>
+                      </>}
                     <RadixLink>
                       <Link
                         to='/favourites' role="menuitem" tabindex="-1" id="menu-item-1"
@@ -551,21 +706,38 @@ const Header = ({ user, userObject, search, setSearch, betaVersion }) => {
                       </Link>
                     </RadixLink>
                     {userObject && userObject.userType === 'creator' &&
-                      <RadixLink>
-                        <Link
-                          to='/upload-demo' role="menuitem" tabindex="-1" id="menu-item-1"
-                          className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                          <svg
-                            className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
-                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                            <path
-                              d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                          </svg>
-                          <p
-                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                            {t("navbar.upload_demo")}</p>
-                        </Link>
-                      </RadixLink>}
+                      <>
+                        <RadixLink>
+                          <Link
+                            to='/upload-demo' role="menuitem" tabindex="-1" id="menu-item-1"
+                            className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                            <svg
+                              className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                              <path
+                                d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                            </svg>
+                            <p
+                              className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                              {t("navbar.upload_demo")}</p>
+                          </Link>
+                        </RadixLink>
+                        <RadixLink>
+                          <Link
+                            to='/upload-event' role="menuitem" tabindex="-1" id="menu-item-1"
+                            className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                            <svg
+                              className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreydark"
+                              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                              <path
+                                d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                            </svg>
+                            <p
+                              className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                              {t("navbar.upload_event")}</p>
+                          </Link>
+                        </RadixLink>
+                      </>}
                     <RadixLink>
                       <Link
                         to='/favourites' role="menuitem" tabindex="-1" id="menu-item-1"
@@ -597,19 +769,65 @@ const Header = ({ user, userObject, search, setSearch, betaVersion }) => {
                       </a>
                     </RadixLink>
                     <div className='inline-flex items-baseline justify-between gap-0.5 w-full'>
-                      {i18n.language === 'hu' && (
+                    {i18n.language === 'hu' && (
                         <button onClick={() => changeLanguage("en")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            hu</p>
+                        </button>
+                      )}
+                      {i18n.language === 'en' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("fr")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                           <p
                             className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
                             en</p>
                         </button>
                       )}
-                      {i18n.language === 'en' && (
+                      {i18n.language === 'fr' && (
+                        <button onClick={() => changeLanguage("it")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            fr</p>
+                        </button>
+                      )}
+                      {i18n.language === 'it' && (
+                        <button onClick={() => changeLanguage("de")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            it</p>
+                        </button>
+                      )}
+                      {i18n.language === 'de' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("bg")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            de</p>
+                        </button>
+                      )}
+                      {i18n.language === 'bg' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("tr")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            bg</p>
+                        </button>
+                      )}
+                      {i18n.language === 'tr' && (
+                        //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
+                        <button onClick={() => changeLanguage("Ω")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                          <p
+                            className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
+                            tr</p>
+                        </button>
+                      )}
+                      {i18n.language === 'Ω' && (
                         //<p className='font-a-anchor font-semibold text-base text-nbgreymain leading-5 tracking-tight'>|</p>
                         <button onClick={() => changeLanguage("hu")} className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
                           <p
                             className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-max font-a-anchor font-semibold text-base text-nbgreydark leading-5 tracking-tight transition-all">
-                            hu</p>
+                            Ω</p>
                         </button>
                       )}
                       {/* <h5 className="font-h3-subtitle font-normal text-nbgreydark text-xs italic select-none pointer-events-none">{betaVersion}</h5> */}
