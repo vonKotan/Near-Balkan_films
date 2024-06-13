@@ -228,9 +228,15 @@ const NewEvent = ({ user }) => {
                             onClick={(e) => {
                                 e.preventDefault();
                                 setWorkShops([...workShops, newWorkShop])
-                                }}>Save</button>
+                            }}>Save</button>
                     </div>
-
+                    {workShops && workShops.length > 0 && (
+                        <div>
+                            <p className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left">Workshops:</p>
+                            {workShops?.map((workshop) => {
+                                return (<p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{workshop}</p>)
+                            })}
+                        </div>)}
                 </div>
 
                 <input
