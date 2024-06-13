@@ -41,11 +41,19 @@ const NewEvent = ({ user }) => {
         title: yup.string().required("Please provide the title"),
         subtitle: yup.string().required("Please provide the subtitle of the event"),
         year: yup.number("please provide a number").required("Please provide a year"),
-        month: yup.string().required("Please provide a month"),
         description: yup.string().min(20, "Description too short").max(1500, "Description too long").required("Please provide a description"),
         images: yup.mixed().required("please provide images"),
         video: yup.mixed().required("please provide a video"),
     });
+
+    /* const schema = yup.object().shape({
+        title: yup.string(),
+        subtitle: yup.string(),
+        year: yup.number("please provide a number"),
+        description: yup.string().min(20, "Description too short").max(1500, "Description too long"),
+        images: yup.mixed(),
+        video: yup.mixed(),
+    }); */
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         resolver: yupResolver(schema)
@@ -53,9 +61,20 @@ const NewEvent = ({ user }) => {
 
     const { uploadEvent } = useAddEvent(user);
 
-    const handleUpload = (formData) => {
-        //e.preventDefault();
-        console.log(formData);
+    const handleUpload = async (formData) => {
+        try{
+            const event = {
+                ...formData,
+                month
+            }
+            console.log(event);
+            await uploadEvent(event);
+            //navigate("/events");
+        } catch (e){
+            setError("Valami hiba történt")
+            console.log(e.message);
+        }
+        
     };
 
     return (
@@ -86,7 +105,7 @@ const NewEvent = ({ user }) => {
                                     accept='image/*'
                                     className='sr-only'
                                     {...register("images")}
-                                    onChange={(e) => setImages(e.target.files)}
+                                    //onChange={(e) => setImages(e.target.files)}
 
                                 />
                                 {errors?.images && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.images?.message}</p>)}
@@ -196,6 +215,8 @@ const NewEvent = ({ user }) => {
                     value='Upload event'
                     className='w-full p-4 font-bold text-white transition-all duration-300 rounded-md shadow-sm cursor-pointer bg-zinc-800 hover:bg-zinc-700 hover:tracking-wider'
                 />
+
+                <p>{error}</p>
             </form>
         </section>
     );

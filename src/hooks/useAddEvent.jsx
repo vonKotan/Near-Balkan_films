@@ -8,20 +8,21 @@ export const useAddEvent = () => {
 
     const uploadEvent = async (event) => {
         const imageUrls = []
-        event.images.forEach(async (image, index) => {
+        Array.from(event.images).forEach(async (image, index) => {
             const path = `images/${event.title}_${index}`
             const storageRef = ref(storage, path)
             const snapshot = await uploadBytes(storageRef, image);
-            imageUrls.push(getDownloadURL(snapshot))
+            imageUrls.push(await getDownloadURL(snapshot.ref))
         });
         event.images = imageUrls
         const videoPath = `images/${event.title}_video`
         const storageRef = ref(storage, videoPath)
         const snapshot = await uploadBytes(storageRef, event.video[0]);
-        event.video = getDownloadURL(snapshot);
+        event.video = await getDownloadURL(snapshot.ref);
 
         const docRef = collection(database, 'events');
-        await addDoc(docRef, event);
+        console.log(event);
+        await addDoc(docRef, {...event, createdAt: Timestamp.now()});
     }
 
 
