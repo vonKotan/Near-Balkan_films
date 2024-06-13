@@ -27,7 +27,9 @@ const NewEvent = ({ user }) => {
     const { t, i18n } = useTranslation();
     const [images, setImages] = useState([]);             //kep
     const [month, setMonth] = useState('');             //cim
-    const [video, setVideo] = useState('');             //video link
+    const [video, setVideo] = useState('');
+    const [newWorkShop, setNewWorkShop] = useState('');
+    const [workShops, setWorkShops] = useState([]);
     /*2024.04.12*/
 
     const [success, setSuccess] = useState('');
@@ -58,19 +60,20 @@ const NewEvent = ({ user }) => {
     const { uploadEvent } = useAddEvent(user);
 
     const handleUpload = async (formData) => {
-        try{
+        try {
             const event = {
                 ...formData,
-                month
+                month,
+                workshops: workShops
             }
             console.log(event.images);
             await uploadEvent(event);
             //navigate("/events");
-        } catch (e){
+        } catch (e) {
             setError("Valami hiba történt")
             console.log(e.message);
         }
-        
+
     };
 
     return (
@@ -101,7 +104,7 @@ const NewEvent = ({ user }) => {
                                     accept='image/*'
                                     className='sr-only'
                                     {...register("images")}
-                                    //onChange={(e) => setImages(e.target.files)}
+                                //onChange={(e) => setImages(e.target.files)}
 
                                 />
                                 {errors?.images && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.images?.message}</p>)}
@@ -114,7 +117,7 @@ const NewEvent = ({ user }) => {
                 </div>
 
 
-{/*                 <label className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left" htmlFor='film'>Video</label>
+                {/*                 <label className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left" htmlFor='film'>Video</label>
                 <div className="mt-2 flex justify-center mx-4 rounded-lg border border-dashed border-nbgreenmain px-6 py-10">
                     <div className="text-center">
                         <svg className="mx-auto h-12 w-12 text-nbgreenmain" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -206,6 +209,28 @@ const NewEvent = ({ user }) => {
                             {errors?.description && (<p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{errors.description?.message}</p>)}
                         </div>
                     </div>
+                </div>
+
+                <p className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left">Workshop</p>
+                <div className="mt-2 space-y-6">
+
+                    <div className="flex justify-start mt-2">
+                        <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-nbgreenmain w-full">
+                            <input
+                                type='text'
+                                placeholder="Workshop"
+                                className='block flex-1 border-0 font-a-anchor font-medium bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6'
+                                onChange={(e) => setNewWorkShop(e.target.value)}
+                            />
+                        </div>
+                        <button
+                            class="flex w-20 justify-center rounded-full bg-nbblack px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-nbbluedark focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                setWorkShops([...workShops, newWorkShop])
+                                }}>Save</button>
+                    </div>
+
                 </div>
 
                 <input
