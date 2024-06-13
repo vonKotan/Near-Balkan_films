@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 // Icons
 import { useAuth } from '../hooks/useAuth';
 
-const Footer = ({ user, userObject }) => {
+const Footer = ({ user, userObject, betaVersion }) => {
   const { signOutUser } = useAuth();
 
   const { t, i18n } = useTranslation();
@@ -88,6 +88,28 @@ const Footer = ({ user, userObject }) => {
                   className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
                   {t("footer.past_events")}</p>
               </Link>
+              <Link to="/upload-demo" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                <svg
+                  className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreylight"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                  <path
+                    d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                </svg>
+                <p
+                  className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
+                  {t("footer.upload_demo")}</p>
+              </Link>
+              <Link to="/upload-event" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
+                <svg
+                  className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreylight"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                  <path
+                    d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                </svg>
+                <p
+                  className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
+                  {t("navbar.upload_event")}</p>
+              </Link>
               <Link to="/films" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
                 <svg
                   className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
@@ -131,17 +153,6 @@ const Footer = ({ user, userObject }) => {
                 <p
                   className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
                   {t("footer.profile")}</p>
-              </Link>
-              <Link to="/upload-demo" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit select-none group/anchor">
-                <svg
-                  className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreylight"
-                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                  <path
-                    d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-                </svg>
-                <p
-                  className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreylight text-sm leading-5 tracking-tight transition-all">
-                  {t("footer.upload_demo")}</p>
               </Link>
             </div>
           </div>
@@ -297,7 +308,7 @@ const Footer = ({ user, userObject }) => {
                   stroke="#E9EFF0" stroke-linecap="round" stroke-linejoin="round" />
               </svg>
               <a href="https://near-balkan.com" className="font-normal font-p-paragraph text-nbgreylight text-xs hover:text-nbgreenmain active:text-nbgreenlight leading-4">
-              {t("footer.url")}</a>
+                {t("footer.url")}</a>
             </div>
           </div>
         </div>
@@ -350,29 +361,34 @@ const Footer = ({ user, userObject }) => {
           </div>
           <div className="flex flex-col items-start bg-nbgreylight h-px self-stretch">
           </div>
-          <div className="flex items-center gap-2.5 py-2.5">
-            <Link to="/privacy" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
-              <svg
-                className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                <path
-                  d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-              </svg>
-              <p
-                className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
-                {t("footer.privacy")}</p>
-            </Link>
-            <Link to="/terms-and-policies" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
-              <svg
-                className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
-                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
-                <path
-                  d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
-              </svg>
-              <p
-                className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
-                {t("footer.terms_and_policies")}</p>
-            </Link>
+          <div className="flex justify-between items-center gap-2.5 py-2.5 w-full">
+            <div className="flex items-center gap-2.5">
+              <Link to="/privacy" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
+                <svg
+                  className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                  <path
+                    d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                </svg>
+                <p
+                  className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
+                  {t("footer.privacy")}</p>
+              </Link>
+              <Link to="/terms-and-policies" className="flex items-start gap-1 -mb-0.5 min-w-fit min-h-fit pointer-events-none select-none group/anchor">
+                <svg
+                  className="group-hover/anchor:fill-nbgreenmain group-active/anchor:fill-nbgreenlight group-disabled/anchor:fill-nbgreenlight h-3 transition-all translate-y-1 fill-nbgreymain"
+                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                  <path
+                    d="M9.53333 6.5L12 4.03333L8.48 0.5L5.98667 2.95333L3.53333 0.5L0 4.06L2.44 6.5L0 8.94L3.53333 12.5L5.98667 10.0467L8.44 12.5L12 9L9.53333 6.5Z" />
+                </svg>
+                <p
+                  className="group-hover/anchor:text-nbgreenmain group-active/anchor:text-nbgreenlight group-disabled/anchor:text-nbgreymain min-w-fit font-a-anchor font-semibold text-nbgreymain text-sm leading-5 tracking-tight transition-all">
+                  {t("footer.terms_and_policies")}</p>
+              </Link>
+            </div>
+            <div className="sm:flex items-center gap-2.5 hidden">
+              <h5 className="font-h3-subtitle font-normal text-nbgreymain text-xs pointer-events-none select-none">{betaVersion}</h5>
+            </div>
           </div>
         </div>
       </nav>

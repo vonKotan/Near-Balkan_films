@@ -162,7 +162,7 @@ const Details = ({ user, targetDate, haveWon }) => {
                 <RaceState targetDate={targetDate} detailPage={true} />
               </div>
               <div id="gridCol" className='flex xl:flex-row flex-col xl:justify-between xl:items-center gap-2'>
-                <h2 className="font-black font-h2-title text-4xl text-nbwhite underline underline-offset-4 leading-tight tracking-tight transition-colors decoration-4 decoration-nbgreenmain active:decoration-nbgreenlight -mt-2">{i18n.language === 'en' && (movie.englishTitle || movie.title)} {i18n.language === 'hu' && (movie.title || movie.englishTitle)}</h2>
+                <h2 className="font-black font-h2-title text-4xl text-nbwhite underline underline-offset-4 leading-tight tracking-tight transition-colors decoration-4 decoration-nbgreenmain active:decoration-nbgreenlight -mt-2">{i18n.language === 'hu' ? (movie?.title) : (movie?.englishTitle)}</h2>
                 <div class="flex flex-row justify-between items-start sm:items-center gap-4 line-clamp-1 max-h-10">
                   <div class="flex flex-row justify-start items-end sm:items-center gap-4 py-1 max-w-60 sm:max-w-md md:max-w-lg overflow-x-auto">
                     <Link
@@ -196,7 +196,7 @@ const Details = ({ user, targetDate, haveWon }) => {
                 {/* <h4 className="relative z-10 font-h3-subtitle rounded-full border-2 border-nbgreymiddark px-3 py-1.5 font-semibold text-nbgreylight text-xs">{movie.genre}</h4>
             <h4 className="relative z-10 font-h3-subtitle rounded-full border-2 border-nbgreymiddark px-3 py-1.5 font-semibold text-nbgreylight text-xs">{movie.genre}</h4> */}
               </div>
-              <p class="text-base leading-6 text-nbgreylight font-p-paragraph">{i18n.language === 'en' && (movie.englishDescription || movie.description)} {i18n.language === 'hu' && (movie.description || movie.englishDescription)}</p>
+              <p class="text-base leading-6 text-nbgreylight font-p-paragraph">{i18n.language === 'hu' ? (movie?.description) : (movie?.englishDescription)}</p>
               <a
                 href={movie.scriptUrl}
                 target="_blank"
