@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, navigate } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import Loading from '../components/Loading';
 import { useAddEvent } from '../hooks/useAddEvent';
 import { useTranslation } from 'react-i18next';
@@ -6,20 +6,19 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from 'yup';
 import { CustomSelect } from '../components/CustomSelect';
-import { UserContext } from '../App';
 
 const months = [
-    { label: 'January', value: 'january' },
-    { label: 'February', value: 'february' },
-    { label: 'March', value: 'march' },
-    { label: 'April', value: 'april' },
-    { label: 'June', value: 'june' },
-    { label: 'July', value: 'july' },
-    { label: 'August', value: 'august' },
-    { label: 'September', value: 'september' },
-    { label: 'October', value: 'october' },
-    { label: 'November', value: 'november' },
-    { label: 'December', value: 'december' }
+    { label: 'January', value: 'January' },
+    { label: 'February', value: 'February' },
+    { label: 'March', value: 'March' },
+    { label: 'April', value: 'April' },
+    { label: 'June', value: 'June' },
+    { label: 'July', value: 'July' },
+    { label: 'August', value: 'August' },
+    { label: 'September', value: 'September' },
+    { label: 'October', value: 'October' },
+    { label: 'November', value: 'November' },
+    { label: 'December', value: 'December' }
 ];
 
 
@@ -28,9 +27,6 @@ const NewEvent = ({ user }) => {
     const { t, i18n } = useTranslation();
     const [images, setImages] = useState([]);             //kep
     const [month, setMonth] = useState('');             //cim
-    const [rating, setRating] = useState('');           //ertekeles - felesleges valszeg - helyette a szavazasokat kellene hasznalni(?)
-    const [genre, setGenre] = useState('');             //mufaj
-    const [description, setDescription] = useState(''); //leiras
     const [video, setVideo] = useState('');             //video link
     /*2024.04.12*/
 
@@ -42,8 +38,8 @@ const NewEvent = ({ user }) => {
         subtitle: yup.string().required("Please provide the subtitle of the event"),
         year: yup.number("please provide a number").required("Please provide a year"),
         description: yup.string().min(20, "Description too short").max(1500, "Description too long").required("Please provide a description"),
-        images: yup.mixed().required("please provide images"),
-        video: yup.mixed().required("please provide a video"),
+        images: yup.mixed().required("please provide images")
+        //video: yup.mixed().required("please provide a video"),
     });
 
     /* const schema = yup.object().shape({
@@ -67,7 +63,7 @@ const NewEvent = ({ user }) => {
                 ...formData,
                 month
             }
-            console.log(event);
+            console.log(event.images);
             await uploadEvent(event);
             //navigate("/events");
         } catch (e){
@@ -111,12 +107,14 @@ const NewEvent = ({ user }) => {
                                 {errors?.images && (<p className="text-xs font-h3-subtitle text-nbredmain pt-2">{errors.images?.message}</p>)}
                             </label>
                         </div>
-                        <p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{ }</p>
+                        {/* {images && images.map((image)=> (
+                            <p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{image.name}</p>
+                        ))} */}
                     </div>
                 </div>
 
 
-                <label className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left" htmlFor='film'>Video</label>
+{/*                 <label className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left" htmlFor='film'>Video</label>
                 <div className="mt-2 flex justify-center mx-4 rounded-lg border border-dashed border-nbgreenmain px-6 py-10">
                     <div className="text-center">
                         <svg className="mx-auto h-12 w-12 text-nbgreenmain" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -140,7 +138,7 @@ const NewEvent = ({ user }) => {
                         <p className="text-sm leading-5 mt-2 font-a-anchor font-medium text-nbgreymiddark">{video?.name}</p>
                     </div>
                 </div>
-
+ */}
                 <p className="mt-1 text-sm leading-6 text-nbgreymiddark font-a-anchor font-semibold text-base text-left">Event title</p>
                 <div className="mt-2 space-y-6">
 
