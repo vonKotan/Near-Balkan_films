@@ -2,7 +2,7 @@ import React from 'react'
 
 export const PosterContainerSmall = ({ movie }) => {
     return (
-        <div id="gridCol"
+        <div id="gridCol noSelectImage"
             className="relative lg:my-5 lg:ml-5 lg:rounded-md w-full min-w-full sm:min-w-0 lg:max-w-28 lg:min-h-40 overflow-clip ring-1 ring-gray-900/5 ring-inset">
             <div class="bg-white lg:rounded-md aspect-w-2 active:aspect-w-2 aspect-h-1 h-full active:aspect-h-3 transition-all overflow-clip">
                 <img src={movie.image} alt="poster" class="w-full h-full select-none object-center object-cover" />
@@ -16,7 +16,7 @@ export const PosterContainerSmall = ({ movie }) => {
 
 export const PosterContainer = ({ movie }) => {
     return (
-        <div id="gridCol"
+        <div id="gridCol noSelectImage"
             className="relative lg:my-5 lg:ml-5 lg:rounded-md w-full min-w-full sm:min-w-0 lg:min-w-[210px] lg:max-w-[220px] overflow-clip ring-1 ring-gray-900/5 ring-inset">
             <div class="bg-white lg:rounded-md aspect-w-2 active:aspect-w-2 min-w-max aspect-h-1 h-full active:aspect-h-3 transition-all overflow-clip">
                 <img src={movie.image} alt="poster" class="w-full h-full select-none object-center object-cover" />
