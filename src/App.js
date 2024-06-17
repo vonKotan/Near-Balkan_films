@@ -70,7 +70,7 @@ function App() {
           />
           <Route
             path='/upload-event'
-            element={user && userObject && userObject.userType === 'creator' ? (<NewEvent user = {user}/>) : (<Navigate to='/login' />)}
+            element={user && userObject && userObject.userType === 'creator' ? (<NewEvent/>) : (<Navigate to='/login' />)}
           />
           <Route
             path='/register/*'
