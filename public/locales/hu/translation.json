@@ -21,7 +21,8 @@
     "profile": "profil",
     "favourites": "kedvencek",
     "logout": "kijelentkezés",
-    "upload_demo": "demó feltöltése"
+    "upload_demo": "demó feltöltése",
+    "upload_event": "esemény feltöltése"
   },
   "footer": {
     "title_about": "Rólunk",
