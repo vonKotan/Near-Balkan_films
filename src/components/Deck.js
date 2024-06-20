@@ -84,7 +84,7 @@ export const Deck = ({ competition, search }) => {
       competitionFilms?.map((movie) => (
         <div className="relative flex justify-center items-center w-full max-w-screen-lg">
           <Card
-            movie={movie} targetDate={competition.endDate.toDate()} haveWon={competition.winner == movie.id}
+            movie={movie} targetDate={competition.endDate.toDate()} haveWon={competition.winner == movie.id} currentCompetition={competition}
           />
           <div className='-left-12 absolute lg:flex justify-center items-center hidden bg-nbgreylight shadow-sm px-4 py-2 rounded-full w-20 h-20 cursor-pointer ring-8 ring-inset ring-nbredmain'>
             <h3 className="font-black font-h3-subtitle text-4xl text-nbgreydark">1</h3>
@@ -96,7 +96,7 @@ export const Deck = ({ competition, search }) => {
       competitionFilms?.map((movie) => (
         <div className="relative flex justify-center items-center w-full max-w-screen-lg">
           <Card
-            movie={movie} targetDate={competition.endDate.toDate()} haveWon={competition.winner == movie.id}
+            movie={movie} targetDate={competition.endDate.toDate()} haveWon={competition.winner == movie.id} currentCompetition={competition}
           />
           <div className='-left-12 absolute lg:flex justify-center items-center hidden bg-nbgreylight shadow-sm px-4 py-2 rounded-full w-20 h-20 cursor-pointer ring-8 ring-inset ring-nbredmain'>
             <h3 className="font-black font-h3-subtitle text-4xl text-nbgreydark">1</h3>
