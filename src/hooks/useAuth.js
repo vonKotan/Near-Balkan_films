@@ -103,7 +103,7 @@ export const useAuth = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      //checkFirstSignIn();
+      checkFirstSignIn();
       setLoading(false);
     } catch (e) {
       setError(e.message);
