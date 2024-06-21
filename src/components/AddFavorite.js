@@ -17,9 +17,10 @@ const AddFavorite = ({movie}) => {
     try {
       console.log(userObject.favourites)
       console.log(movie.id)
+      let newFavorites = userObject.favourites ? [...userObject.favourites, movie.id] : [movie.id]
       await setDoc(
         doc(database, 'users', user.uid),
-        {favourites: [...userObject.favourites, movie.id]},
+        {favourites: newFavorites},
         {merge:true}
       );
     } catch (err) {

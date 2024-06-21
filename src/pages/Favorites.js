@@ -29,7 +29,7 @@ const Favorites = ({ targetDate }) => {
             </div>
           </div>
         ))}
-      {favorites && favorites.length === 0 && (
+      {(!favorites || favorites.length === 0) && (
         <div className='flex justify-center items-center gap-8 py-8 w-full max-w-screen-lg h-[65dvh]'>
           <p>{t("favourites.no_favs")}</p>
         </div>
