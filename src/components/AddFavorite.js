@@ -1,27 +1,21 @@
 import { useContext, useEffect, useState } from 'react';
-
 import { database } from '../firebase/config';
-import { deleteDoc, doc, setDoc, Timestamp } from 'firebase/firestore';
-import {UserContext} from '../App';
-
+import { doc, setDoc } from 'firebase/firestore';
+import { UserContext } from '../App';
 import { TbHeartPlus, TbHeartMinus } from 'react-icons/tb';
-import { useFetchData } from '../hooks/useFetchData';
-import { useTranslation } from 'react-i18next';
 
-const AddFavorite = ({movie}) => {
+const AddFavorite = ({ movie }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const {user, userObject} = useContext(UserContext);
+  const { user, userObject } = useContext(UserContext);
 
   const addFavorite = async () => {
     try {
-      console.log(userObject.favourites)
-      console.log(movie.id)
       let newFavorites = userObject.favourites ? [...userObject.favourites, movie.id] : [movie.id]
       await setDoc(
         doc(database, 'users', user.uid),
-        {favourites: newFavorites},
-        {merge:true}
+        { favourites: newFavorites },
+        { merge: true }
       );
     } catch (err) {
       console.log(err.message);
