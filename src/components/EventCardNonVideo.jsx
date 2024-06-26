@@ -1,6 +1,6 @@
 
 
-const EventCardNonVideo = ({ user, userObject, event }) => {
+const EventCardNonVideo = ({ event }) => {
 
     return (
         <section id="gridRow" className="flex flex-row flex-wrap justify-center items-center">
