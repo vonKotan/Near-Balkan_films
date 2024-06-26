@@ -17,7 +17,7 @@ const Register = () => {
   return (
     <Routes>
       <Route path='/' element={<RegistrationAuth></RegistrationAuth>} />
-      <Route path='/info' element={!user ? <Navigate to="/login"></Navigate> : <RegistrationInfo ></RegistrationInfo>} />
+      <Route path='/info' element={<RegistrationInfo ></RegistrationInfo>} />
     </Routes>
 
 

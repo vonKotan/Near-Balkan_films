@@ -10,15 +10,15 @@ import {
 } from 'firebase/firestore'
 import { database } from '../firebase/config'
 
-export function useFetchFavourites(userObject) {
+export function useFetchFavourites(user) {
 
     const [favorites, setFavorites] = useState(null)
 
 
     useEffect(() => {
         const fetchFavourites = async () => {
-            if (!userObject) return
-            const favouriteIds = userObject.favourites
+            if (!user) return
+            const favouriteIds = user.favourites
             if (favouriteIds.length === 0) {
                 setFavorites(null)
                 return
@@ -45,6 +45,6 @@ export function useFetchFavourites(userObject) {
         }
 
         fetchFavourites();
-    }, [userObject])
+    }, [user])
     return { favorites }
 }

@@ -22,7 +22,7 @@ import {UserContext} from '../App'
 
 const Header = ({ search, setSearch, betaVersion }) => {
   const { signOutUser } = useAuth();
-  const {user, userObject} = useContext(UserContext)
+  const {user} = useContext(UserContext)
 
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
@@ -430,10 +430,10 @@ const Header = ({ search, setSearch, betaVersion }) => {
             <Item>
               <div className='flex justify-end items-center gap-4'>
                 {/* <h5 className="hidden lg:block font-h3-subtitle font-normal text-nbgreydark text-xs italic select-none pointer-events-none">{betaVersion}</h5> */}
-                {user.photoURL || userObject?.profilePicture ? (
+                {user.photoURL || user?.profilePicture ? (
                   <Trigger className='flex items-center gap-2'>
                     <img
-                      src={userObject?.profilePicture || user?.photoURL}
+                      src={user?.profilePicture || user?.photoURL}
                       alt='user'
                       className='lg:block hidden max-h-7 max-w-7 w-full h-full rounded-full min-h-7 min-w-7 aspect-1'
                     />
@@ -563,7 +563,7 @@ const Header = ({ search, setSearch, betaVersion }) => {
                           {t("navbar.profile")}</p>
                       </Link>
                     </RadixLink>
-                    {userObject && userObject.userType === 'creator' &&
+                    {user && user.userType === 'creator' &&
                       <>
                         <RadixLink>
                           <Link
@@ -708,7 +708,7 @@ const Header = ({ search, setSearch, betaVersion }) => {
                           {t("navbar.profile")}</p>
                       </Link>
                     </RadixLink>
-                    {userObject && userObject.userType === 'creator' &&
+                    {user && user.userType === 'creator' &&
                       <>
                         <RadixLink>
                           <Link

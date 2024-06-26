@@ -10,8 +10,8 @@ import { UserContext } from '../App'
 
 const Favorites = ({ targetDate }) => {
 
-  const { userObject } = useContext(UserContext)
-  const { favorites } = useFetchFavourites(userObject);
+  const { user } = useContext(UserContext)
+  const { favorites } = useFetchFavourites(user);
   const { t, i18n } = useTranslation();
   console.log(favorites);
   return (

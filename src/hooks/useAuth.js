@@ -24,8 +24,9 @@ export const useAuth = () => {
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
+
   const [user, setUser] = useState(null);
-  const [dbUser, setDbUser] = useState(null);
+
   const provider = new GoogleAuthProvider();
   const navigate = useNavigate();
 
@@ -63,10 +64,9 @@ export const useAuth = () => {
   }
 
   const checkFirstSignIn = async () => {
-    if (!dbUser) {
+    if (!user) {
       navigate("/register/info");
-    } else console.log(doc);
-    console.log(doc);
+    }
   }
 
   // Function to register and login new users
@@ -78,7 +78,6 @@ export const useAuth = () => {
       let imageurl = ''
       console.log(userInfo);
       if (userInfo.profilePicture) {
-        console.log(userInfo.profilePicture);
         imageurl = await uploadImage('profilepictures', userInfo.profilePicture, Date.now(), auth.currentUser.email);
         delete userInfo.profilePicture;
       } else if (auth.currentUser.photoURL) {
@@ -89,11 +88,12 @@ export const useAuth = () => {
       await setDoc(doc(database, 'users', userId), { ...userInfo, email: auth.currentUser?.email, profilePicture: imageurl ?? "" })
 
       setLoading(false);
-      navigate("/")
+      return true;
     } catch (e) {
       setError(e.message);
       console.log(e.message);
       setLoading(false);
+      return false;
     }
   };
 
@@ -103,7 +103,7 @@ export const useAuth = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      checkFirstSignIn();
+      await checkFirstSignIn();
       setLoading(false);
     } catch (e) {
       setError(e.message);
@@ -132,25 +132,28 @@ export const useAuth = () => {
       setLoading(false);
     }
   };
+
   //function the retrieve the current users data from our database based on the auth object
   //can be used later when we want to display things based on the users type
-
+  const getUser = async (authUser) => {
+    if (!authUser) {
+      setUser(null);
+      return
+    }
+    const docRef = doc(database, "users", authUser.uid);
+    onSnapshot(docRef, snapshot => {
+      if(snapshot.data()){
+        setUser({ ...authUser, ...snapshot.data() })
+      }
+    })
+  }
 
   useEffect(() => {
-    const getUser = async () => {
-      const uid = auth?.currentUser?.uid;
-      if (!uid) return false;
-      const docRef = doc(database, "users", uid);
-      onSnapshot(docRef, snapshot=> {
-        setDbUser(snapshot.data())
-      })
-    }
 
-    onAuthStateChanged(auth, async (user) => {
-      setUser(user);
-      await getUser();
+    onAuthStateChanged(auth, async (authUser) => {
+      await getUser(authUser);
     });
-  }, [auth]);
+  }, []);
 
   return {
     auth,
@@ -165,6 +168,5 @@ export const useAuth = () => {
     loading,
     onAuthStateChanged,
     user,
-    dbUser,
   };
 };

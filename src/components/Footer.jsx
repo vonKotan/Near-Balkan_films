@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 // Icons
 import { useAuth } from '../hooks/useAuth';
 
-const Footer = ({ user, userObject, betaVersion }) => {
+const Footer = ({ betaVersion }) => {
   const { signOutUser } = useAuth();
 
   const { t, i18n } = useTranslation();

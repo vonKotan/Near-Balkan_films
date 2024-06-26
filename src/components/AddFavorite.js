@@ -7,11 +7,11 @@ import { TbHeartPlus, TbHeartMinus } from 'react-icons/tb';
 const AddFavorite = ({ movie }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const { user, userObject } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   const addFavorite = async () => {
     try {
-      let newFavorites = userObject.favourites ? [...userObject.favourites, movie.id] : [movie.id]
+      let newFavorites = user.favourites ? [...user.favourites, movie.id] : [movie.id]
       await setDoc(
         doc(database, 'users', user.uid),
         { favourites: newFavorites },
@@ -24,10 +24,12 @@ const AddFavorite = ({ movie }) => {
 
   const removeFavorite = async () => {
     try {
-      userObject.favourites.pop(movie.id)
+      let favorites = user.favourites;
+      favorites.pop(movie.id)
       await setDoc(
         doc(database, 'users', user.uid),
-        userObject,
+        { favourites: favorites },
+        { merge: true }
       );
     } catch (err) {
       console.log(err.message);
@@ -35,15 +37,14 @@ const AddFavorite = ({ movie }) => {
   };
 
   useEffect(() => {
-    console.log(userObject);
-    if (userObject) {
-      if (userObject?.favourites?.includes(movie.id)) {
+    if (user) {
+      if (user?.favourites?.includes(movie.id)) {
         setIsFavorite(true);
       } else {
         setIsFavorite(false);
       }
     }
-  }, [movie, userObject]);
+  }, [movie, user]);
 
   return (
     <>

@@ -35,7 +35,7 @@ function App() {
 
   const [search, setSearch] = useState('')
 
-  const { user, dbUser:userObject } = useAuth();
+  const { user } = useAuth();
 
   // target date
   const RELATIVE_TIME_FROM_NOW = new Date().getTime() + 3 * 24 * 60 * 60 * 1000;
@@ -56,7 +56,7 @@ function App() {
   return (
     <div className='App'>
       
-      <UserContext.Provider value={{userObject, user}}>
+      <UserContext.Provider value={{user}}>
       <Header search={search} setSearch={setSearch} betaVersion={`beta v0.01`} />
       <Routes>
         <Route path="/" element={<WhiteLayout />}>
@@ -66,16 +66,16 @@ function App() {
           />
           <Route
             path='/upload-demo'
-            element={user && userObject && userObject.userType === 'creator' ? (<NewReview />) : (<Navigate to='/login' />)}
+            element={user && user.userType === 'creator' ? (<NewReview />) : (<Navigate to='/login' />)}
           />
           <Route
             path='/upload-event'
-            element={user && userObject && userObject.userType === 'creator' ? (<NewEvent/>) : (<Navigate to='/login' />)}
+            element={user && user.userType === 'creator' ? (<NewEvent/>) : (<Navigate to='/login' />)}
           />
           <Route
             path='/register/*'
             element={
-              user && userObject ? <Navigate to='/' /> : <Register />
+               user ? <Navigate to='/' /> :  <Register />
             }
           />
           <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />

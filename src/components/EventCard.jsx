@@ -1,6 +1,6 @@
 
 
-const EventCard = ({ user, userObject, event }) => {
+const EventCard = ({ event }) => {
 
   return (
     <section id="gridRow" className="flex flex-row flex-wrap justify-center items-center">

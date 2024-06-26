@@ -53,7 +53,7 @@ export const RegistrationInfo = () => {
 
     const hiddenInput = useRef(null);
 
-    const { registerUserInfo, error: firebaseError } = useAuth()
+    const { registerUserInfo, error: firebaseError, signOutUser } = useAuth()
 
     const [filmography, setFilmography] = useState([])
 
@@ -72,12 +72,11 @@ export const RegistrationInfo = () => {
     }
 
 
-    function handleRegister(user) {
+    async function handleRegister(user) {
         console.log(user);
         if (validateExtraFields()) {
             user = CreateUserObj(user);
-            registerUserInfo(user);
-            //navigate("/");
+            await registerUserInfo(user);
         }
     }
 
@@ -113,11 +112,6 @@ export const RegistrationInfo = () => {
         return areFieldsValid;
     }
 
-    function fileUploaded(e) {
-        e.preventDefault();
-        //
-    }
-
     const schema = yup.object().shape({
         firstName: yup.string().matches('^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ]+$', "your name should only contain letters").required("This field is required"),
         lastName: yup.string().matches('^[a-zA-ZáéíóöőúüűÁÉÍÓÖŐÚÜŰ]+$', "your name should only contain letters").required("This field is required"),
@@ -133,6 +127,19 @@ export const RegistrationInfo = () => {
 
     const [error, setError] = useState(null);
 
+    useEffect(() => {
+        const handleUnload = () => {
+            if (!user) {
+                console.log(user);
+                console.log('signing out user');
+                signOutUser()
+            }
+        };
+        window.addEventListener('unload', handleUnload);
+        return () => {
+            window.removeEventListener('unload', handleUnload);
+        };
+    }, []);
 
     useEffect(() => {
         if (firebaseError) {

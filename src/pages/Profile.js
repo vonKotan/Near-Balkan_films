@@ -19,7 +19,7 @@ const Profile = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [image, setImage] = useState('');
-  const {user, userObject} = useContext(UserContext)
+  const {user} = useContext(UserContext)
 
   console.log(image);
 
