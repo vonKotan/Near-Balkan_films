@@ -97,14 +97,14 @@ export const CurrentRace = ({ targetDate, detailPage, movie, currentCompetition 
     if (days + hours + minutes + seconds <= 0) {
         return (
             <Link to="/" className="inline-flex flex-row items-center gap-2">
-                <div class={`${detailPage ? "bg-nbgreylight" : "bg-nbredmain"} opacity-75 rounded-full w-1.5 h-1.5`}></div>
+                <div className={`${detailPage ? "bg-nbgreylight" : "bg-nbredmain"} opacity-75 rounded-full w-1.5 h-1.5`}></div>
                 <h4 className={`font-bold font-h3-subtitle text-base ${detailPage ? "text-nbgreylight" : "text-nbredmain"} tracking-tighter`}>{detailPage ? (i18n.language !== 'hu' && (formatterEN.format(movie?.createdAt?.toDate()) || 'unknown time') || (i18n.language === 'hu' && (formatterHU.format(movie?.createdAt?.toDate()).replace(' ', '').replace(' ', '') || 'unknown time'))) : ((i18n.language === 'hu' ? currentCompetition?.title : currentCompetition?.engTitle) || (t("card.date_past_competition")))}</h4>
             </Link>
         );
     } else {
         return (
             <Link to="/" className="inline-flex flex-row items-center gap-2">
-                <div class="bg-nbgreenmain opacity-75 rounded-full w-1 h-1 animate-ping"></div>
+                <div className="bg-nbgreenmain opacity-75 rounded-full w-1 h-1 animate-ping"></div>
                 <h4 className="font-bold font-h3-subtitle text-base text-nbgreenmain tracking-tighter">{detailPage ? (i18n.language !== 'hu' && (formatterEN.format(movie?.createdAt?.toDate()) || 'unknown time') || (i18n.language === 'hu' && (formatterHU.format(movie?.createdAt?.toDate()).replace(' ', '').replace(' ', '') || 'unknown time'))) : ((i18n.language === 'hu' ? currentCompetition?.title : currentCompetition?.engTitle) || (t("card.date_current_competition")))}</h4>
             </Link>
         );
