@@ -70,7 +70,14 @@ export const RegistrationInfo = ({ user }) => {
     }
 
 
-
+ function handleRegister(user) {
+        if (validateExtraFields()) {
+            user = CreateUserObj(user);
+            registerUserInfo(user);
+            //navigate("/");
+        }
+    }
+    
     function CreateUserObj(user) {
         if (roles && roles.length > 0) {
             user = { ...user, roles: roles }
