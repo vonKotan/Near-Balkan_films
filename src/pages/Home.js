@@ -40,7 +40,6 @@ const fetchUsersForFilms = async (films) => {
 };
 
 
-
 const Home = ({ user, search }) => {
   const { documents: competitions } = useFetchData('competitions'); //documents nelkul is szar
 
