@@ -18,7 +18,7 @@ const Profile = ({ user }) => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [image, setImage] = useState('');
 
-  console.log(image);
+  
 
   const [error, setError] = useState('');
 

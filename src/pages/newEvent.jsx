@@ -66,12 +66,10 @@ const NewEvent = ({ user }) => {
                 month,
                 workshops: workShops
             }
-            console.log(event.images);
             await uploadEvent(event);
             //navigate("/events");
         } catch (e) {
             setError("Valami hiba történt")
-            console.log(e.message);
         }
 
     };

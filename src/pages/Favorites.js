@@ -9,7 +9,6 @@ import { useTranslation } from 'react-i18next';
 const Favorites = ({ user, targetDate, }) => {
   const { documents: favorites } = useFetchData(`users/${user?.uid}/favorites`);
   const { t, i18n } = useTranslation();
-  console.log(favorites);
   return (
     <>
       <SectionTitle title={t("favourites.favourites")} />

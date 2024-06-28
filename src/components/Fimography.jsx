@@ -34,7 +34,7 @@ export function Filmography({ sendData, user }) {
                 image: url,
                 role: role
             }
-            console.log(data);
+            
             sendData(data);
         }
     }

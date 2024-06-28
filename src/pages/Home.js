@@ -31,7 +31,6 @@ const fetchUsersForFilms = async (films) => {
       if (userDoc.exists()) {
         return { ...film, user: { id: userDoc.id, ...userDoc.data() } };
       } else {
-        console.log(`User with ID ${film.user} does not exist.`);
         return film;
       }
     })

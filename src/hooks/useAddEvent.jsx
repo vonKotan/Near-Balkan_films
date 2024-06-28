@@ -21,7 +21,6 @@ export const useAddEvent = () => {
             const storageRef = ref(storage, path)
             const snapshot = await uploadBytes(storageRef, images[i]);
             const url = await getDownloadURL(snapshot.ref);
-            console.log(url)
             imageUrls.push(url.toString());
         }
         event.images = imageUrls
@@ -31,11 +30,9 @@ export const useAddEvent = () => {
         event.video = await getDownloadURL(snapshot.ref);
  */
         const docRef = collection(database, 'events');
-        console.log(event.images);
         try {
             await addDoc(docRef, {...event, createdAt: Timestamp.now()}); 
         } catch(e){
-            console.log(e.message)
         }
     }
 

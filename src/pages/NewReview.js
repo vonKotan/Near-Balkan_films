@@ -95,14 +95,6 @@ const NewReview = ({ user }) => {
     firebaseSetError(null);
     firebaseSetSuccess(null);
 
-    console.log('Calling addReview function');
-    const data = {
-      user: user.uid,
-      ...formData,
-      genre,
-      views, //Ennek itt mi a szerepe
-      collected, // meg ennek?
-    };
 
     addReview(data);
   };

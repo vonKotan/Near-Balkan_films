@@ -32,7 +32,6 @@ const fetchUsersForFilms = async (films) => {
       if (userDoc.exists()) {
         return { ...film, user: { id: userDoc.id, ...userDoc.data() } };
       } else {
-        console.log(`User with ID ${film.user} does not exist.`);
         return film;
       }
     })
@@ -70,7 +69,6 @@ export const Deck = ({ competition, search }) => {
 
   useEffect(() => {
     if (search) {
-      console.log(search)
       const filter = competitionFilms.filter((movie) =>
         movie.title.toLowerCase().includes(search.toLowerCase()),
       );

@@ -19,7 +19,6 @@ export function useFetchComments(id){
                 setComments(
                     await Promise.all(querySnapshot.docs.map(async (document) => {
                         let comment = document.data()
-                        console.log(comment, comment.userId)
                         let userRef = doc(database, 'users', comment.userId);
                         let userSnap = await getDoc(userRef)
                         return userSnap.exists() ? {

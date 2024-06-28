@@ -9,7 +9,6 @@ export function CustomSelect({ isMulti, options, onSelect }) {
             onSelect(value);
             return;
         }
-        console.log(e.target.checked)
         if (e.target.checked) {
             setSelected([...selected, value])
         }
