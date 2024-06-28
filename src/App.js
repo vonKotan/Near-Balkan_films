@@ -82,7 +82,7 @@ function App() {
           />
           <Route path='/login' element={user ? <Navigate to='/' /> : <Login />} />
           <Route path='/*' element={<NotFound />} />
-          <Route path="/about" element={<NotFound />} />
+          <Route path="/about" element={<About />} />
           <Route path="/search" element={!user ? <Navigate to='/login' /> : <Search targetDate={targetDate} />} />
         </Route>
         <Route path="/" element={<Layout />} user={user}>

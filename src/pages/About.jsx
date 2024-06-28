@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom';
 // Components
 
 const About = () => {
-
+return (
+<></>
+);
 };
 
 export default About;
