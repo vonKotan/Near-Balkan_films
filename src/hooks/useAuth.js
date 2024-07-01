@@ -74,6 +74,10 @@ export const useAuth = () => {
       const userId = auth.currentUser.uid;
       let imageurl = ''
     
+      
+      if(userInfo.profilePicture){
+        imageurl = await uploadImage('profilepictures', userInfo.profilePicture, Date.now(), auth.currentUser.email);
+
       //create doc in our database with the same id as the auth object
       await setDoc(doc(database, 'users', userId), {...userInfo, email:auth.currentUser?.email, profilePicture:imageurl ?? ""})
 
@@ -81,6 +85,7 @@ export const useAuth = () => {
       navigate("/")
     } catch (e) {
       setError(e.message);
+      console.log(e.message);
       setLoading(false);
     }
   };
@@ -116,6 +121,7 @@ export const useAuth = () => {
       setLoading(false);
     } catch (e) {
       setError(e.message);
+      console.log(e.message);
       setLoading(false);
     }
   };

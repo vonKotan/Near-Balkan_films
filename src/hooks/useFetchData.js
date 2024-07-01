@@ -35,7 +35,7 @@ export const useFetchData = (docCollection, genre = null) => {
           );
         });
       } catch (e) {
-
+        console.log(e.message);
       }
     };
     fetchData();

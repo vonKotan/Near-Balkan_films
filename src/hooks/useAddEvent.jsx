@@ -33,6 +33,7 @@ export const useAddEvent = () => {
         try {
             await addDoc(docRef, {...event, createdAt: Timestamp.now()}); 
         } catch(e){
+            console.log(e.message)
         }
     }
 

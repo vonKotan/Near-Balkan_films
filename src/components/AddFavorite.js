@@ -22,7 +22,7 @@ const AddFavorite = ({ movieId, user }) => {
         data,
       );
     } catch (err) {
-      
+      console.log(err.message);
     }
   };
 
@@ -30,7 +30,7 @@ const AddFavorite = ({ movieId, user }) => {
     try {
       await deleteDoc(doc(database, `users/${user?.uid}/favorites`, movieId));
     } catch (err) {
-      
+      console.log(err.message);
     }
   };
 
