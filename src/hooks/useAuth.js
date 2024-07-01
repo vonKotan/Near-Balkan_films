@@ -77,6 +77,10 @@ export const useAuth = () => {
       
       if(userInfo.profilePicture){
         imageurl = await uploadImage('profilepictures', userInfo.profilePicture, Date.now(), auth.currentUser.email);
+        delete userInfo.profilePicture;
+      } else if(auth.currentUser.photoURL){
+        imageurl = auth.currentUser.photoURL;
+      }
 
       //create doc in our database with the same id as the auth object
       await setDoc(doc(database, 'users', userId), {...userInfo, email:auth.currentUser?.email, profilePicture:imageurl ?? ""})
