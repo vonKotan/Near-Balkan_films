@@ -70,7 +70,7 @@ const NewEvent = ({ user }) => {
             //navigate("/events");
         } catch (e) {
             setError("Valami hiba történt")
-            console.log(e.message);
+            console.log(e.message); 
         }
 
     };
