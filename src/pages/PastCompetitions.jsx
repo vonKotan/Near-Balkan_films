@@ -30,10 +30,6 @@ const PastCompetitions = ({ search}) => {
   const { t, i18n } = useTranslation();
   const [pasttCompetition, setPastCompetitions] = useState(null);
 
-  console.log(search);
-  const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng);
-  }
 
   return (
     <>

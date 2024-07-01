@@ -22,7 +22,6 @@ export function useFetchMovies({ fieldToOrderBy, isDescending = false }) {
                 setMovies(
                     await Promise.all(querySnapshot.docs.map(async (document) => {
                         let movie = document.data()
-                        console.log(document.data())
                         let userRef = doc(database, 'users', movie.user);
                         let userSnap = await getDoc(userRef)
                         return userSnap.exists() ? {

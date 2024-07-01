@@ -11,8 +11,6 @@ export const useAddReview = (user) => {
   const addReview = async (data) => {
     setLoading(true); 
 
-    console.log(data)// Set loading state to true
-
     //get the files from the object and then remove them
     //so we dont ty to upload them to db
     const img = data.image[0];
@@ -26,7 +24,7 @@ export const useAddReview = (user) => {
       //itt tartok....
       const urlname=user.email.split('@')[0];
       // Upload image
-      const generateName = `posters/${urlname}/${Date.now()}`; //TESZTELNI KELL, HA MŰÖDIK, AKKOR A FILS ÉS A SCRIPTSNÉL UGYANEZ!
+      const generateName = `posters/${urlname}/${Date.now()}`; //TESZTELNI KELL, HA MŰKÖDIK, AKKOR A FILMS ÉS A SCRIPTSNÉL UGYANEZ!
       const storageRef = ref(storage, generateName);
       const uploadTask = uploadBytesResumable(storageRef, img);
       // Upload video
@@ -41,8 +39,7 @@ export const useAddReview = (user) => {
         'state_changed',
         (snapshot) => {
           const uploadProgress =
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log('Upload Progress:', uploadProgress); // Log upload progress
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;          
         },
         (error) => {
           console.error('Upload Error:', error.message); // Log upload error
@@ -50,7 +47,6 @@ export const useAddReview = (user) => {
         async () => {
             const url = await getDownloadURL(uploadTask.snapshot.ref);
             window.publicUrl = url;
-          console.log('Download URL:', url); // Log download URL
         },
       );
 
@@ -59,17 +55,14 @@ export const useAddReview = (user) => {
         (snapshot) => {
           const uploadProgress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log('Video Upload Progress:', uploadProgress); // Log video upload progress
         },
         (error) => {
           console.error('Video Upload Error:', error.message); // Log video upload error
         },
         async () => {
           const videoUrl = await getDownloadURL(videoUploadTask.snapshot.ref);
-          console.log('Video Download URL:', videoUrl); // Log video download URL
 
           const scriptUrl = await getDownloadURL(scriptUploadTask.snapshot.ref);
-          console.log('Script Download URL:', scriptUrl); // Log script download URL
 
           const docRef = collection(database, 'films');
 
@@ -84,7 +77,6 @@ export const useAddReview = (user) => {
             await addDoc(docRef, docData); // Add document to Firestore collection
             setLoading(false); // Set loading state to false
             setSuccess('Review added successfully'); // Set success message
-            console.log('Review added successfully'); // Log success message
         }
       );
     } catch (e) {

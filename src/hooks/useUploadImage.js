@@ -6,7 +6,6 @@ import { storage } from '../firebase/config';
 export const useUploadImage = () => {
 
   const uploadImage = async (folder, image, fileName, email) => {
-    console.log(image)
     if (!image) {
       return;
     }

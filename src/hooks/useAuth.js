@@ -63,8 +63,7 @@ export const useAuth = () => {
     const doc = await getUser();
     if (!doc) {
       navigate("/register/info");
-    } else console.log(doc);
-    console.log(doc);
+    }
   }
 
   // Function to register and login new users
@@ -74,15 +73,15 @@ export const useAuth = () => {
     try {
       const userId = auth.currentUser.uid;
       let imageurl = ''
-      console.log(userInfo);
+    
+      
       if(userInfo.profilePicture){
-        console.log(userInfo.profilePicture);
         imageurl = await uploadImage('profilepictures', userInfo.profilePicture, Date.now(), auth.currentUser.email);
         delete userInfo.profilePicture;
       } else if(auth.currentUser.photoURL){
         imageurl = auth.currentUser.photoURL;
       }
-    
+
       //create doc in our database with the same id as the auth object
       await setDoc(doc(database, 'users', userId), {...userInfo, email:auth.currentUser?.email, profilePicture:imageurl ?? ""})
 

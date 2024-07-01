@@ -7,7 +7,6 @@ export function useFilterMovies(movies, search){
     const {t, i18n} = useTranslation()
     useEffect(() => {
         if (search) {
-          console.log(search)
           const filter = movies?.filter((movie) => {
             let title
             if(i18n.language === 'en' && movie.englishTitle){
