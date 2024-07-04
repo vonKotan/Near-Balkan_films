@@ -4,16 +4,17 @@ import { useCountdown } from '../hooks/useCountdown';
 // Router
 import { Link } from 'react-router-dom';
 
+
 // Components
 import { useTranslation } from 'react-i18next';
 import { GraphFieldRace } from './GraphFieldRace';
 
-export const CountdownTimer = ({ targetDate, haveWon, movie }) => {
+export const CountdownTimer = ({ targetDate, haveWon, movie, competition }) => {
 
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
 
     if (days + hours + minutes + seconds <= 0) {
-        return <ExpiredNotice haveWon={haveWon} movie={movie} />;
+        return <ExpiredNotice haveWon={haveWon} movie={movie} competition={competition} />;
     } else {
         return (
             <ShowCounter
@@ -49,17 +50,18 @@ const ShowCounter = ({ days, hours, minutes, seconds, isDanger }) => {
     );
 };
 
-const ExpiredNotice = ({ haveWon, movie }) => {
+{/*itt nem tudom mit csinál a moneyrest*/}
+const ExpiredNotice = ({ haveWon, movie, competition }) => {
     const { t, i18n } = useTranslation();
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
     };
 
-    if (haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)) >= (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.60) || 0)) / Math.floor(movie.moneygoal || 0) * 100)))) {
+    if (haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) >= (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.60) || 0)) / Math.floor(movie.moneygoal || 0) * 100)))) {
         return (
             <Link to="/" className="inline order-first sm:order-none bg-nbgreenmain hover:bg-nbpurplemain px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-nbgreylight text-sm sm:text-sm leading-normal cursor-pointer select-none align-center">{t("card.won_all")}</Link>
         );
-    } if (haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)) < (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.60) || 0)) / Math.floor(movie.moneygoal || 0) * 100)))) {
+    } if (haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) < (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.60) || 0)) / Math.floor(movie.moneygoal || 0) * 100)))) {
         return (
             <Link to="/" className="inline order-first sm:order-none bg-nbredmain hover:bg-nbpurplelight px-2 pt-px rounded-md max-w-fit font-h3-subtitle font-semibold text-nbgreylight text-sm sm:text-sm leading-normal cursor-pointer select-none align-center">{t("card.lost_not_min")}</Link>
         );

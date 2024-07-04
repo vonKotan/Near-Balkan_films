@@ -6,7 +6,8 @@ import { CountdownTimer } from './CountdownTimer';
 import { EurCalc } from './EurCalc';
 
 
-export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
+
+export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage, competition}) => {
     const { t, i18n } = useTranslation();
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
     const [collected, setcollected] = useState();
@@ -30,24 +31,28 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                 <div className="flex flex-col gap-2 px-6 py-5">
                     <div className="flex flex-col gap-2 sm:gap-2 group/island">
                         <div className="flex sm:flex-row flex-col justify-between gap-2 group/labels peer/labels">
-                            {haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)) >= (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.6) || 0)) / Math.floor(movie.moneygoal || 0) * 100))) && (
-                                <div className="mx-0 leading-none pointer-events-none select-none">
+          
+                            {haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) >= (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.6) || 0)) / Math.floor(movie.moneygoal || 0) * 100))) && (
+                                <div class="mx-0 leading-none pointer-events-none select-none">
+
                                     <span className="font-bold text-base text-nbgreenmain sm:text-base underline underline-offset-4 transition-all decoration-4"><EurCalc inputAmount={movie.collected || 0} /></span>
                                     <span className="inline">
                                         <span className="font-bold text-base text-nbpurplemain sm:text-base">+</span>
-                                        <span className="font-bold text-base text-nbpurplemain sm:text-base underline underline-offset-4 transition-all decoration-4"><EurCalc inputAmount={movie.moneyRest || 0} /></span>
+                                        <span className="font-bold text-base text-nbpurplemain sm:text-base underline underline-offset-4 transition-all decoration-4"><EurCalc inputAmount={competition.collected-movie.collected || 0} /></span>
                                     </span>
                                     <span className="font-bold text-base text-nbgreymain sm:text-base"> / </span>
                                     <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-base text-nbgreenlight sm:text-base transition-all"><EurCalc inputAmount={movie.moneygoal || 0} /></span>
                                     <span className="group-hover/labels:inline hidden font-bold text-base text-nborangemain sm:text-base transition-all">min <EurCalc inputAmount={movie.moneyMin || ((movie.moneygoal * 0.6) || 0)} /></span>
                                 </div>
                             )}
-                            {haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)) < (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.6) || 0)) / Math.floor(movie.moneygoal || 0) * 100))) && (
-                                <div className="mx-0 leading-none pointer-events-none select-none">
+
+                            {haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) < (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.6) || 0)) / Math.floor(movie.moneygoal || 0) * 100))) && (
+                                <div class="mx-0 leading-none pointer-events-none select-none">
+
                                     <span className="font-bold text-base text-nbredmain sm:text-base line-through transition-all decoration-2"><EurCalc inputAmount={movie.collected || 0} /></span>
                                     <span className="inline">
                                         <span className="font-bold text-base text-nbpurplemain sm:text-base">+</span>
-                                        <span className="font-bold text-base text-nbpurplemain sm:text-base line-through transition-all decoration-2 decoration-nbredmain"><EurCalc inputAmount={movie.moneyRest || 0} /></span>
+                                        <span className="font-bold text-base text-nbpurplemain sm:text-base line-through transition-all decoration-2 decoration-nbredmain"><EurCalc inputAmount={competition.collected || 0} /></span>
                                     </span>
                                     <span className="font-bold text-base text-nbgreymain sm:text-base"> / </span>
                                     <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-base text-nbredlight sm:text-base transition-all"><EurCalc inputAmount={movie.moneygoal || 0} /></span>
@@ -63,12 +68,13 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                 </div>
                             )}
                             {haveWon && (
-                                <CountdownTimer haveWon={true} targetDate={targetDate} movie={movie} />
+                                <CountdownTimer haveWon={true} targetDate={targetDate} movie={movie} competition={competition} />
                             )}
                             {!haveWon && (
-                                <CountdownTimer haveWon={false} targetDate={targetDate} movie={movie} />
+                                <CountdownTimer haveWon={false} targetDate={targetDate} movie={movie} competition={competition} />
                             )}
                         </div>
+                        {/*itt valami beszarik*/}
                         {haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)) >= (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.6) || 0)) / Math.floor(movie.moneygoal || 0) * 100))) && (
                             <div className="relative flex items-center bg-nbgreylight rounded-full w-full h-5 overflow-clip group/slider">
                                 {(Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100) <= 80) && (
@@ -99,7 +105,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                                 <h6 className="font-medium text-nbwhite text-xs leading-normal select-none">{Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
                                             </div>
                                             <div className={`transition-all delay-1000 duration-1000 h-5 bg-nbpurplemain rounded-full opacity-100 flex flex-row justify-end px-2 min-w-fit z-20`}>
-                                                <h6 className="text-nbgreylight text-xs leading-normal select-none">+{Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
+                                                <h6 className="text-nbgreylight text-xs leading-normal select-none">+{Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
                                             </div>
                                         </div>
                                         <div className="group-hover/slider:flex justify-center items-start gap-1 hidden mx-3 transition-all duration-700 delay-300">
@@ -118,23 +124,24 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                 <div className={`transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nborangemain rounded-full opacity-100 flex flex-row justify-end pe-2 z-10 nb-w-${(Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.6) || 0)) / Math.floor(movie.moneygoal || 0) * 100))}`}>
                                     <h6 className="text-nbgreylight text-xs leading-normal select-none">min</h6>
                                 </div>
-                                {(Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100) >= 100) && (
+                                {(Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100) >= 100) && (
                                     <>
                                         <div className={`transition-all delay-1000 duration-1000 absolute h-5 right-0 bg-nbpurplemain rounded-full opacity-100 flex flex-row justify-end px-2 min-w-fit z-20`}>
-                                            <h6 className="text-nbgreylight text-xs leading-normal select-none">+{Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
+                                            <h6 className="text-nbgreylight text-xs leading-normal select-none">+{Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
                                         </div>
                                         <div className={`transition-all delay-1000 duration-1000 absolute h-5 right-0 bg-nbpurplemain rounded-full opacity-50 flex flex-row justify-end pe-2 w-full`}></div>
                                     </>
                                 )}
-                                {(Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100) < 100) && (
+                                {(Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100) < 100) && (
                                     <>
-                                        <div className={`transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nbpurplemain rounded-full opacity-100 flex flex-row justify-end px-2 nb-w-${(Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100))} z-10`}>
-                                            <h6 className="text-nbgreylight text-xs leading-normal select-none">+{Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
+                                        <div className={`transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nbpurplemain rounded-full opacity-100 flex flex-row justify-end px-2 nb-w-${(Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100))} z-10`}>
+                                            <h6 className="text-nbgreylight text-xs leading-normal select-none">+{Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
                                         </div>
                                     </>
                                 )}
                             </div>
                         )}
+                        {/*itt is beszarik */}
                         {haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)) < (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.6) || 0)) / Math.floor(movie.moneygoal || 0) * 100))) && (
                             <div className="relative flex items-center bg-nbgreylight rounded-full w-full h-5 overflow-clip group/slider">
                                 {(Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100) <= 80) && (
@@ -165,7 +172,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                                 <h6 className="font-medium text-nbwhite text-xs leading-normal select-none">{Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
                                             </div>
                                             <div className={`transition-all delay-1000 duration-1000 h-5 bg-nbpurplemain rounded-full opacity-100 flex flex-row justify-end px-2 min-w-fit z-20`}>
-                                                <h6 className="text-nbgreylight text-xs leading-normal select-none">+{Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
+                                                <h6 className="text-nbgreylight text-xs leading-normal select-none">+{Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
                                             </div>
                                         </div>
                                         <div className="group-hover/slider:flex justify-center items-start gap-1 hidden mx-3 transition-all duration-700 delay-300">
@@ -184,10 +191,10 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                 <div className={`transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nborangemain rounded-full opacity-100 flex flex-row justify-end pe-2 nb-w-${(Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.6) || 0)) / Math.floor(movie.moneygoal || 0) * 100))}`}>
                                     <h6 className="text-nbgreylight text-xs leading-normal select-none">min</h6>
                                 </div>
-                                {(Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100) < 100) && (
+                                {(Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100) < 100) && (
                                     <>
-                                        <div className={`line-pattern transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nbpurplemain group-hover/island:bg-nbpurplelight rounded-full opacity-100 flex flex-row justify-end px-2 nb-w-${(Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100))} z-10`}>
-                                            <h6 className="text-nbgreylight text-xs leading-normal select-none">+{Math.floor(Math.floor(movie.moneyRest || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
+                                        <div className={`line-pattern transition-all delay-1000 duration-1000 absolute h-5 left-0 bg-nbpurplemain group-hover/island:bg-nbpurplelight rounded-full opacity-100 flex flex-row justify-end px-2 nb-w-${(Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100))} z-10`}>
+                                            <h6 className="text-nbgreylight text-xs leading-normal select-none">+{Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)}%</h6>
                                         </div>
                                     </>
                                 )}
@@ -258,7 +265,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage }) => {
                                 <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-base text-nbgreenlight sm:text-base transition-all"><EurCalc inputAmount={movie.moneygoal || 0} /></span>
                                 <span className="group-hover/labels:inline hidden font-bold text-base text-nborangemain sm:text-base transition-all">min <EurCalc inputAmount={movie.moneyMin || ((movie.moneygoal * 0.6) || 0)} /></span>
                             </div>
-                            <CountdownTimer haveWon={0} targetDate={targetDate} movie={movie} />
+                            <CountdownTimer haveWon={0} targetDate={targetDate} movie={movie} competition={competition}/>
                         </div>
                         <div className="relative flex items-center bg-nbgreylight rounded-full w-full h-5 overflow-clip group/slider">
                             {(Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100) <= 80) && (
