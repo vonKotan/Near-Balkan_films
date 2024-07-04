@@ -8,8 +8,8 @@ import { useTranslation } from 'react-i18next';
 
 export const UserIcon = ({ movie }) => {
     return (
-        <div class="flex flex-row justify-between items-start sm:items-center gap-4 line-clamp-1 max-h-10">
-            <div class="flex flex-row justify-start items-end sm:items-center gap-4 py-1 max-w-60 sm:max-w-md md:max-w-lg overflow-x-auto">
+        <div className="flex flex-row justify-between items-start sm:items-center gap-4 line-clamp-1 max-h-10">
+            <div className="flex flex-row justify-start items-end sm:items-center gap-4 py-1 max-w-60 sm:max-w-md md:max-w-lg overflow-x-auto">
                 <Link
                     key={movie.id}
                     to={`/details/${movie.id}`}
@@ -46,8 +46,8 @@ export const UserIconList = ({ movie }) => {
     };
 
     return (
-        <div class="flex flex-row justify-between items-start sm:items-center gap-4 line-clamp-1 max-h-10">
-            <div class="flex flex-row justify-start items-end sm:items-center gap-4 py-1 max-w-60 sm:max-w-md md:max-w-lg overflow-x-auto">
+        <div className="flex flex-row justify-between items-start sm:items-center gap-4 line-clamp-1 max-h-10">
+            <div className="flex flex-row justify-start items-end sm:items-center gap-4 py-1 max-w-60 sm:max-w-md md:max-w-lg overflow-x-auto">
                 <Link
                     key={movie.id}
                     to={`/details/${movie.id}`}

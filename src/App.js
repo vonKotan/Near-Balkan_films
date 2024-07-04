@@ -23,6 +23,7 @@ import Loading from './components/Loading';
 import Favorites from './pages/Favorites';
 import Search from './pages/Search';
 import About from './pages/About';
+import NewEvent from './pages/newEvent'
 import PastCompetitions from './pages/PastCompetitions';
 import NotFound from './pages/NotFound';
 
@@ -70,6 +71,10 @@ function App() {
             element={user && userObject && userObject.userType === 'creator' ? (<NewReview user={user} />) : (<Navigate to='/login' />)}
           />
           <Route
+            path='/upload-event'
+            element={user && userObject && userObject.userType === 'creator' ? (<NewEvent user = {user}/>) : (<Navigate to='/login' />)}
+          />
+          <Route
             path='/register/*'
             element={
               user && userObject ? <Navigate to='/' /> : <Register user={user} />
@@ -99,7 +104,7 @@ function App() {
           />
         </Route>
       </Routes>
-      <Footer />
+      <Footer betaVersion={`beta v1.0.1`} />
     </div >
   );
 }

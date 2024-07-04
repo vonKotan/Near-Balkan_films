@@ -21,7 +21,8 @@
     "profile": "profile",
     "favourites": "favourites",
     "logout": "logout",
-    "upload_demo": "upload a demo"
+    "upload_demo": "upload a demo",
+    "upload_event": "upload an event"
   },
   "footer": {
     "title_about": "About Us",

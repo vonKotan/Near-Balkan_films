@@ -29,10 +29,12 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage, competi
             <div
                 id="graphField" className="flex flex-col justify-center bg-gray-50 active:bg-slate-200 rounded-2xl text-start transition-colors duration-1000 delay-1000 group/graphfield ring-1 ring-gray-900/5 ring-inset">
                 <div className="flex flex-col gap-2 px-6 py-5">
-                    <div class="flex flex-col gap-2 sm:gap-2 group/island">
+                    <div className="flex flex-col gap-2 sm:gap-2 group/island">
                         <div className="flex sm:flex-row flex-col justify-between gap-2 group/labels peer/labels">
+          
                             {haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) >= (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.6) || 0)) / Math.floor(movie.moneygoal || 0) * 100))) && (
                                 <div class="mx-0 leading-none pointer-events-none select-none">
+
                                     <span className="font-bold text-base text-nbgreenmain sm:text-base underline underline-offset-4 transition-all decoration-4"><EurCalc inputAmount={movie.collected || 0} /></span>
                                     <span className="inline">
                                         <span className="font-bold text-base text-nbpurplemain sm:text-base">+</span>
@@ -43,8 +45,10 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage, competi
                                     <span className="group-hover/labels:inline hidden font-bold text-base text-nborangemain sm:text-base transition-all">min <EurCalc inputAmount={movie.moneyMin || ((movie.moneygoal * 0.6) || 0)} /></span>
                                 </div>
                             )}
-                            {haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(competition.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) < (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.6) || 0)) / Math.floor(movie.moneygoal || 0) * 100))) && (
+
+                            {haveWon && ((Math.floor(Math.floor(movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) + (Math.floor(Math.floor(competition.collected-movie.collected || 0) / Math.floor(movie.moneygoal || 0) * 100)) < (Math.floor(Math.floor(movie.moneyMin || ((movie.moneygoal * 0.6) || 0)) / Math.floor(movie.moneygoal || 0) * 100))) && (
                                 <div class="mx-0 leading-none pointer-events-none select-none">
+
                                     <span className="font-bold text-base text-nbredmain sm:text-base line-through transition-all decoration-2"><EurCalc inputAmount={movie.collected || 0} /></span>
                                     <span className="inline">
                                         <span className="font-bold text-base text-nbpurplemain sm:text-base">+</span>
@@ -56,7 +60,7 @@ export const GraphFieldRace = ({ movie, targetDate, haveWon, detailPage, competi
                                 </div>
                             )}
                             {!haveWon && (
-                                <div class="mx-0 leading-none pointer-events-none select-none">
+                                <div className="mx-0 leading-none pointer-events-none select-none">
                                     <span className="font-bold text-base text-nbredmain sm:text-base line-through transition-all decoration-2"><EurCalc inputAmount={movie.collected || 0} /></span>
                                     <span className="font-bold text-base text-nbgreymain sm:text-base"> / </span>
                                     <span className="group-active/island:text-nbredmain group-hover/labels:hidden font-bold text-base text-nbredlight sm:text-base transition-all"><EurCalc inputAmount={movie.moneygoal || 0} /></span>
