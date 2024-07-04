@@ -33,7 +33,7 @@ export const Card = ({ movie, targetDate, haveWon, currentCompetition }) => {
           <DemoTitle movie={movie} />
           <UserIcon movie={movie} />
         </div>
-        <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} />
+        <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} competition={currentCompetition}/>
       </div>
     </section >
   );
@@ -59,7 +59,7 @@ export const CardComplex = ({ movie, targetDate, haveWon, currentCompetition }) 
           <UserIconList movie={movie} />
           <DemoDescription movie={movie} />
         </div>
-        <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} />
+        <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} competition={currentCompetition}/>
       </div>
     </section >
   );

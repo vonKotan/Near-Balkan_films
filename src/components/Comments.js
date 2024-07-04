@@ -101,10 +101,10 @@ const Comments = ({ id, movie }) => {
                 )}
                 {comment.userId === movie.userId && (
                   <div className='my-1 p-4 flex flex-col items-end bg-nbgreydark rounded-lg pt-2 @container/update' key={index}>
-                    <div class="flex flex-col @[255px]/update:justify-between @[255px]/update:items-center gap-x-2 @[255px]/update:flex-row pb-2 w-full">
+                    <div className="flex flex-col @[255px]/update:justify-between @[255px]/update:items-center gap-x-2 @[255px]/update:flex-row pb-2 w-full">
                       <h3 className="text-base font-semibold font-h2-title text-nbgreylight opacity-70">{t("comments.update-by-creator")}</h3>
                       {/* <div class="bg-nbgreymain hidden sm:block opacity-75 rounded-full w-1 h-1"></div> */}
-                      <h4 class="font-bold font-h3-subtitle text-xs text-nbgreymain opacity-70 tracking-tighter">{i18n.language === 'en' && (formatterEN.format(new Date(comment.createdAt.seconds * 1000)).replace(',', '') || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(new Date(comment.createdAt.seconds * 1000)).replace(' ', '').replace(' ', '') || 'unknown time')}</h4>
+                      <h4 className="font-bold font-h3-subtitle text-xs text-nbgreymain opacity-70 tracking-tighter">{i18n.language === 'en' && (formatterEN.format(new Date(comment.createdAt.seconds * 1000)).replace(',', '') || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(new Date(comment.createdAt.seconds * 1000)).replace(' ', '').replace(' ', '') || 'unknown time')}</h4>
                     </div>
                     <Link
                       to=""
@@ -180,10 +180,10 @@ const Comments = ({ id, movie }) => {
                 )}
                 {comment.userId === movie.userId && (
                   <div className='my-1 p-4 flex flex-col items-start bg-nbgreydark rounded-lg pt-2 @container/update' key={index}>
-                    <div class="flex flex-col @[255px]/update:justify-between @[255px]/update:items-center gap-x-2 @[255px]/update:flex-row pb-2 w-full">
+                    <div className="flex flex-col @[255px]/update:justify-between @[255px]/update:items-center gap-x-2 @[255px]/update:flex-row pb-2 w-full">
                       <h3 className="text-base font-semibold font-h2-title text-nbgreylight opacity-70">{t("comments.update-by-creator")}</h3>
                       {/* <div class="bg-nbgreymain hidden sm:block opacity-75 rounded-full w-1 h-1"></div> */}
-                      <h4 class="font-bold font-h3-subtitle text-xs text-nbgreymain opacity-70 tracking-tighter">{i18n.language === 'en' && (formatterEN.format(new Date(comment.createdAt.seconds * 1000)).replace(',', '') || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(new Date(comment.createdAt.seconds * 1000)).replace(' ', '').replace(' ', '') || 'unknown time')}</h4>
+                      <h4 className="font-bold font-h3-subtitle text-xs text-nbgreymain opacity-70 tracking-tighter">{i18n.language === 'en' && (formatterEN.format(new Date(comment.createdAt.seconds * 1000)).replace(',', '') || 'unknown time')} {i18n.language === 'hu' && (formatterHU.format(new Date(comment.createdAt.seconds * 1000)).replace(' ', '').replace(' ', '') || 'unknown time')}</h4>
                     </div>
                     <Link
                       to=""
@@ -249,7 +249,7 @@ const Comments = ({ id, movie }) => {
               placeholder={t("comments.log-in-to-write")}
               className='peer-hover/anchor:text-nbgreenmain peer-active/anchor:text-nbgreenlight peer-disabled/anchor:text-nbgreenlight border-0 focus:border-0 active:border-0 m-0 p-0 px-3 font-a-anchor font-semibold text-base text-nbgreydark hover:text-nbgreenlight focus:text-nbgreenmain active:text-nbgreenlight placeholder:text-nbgreydark placeholder:focus:text-nbgreymain leading-5 tracking-tight transition-all ring-0 active:ring-0 focus:ring-0 focus:underline placeholder:no-underline decoration-nbgreenlight decoration-2 overflow-visible placeholder:hover:text-nbgreenlight placeholder:active:text-nbgreenlight w-full rounded-full bg-nbgreymain focus:bg-nbgreydark'
             />
-            <Link to='/login' value='Send' class="peer/anchor bg-nbgreymain hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 py-2 rounded-full min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain">
+            <Link to='/login' value='Send' className="peer/anchor bg-nbgreymain hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 py-2 rounded-full min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain">
               <FaLock className='mt-[-2px] translate-y-px h-3 text-nbgreydark' />
             </Link>
           </div>

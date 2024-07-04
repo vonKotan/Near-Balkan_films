@@ -43,7 +43,7 @@ export const AdBloc = ({ adUrl }) => {
                 </div>
                 <div className="flex-stretch border-nbgreymain order-4 lg:order-none mx-5 my-2 border border-dashed w-full max-w-screen-lg overflow-clip">
                 </div>
-                <div class="relative order-last lg:order-none col-span-5 bg-nbblack hover:shadow-md py-auto rounded-md w-full max-w-screen-md md:min-h-96 transition overflow-clip aspect-video videoPlayer">
+                <div className="relative order-last lg:order-none col-span-5 bg-nbblack hover:shadow-md py-auto rounded-md w-full max-w-screen-md md:min-h-96 transition overflow-clip aspect-video videoPlayer">
                     <iframe className="w-full min-h-48 sm:min-h-64 md:min-h-96" src={adUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>

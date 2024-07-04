@@ -7,7 +7,8 @@ import {
   onSnapshot,
   orderBy,
   query,
-  doc, getDoc,
+  doc, 
+  getDoc,
   where,
   documentId,
   updateDoc
@@ -59,6 +60,8 @@ const Home = ({ search }) => {
   const [currentCompetitionFilms, setCurrentCompetitionFilms] = useState(null);
   const { filteredMovies: moviesFilter } = useFilterMovies(currentCompetitionFilms, search)
 
+  const [collected, setCollected] = useState(0);
+
   useEffect(() => {
     if (competitions && competitions.length > 0) {
       const findCurrentCompetition = () => {
@@ -88,16 +91,15 @@ const Home = ({ search }) => {
         });
 
         //összeegyűlt pénz
-        /*
-        const collected=0;
+        setCollected(0);
         films.forEach((film) => {
-          collected += film.collected;
+          setCollected(prevCollected => prevCollected + film.collected);
         });
+
         currentCompetition.collected=collected;      
         const docRef = doc(database, "competitions", currentCompetition.id);
         updateDoc(docRef, currentCompetition);
-        */
-       
+        
         //filmek feltöltőinek adatainak lekerese
         const filmsWithUser = await fetchUsersForFilms(films);
         // Update state with the fetched films and user data
@@ -132,7 +134,6 @@ const Home = ({ search }) => {
     <div className="min-h-fit">
       <div className="section max-w-screen-lg mx-auto flex flex-col gap-4">
         <div>
-          {/*parasztos nmegoldás*/}
           {currentCompetition && !search && (
             <SectionTitle
               title={t("home.fresh")}

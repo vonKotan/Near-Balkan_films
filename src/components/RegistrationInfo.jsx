@@ -156,10 +156,10 @@ export const RegistrationInfo = () => {
     }, [error]);
 
     return (
-        <div class="flex flex-wrap justify-center items-center gridRow">
-            <div class="gridCol bg-nbwhite px-5 py-2 rounded-lg max-w-md basis-2/4 ring-2 ring-nbblack">
-                <div class="flex flex-col justify-center px-6 lg:px-8 py-12 min-w-60 sm:min-w-96 lg:min-w-96 min-h-full">
-                    <div class="sm:mx-auto sm:w-full">
+        <div className="flex flex-wrap justify-center items-center gridRow">
+            <div className="gridCol bg-nbwhite px-5 py-2 rounded-lg max-w-md basis-2/4 ring-2 ring-nbblack">
+                <div className="flex flex-col justify-center px-6 lg:px-8 py-12 min-w-60 sm:min-w-96 lg:min-w-96 min-h-full">
+                    <div className="sm:mx-auto sm:w-full">
                         {/* <a class="flex justify-center items-end gap-2 mr-4 lg:ml-6 transition-all nbLogo shrink">
                             <svg class="w-12 h-8 group/logo logoVectors2 shrink-0" xmlns="http://www.w3.org/2000/svg">
                                 <path class="group-hover/logo:fill-nbgreendark fill-nbgreenmain"
@@ -201,20 +201,20 @@ export const RegistrationInfo = () => {
                                 </g>
                             </svg>
                         </a> */}
-                        <h2 class="mt-10 font-bold text-2xl text-center text-gray-900 leading-9 tracking-tight">
+                        <h2 className="mt-10 font-bold text-2xl text-center text-gray-900 leading-9 tracking-tight">
                             Create Your Profile
                         </h2>
                     </div>
-                    <form class="space-y-6" onSubmit={handleSubmit(handleRegister)}>
-                        <div class="sm:mx-auto mt-10 sm:w-full min-w-max">
+                    <form className="space-y-6" onSubmit={handleSubmit(handleRegister)}>
+                        <div className="sm:mx-auto mt-10 sm:w-full min-w-max">
 
 
                             <div>
                                 <label for="firstname"
-                                    class="block font-medium text-gray-900 text-left text-sm leading-6">{t("register_info.first_name")}</label>
-                                <div class="mt-2">
+                                    className="block font-medium text-gray-900 text-left text-sm leading-6">{t("register_info.first_name")}</label>
+                                <div className="mt-2">
                                     <input id="firstName" type="text"
-                                        class="block border-0 shadow-sm py-1.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
+                                        className="block border-0 shadow-sm py-1.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
                                         {...register("firstName")}
                                         placeholder={t("register_info.first_name")} />
                                     {errors.firstName && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.firstName?.message}</p>)}
@@ -223,10 +223,10 @@ export const RegistrationInfo = () => {
                             <div>
 
                                 <label for="lastName"
-                                    class="block font-medium text-gray-900 text-left text-sm leading-6">{t("register_info.last_name")}</label>
-                                <div class="mt-2">
+                                    className="block font-medium text-gray-900 text-left text-sm leading-6">{t("register_info.last_name")}</label>
+                                <div className="mt-2">
                                     <input id="lastName" type="text"
-                                        class="block border-0 shadow-sm py-1.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
+                                        className="block border-0 shadow-sm py-1.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
                                         {...register("lastName")}
                                         placeholder={t("register_info.last_name")} />
                                     {errors.lastName && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.lastName?.message}</p>)}
@@ -235,43 +235,43 @@ export const RegistrationInfo = () => {
 
                             <div>
                                 <label for="username"
-                                    class="block font-medium text-gray-900 text-left text-sm leading-6">Username</label>
-                                <div class="mt-2">
+                                    className="block font-medium text-gray-900 text-left text-sm leading-6">Username</label>
+                                <div className="mt-2">
                                     <input id="username" name="username" type="text" autocomplete="username"
                                         {...register("userName")}
                                         placeholder={t("register_info.username")}
-                                        class="block border-0 shadow-sm py-1.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
+                                        className="block border-0 shadow-sm py-1.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
                                     />
                                     {errors.userName && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.userName?.message}</p>)}
                                 </div>
                             </div>
 
-                            <div class="mx-auto max-w-sm">
+                            <div className="mx-auto max-w-sm">
 
                                 <label for="phone-input"
-                                    class="block mb-2 font-medium text-gray-900 text-left text-sm dark:text-white">{t("register_info.phone_number")}</label>
-                                <div class="relative">
-                                    <div class="top-0 absolute inset-y-0 flex items-center pointer-events-none ps-3.5 start-0">
-                                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                    className="block mb-2 font-medium text-gray-900 text-left text-sm dark:text-white">{t("register_info.phone_number")}</label>
+                                <div className="relative">
+                                    <div className="top-0 absolute inset-y-0 flex items-center pointer-events-none ps-3.5 start-0">
+                                        <svg className="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 19 18">
                                             <path
                                                 d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z" />
                                         </svg>
                                     </div>
                                     <input type="text" id="phone-input" aria-describedby="helper-text-explanation"
-                                        class="block border-0 shadow-sm py-1.5 p-2.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ps-10 ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
+                                        className="block border-0 shadow-sm py-1.5 p-2.5 rounded-md w-full text-gray-900 placeholder:text-gray-400 sm:text-sm ps-10 ring-1 ring-gray-300 ring-inset hover:ring-2 hover:ring-nbgreenlight focus:ring-2 focus:ring-inset focus:ring-nbgreendark sm:leading-6"
                                         //pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" ez jelenleg így nem az igazi de majd lehetne használni csak máshogy 
                                         {...register("phoneNumber")}
                                         placeholder={t("register_info.phone_number")} />
                                     {errors.phoneNumber && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.phoneNumber?.message}</p>)}
                                 </div>
 
-                                <div class="flex flex-col justify-center col-span-full p-10 text-center">
-                                    <label for="photo" class="block font-medium text-gray-900 text-sm leading-6">Profile picture</label>
-                                    <div class="border-2 border-nbblack mt-4 p-4 border-dashed rounded-lg">
-                                        <div class="flex justify-center mt-2">
-                                            <div class="inline-flex items-center gap-x-3">
-                                                <svg class="w-12 h-12 text-nbgreenmain" viewBox="0 0 24 24" fill="currentColor"
+                                <div className="flex flex-col justify-center col-span-full p-10 text-center">
+                                    <label for="photo" className="block font-medium text-gray-900 text-sm leading-6">Profile picture</label>
+                                    <div className="border-2 border-nbblack mt-4 p-4 border-dashed rounded-lg">
+                                        <div className="flex justify-center mt-2">
+                                            <div className="inline-flex items-center gap-x-3">
+                                                <svg className="w-12 h-12 text-nbgreenmain" viewBox="0 0 24 24" fill="currentColor"
                                                     aria-hidden="true">
                                                     <path fill-rule="evenodd"
                                                         d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
@@ -279,7 +279,7 @@ export const RegistrationInfo = () => {
                                                 </svg>
                                                 <button type="button"
                                                     onClick={() => hiddenInput?.current?.click()}
-                                                    class="bg-nbgreenmain hover:bg-nbgreendark focus:bg-nbgreendark shadow-sm px-2.5 py-1.5 rounded-md font-semibold text-nbgreylight text-sm focus:ring-1 focus:ring-nbgreenmain ring-offset">Upload file</button>
+                                                    className="bg-nbgreenmain hover:bg-nbgreendark focus:bg-nbgreendark shadow-sm px-2.5 py-1.5 rounded-md font-semibold text-nbgreylight text-sm focus:ring-1 focus:ring-nbgreenmain ring-offset">Upload file</button>
                                                 <input
                                                     type="file"
                                                     id="profilePicture"
@@ -296,39 +296,39 @@ export const RegistrationInfo = () => {
 
                                 </div>
 
-                                <div class="relative left-1/2 p-5 max-w-sm -translate-x-1/2">
-                                    <label for="photo" class="block font-medium text-gray-900 text-sm leading-6">{t("register_info.date_of_birth")}</label>
-                                    <div class="absolute inset-y-0 flex items-center pointer-events-none ps-3.5 start-0">
-                                        <svg class="w-4 h-4 text-nbgreenmain dark:text-gray-400" aria-hidden="true"
+                                <div className="relative left-1/2 p-5 max-w-sm -translate-x-1/2">
+                                    <label for="photo" className="block font-medium text-gray-900 text-sm leading-6">{t("register_info.date_of_birth")}</label>
+                                    <div className="absolute inset-y-0 flex items-center pointer-events-none ps-3.5 start-0">
+                                        <svg className="w-4 h-4 text-nbgreenmain dark:text-gray-400" aria-hidden="true"
                                             xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                                         </svg>
                                     </div>
 
                                     <input type="date"
-                                        class="block border-gray-300 hover:border-nbgreenlight hover:border-2 focus:border-nbgreenmain dark:border-gray-600 bg-gray-50 dark:bg-gray-700 p-2.5 border rounded-lg w-full text-gray-900 text-sm focus:ring-nbgreenmain dark:text-white ps-10 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                        className="block border-gray-300 hover:border-nbgreenlight hover:border-2 focus:border-nbgreenmain dark:border-gray-600 bg-gray-50 dark:bg-gray-700 p-2.5 border rounded-lg w-full text-gray-900 text-sm focus:ring-nbgreenmain dark:text-white ps-10 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         {...register("birthDate")}
                                         placeholder={t("register_info.date_of_birth")} />
                                     {errors.birthDate && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.birthDate?.message}</p>)}
                                 </div>
 
-                                <div class="inline-flex justify-center items-center w-full">
-                                    <hr class="bg-nborangemain my-8 w-full h-0.5" />
-                                    <span class="left-1/2 absolute bg-white px-3 font-medium text-nbblack -translate-x-1/2"></span>
+                                <div className="inline-flex justify-center items-center w-full">
+                                    <hr className="bg-nborangemain my-8 w-full h-0.5" />
+                                    <span className="left-1/2 absolute bg-white px-3 font-medium text-nbblack -translate-x-1/2"></span>
                                 </div>
                                 <fieldset>
-                                    <legend class="text-nbblack">Are you a content creator or a viewer?</legend>
+                                    <legend className="text-nbblack">Are you a content creator or a viewer?</legend>
 
-                                    <input class="text-nbblack focus:ring-nborangemain text-nbblack peer/Viewer" value='creator' id="Creator"
+                                    <input className="text-nbblack focus:ring-nborangemain text-nbblack peer/Viewer" value='creator' id="Creator"
                                         type="radio" name="status"
                                         {...register("userType")}
                                         onClick={(e) => setUserType('creator')} />
-                                    <label for="Viewer" class="text-nbblack peer-checked/Viewer:text-nborangemain">Content creator</label>
+                                    <label for="Viewer" className="text-nbblack peer-checked/Viewer:text-nborangemain">Content creator</label>
 
-                                    <input class="text-nbblack focus:ring-nborangemain text-nbblack peer/Creator" value='viewer' id="Viewer" type="radio" name="status"
+                                    <input className="text-nbblack focus:ring-nborangemain text-nbblack peer/Creator" value='viewer' id="Viewer" type="radio" name="status"
                                         {...register('userType')}
                                         onClick={(e) => setUserType('viewer')} />
                                     <label for="Content creator"
-                                        class="text-nbblack creator:text-nborangemain peer-checked/Content">Viewer</label>
+                                        className="text-nbblack creator:text-nborangemain peer-checked/Content">Viewer</label>
                                     {errors.userType && (<p className="pt-2 font-h3-subtitle text-nbredmain text-xs">{errors.userType?.message}</p>)}
 
                                     {/* <div class="text-nbblack focus:ring-nborangemain peer-checked/Viewer:block hidden text-nbblack">Choose your prefered roles.</div> */}
@@ -346,7 +346,7 @@ export const RegistrationInfo = () => {
                         </>}
                         <div>
                             <button type="submit"
-                                class="flex justify-center bg-nbblack hover:bg-nbbluedark shadow-sm px-3 py-1.5 rounded-full w-full font-semibold text-sm text-white leading-6 focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create
+                                className="flex justify-center bg-nbblack hover:bg-nbbluedark shadow-sm px-3 py-1.5 rounded-full w-full font-semibold text-sm text-white leading-6 focus:ring-1 focus:ring-nbbluedark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create
                                 Profile</button>
                         </div>
                     </form>
@@ -355,9 +355,9 @@ export const RegistrationInfo = () => {
 
 
 
-                <p class="mt-10 text-center text-gray-500 text-sm">
+                <p className="mt-10 text-center text-gray-500 text-sm">
                     Already a member?
-                    <a href="/login" class="font-semibold text-nbpurpledark hover:text-nbpurplemain leading-6">Sign in</a>
+                    <a href="/login" className="font-semibold text-nbpurpledark hover:text-nbpurplemain leading-6">Sign in</a>
                 </p>
             </div>
 
