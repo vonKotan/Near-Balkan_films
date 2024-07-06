@@ -1,4 +1,3 @@
-import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -8,10 +7,23 @@ import { Link } from 'react-router-dom';
 // Icons
 import { AiFillStar } from 'react-icons/ai';
 
+import {
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+  doc, getDoc,
+  getDocs,
+  where,
+  documentId,
+  updateDoc
+} from 'firebase/firestore';
+
 // Components
 import Comments from '../components/Comments';
 import { database } from '../firebase/config';
 import AddFavorite from '../components/AddFavorite';
+import { SectionTitle } from '../components/SectionTitle';
 import { useTranslation } from 'react-i18next';
 import { PosterContainer, PosterContainerSmall } from '../components/PosterContainer';
 import { CountdownTimer, CurrentRace, RaceState, FundingButtons } from '../components/CountdownTimer';
@@ -24,12 +36,14 @@ import {
   Item,
 } from '@radix-ui/react-navigation-menu';
 
-const Details = ({ user, targetDate, haveWon }) => {
+const Details = ({user}) => {
   const { id } = useParams();
   const videoRef = React.useRef(null);  //megtekintesek novelesehez kell
   const [stars, setStars] = useState([]);
   const [movie, setMovie] = useState({});
   const { t, i18n } = useTranslation();
+  const [competition, setCompetition] = useState([]);
+  const [targetDate, setTargetDate] = useState(null);
 
   useEffect(() => {
     const loadDocument = async () => {
@@ -55,6 +69,39 @@ const Details = ({ user, targetDate, haveWon }) => {
       setStars(setRatingStars(movie?.rating));
     }
   }, [movie]);
+
+  useEffect(() => {
+    const fetchCompetitionForFilm = async () => {
+      try {
+        console.log('Starting to fetch competitions for film:', id);
+        
+        const q = query(
+          collection(database, 'competitions'),
+          where('films', 'array-contains', id)
+        );
+        const querySnapshot = await getDocs(q);
+        
+        const competitions = [];
+        querySnapshot.forEach((doc) => {
+          competitions.push({ id: doc.id, ...doc.data() });
+        });
+
+        console.log('Competitions fetched:', competitions);
+        setCompetition(competitions[0]);
+      } catch (error) {
+        console.error('Error fetching competitions:', error);
+      }
+    };
+
+    fetchCompetitionForFilm();
+  }, [id]);
+
+  useEffect(() => {
+    if (competition && competition.endDate) {
+      setTargetDate(competition.endDate.toDate());
+    }
+  }, [competition]);
+
 
   //Megtekintesek novelese
   useEffect(() => {
@@ -150,7 +197,7 @@ const Details = ({ user, targetDate, haveWon }) => {
         )}
       </section >
       <div class="flex flex-col justify-evenly md:justify-start gap-4 md:gap-0 md:grid grid-cols-1 md:grid-cols-9 grid-rows-3 md:grid-rows-1 md:max-h-[92px]">
-        <FundingButtons targetDate={targetDate} movie={movie} user={user} haveWon={haveWon} />
+        <FundingButtons targetDate={targetDate} movie={movie} user={user} haveWon={competition.winner == id} competition={competition} />
       </div>
       {user && (
         <>
@@ -286,6 +333,7 @@ const Details = ({ user, targetDate, haveWon }) => {
               </Link>
             </section>
           </section>
+          
           <Comments id={id} movie={movie} user={user} />
         </>
       )
