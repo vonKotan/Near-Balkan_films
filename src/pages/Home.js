@@ -49,7 +49,7 @@ const Home = ({ user, search }) => {
   const { t, i18n } = useTranslation();
   const [adUrl, setAdUrl] = useState('')
 
-  const [randomMovie, setRandomMovie] = useState(0);
+  const [randomMovie, setRandomMovie] = useState(null);
 
   const currentDate = useMemo(() => new Date(), []);
   const formattedDate = currentDate.toLocaleDateString();

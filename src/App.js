@@ -37,6 +37,8 @@ function App() {
 
   const { auth, onAuthStateChanged, getUser } = useAuth();
 
+
+
   // target date
   const RELATIVE_TIME_FROM_NOW = new Date().getTime() + 3 * 24 * 60 * 60 * 1000;
   const EXACT_DATE_IN_FUTURE = new Date("June 30, 2024 23:59:59").getTime();
@@ -90,9 +92,10 @@ function App() {
           <Route path="/past-competitions" element={<PastCompetitions search={search} targetDate={targetDate}/>} />
           <Route
             path='/favourites'
-            element={!user ? <Navigate to='/login' /> : <Favorites user={user} targetDate={targetDate} />}
+            element={!user ? <Navigate to='/login' /> : <Favorites user={user}/>}
           />
-          <Route path='/details/:id' element={<Details user={user} targetDate={targetDate}/>} />
+          {/*kell a detailnek a competition*/}
+          <Route path='/details/:id' element={<Details user={user}/>} />
           <Route path='/details/:id' element={<Details targetDate={targetDate}/>} />
           <Route
             path='/events'
