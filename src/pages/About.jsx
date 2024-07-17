@@ -1,1480 +1,1417 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
+
+import { useTranslation } from 'react-i18next';
 
 // Router
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 // Components
 
 const About = () => {
-return (
-<>
-<body class="bg-nbgreylight mx-auto max-w-screen-sm sm:max-w-screen-sm lg:max-w-screen-xl">
-    <header>
-      <div
-        class="flex lg:flex-row flex-col lg:justify-between items-center lg:px-11 py-9 max-w-screen-sm sm:max-w-screen-sm lg:max-w-screen-xl"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="172"
-          height="45"
-          viewBox="0 0 172 45"
-          fill="none"
-        >
-          <path
-            d="M133.191 6.41797H136.925V8.89761L139.374 6.41797H143.72V9.76399H140.2L137.231 12.7515V21.2958H133.191V6.41797Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M115.734 18.5473V15.1415L118.55 12.393H126.294V10.5109L125.345 9.58474H120.754L119.836 10.5109V11.3474H115.857V9.64449L119.132 6.41797H126.998L130.273 9.64449V21.2958H126.63V19.1747L124.365 21.2958H118.55L115.734 18.5473ZM124.09 18.2485L126.294 16.1872V15.2013H120.54L119.713 16.0079V17.5017L120.478 18.2485H124.09Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M98.0391 18.2485V9.52499L101.192 6.41797H109.792L112.975 9.52499V15.1714H102.079V17.0834L103.059 18.0693H108.047L108.966 17.1432V16.3664H112.945V18.3083L109.914 21.2958H101.13L98.0391 18.2485ZM108.935 12.4229V10.6901L107.894 9.64449H103.12L102.079 10.6901V12.4229H108.935Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M80.8438 6.41797H84.5778V8.89761L87.1181 6.41797H92.0458L95.4431 9.73411V21.2958H91.4031V10.8096L90.3624 9.76399H87.7915L84.8838 12.632V21.2958H80.8438V6.41797Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M156.918 29.4902H160.652V31.9699L163.192 29.4902H168.12L171.517 32.8064V44.3681H167.477V33.8819L166.437 32.8363H163.866L160.958 35.7043V44.3681H156.918V29.4902Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M139.473 41.6196V38.2138L142.288 35.4653H150.032V33.5831L149.083 32.657H144.492L143.574 33.5831V34.4196H139.595V32.7168L142.87 29.4902H150.736L154.011 32.7168V44.3681H150.369V42.2469L148.104 44.3681H142.288L139.473 41.6196ZM147.828 41.3208L150.032 39.2594V38.2735H144.278L143.452 39.0802V40.5739L144.217 41.3208H147.828Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M123.164 23.0381H127.204V34.9583H129.867L133.754 29.4911H138.223L133.142 36.6612L138.529 44.369H134.06L129.775 38.3043H127.204V44.369H123.164V23.0381Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M115.914 23.0381H119.954V44.369H115.914V23.0381Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M98.3125 41.6196V38.2138L101.128 35.4653H108.872V33.5831L107.923 32.657H103.332L102.414 33.5831V34.4196H98.4349V32.7168L101.71 29.4902H109.576L112.851 32.7168V44.3681H109.208V42.2469L106.944 44.3681H101.128L98.3125 41.6196ZM106.668 41.3208L108.872 39.2594V38.2735H103.118L102.291 39.0802V40.5739L103.057 41.3208H106.668Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M80.8438 41.1424V23.0381H84.8838V31.5525L87.1181 29.4911H92.6885L95.841 32.5981V41.2619L92.6885 44.369H84.1187L80.8438 41.1424ZM90.6379 41.0229L91.8009 39.8578V34.0023L90.6379 32.8371H87.6384L84.8838 35.5259V39.8578L86.0469 41.0229H90.6379Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M0 23.0703H5.58045V26.6198L9.37698 23.0703H16.7413L21.8186 27.8173V44.3675H15.7808V29.3568L14.2256 27.86H10.3833L6.03786 31.9655V44.3675H0V23.0703Z"
-            fill="#46BEA4"
-          />
-          <path
-            d="M6.42438 21.2971H0V14.979L4.4607 10.6249L0 6.27083V0H6.47286L10.9093 4.33042L15.3458 0H21.8186V6.27083L17.3579 10.6249L21.8186 14.979V21.2971H15.3943L10.9093 16.9194L6.42438 21.2971Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M53.7017 44.3675H47.2773V38.0493L51.738 33.6952L47.2773 29.3411V23.0703H53.7502L58.1867 27.4007L62.6231 23.0703H69.096V29.3411L64.6353 33.6952L69.096 38.0493V44.3675H62.6716L58.1867 39.9897L53.7017 44.3675Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M23.6406 39.7168V13.6074H29.5183V25.8866L32.7688 22.9137H40.8729L45.4593 27.3946V39.8892L40.8729 44.37H28.4051L23.6406 39.7168ZM37.8895 39.5445L39.5816 37.8642V29.4195L37.8895 27.7392H33.5258L29.5183 31.6169V37.8642L31.2104 39.5445H37.8895Z"
-            fill="#46BEA4"
-          />
-          <path
-            d="M28.1013 10.6249L23.6406 6.27083V0H30.1135L34.5499 4.33042L38.9864 0H45.4593V6.27083L40.9986 10.6249L45.4593 14.979V21.2971H39.0349L34.5499 16.9194L28.1013 10.6249Z"
-            fill="#186A5C"
-          />
-          <path
-            d="M51.764 10.6463L47.279 15.0241L53.6792 21.2949L58.2126 16.9408L62.6733 21.2949L69.0977 14.9768L64.6612 10.6463L69.0977 6.31593L62.6733 -0.00222642L58.2126 4.35186L53.7519 -0.00222719L47.279 6.20944L51.764 10.6463Z"
-            fill="#46BEA4"
-          />
-        </svg>
-        <div
-          class="border-nbgreymain lg:mx-9 border-t-[3px] lg:w-full max-w-sm h-px"
-        ></div>
-        <h2
-          class="font-bold font-h2-title text-2xl text-nbgreendark text-nowrap leading-9"
-        >
-          A
-          <span class="underline underline-offset-2 decoration-nbgreenmain"
-            >kultfilmek</span
-          >
-          inkubátora
-        </h2>
-      </div>
-    </header>
-    <div
-      class="gap-9 grid lg:grid-cols-2 sm:grid-row mx-auto px-11 max-w-fit lg:max-w-screen-xl"
-    >
-      <div
-        id="jobbOszlop"
-        class="flex flex-col gap-9 max-w-sm lg:max-w-screen-xl"
-      >
-        <div
-          id="problemaLehetoseg"
-          class="flex items-center gap-5 bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
-        >
-          <h2
-            class="bg-nbgreydark outline outline-dashed outline-transparent hover:outline-dahsed hover:outline-nbgreenmain hover:bg-nborangemain active:outline-nbpurplemain active:outline-5 pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic"
-          >
-            probléma/lehetőség
-          </h2>
-        </div>
-        <div
-          id="problemaLehetosegSzoveg"
-          class="flex items-center gap-2.5 border-nbgreymain pl-2 border-l-2 border-dashed"
-        >
-          <div id="szövegek" class="flex flex-col gap-5">
-            <p class="mx-2.5 text-base text-nbgreymiddark lg:text-sm">
-              Egyszerre lép fel probléma a filmtermelésben a fogyasztói és
-              készítői oldalon. Létezik egy valós és erős igény a mozgóképes
-              produkciók elkészítésébe való bevonódásra, azonban a nagy stúdiók
-              világszerte nem adnak lehetőséget erre.
-            </p>
-            <div class="flex lg:flex-row flex-col justify-between gap-5">
-              <div class="pl-2.5">
-                <div
-                  class="flex justify-center bg-nbpurplemain -skew-y-12 w-32 box rotate-12"
-                >
-                  <h2
-                    class="font-bold font-h2-title text-base text-nbwhite lg:text-sm"
-                  >
-                    filmkészítóknek
-                  </h2>
-                </div>
-                <p
-                  class="my-2.5 flow-root font-p-paragraph text-base text-nbgreymiddark lg:text-sm"
-                >
-                  A pályájuk elején járó filmesek ugyanekkor
-                  <a class="font-bold text-nbpurplemain"
-                    >nem jutnak forrásokhoz,</a
-                  >
-                  és
-                  <a class="font-bold text-nbgreydark"
-                    >építenek szakmai kapcsolatokat,</a
-                  >
-                  így pedig referenciamunkáik sem jönnek létre.
-                </p>
-                <p
-                  class="my-2.5 flow-root font-p-paragraph text-base text-nbgreymiddark lg:text-sm"
-                >
-                  Független filmesek számára a finanszírozáson kívül a
-                  <a class="font-bold text-nbgreydark"
-                    >potenciális közönség elérése</a
-                  >
-                  és a
-                  <a class="font-bold text-nbgreydark">szakmába való betörés</a>
-                  is jelentős
-                  <a class="font-bold text-nbgreydark">nehézséget okoz.</a>
-                </p>
-              </div>
-              <div
-                class="border-nbgreymain pl-6 sm:pl-2.5 border-l-2 border-dashed sm:border-none"
-              >
-                <div
-                  class="flex justify-center bg-nborangemain -skew-y-12 w-32 box rotate-12"
-                >
-                  <h2
-                    class="font-bold font-h2-title text-base text-nbwhite lg:text-sm"
-                  >
-                    fogyasztóknak
-                  </h2>
-                </div>
-                <p
-                  class="my-2.5 flow-root font-p-paragraph text-base text-nbgreymiddark lg:text-sm"
-                >
-                  A fogyasztók számára a
-                  <a class="font-bold text-nborangemain">kultuszfilmek</a>
-                  meghatározó
-                  <a class="font-bold text-nborangemain">identitásképzők</a>,
-                  mégis a legtöbb
-                  <a class="font-bold text-nbgreydark"
-                    >stúdió ellehetetleníti</a
-                  >
-                  a bevonódást a termelés folyamatába, miközben
-                  <a class="font-bold text-nbgreydark"
-                    >a független filmek koncepciói sem kerülnek validálásra.</a
-                  >
-                </p>
-                <p
-                  class="my-2.5 flow-root font-p-paragraph text-base text-nbgreymiddark lg:text-sm"
-                >
-                  A fiatalság itthon kevés
-                  <a class="font-bold text-nbgreydark"
-                    >hazai/régiós gyártású filmet</a
-                  >
-                  fogyaszt, ennek többek között egy ezeket
-                  <a class="font-bold text-nbgreydark"
-                    >felsorakoztató, kiemelő platform hiánya.</a
-                  >
-                </p>
-              </div>
-            </div>
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
+
+  return (
+    <>
+      <body class="bg-nbgreylight mx-auto max-w-screen-sm sm:max-w-screen-sm lg:max-w-screen-xl">
+        <header>
+          <div class="flex lg:flex-row flex-col lg:justify-between items-center lg:px-11 py-9 max-w-screen-sm sm:max-w-screen-sm lg:max-w-screen-xl">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="172"
+              height="45"
+              viewBox="0 0 172 45"
+              fill="none"
+            >
+              <path
+                d="M133.191 6.41797H136.925V8.89761L139.374 6.41797H143.72V9.76399H140.2L137.231 12.7515V21.2958H133.191V6.41797Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M115.734 18.5473V15.1415L118.55 12.393H126.294V10.5109L125.345 9.58474H120.754L119.836 10.5109V11.3474H115.857V9.64449L119.132 6.41797H126.998L130.273 9.64449V21.2958H126.63V19.1747L124.365 21.2958H118.55L115.734 18.5473ZM124.09 18.2485L126.294 16.1872V15.2013H120.54L119.713 16.0079V17.5017L120.478 18.2485H124.09Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M98.0391 18.2485V9.52499L101.192 6.41797H109.792L112.975 9.52499V15.1714H102.079V17.0834L103.059 18.0693H108.047L108.966 17.1432V16.3664H112.945V18.3083L109.914 21.2958H101.13L98.0391 18.2485ZM108.935 12.4229V10.6901L107.894 9.64449H103.12L102.079 10.6901V12.4229H108.935Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M80.8438 6.41797H84.5778V8.89761L87.1181 6.41797H92.0458L95.4431 9.73411V21.2958H91.4031V10.8096L90.3624 9.76399H87.7915L84.8838 12.632V21.2958H80.8438V6.41797Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M156.918 29.4902H160.652V31.9699L163.192 29.4902H168.12L171.517 32.8064V44.3681H167.477V33.8819L166.437 32.8363H163.866L160.958 35.7043V44.3681H156.918V29.4902Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M139.473 41.6196V38.2138L142.288 35.4653H150.032V33.5831L149.083 32.657H144.492L143.574 33.5831V34.4196H139.595V32.7168L142.87 29.4902H150.736L154.011 32.7168V44.3681H150.369V42.2469L148.104 44.3681H142.288L139.473 41.6196ZM147.828 41.3208L150.032 39.2594V38.2735H144.278L143.452 39.0802V40.5739L144.217 41.3208H147.828Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M123.164 23.0381H127.204V34.9583H129.867L133.754 29.4911H138.223L133.142 36.6612L138.529 44.369H134.06L129.775 38.3043H127.204V44.369H123.164V23.0381Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M115.914 23.0381H119.954V44.369H115.914V23.0381Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M98.3125 41.6196V38.2138L101.128 35.4653H108.872V33.5831L107.923 32.657H103.332L102.414 33.5831V34.4196H98.4349V32.7168L101.71 29.4902H109.576L112.851 32.7168V44.3681H109.208V42.2469L106.944 44.3681H101.128L98.3125 41.6196ZM106.668 41.3208L108.872 39.2594V38.2735H103.118L102.291 39.0802V40.5739L103.057 41.3208H106.668Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M80.8438 41.1424V23.0381H84.8838V31.5525L87.1181 29.4911H92.6885L95.841 32.5981V41.2619L92.6885 44.369H84.1187L80.8438 41.1424ZM90.6379 41.0229L91.8009 39.8578V34.0023L90.6379 32.8371H87.6384L84.8838 35.5259V39.8578L86.0469 41.0229H90.6379Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M0 23.0703H5.58045V26.6198L9.37698 23.0703H16.7413L21.8186 27.8173V44.3675H15.7808V29.3568L14.2256 27.86H10.3833L6.03786 31.9655V44.3675H0V23.0703Z"
+                fill="#46BEA4"
+              />
+              <path
+                d="M6.42438 21.2971H0V14.979L4.4607 10.6249L0 6.27083V0H6.47286L10.9093 4.33042L15.3458 0H21.8186V6.27083L17.3579 10.6249L21.8186 14.979V21.2971H15.3943L10.9093 16.9194L6.42438 21.2971Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M53.7017 44.3675H47.2773V38.0493L51.738 33.6952L47.2773 29.3411V23.0703H53.7502L58.1867 27.4007L62.6231 23.0703H69.096V29.3411L64.6353 33.6952L69.096 38.0493V44.3675H62.6716L58.1867 39.9897L53.7017 44.3675Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M23.6406 39.7168V13.6074H29.5183V25.8866L32.7688 22.9137H40.8729L45.4593 27.3946V39.8892L40.8729 44.37H28.4051L23.6406 39.7168ZM37.8895 39.5445L39.5816 37.8642V29.4195L37.8895 27.7392H33.5258L29.5183 31.6169V37.8642L31.2104 39.5445H37.8895Z"
+                fill="#46BEA4"
+              />
+              <path
+                d="M28.1013 10.6249L23.6406 6.27083V0H30.1135L34.5499 4.33042L38.9864 0H45.4593V6.27083L40.9986 10.6249L45.4593 14.979V21.2971H39.0349L34.5499 16.9194L28.1013 10.6249Z"
+                fill="#186A5C"
+              />
+              <path
+                d="M51.764 10.6463L47.279 15.0241L53.6792 21.2949L58.2126 16.9408L62.6733 21.2949L69.0977 14.9768L64.6612 10.6463L69.0977 6.31593L62.6733 -0.00222642L58.2126 4.35186L53.7519 -0.00222719L47.279 6.20944L51.764 10.6463Z"
+                fill="#46BEA4"
+              />
+            </svg>
+            <div class="border-nbgreymain lg:mx-9 border-t-[3px] lg:w-full max-w-sm h-px"></div>
+            <h2 class="font-bold font-h2-title text-2xl text-nbgreendark text-nowrap leading-9">
+            {t("about.motto_before-underline")}
+              <span  class="underline underline-offset-2 decoration-nbgreenmain">
+              {t("about.motto_underline")}
+              </span>
+              {t("about.motto_after-underline")}
+            </h2>
           </div>
-        </div>
-        <div
-          id="market"
-          class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
-        >
-          <h2
-            class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic"
+        </header>
+        <div class="gap-9 grid lg:grid-cols-2 sm:grid-row mx-auto px-11 max-w-fit lg:max-w-screen-xl">
+          <div
+            id="jobbOszlop"
+            class="flex flex-col gap-9 max-w-sm lg:max-w-screen-xl"
           >
-            piac
-          </h2>
-        </div>
-        <div class="flex lg:flex-row flex-col gap-6 -translate-y-5">
-          <div class="flex flex-col items-center gap-7">
-            <div class="flex flex-col items-center">
-              <h2
-                class="font-bold font-h2-title text-nbgreydark text-nowrap text-xl lg:text-lg"
-              >
-                Video on Demand
+            <div
+              id="problemaLehetoseg"
+              class="flex items-center gap-5 bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
+            >
+              <h2 class="bg-nbgreydark outline outline-dashed outline-transparent hover:outline-dahsed hover:outline-nbgreenmain hover:bg-nborangemain active:outline-nbpurplemain active:outline-5 pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic">
+                probléma/lehetőség
               </h2>
             </div>
             <div
-              class="relative flex flex-row justify-center items-end gap-2 -translate-y-4"
+              id="problemaLehetosegSzoveg"
+              class="flex items-center gap-2.5 border-nbgreymain pl-2 border-l-2 border-dashed"
             >
-              <div
-                class="top-0 left-0 box-border absolute flex justify-center border-nbgreymain border-t-2 border-l-2 border-dashed min-w-[267px] min-h-20 -translate-y-3 translate-x-3 box"
-              >
-                <h2
-                  class="font-bold font-h2-title text-lg text-nbgreenmain text-nowrap"
-                >
-                  CAGR +15,5%
-                </h2>
-              </div>
-              <div id="diagrammok" class="flex flex-col items-center gap-1 m-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="40"
-                  viewBox="0 0 17 40"
-                  fill="none"
-                >
-                  <path
-                    d="M8.75 31.9082L8.75 8.6058"
-                    stroke="#45BFA4"
-                    stroke-width="16"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <span class="text-[8px] text-nbgreydark">2024</span>
-              </div>
-              <div class="flex flex-col items-center gap-1 m-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="45"
-                  viewBox="0 0 17 45"
-                  fill="none"
-                >
-                  <path
-                    d="M8.25 36.9082L8.25 8.6369"
-                    stroke="#45BFA4"
-                    stroke-width="16"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <span class="text-[8px] text-nbgreydark">2025</span>
-              </div>
-              <div class="flex flex-col items-center gap-1 m-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="51"
-                  viewBox="0 0 17 51"
-                  fill="none"
-                >
-                  <path
-                    d="M8.75 42.9082L8.75 8.98264"
-                    stroke="#45BFA4"
-                    stroke-width="16"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <span class="text-[8px] text-nbgreydark">2026</span>
-              </div>
-              <div class="flex flex-col items-center gap-1 m-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="58"
-                  viewBox="0 0 17 58"
-                  fill="none"
-                >
-                  <path
-                    d="M8.25 49.9082L8.24999 8.79218"
-                    stroke="#45BFA4"
-                    stroke-width="16"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <span class="text-[8px] text-nbgreydark">2027</span>
-              </div>
-              <div class="flex flex-col items-center gap-1 m-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="65"
-                  viewBox="0 0 17 65"
-                  fill="none"
-                >
-                  <path
-                    d="M8.75 56.9082L8.75 8.41864"
-                    stroke="#45BFA4"
-                    stroke-width="16"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <span class="text-[8px] text-nbgreydark">2028</span>
-              </div>
-              <div class="flex flex-col items-center gap-1 m-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="75"
-                  viewBox="0 0 17 75"
-                  fill="none"
-                >
-                  <path
-                    d="M8.25 66.9082L8.24999 8.48084"
-                    stroke="#45BFA4"
-                    stroke-width="16"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <span class="text-[8px] text-nbgreydark">2029</span>
-              </div>
-              <div class="flex flex-col items-center gap-1 m-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="86"
-                  viewBox="0 0 17 86"
-                  fill="none"
-                >
-                  <path
-                    d="M8.75 77.9082L8.74999 8.00098"
-                    stroke="#45BFA4"
-                    stroke-width="16"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <span class="text-[8px] text-nbgreydark">2030</span>
-              </div>
-              <div class="flex flex-col items-center gap-1 m-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="101"
-                  viewBox="0 0 17 101"
-                  fill="none"
-                >
-                  <path
-                    d="M8.25 92.9082L8.24999 8.43698"
-                    stroke="#45BFA4"
-                    stroke-width="16"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <span class="text-[8px] text-nbgreydark">2031</span>
-              </div>
-              <div class="flex flex-col items-center gap-1 m-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="17"
-                  height="114"
-                  viewBox="0 0 17 114"
-                  fill="none"
-                >
-                  <path
-                    d="M8.75 105.908L8.74999 8.07235"
-                    stroke="#45BFA4"
-                    stroke-width="16"
-                    stroke-linecap="round"
-                  />
-                </svg>
-                <span class="text-[8px] text-nbgreydark">2032</span>
-              </div>
-            </div>
-            <div
-              id="tamSamSom"
-              class="flex flex-col justify-center bg-nbgreenlight p-4 rounded-md min-w-56 min-h-48 -translate-y-5 box"
-            >
-              <p
-                class="flex flex-row items-center font-bold font-p-paragraph text-nbgreydark text-xs"
-              >
-                <a class="text-lg">$114B</a>
-                <a class="opacity-50 mx-1 text-md"> // </a>
-                <a class="text-md">TAM</a>
-              </p>
-              <p
-                class="mb-2 font-p-paragraph text-nbgreydark text-nowrap text-xs"
-              >
-                a világ online (VoD) film- & TV-fogyasztói
-              </p>
-              <div
-                class="flex flex-col bg-nbwhite p-4 rounded-md min-w-48 min-h-28 box"
-              >
-                <p
-                  class="flex flex-row items-center font-bold font-p-paragraph text-nbgreydark text-xs"
-                >
-                  <a class="text-lg">$23B</a>
-                  <a class="opacity-50 mx-1 text-md"> // </a>
-                  <a class="text-md">SAM</a>
+              <div id="szövegek" class="flex flex-col gap-5">
+                <p class="mx-2.5 font-h2-title text-nbgreymiddark lg:text-sm">
+                  Egyszerre lép fel probléma a filmtermelésben a fogyasztói és
+                  készítői oldalon. Létezik egy valós és erős igény a mozgóképes
+                  produkciók elkészítésébe való bevonódásra, azonban a nagy
+                  stúdiók világszerte nem adnak lehetőséget erre.
                 </p>
-                <p class="mb-2 font-p-paragraph text-nbgreydark text-xs">
-                  európai Video-on-Demand film- & sorozatfogyasztók
-                </p>
-                <div
-                  class="flex flex-col bg-nbgreenmain p-4 rounded-md min-w-40 min-h-8 box"
-                >
-                  <p
-                    class="flex flex-row items-center font-bold font-p-paragraph text-nbgreydark text-xs"
-                  >
-                    <a class="text-lg">$500M</a>
-                    <a class="opacity-50 mx-1 text-md"> // </a>
-                    <a class="text-md">SOM</a>
-                  </p>
-                  <p
-                    class="font-p-paragraph text-nbgreydark text-nowrap text-xs"
-                  >
-                    térségi fiatal filmkedvelők
-                  </p>
+                <div class="flex lg:flex-row flex-col justify-between gap-5">
+                  <div class="pl-2.5">
+                    <div class="flex justify-center bg-nbpurplemain -skew-y-12 w-32 box rotate-12">
+                      <h2 class="font-bold font-h2-title text-base text-nbwhite lg:text-sm">
+                        filmkészítóknek
+                      </h2>
+                    </div>
+                    <p
+                      class="my-2.5 flow-root font-p-paragraph text-base text-nbgreymiddark lg:text-sm hyphens-auto"
+                      lang="hu"
+                    >
+                      A pályájuk elején járó filmesek ugyanekkor
+                      <a class="font-bold text-nbpurplemain">
+                        {" "}
+                        nem jutnak forrásokhoz,
+                      </a>{" "}
+                      és
+                      <a class="font-bold text-nbgreydark">
+                        {" "}
+                        építenek szakmai kapcsolatokat,
+                      </a>{" "}
+                      így pedig referenciamunkáik sem jönnek létre.
+                    </p>
+                    <p class="my-2.5 flow-root font-p-paragraph text-base text-nbgreymiddark lg:text-sm">
+                      Független filmesek számára a finanszírozáson kívül a
+                      <a class="font-bold text-nbgreydark">
+                        {" "}
+                        potenciális közönség elérése
+                      </a>{" "}
+                      és a
+                      <a class="font-bold text-nbgreydark">
+                        {" "}
+                        szakmába való betörés
+                      </a>{" "}
+                      is jelentős
+                      <a class="font-bold text-nbgreydark"> nehézséget okoz.</a>
+                    </p>
+                  </div>
+                  <div class="border-nbgreymain pl-6 sm:pl-2.5 border-l-2 border-dashed sm:border-none">
+                    <div class="flex justify-center bg-nborangemain -skew-y-12 w-32 box rotate-12">
+                      <h2 class="font-bold font-h2-title text-base text-nbwhite lg:text-sm">
+                        fogyasztóknak
+                      </h2>
+                    </div>
+                    <p
+                      class="my-2.5 flow-root font-p-paragraph text-base text-nbgreymiddark lg:text-sm hyphens-auto"
+                      lang="hu"
+                    >
+                      A fogyasztók számára a
+                      <a class="font-bold text-nborangemain"> kultuszfilmek</a>{" "}
+                      meghatározó
+                      <a class="font-bold text-nborangemain">
+                        {" "}
+                        identitásképzők
+                      </a>
+                      , mégis a legtöbb
+                      <a class="font-bold text-nbgreydark">
+                        {" "}
+                        stúdió ellehetetleníti
+                      </a>{" "}
+                      a bevonódást a termelés folyamatába, miközben
+                      <a class="font-bold text-nbgreydark">
+                        {" "}
+                        a független filmek koncepciói sem kerülnek validálásra.
+                      </a>
+                    </p>
+                    <p class="my-2.5 flow-root font-p-paragraph text-base text-nbgreymiddark lg:text-sm">
+                      {" "}
+                      A fiatalság itthon kevés
+                      <a class="font-bold text-nbgreydark">
+                        {" "}
+                        hazai/régiós gyártású filmet
+                      </a>{" "}
+                      fogyaszt, ennek többek között egy ezeket
+                      <a class="font-bold text-nbgreydark">
+                        {" "}
+                        felsorakoztató, kiemelő platform hiánya.
+                      </a>
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="flex flex-col border-l-2 border-dashed">
-            <p
-              class="mx-6 my-2.5 font-p-paragraph text-base text-nbgreymiddark lg:text-sm"
+            <div
+              id="market"
+              class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
             >
-              Kezdetben a hazai és térségi filmfogyasztók, akik képesek és
-              hajlandóak pénzt fizetni mozgóképes produkciók megtekintéséért,
-              továbbá esetlegesen érdekli őket a film- készítési folyamat,
-              szeretnék azt megismerni, bevonódni.
-            </p>
-            <p
-              class="mx-6 my-2.5 font-p-paragraph text-base text-nbgreymiddark lg:text-sm"
-            >
-              Hosszabb távon regionális és kontinentális szinten a televíziót és
-              streaminget használók, akik érdekeltek európai gyártású
-              filmprodukciók támogatásában és fogyasztásában.
-            </p>
-            <p
-              class="mx-6 my-2.5 font-p-paragraph text-base text-nbgreymiddark lg:text-sm"
-            >
-              Tartalomgyártóink olyan európai, fiatal, szakképzett vagy amatőr
-              filmesek lennének, akik finnanszírozást keresnek alacsony
-              költségvetésű, kreatív produkcióikhoz, illetve közönséget,
-              kapcsolati hálót kívánnak építeni.
-            </p>
-          </div>
-        </div>
-        <div
-          id="competitionAdvantage"
-          class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
-        >
-          <h2
-            class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic"
-          >
-            versenytársak + versenyelőny
-          </h2>
-        </div>
-        <div class="overflow-x-auto">
-          <table
-            id="tablazat"
-            class="table-fixed border-collapse shadow-md border rounded-lg max-w-sm"
-          >
-            <thead>
-              <tr>
-                <th class="m-3"></th>
-                <th>
-                  <svg
-                    class="m-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="28"
-                    height="19"
-                    viewBox="0 0 28 19"
-                    fill="none"
+              <h2 class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic">
+                piac
+              </h2>
+            </div>
+            <div class="flex lg:flex-row flex-col gap-6 -translate-y-5">
+              <div class="flex flex-col items-center gap-7">
+                <div class="flex flex-col items-center">
+                  <h2 class="font-bold font-h2-title text-nbgreydark text-nowrap text-xl lg:text-lg">
+                    Video on Demand
+                  </h2>
+                </div>
+                <div class="relative flex flex-row justify-center items-end gap-2 -translate-y-4">
+                  <div class="top-0 left-0 box-border absolute flex justify-center border-nbgreymain border-t-2 border-l-2 border-dashed min-w-[267px] min-h-20 -translate-y-3 translate-x-3 box">
+                    <h2 class="font-bold font-h2-title text-lg text-nbgreenmain text-nowrap">
+                      CAGR +15,5%
+                    </h2>
+                  </div>
+                  <div
+                    id="diagrammok"
+                    class="flex flex-col items-center gap-1 m-1"
                   >
-                    <path
-                      d="M0.46875 9.83301H2.63046V11.2134L4.10112 9.83301H6.95387L8.92066 11.6791V18.1153H6.58177V12.2778L5.97933 11.6957H4.49094L2.80764 13.2923V18.1153H0.46875V9.83301Z"
-                      fill="#2B535D"
-                    />
-                    <path
-                      d="M2.95737 9.14457H0.46875V6.6875L2.1967 4.99424L0.46875 3.30097V0.862305H2.97615L4.69471 2.54637L6.41326 0.862305H8.92066V3.30097L7.19272 4.99424L8.92066 6.6875V9.14457H6.43204L4.69471 7.44211L2.95737 9.14457Z"
-                      fill="#2B535D"
-                    />
-                    <path
-                      d="M21.266 18.1153H18.7773V15.6582L20.5053 13.9649L18.7773 12.2717V9.83301H21.2847L23.0033 11.5171L24.7219 9.83301H27.2293V12.2717L25.5013 13.9649L27.2293 15.6582V18.1153H24.7406L23.0033 16.4128L21.266 18.1153Z"
-                      fill="#2B535D"
-                    />
-                    <path
-                      d="M9.625 16.307V6.15332H11.9018V10.9286L13.161 9.77246H16.3003L18.0769 11.515V16.374L16.3003 18.1166H11.4706L9.625 16.307ZM15.1446 16.24L15.8001 15.5865V12.3025L15.1446 11.6491H13.4542L11.9018 13.157V15.5865L12.5573 16.24H15.1446Z"
-                      fill="#2B535D"
-                    />
-                    <path
-                      d="M11.3529 4.99424L9.625 3.30097V0.862305H12.1324L13.851 2.54637L15.5695 0.862305H18.0769V3.30097L16.349 4.99424L18.0769 6.6875V9.14457H15.5883L13.851 7.44211L11.3529 4.99424Z"
-                      fill="#2B535D"
-                    />
-                    <path
-                      d="M20.512 5.00047L18.7747 6.70293L21.2539 9.1416L23.01 7.44834L24.7379 9.1416L27.2266 6.68453L25.508 5.00047L27.2266 3.31641L24.7379 0.859332L23.01 2.5526L21.2821 0.859332L18.7747 3.27499L20.512 5.00047Z"
-                      fill="#2B535D"
-                    />
-                  </svg>
-                </th>
-                <th>
-                  <svg
-                    class="m-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="59"
-                    height="8"
-                    viewBox="0 0 59 8"
-                    fill="none"
-                  >
-                    <path
-                      d="M2.67972 2.78925L3.88368 1.03347C4.10942 0.707395 4.41041 0.544358 4.77411 0.544358C5.0751 0.544358 5.32593 0.644688 5.53913 0.85789C5.75233 1.07109 5.8652 1.32192 5.8652 1.61037C5.8652 1.82357 5.8025 2.01169 5.68963 2.18727L4.59853 3.76747L5.92791 5.46054C6.06586 5.62358 6.12857 5.82424 6.12857 6.04998C6.12857 6.35097 6.02824 6.6018 5.81504 6.815C5.60184 7.0282 5.35101 7.14107 5.05002 7.14107C4.72395 7.14107 4.47312 7.04074 4.29754 6.82754L2.66718 4.79585V5.92457C2.66718 6.25064 2.61701 6.48893 2.50414 6.67705C2.30348 7.00312 2.00249 7.16616 1.61371 7.16616C1.26255 7.16616 0.986643 7.05329 0.798523 6.815C0.622945 6.56418 0.535156 6.27573 0.535156 5.91203V1.74832C0.535156 1.40971 0.622945 1.12126 0.811065 0.895514C0.999184 0.669771 1.27509 0.544358 1.61371 0.544358C1.93978 0.544358 2.20315 0.669771 2.41635 0.895514C2.54176 1.02093 2.61701 1.15888 2.64209 1.28429C2.66718 1.37208 2.66718 1.52258 2.66718 1.74832V2.78925H2.67972ZM8.67445 1.87373V5.89949C8.67445 6.25064 8.58666 6.53909 8.39854 6.76484C8.21042 7.01566 7.93452 7.14107 7.5959 7.14107C7.28237 7.14107 7.019 7.0282 6.8058 6.78992C6.63022 6.6018 6.52989 6.30081 6.52989 5.89949V1.87373C6.52989 1.42225 6.61768 1.09617 6.8058 0.895514C7.019 0.65723 7.28237 0.544358 7.60844 0.544358C7.93452 0.544358 8.19788 0.65723 8.39854 0.882973C8.58666 1.09617 8.67445 1.42225 8.67445 1.87373ZM12.5372 0.418945C13.3273 0.418945 14.0547 0.682312 14.7194 1.20905C15.2335 1.62291 15.4969 2.06185 15.4969 2.51334C15.4969 2.88958 15.3339 3.19057 15.0203 3.40377C14.8448 3.52918 14.6441 3.57935 14.4309 3.57935C14.2553 3.57935 14.0923 3.54173 13.9293 3.45394C13.8665 3.41631 13.7035 3.25328 13.4401 2.97737C13.2019 2.714 12.8883 2.57605 12.5246 2.57605C12.1735 2.57605 11.8725 2.70146 11.6342 2.93974C11.3959 3.19057 11.2705 3.49156 11.2705 3.84272C11.2705 4.19387 11.3959 4.49486 11.6342 4.74569C11.8725 4.99651 12.1735 5.10939 12.5246 5.10939C12.8131 5.10939 13.089 5.00906 13.3398 4.80839C13.4903 4.6579 13.6533 4.5074 13.8038 4.35691C13.9669 4.21895 14.1801 4.14371 14.4309 4.14371C14.7194 4.14371 14.9702 4.24404 15.1959 4.4447C15.4091 4.64536 15.522 4.89618 15.522 5.18463C15.522 5.58595 15.2837 5.98728 14.8197 6.3886C14.1675 6.9655 13.4151 7.2414 12.5497 7.2414C12.023 7.2414 11.5213 7.12853 11.0448 6.90279C10.4553 6.61434 9.97875 6.20048 9.62759 5.64866C9.27643 5.09684 9.10086 4.49486 9.10086 3.83017C9.10086 2.85195 9.46455 2.01169 10.1919 1.32192C10.8316 0.732477 11.6091 0.431487 12.5372 0.418945ZM18.0303 2.78925L19.2342 1.03347C19.46 0.707395 19.761 0.544358 20.1246 0.544358C20.4256 0.544358 20.6765 0.644688 20.8897 0.85789C21.1029 1.07109 21.2157 1.32192 21.2157 1.61037C21.2157 1.82357 21.153 2.01169 21.0402 2.18727L19.9491 3.76747L21.2784 5.46054C21.4164 5.62358 21.4791 5.82424 21.4791 6.04998C21.4791 6.35097 21.3788 6.6018 21.1656 6.815C20.9524 7.0282 20.7015 7.14107 20.4006 7.14107C20.0745 7.14107 19.8237 7.04074 19.6481 6.82754L18.0177 4.79585V5.92457C18.0177 6.25064 17.9675 6.48893 17.8547 6.67705C17.654 7.00312 17.353 7.16616 16.9642 7.16616C16.6131 7.16616 16.3372 7.05329 16.1491 6.815C15.9735 6.6018 15.8731 6.30081 15.8731 5.94965V1.74832C15.8731 1.40971 15.9609 1.12126 16.1491 0.895514C16.3623 0.669771 16.6256 0.544358 16.9642 0.544358C17.2903 0.544358 17.5537 0.65723 17.7794 0.895514C17.9048 1.02093 17.9801 1.15888 18.0052 1.28429C18.0303 1.37208 18.0303 1.52258 18.0303 1.74832V2.78925Z"
-                      fill="#2B535D"
-                    />
-                    <path
-                      d="M22.4548 4.62696C22.6931 4.62696 22.9439 4.72729 23.2198 4.94049C23.5584 5.20386 23.7842 5.32927 23.9096 5.32927C24.0977 5.32927 24.1855 5.22894 24.1855 5.04082C24.1855 4.94049 24.1353 4.8527 24.0224 4.77745C23.9597 4.73983 23.6462 4.61442 23.0568 4.41376C22.1036 4.07514 21.6271 3.46062 21.6271 2.5451C21.6271 1.85533 21.8779 1.31606 22.3795 0.927279C22.831 0.588664 23.3703 0.413086 24.0224 0.413086C24.5868 0.413086 25.0759 0.55104 25.4898 0.814407C25.9036 1.07777 26.1168 1.42893 26.1168 1.85533C26.1168 2.10616 26.0416 2.31936 25.8786 2.49494C25.7155 2.67052 25.5149 2.74577 25.264 2.74577C25.0007 2.74577 24.7122 2.62035 24.3861 2.36953C24.1855 2.21903 24.035 2.13124 23.9347 2.13124C23.7591 2.13124 23.6713 2.21903 23.6713 2.38207C23.6713 2.5451 23.8845 2.6956 24.3234 2.82101C24.9254 3.00913 25.3769 3.23488 25.703 3.51078C26.1419 3.87448 26.3551 4.37613 26.3551 5.02828C26.3551 5.74313 26.1168 6.29495 25.6277 6.69627C25.1762 7.07251 24.5868 7.24809 23.8594 7.24809C23.132 7.24809 22.53 7.05997 22.0535 6.67119C21.6772 6.35766 21.4766 6.0065 21.4766 5.59264C21.4766 5.31673 21.5644 5.09099 21.7525 4.90287C21.9531 4.72729 22.1789 4.62696 22.4548 4.62696ZM28.1862 2.58273H27.6218C27.3083 2.58273 27.0449 2.49494 26.8442 2.3319C26.631 2.14378 26.5182 1.9055 26.5182 1.59197C26.5182 1.40385 26.5683 1.22827 26.6687 1.06523C26.769 0.889655 26.9069 0.776783 27.07 0.701536C27.233 0.626288 27.6218 0.588664 28.2363 0.588664H30.3934C30.9202 0.588664 31.2713 0.626288 31.4218 0.688994C31.5974 0.764242 31.7353 0.877114 31.8357 1.05269C31.936 1.22827 31.9987 1.40385 31.9987 1.59197C31.9987 1.89296 31.8858 2.14378 31.6475 2.35699C31.4845 2.50748 31.2086 2.59527 30.8198 2.59527H30.3307V5.83092C30.3307 6.18208 30.268 6.45799 30.1551 6.64611C29.9545 6.97218 29.6535 7.13522 29.2772 7.13522C28.8885 7.13522 28.6 6.98472 28.3868 6.69627C28.2614 6.50815 28.1862 6.23224 28.1862 5.85601V2.58273ZM33.3908 6.24478C33.2905 6.48307 33.1901 6.67119 33.0773 6.78406C32.8641 7.02234 32.6007 7.13522 32.2872 7.13522C31.9109 7.13522 31.6099 6.98472 31.4093 6.68373C31.2839 6.50815 31.2211 6.29495 31.2211 6.06921C31.2211 5.88109 31.2713 5.69297 31.3591 5.50485L33.3908 1.1781C33.5914 0.751701 33.9175 0.55104 34.3815 0.55104C34.8456 0.55104 35.1842 0.764242 35.3849 1.20319L37.4416 5.55501C37.5294 5.73059 37.567 5.90617 37.567 6.06921C37.567 6.32003 37.4792 6.54578 37.3162 6.74644C37.103 7.0098 36.8271 7.13522 36.4885 7.13522C36.2126 7.13522 35.9868 7.04743 35.7987 6.88439C35.6608 6.75898 35.5228 6.54578 35.3849 6.25733H33.3908V6.24478ZM42.2951 4.57679L42.7968 5.39198C42.9347 5.61772 43.01 5.84346 43.01 6.08175C43.01 6.38274 42.9096 6.63356 42.6964 6.83423C42.4832 7.03489 42.2324 7.13522 41.9314 7.13522C41.5426 7.13522 41.2542 6.97218 41.0535 6.64611L40.1631 5.17878V6.05667C40.1631 6.35766 40.0628 6.60848 39.8621 6.82168C39.6614 7.03489 39.4106 7.13522 39.1096 7.13522C38.7459 7.13522 38.4575 7.0098 38.2693 6.7339C38.0938 6.50815 38.0185 6.19462 38.0185 5.81838V1.81771C38.0185 0.989985 38.4575 0.588664 39.3479 0.588664H40.7149C41.1664 0.588664 41.5802 0.714077 41.9565 0.977444C42.3453 1.24081 42.6212 1.56688 42.7968 1.98075C42.9347 2.29428 42.9974 2.60781 42.9974 2.92134C42.9974 3.51078 42.7591 4.0626 42.2951 4.57679ZM44.841 2.58273H44.2766C43.9631 2.58273 43.6997 2.49494 43.4991 2.3319C43.2859 2.14378 43.173 1.9055 43.173 1.59197C43.173 1.40385 43.2232 1.22827 43.3235 1.06523C43.4238 0.889655 43.5618 0.776783 43.7248 0.701536C43.8878 0.626288 44.2766 0.588664 44.8911 0.588664H47.0482C47.575 0.588664 47.9261 0.626288 48.0766 0.688994C48.2522 0.764242 48.3902 0.877114 48.4905 1.05269C48.5908 1.22827 48.6535 1.40385 48.6535 1.59197C48.6535 1.89296 48.5407 2.14378 48.3024 2.35699C48.1393 2.50748 47.8634 2.59527 47.4747 2.59527H46.9855V5.83092C46.9855 6.18208 46.9228 6.45799 46.81 6.64611C46.6093 6.97218 46.3083 7.13522 45.9321 7.13522C45.5433 7.13522 45.2548 6.98472 45.0416 6.69627C44.9162 6.50815 44.841 6.23224 44.841 5.85601V2.58273ZM51.1869 5.07845H52.1651C52.5664 5.07845 52.8674 5.16623 53.0681 5.32927C53.2938 5.52993 53.4192 5.78076 53.4192 6.09429C53.4192 6.40782 53.3064 6.67119 53.0681 6.85931C52.8925 7.0098 52.5915 7.08505 52.1776 7.08505H50.5096C50.1209 7.08505 49.845 7.05997 49.6945 6.99726C49.406 6.88439 49.2179 6.68373 49.1301 6.42036C49.0674 6.24479 49.0423 5.96888 49.0423 5.5801V2.04345C49.0423 1.74246 49.0549 1.55434 49.0674 1.45401C49.105 1.25335 49.1803 1.07777 49.3182 0.927279C49.4687 0.764242 49.6694 0.663912 49.8951 0.613747C50.008 0.588664 50.2337 0.588664 50.5724 0.588664H51.8516C52.2027 0.588664 52.4034 0.588664 52.4661 0.601205C52.6918 0.626288 52.8799 0.688994 53.0304 0.801866C53.2938 1.00253 53.4192 1.25335 53.4192 1.56688C53.4192 1.9055 53.3064 2.16887 53.0806 2.35699C52.8799 2.52002 52.604 2.59527 52.2529 2.59527H51.1994V3.03422H52.0397C52.2905 3.03422 52.4912 3.09692 52.6542 3.23488C52.8298 3.37283 52.905 3.56095 52.905 3.81177C52.905 4.32597 52.5915 4.58933 51.9644 4.58933H51.1994V5.07845H51.1869ZM58.072 4.57679L58.5737 5.39198C58.7117 5.61772 58.7869 5.84346 58.7869 6.08175C58.7869 6.38274 58.6866 6.63356 58.4734 6.83423C58.2602 7.03489 58.0093 7.13522 57.7083 7.13522C57.3196 7.13522 57.0311 6.97218 56.8305 6.64611L55.94 5.17878V6.05667C55.94 6.35766 55.8397 6.60848 55.639 6.82168C55.4384 7.03489 55.1875 7.13522 54.8866 7.13522C54.5229 7.13522 54.2344 7.0098 54.0463 6.7339C53.8707 6.50815 53.7955 6.19462 53.7955 5.81838V1.81771C53.7955 0.989985 54.2344 0.588664 55.1248 0.588664H56.4918C56.9433 0.588664 57.3572 0.714077 57.7334 0.977444C58.1222 1.24081 58.3981 1.56688 58.5737 1.98075C58.7117 2.29428 58.7744 2.60781 58.7744 2.92134C58.7744 3.51078 58.5361 4.0626 58.072 4.57679Z"
-                      fill="#2B535D"
-                    />
-                  </svg>
-                </th>
-                <th>
-                  <svg
-                    class="m-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="37"
-                    height="11"
-                    viewBox="0 0 37 11"
-                    fill="none"
-                  >
-                    <path
-                      d="M5.4682 9.38614C4.92852 9.48091 4.37934 9.50933 3.81125 9.585L2.07848 4.50997V9.80282C1.53881 9.85961 1.04646 9.93535 0.535156 10.0111V0.31543H1.9744L3.94379 5.81667V0.31543H5.4682V9.38614ZM8.45076 3.86609C9.03785 3.86609 9.93734 3.83768 10.477 3.83768V5.35259C9.80473 5.35259 9.01889 5.35259 8.45076 5.38101V7.63453C9.34083 7.57774 10.2309 7.50192 11.1303 7.47351V8.93156L6.93578 9.26303V0.31543H11.1303V1.83038H8.45076V3.86609ZM16.764 1.83042H15.1923V8.79917C14.681 8.79917 14.1697 8.79917 13.6774 8.81805V1.83042H12.1057V0.31543H16.7641L16.764 1.83042ZM19.2258 3.76197H21.2994V5.27688H19.2258V8.71396H17.7391V0.31543H21.9717V1.83038H19.2258V3.76197ZM24.4334 7.38834C25.2951 7.40722 26.1661 7.47362 27.0089 7.52088V9.01691C25.6549 8.93163 24.3009 8.84653 22.9185 8.81805V0.31543H24.4334V7.38834ZM28.2871 9.12107C28.77 9.14952 29.2813 9.17793 29.7736 9.23465V0.31543H28.2871V9.12107ZM36.411 0.31543L34.4889 4.92657L36.411 10.0111C35.8429 9.93535 35.2748 9.83119 34.7067 9.73649L33.6178 6.9339L32.5101 9.50933C31.9609 9.41456 31.4306 9.38614 30.8816 9.3104L32.832 4.86971L31.0709 0.31543H32.6994L33.6935 2.86244L34.7541 0.31543L36.411 0.31543Z"
-                      fill="#2B535D"
-                    />
-                  </svg>
-                </th>
-                <th>
-                  <svg
-                    class="m-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="27"
-                    height="11"
-                    viewBox="0 0 27 11"
-                    fill="none"
-                  >
-                    <path
-                      d="M0.496094 0.31543V10.2162H3.24631V0.31543H0.496094Z"
-                      fill="#2B535D"
-                    />
-                    <path
-                      d="M8.84447 0.31543L8.22896 4.94045L7.84652 2.42486C7.73564 1.61908 7.62928 0.91594 7.52745 0.31543H4.07422V10.2162H6.4073L6.41635 3.67828L7.39846 10.2162H9.05945L9.99178 3.53416L9.99857 10.2162H12.3249V0.31543H8.84447Z"
-                      fill="#2B535D"
-                    />
-                    <path
-                      d="M13.1484 10.2162V0.31543H17.4413C18.412 0.31543 19.1989 1.09646 19.1989 2.0627V8.46893C19.1989 9.43392 18.4133 10.2162 17.4413 10.2162H13.1484ZM16.3564 2.09731C16.2473 2.03835 16.0386 2.00996 15.7351 2.00996V8.50638C16.1359 8.50638 16.3825 8.43432 16.475 8.28365C16.5675 8.13516 16.6149 7.73336 16.6149 7.07389V3.235C16.6149 2.78735 16.5983 2.50129 16.5675 2.37463C16.5367 2.24798 16.4679 2.15627 16.3564 2.09731Z"
-                      fill="#2B535D"
-                    />
-                    <path
-                      d="M24.1063 2.79439H24.2821C25.2695 2.79439 26.07 3.56765 26.07 4.52043V8.49016C26.07 9.44343 25.2698 10.2162 24.2821 10.2162H24.1063C23.5021 10.2162 22.9679 9.92669 22.6443 9.48369L22.4859 10.089H20.0195V0.31543H22.6511V3.49497C22.9911 3.07123 23.5151 2.79439 24.1063 2.79439ZM23.5429 7.62232V5.27631C23.5429 4.88867 23.518 4.63429 23.4661 4.51719C23.4143 4.40009 23.2074 4.32491 23.0622 4.32491C22.917 4.32491 22.6932 4.38601 22.6496 4.48897V8.46018C22.6994 8.57324 22.9129 8.63615 23.0622 8.63615C23.2115 8.63615 23.4288 8.57526 23.4744 8.46018C23.5201 8.3451 23.5429 8.06446 23.5429 7.62232Z"
-                      fill="#2B535D"
-                    />
-                  </svg>
-                </th>
-                <th>
-                  <svg
-                    class="m-3"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="10"
-                    viewBox="0 0 24 10"
-                    fill="none"
-                  >
-                    <path
-                      d="M20.4153 7.29346H17.1445L20.4153 3.65996V7.29346ZM23.0897 7.29346V0.31543L16.5789 7.54553H11.5806C11.3654 7.54553 11.1932 7.37338 11.1932 7.1582C11.1932 7.01065 11.2732 6.88769 11.39 6.82006C11.3961 6.82006 11.3961 6.81391 11.4023 6.81391C11.9064 6.55569 12.3921 6.42043 12.6688 6.34051L12.7548 6.31592C12.9208 6.26673 13.1299 6.2237 13.3451 6.17451C13.4188 6.15607 13.4988 6.13762 13.5787 6.12533C14.9005 5.82407 16.6896 5.30764 16.6896 3.19886C16.6896 2.73161 16.5728 2.25821 16.3023 1.834C15.8719 1.15771 15.0604 0.610536 13.7324 0.450687C13.4742 0.419946 13.1914 0.401502 12.8901 0.401502C10.8305 0.401502 9.44105 1.48356 9.39187 3.10664C9.39187 3.13738 9.39187 3.16197 9.39187 3.19271C9.39187 4.09033 10.1173 4.8158 11.015 4.8158C11.9126 4.8158 12.638 4.08418 12.638 3.19271C12.638 2.2951 11.9126 1.56963 11.015 1.56963C10.9658 1.56963 10.9166 1.56963 10.8674 1.57578H10.8612C10.5293 1.60652 10.2219 1.74178 9.98208 1.93851C10.1665 1.64955 10.4186 1.40363 10.726 1.20075C10.7321 1.20075 10.7321 1.1946 10.7383 1.1946C11.2916 0.838013 12.0294 0.641276 12.8963 0.641276C12.9885 0.641276 13.0807 0.641276 13.1668 0.647424C13.1852 0.647424 13.2037 0.647424 13.2221 0.647424C13.4127 0.672016 13.5602 0.831865 13.5602 1.0286V5.52897C13.5602 5.738 13.4127 5.9163 13.2221 5.96548C13.2098 5.96548 13.2037 5.97163 13.1914 5.97163C13.0069 6.00852 12.8409 6.05155 12.6934 6.09459L12.6134 6.11918C12.2138 6.22985 11.3838 6.46347 10.6522 7.02294C10.394 7.21968 10.1727 7.43486 9.98208 7.67463C9.50253 8.28329 9.26276 9.0272 9.26276 9.89408H14.4824L16.5912 7.55167H20.4215V9.89408H23.0959V7.55167H23.766V7.2996H23.0897M1.77444 7.58856L3.42212 4.06573L5.06365 7.58856H1.77444ZM3.9693 2.2951C3.6373 2.98983 2.94872 3.0636 2.94872 3.0636L3.28071 3.77063V3.77678L0.421875 9.88793H0.698537L1.65763 7.84063H5.18046L6.13341 9.88793H9.08447L4.76239 0.604388L3.9693 2.2951Z"
-                      fill="#2B535D"
-                    />
-                  </svg>
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="bg-nbwhite">
-                <td
-                  class="p-3 max-w- font-bold font-h2-title text-center text-nbgreydark text-sm felx-wrap"
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="40"
+                      viewBox="0 0 17 40"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.75 31.9082L8.75 8.6058"
+                        stroke="#45BFA4"
+                        stroke-width="16"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    <span class="text-[8px] text-nbgreydark">2024</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 m-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="45"
+                      viewBox="0 0 17 45"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.25 36.9082L8.25 8.6369"
+                        stroke="#45BFA4"
+                        stroke-width="16"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    <span class="text-[8px] text-nbgreydark">2025</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 m-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="51"
+                      viewBox="0 0 17 51"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.75 42.9082L8.75 8.98264"
+                        stroke="#45BFA4"
+                        stroke-width="16"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    <span class="text-[8px] text-nbgreydark">2026</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 m-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="58"
+                      viewBox="0 0 17 58"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.25 49.9082L8.24999 8.79218"
+                        stroke="#45BFA4"
+                        stroke-width="16"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    <span class="text-[8px] text-nbgreydark">2027</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 m-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="65"
+                      viewBox="0 0 17 65"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.75 56.9082L8.75 8.41864"
+                        stroke="#45BFA4"
+                        stroke-width="16"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    <span class="text-[8px] text-nbgreydark">2028</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 m-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="75"
+                      viewBox="0 0 17 75"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.25 66.9082L8.24999 8.48084"
+                        stroke="#45BFA4"
+                        stroke-width="16"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    <span class="text-[8px] text-nbgreydark">2029</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 m-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="86"
+                      viewBox="0 0 17 86"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.75 77.9082L8.74999 8.00098"
+                        stroke="#45BFA4"
+                        stroke-width="16"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    <span class="text-[8px] text-nbgreydark">2030</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 m-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="101"
+                      viewBox="0 0 17 101"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.25 92.9082L8.24999 8.43698"
+                        stroke="#45BFA4"
+                        stroke-width="16"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    <span class="text-[8px] text-nbgreydark">2031</span>
+                  </div>
+                  <div class="flex flex-col items-center gap-1 m-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="114"
+                      viewBox="0 0 17 114"
+                      fill="none"
+                    >
+                      <path
+                        d="M8.75 105.908L8.74999 8.07235"
+                        stroke="#45BFA4"
+                        stroke-width="16"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                    <span class="text-[8px] text-nbgreydark">2032</span>
+                  </div>
+                </div>
+                <div
+                  id="tamSamSom"
+                  class="flex flex-col justify-center bg-nbgreenlight p-4 rounded-md min-w-56 min-h-48 -translate-y-5 box"
                 >
-                  készítő-készítő kapcsolatteremtés
-                </td>
-                <td>
-                  <svg
-                    id="pipa"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="17"
-                    height="15"
-                    viewBox="0 0 17 15"
-                    fill="none"
-                  >
-                    <path
-                      d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
-                      fill="#90B0B9"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="pipa"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="17"
-                    height="15"
-                    viewBox="0 0 17 15"
-                    fill="none"
-                  >
-                    <path
-                      d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
-                      fill="#90B0B9"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span
-                    class="flex justify-center m-3 font-bold font-h2-title text-nbgreydark text-sm felx-wrap"
-                    >szakmai támogatás</span
-                  >
-                </td>
-                <td>
-                  <svg
-                    id="pipa"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="17"
-                    height="15"
-                    viewBox="0 0 17 15"
-                    fill="none"
-                  >
-                    <path
-                      d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
-                      fill="#90B0B9"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="pipa"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="17"
-                    height="15"
-                    viewBox="0 0 17 15"
-                    fill="none"
-                  >
-                    <path
-                      d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
-                      fill="#90B0B9"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="pipa"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="17"
-                    height="15"
-                    viewBox="0 0 17 15"
-                    fill="none"
-                  >
-                    <path
-                      d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
-                      fill="#90B0B9"
-                    />
-                  </svg>
-                </td>
-              </tr>
-              <tr class="bg-nbwhite">
-                <td>
-                  <span
-                    class="flex justify-center m-3 font-bold font-h2-title text-nbgreydark text-sm felx-wrap"
-                    >készítő-készítő kapcsolatteremtés</span
-                  >
-                </td>
-                <td>
-                  <svg
-                    id="pipa"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="17"
-                    height="15"
-                    viewBox="0 0 17 15"
-                    fill="none"
-                  >
-                    <path
-                      d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
-                      fill="#90B0B9"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="pipa"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="17"
-                    height="15"
-                    viewBox="0 0 17 15"
-                    fill="none"
-                  >
-                    <path
-                      d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
-                      fill="#90B0B9"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <span
-                    class="flex justify-center m-3 font-bold font-h2-title text-nbgreydark text-sm felx-wrap"
-                    >szakmai támogatás</span
-                  >
-                </td>
-                <td>
-                  <svg
-                    id="pipa"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="17"
-                    height="15"
-                    viewBox="0 0 17 15"
-                    fill="none"
-                  >
-                    <path
-                      d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
-                      fill="#90B0B9"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="pipa"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="17"
-                    height="15"
-                    viewBox="0 0 17 15"
-                    fill="none"
-                  >
-                    <path
-                      d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
-                      fill="#90B0B9"
-                    />
-                  </svg>
-                </td>
-              </tr>
-              <tr class="bg-nbwhite">
-                <td>
-                  <span
-                    class="flex justify-center m-3 font-bold font-h2-title text-nbgreydark text-sm felx-wrap"
-                    >szubkulturális termelés és prosumerek ösztönzése</span
-                  >
-                </td>
-                <td>
-                  <svg
-                    id="pipa"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="17"
-                    height="15"
-                    viewBox="0 0 17 15"
-                    fill="none"
-                  >
-                    <path
-                      d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
-                      fill="#90B0B9"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-                <td>
-                  <svg
-                    id="X"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="18"
-                    height="18"
-                    viewBox="0 0 18 18"
-                    fill="none"
-                  >
-                    <path
-                      d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
-                      fill="#F4451E"
-                    />
-                  </svg>
-                </td>
-              </tr>
-            </tbody>
-            <colgroup>
-              <col />
-              <col class="bg-nbgreenlight bg-opacity-40" />
-              <col />
-              <col class="bg-nbgreymain bg-opacity-15" />
-              <col />
-              <col class="bg-nbgreymain bg-opacity-15" />
-            </colgroup>
-          </table>
-        </div>
-        <div
-          id="bisunessModell"
-          class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
-        >
-          <h2
-            class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic"
-          >
-            üzleti modell
-          </h2>
-        </div>
-        <div class="flex lg:flex-row flex-col gap-4">
-          <div
-            class="flex justify-center bg-nbgreenlight px-6 py-2.5 rounded-lg"
-          >
-            <svg
-              width="153"
-              height="129"
-              viewBox="0 0 153 129"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M56 14.0889H59.3941V16.2562L61.7032 14.0889H66.1824L69.2705 16.9874V27.093H65.5982V17.9274L64.6522 17.0135H62.3153L59.6723 19.5203V27.093H56V14.0889Z"
-                fill="#2B535D"
-              />
-              <path
-                d="M59.9074 13.01H56V9.1521L58.7131 6.49347L56 3.83485V0.00585938H59.9369L62.6352 2.65003L65.3336 0.00585938H69.2705V3.83485L66.5574 6.49347L69.2705 9.1521V13.01H65.3631L62.6352 10.3369L59.9074 13.01Z"
-                fill="#2B535D"
-              />
-              <path
-                d="M88.6535 27.093H84.7461V23.2351L87.4592 20.5765L84.7461 17.9179V14.0889H88.683L91.3813 16.733L94.0797 14.0889H98.0166V17.9179L95.3035 20.5765L98.0166 23.2351V27.093H94.1092L91.3813 24.4199L88.6535 27.093Z"
-                fill="#2B535D"
-              />
-              <path
-                d="M70.3789 24.255V8.3125H73.9538V15.8102L75.9308 13.995H80.8599L83.6494 16.731V24.3602L80.8599 27.0962H73.2767L70.3789 24.255ZM79.0453 24.1498L80.0745 23.1238V17.9674L79.0453 16.9414H76.3912L73.9538 19.3091V23.1238L74.983 24.1498H79.0453Z"
-                fill="#2B535D"
-              />
-              <path
-                d="M73.092 6.49347L70.3789 3.83485V0.00585938H74.3158L77.0141 2.65003L79.7125 0.00585938H83.6494V3.83485L80.9363 6.49347L83.6494 9.1521V13.01H79.742L77.0141 10.3369L73.092 6.49347Z"
-                fill="#2B535D"
-              />
-              <path
-                d="M87.4691 6.50184L84.7412 9.17491L88.6339 13.0039L91.3912 10.3453L94.1043 13.0039L98.0117 9.14602L95.3134 6.50184L98.0117 3.85767L94.1043 -0.000221587L91.3912 2.6584L88.6781 -0.000222052L84.7412 3.79265L87.4691 6.50184Z"
-                fill="#2B535D"
-              />
-              <g clip-path="url(#clip0_0_1)">
-                <rect
-                  x="2"
-                  y="73.0117"
-                  width="21"
-                  height="21"
-                  rx="10.5"
-                  fill="#2B535D"
-                />
-                <path
-                  d="M12.4987 75.9521C10.0155 75.9521 7.98375 78.4805 7.98375 81.5959C7.98375 84.7112 10.0155 87.2396 12.4987 87.2396C14.982 87.2396 17.0138 84.7112 17.0138 81.5959C17.0138 78.4805 14.982 75.9521 12.4987 75.9521ZM7.78057 87.2396C5.38762 87.3525 3.46875 89.3165 3.46875 91.7546V94.0121H21.5287V91.7546C21.5287 89.3165 19.6325 87.3525 17.2169 87.2396C15.9979 88.6167 14.3273 89.4971 12.4987 89.4971C10.6702 89.4971 8.99962 88.6167 7.78057 87.2396Z"
-                  fill="#90B0B9"
-                />
-              </g>
-              <rect
-                x="1.25"
-                y="72.2617"
-                width="22.5"
-                height="22.5"
-                rx="11.25"
-                stroke="#9ED8D2"
-                stroke-width="1.5"
-              />
-              <g clip-path="url(#clip1_0_1)">
-                <rect
-                  x="13"
-                  y="62.0117"
-                  width="21"
-                  height="21"
-                  rx="10.5"
-                  fill="#2B535D"
-                />
-                <path
-                  d="M23.4987 64.9521C21.0155 64.9521 18.9837 67.4805 18.9837 70.5959C18.9837 73.7112 21.0155 76.2396 23.4987 76.2396C25.982 76.2396 28.0138 73.7112 28.0138 70.5959C28.0138 67.4805 25.982 64.9521 23.4987 64.9521ZM18.7806 76.2396C16.3876 76.3525 14.4688 78.3165 14.4688 80.7546V83.0121H32.5287V80.7546C32.5287 78.3165 30.6325 76.3525 28.2169 76.2396C26.9979 77.6167 25.3273 78.4971 23.4987 78.4971C21.6702 78.4971 19.9996 77.6167 18.7806 76.2396Z"
-                  fill="#90B0B9"
-                />
-              </g>
-              <rect
-                x="12.25"
-                y="61.2617"
-                width="22.5"
-                height="22.5"
-                rx="11.25"
-                stroke="#9ED8D2"
-                stroke-width="1.5"
-              />
-              <g clip-path="url(#clip2_0_1)">
-                <rect
-                  x="24"
-                  y="73.0117"
-                  width="21"
-                  height="21"
-                  rx="10.5"
-                  fill="#2B535D"
-                />
-                <path
-                  d="M34.4987 75.9521C32.0155 75.9521 29.9837 78.4805 29.9837 81.5959C29.9837 84.7112 32.0155 87.2396 34.4987 87.2396C36.982 87.2396 39.0138 84.7112 39.0138 81.5959C39.0138 78.4805 36.982 75.9521 34.4987 75.9521ZM29.7806 87.2396C27.3876 87.3525 25.4688 89.3165 25.4688 91.7546V94.0121H43.5287V91.7546C43.5287 89.3165 41.6325 87.3525 39.2169 87.2396C37.9979 88.6167 36.3273 89.4971 34.4987 89.4971C32.6702 89.4971 30.9996 88.6167 29.7806 87.2396Z"
-                  fill="#90B0B9"
-                />
-              </g>
-              <rect
-                x="23.25"
-                y="72.2617"
-                width="22.5"
-                height="22.5"
-                rx="11.25"
-                stroke="#9ED8D2"
-                stroke-width="1.5"
-              />
-              <g clip-path="url(#clip3_0_1)">
-                <rect
-                  x="35"
-                  y="62.0117"
-                  width="21"
-                  height="21"
-                  rx="10.5"
-                  fill="#2B535D"
-                />
-                <path
-                  d="M45.4987 64.9521C43.0155 64.9521 40.9837 67.4805 40.9837 70.5959C40.9837 73.7112 43.0155 76.2396 45.4987 76.2396C47.982 76.2396 50.0138 73.7112 50.0138 70.5959C50.0138 67.4805 47.982 64.9521 45.4987 64.9521ZM40.7806 76.2396C38.3876 76.3525 36.4688 78.3165 36.4688 80.7546V83.0121H54.5287V80.7546C54.5287 78.3165 52.6325 76.3525 50.2169 76.2396C48.9979 77.6167 47.3273 78.4971 45.4987 78.4971C43.6702 78.4971 41.9996 77.6167 40.7806 76.2396Z"
-                  fill="#90B0B9"
-                />
-              </g>
-              <rect
-                x="34.25"
-                y="61.2617"
-                width="22.5"
-                height="22.5"
-                rx="11.25"
-                stroke="#9ED8D2"
-                stroke-width="1.5"
-              />
-              <path
-                d="M56.4987 75.9521C54.0155 75.9521 51.9837 78.4805 51.9837 81.5959C51.9837 84.7112 54.0155 87.2396 56.4987 87.2396C58.982 87.2396 61.0137 84.7112 61.0137 81.5959C61.0137 78.4805 58.982 75.9521 56.4987 75.9521ZM51.7806 87.2396C49.3876 87.3525 47.4688 89.3165 47.4688 91.7546V94.0121H65.5287V91.7546C65.5287 89.3165 63.6324 87.3525 61.2169 87.2396C59.9979 88.6167 58.3273 89.4971 56.4987 89.4971C54.6702 89.4971 52.9996 88.6167 51.7806 87.2396Z"
-                fill="#90B0B9"
-              />
-              <g clip-path="url(#clip4_0_1)">
-                <rect
-                  x="83"
-                  y="61.9023"
-                  width="21"
-                  height="21"
-                  rx="10.5"
-                  fill="#2B535D"
-                />
-                <path
-                  d="M93.4987 64.8428C91.0155 64.8428 88.9837 67.3712 88.9837 70.4865C88.9837 73.6019 91.0155 76.1303 93.4987 76.1303C95.982 76.1303 98.0138 73.6019 98.0138 70.4865C98.0138 67.3712 95.982 64.8428 93.4987 64.8428ZM88.7806 76.1303C86.3876 76.2431 84.4688 78.2072 84.4688 80.6453V82.9028H102.529V80.6453C102.529 78.2072 100.632 76.2431 98.2169 76.1303C96.9979 77.5073 95.3273 78.3878 93.4987 78.3878C91.6702 78.3878 89.9996 77.5073 88.7806 76.1303Z"
-                  fill="#90B0B9"
-                />
-              </g>
-              <rect
-                x="82.25"
-                y="61.1523"
-                width="22.5"
-                height="22.5"
-                rx="11.25"
-                stroke="#9ED8D2"
-                stroke-width="1.5"
-              />
-              <rect
-                x="100"
-                y="81.8301"
-                width="11"
-                height="7"
-                rx="1"
-                fill="#90B0B9"
-              />
-              <g clip-path="url(#clip5_0_1)">
-                <rect
-                  x="107"
-                  y="53.9023"
-                  width="21"
-                  height="21"
-                  rx="10.5"
-                  fill="#2B535D"
-                />
-                <path
-                  d="M117.499 56.8428C115.015 56.8428 112.984 59.3712 112.984 62.4865C112.984 65.6019 115.015 68.1303 117.499 68.1303C119.982 68.1303 122.014 65.6019 122.014 62.4865C122.014 59.3712 119.982 56.8428 117.499 56.8428ZM112.781 68.1303C110.388 68.2431 108.469 70.2072 108.469 72.6453V74.9028H126.529V72.6453C126.529 70.2072 124.632 68.2431 122.217 68.1303C120.998 69.5073 119.327 70.3878 117.499 70.3878C115.67 70.3878 114 69.5073 112.781 68.1303Z"
-                  fill="#90B0B9"
-                />
-              </g>
-              <rect
-                x="106.25"
-                y="53.1523"
-                width="22.5"
-                height="22.5"
-                rx="11.25"
-                stroke="#9ED8D2"
-                stroke-width="1.5"
-              />
-              <rect
-                x="123"
-                y="73.9395"
-                width="11"
-                height="7"
-                rx="1"
-                fill="#90B0B9"
-              />
-              <path
-                d="M76.5875 48.0117C76.5875 47.6873 76.3244 47.4243 76 47.4243C75.6756 47.4243 75.4125 47.6873 75.4125 48.0117L76.5875 48.0117ZM75.4125 48.0117L75.4125 49.1617L76.5875 49.1617L76.5875 48.0117L75.4125 48.0117ZM75.4125 51.4617L75.4125 53.7617L76.5875 53.7617L76.5875 51.4617L75.4125 51.4617ZM75.4125 56.0617L75.4125 58.3617L76.5875 58.3617L76.5875 56.0617L75.4125 56.0617ZM75.4125 60.6617L75.4125 62.9617L76.5875 62.9617L76.5875 60.6617L75.4125 60.6617ZM75.4125 65.2617L75.4125 67.5617L76.5875 67.5617L76.5875 65.2617L75.4125 65.2617ZM75.4125 69.8617L75.4126 72.1617L76.5875 72.1617L76.5875 69.8617L75.4125 69.8617ZM75.4126 74.4617L75.4126 76.7617L76.5875 76.7617L76.5875 74.4617L75.4126 74.4617ZM75.4126 79.0617L75.4126 81.3617L76.5875 81.3617L76.5875 79.0617L75.4126 79.0617ZM75.4126 83.6617L75.4126 85.9617L76.5875 85.9617L76.5875 83.6617L75.4126 83.6617ZM75.4126 88.2617L75.4126 90.5617L76.5875 90.5617L76.5875 88.2617L75.4126 88.2617ZM75.4126 92.8617L75.4126 94.0117L76.5875 94.0117L76.5875 92.8617L75.4126 92.8617Z"
-                fill="#517A86"
-              />
-              <path
-                d="M27 98.402H6C6 98.402 18 128.683 81.0745 128.683C141 128.683 187.5 63.0002 117.5 22.5L120 19L108 21L114 30.5L115 26C173.021 61.0005 145 117.5 75.5 117.5C75.5 117.5 90.0957 113.922 98.8404 105.064L101.5 108L100.67 97.4216L90.0957 101.001L94.3191 102.128C94.3191 102.128 62.5 124 27 98.402Z"
-                fill="#00B38C"
-              />
-              <path
-                d="M16.5 59L3 72C3 39.5 23.5 28.5 37 23L33.4981 19.9023L45.9981 20.9023L40 31.5L39 27C33.5 29 20 38 18.5 44.5C31 35 39.7901 39.5 43.5 49L47.5 47.5L43 59L34 50.5H38.7406C35 37 16.5 50.5 16.5 59Z"
-                fill="#00B38C"
-              />
-              <defs>
-                <clipPath id="clip0_0_1">
-                  <rect
-                    x="2"
-                    y="73.0117"
-                    width="21"
-                    height="21"
-                    rx="10.5"
-                    fill="white"
-                  />
-                </clipPath>
-                <clipPath id="clip1_0_1">
-                  <rect
-                    x="13"
-                    y="62.0117"
-                    width="21"
-                    height="21"
-                    rx="10.5"
-                    fill="white"
-                  />
-                </clipPath>
-                <clipPath id="clip2_0_1">
-                  <rect
-                    x="24"
-                    y="73.0117"
-                    width="21"
-                    height="21"
-                    rx="10.5"
-                    fill="white"
-                  />
-                </clipPath>
-                <clipPath id="clip3_0_1">
-                  <rect
-                    x="35"
-                    y="62.0117"
-                    width="21"
-                    height="21"
-                    rx="10.5"
-                    fill="white"
-                  />
-                </clipPath>
-                <clipPath id="clip4_0_1">
-                  <rect
-                    x="83"
-                    y="61.9023"
-                    width="21"
-                    height="21"
-                    rx="10.5"
-                    fill="white"
-                  />
-                </clipPath>
-                <clipPath id="clip5_0_1">
-                  <rect
-                    x="107"
-                    y="53.9023"
-                    width="21"
-                    height="21"
-                    rx="10.5"
-                    fill="white"
-                  />
-                </clipPath>
-              </defs>
-            </svg>
-          </div>
-          <p
-            class="flex border-nbgreymain pl-4 border-l-2 border-dashed font-p-paragraph text-base text-nbgreydark lg:text-sm"
-          >
-            A Near-Balkan Films egy, a filmkészítők és nézők között kapcsolatot
-            teremtő platform, amelynek két, egy visszatérő és egy alkalmi
-            tételekből álló pénzáram biztosítja bevételét. A nézők (havi vagy
-            éves alapon) előfizetnek a platformra, és ebből 10%-ot kap meg a
-            Near-Balkan. Ezen kívül a nézőknek lehetősége van a platformon belül
-            alkalmi vásárlásra, amelyek összegéből szintén 10% jut a
-            Near-Balkannak.
-          </p>
-        </div>
-        <div
-          id="prototypeContact"
-          class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
-        >
-          <h2
-            class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic"
-          >
-            prototípus + kapcsolat
-          </h2>
-        </div>
-        <div class="flex lg:flex-row flex-col items-center gap-3">
-          <div class="pr-6">
-            <img
-              class="max-w-[91px] max-h[91px] mix-blend-multiply"
-              src="public/images/QR_code.png"
-              alt="A Near-Balkan QR kód-ja"
-            />
-          </div>
-          <div class="border-nbgreymain px-6 border-l-2 border-dashed">
-            <img
-              class="rounded-full max-w-[106px] max-h-[106px]"
-              src="public/images/Matyi.jpg"
-              alt="Matyas"
-            />
-          </div>
-          <div class="flex flex-col items-center">
-            <h2
-              class="pb-2 font-bold font-bold font-h2-title text-nbgreydark text-nowrap text-xl underline underline-offset-2 decoration-nbgreenmain"
-            >
-              Bizzer I. Mátyás
-            </h2>
-            <p class="font-p-paragraph text-base text-nbgreydark lg:text-sm">
-              matyas.bizzer@near-balkan.com
-            </p>
-            <p class="font-p-paragraph text-base text-nbgreydark lg:text-sm">
-              +36 70 533 7066
-            </p>
-          </div>
-        </div>
-      </div>
-      <div
-        id="balOszlop"
-        class="flex flex-col gap-9 max-w-sm lg:max-w-screen-xl"
-      >
-        <div
-          class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
-        >
-          <h2
-            class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic"
-          >
-            megoldás
-          </h2>
-        </div>
-        <div class="flex flex-col gap-3">
-          <div class="flex flex-col items-center gap-3">
-            <h2 class="font-bold font-h2-title text-nbgreenmain text-xl">
-              crowdfunding + streaming platform
-            </h2>
-            <div class="flex flex-row lg:flex-col gap-5 lg:gap-1 order-3 lg:order-none m-2 lg:m-0">
-              <div class="flex lg:flex-row flex-col items-center gap-2">
-                <h2
-                  class="flex lg:flex-row flex-col items-center lg:gap-1 font-bold font-h2-title text-md text-nbgreydark text-sm">
-                  <div
-                  class="flex flex-row justify-center bg-nbpurplemain px-1 -skew-y-12 min-w-fit text-sm box rotate-12">
-                  <h2 class="flex lg:flex-row flex-col lg:gap-1 font-bold font-h2-title text-md text-nbwhite">
-                    filmkészítóknek
-                  </h2>
+                  <p class="flex flex-row items-center font-bold font-p-paragraph text-nbgreydark text-xs">
+                    <a class="text-lg">$114B</a>
+                    <a class="opacity-50 mx-1 text-md"> // </a>
+                    <a class="text-md">TAM</a>
+                  </p>
+                  <p class="mb-2 font-p-paragraph text-nbgreydark text-nowrap text-xs">
+                    a világ online (VoD) film- & TV-fogyasztói
+                  </p>
+                  <div class="flex flex-col bg-nbwhite p-4 rounded-md min-w-48 min-h-28 box">
+                    <p class="flex flex-row items-center font-bold font-p-paragraph text-nbgreydark text-xs">
+                      <a class="text-lg">$23B</a>
+                      <a class="opacity-50 mx-1 text-md"> // </a>
+                      <a class="text-md">SAM</a>
+                    </p>
+                    <p class="mb-2 font-p-paragraph text-nbgreydark text-xs">
+                      európai Video-on-Demand film- & sorozatfogyasztók
+                    </p>
+                    <div class="flex flex-col bg-nbgreenmain p-4 rounded-md min-w-40 min-h-8 box">
+                      <p class="flex flex-row items-center font-bold font-p-paragraph text-nbgreydark text-xs">
+                        <a class="text-lg">$500M</a>
+                        <a class="opacity-50 mx-1 text-md"> // </a>
+                        <a class="text-md">SOM</a>
+                      </p>
+                      <p class="font-p-paragraph text-nbgreydark text-nowrap text-xs">
+                        térségi fiatal filmkedvelők
+                      </p>
+                    </div>
                   </div>
-                  <a
-                    class="m-1 lg:m-0 lg:ml-2 underline underline-offset-2 decoration-2 decoration-nbgreenmain"
-                    >nyílvánosság</a
-                  >
-                  <span class="lg:block hidden text-nbgreydark">+</span>
-                  <a
-                    class="m-1 lg:m-0 underline underline-offset-2 decoration-2 decoration-nbgreenmain"
-                    >networking</a
-                  >
-                  <span class="lg:block hidden text-nbgreydark">+</span>
-                  <a
-                    class="lg:m-0 mt-1 underline underline-offset-2 decoration-2 decoration-nbgreenmain"
-                    >finanszírozás</a
-                  >
-                </h2>
+                </div>
               </div>
-              <div>
-                <h2
-                  class="flex lg:flex-row flex-col items-center lg:gap-1 font-bold font-h2-title text-md text-nbgreydark text-sm">
-                  <div
-                  class="flex flex-row justify-center bg-nborangemain px-1 -skew-y-12 min-w-fit text-sm box rotate-12">
-                  <h2 class="font-bold font-h2-title text-md text-nbwhite">
-                    fogyasztóknak
-                  </h2>
-                  </div>
-                  <a
-                    class="m-1 lg:m-0 lg:ml-2 underline underline-offset-2 decoration-2 decoration-nbgreenmain"
-                    >beleszólás</a
-                  >
-                  <span class="lg:block hidden text-nbgreydark">+</span>
-                  <a
-                    class="m-1 lg:m-0 underline underline-offset-2 decoration-2 decoration-nbgreenmain"
-                    >exkluzivitás</a
-                  >
-                  <span class="lg:block hidden text-nbgreydark">+</span>
-                  <a
-                    class="lg:m-0 mt-1 underline underline-offset-2 decoration-2 decoration-nbgreenmain"
-                    >meccénásság</a
-                  >
-                </h2>
+              <div class="flex flex-col border-l-2 border-dashed">
+                <p class="mx-6 my-2.5 font-p-paragraph text-base text-nbgreymiddark lg:text-sm">
+                  Kezdetben a hazai és térségi filmfogyasztók, akik képesek és
+                  hajlandóak pénzt fizetni mozgóképes produkciók
+                  megtekintéséért, továbbá esetlegesen érdekli őket a film-
+                  készítési folyamat, szeretnék azt megismerni, bevonódni.
+                </p>
+                <p class="mx-6 my-2.5 font-p-paragraph text-base text-nbgreymiddark lg:text-sm">
+                  Hosszabb távon regionális és kontinentális szinten a
+                  televíziót és streaminget használók, akik érdekeltek európai
+                  gyártású filmprodukciók támogatásában és fogyasztásában.
+                </p>
+                <p class="mx-6 my-2.5 font-p-paragraph text-base text-nbgreymiddark lg:text-sm">
+                  Tartalomgyártóink olyan európai, fiatal, szakképzett vagy
+                  amatőr filmesek lennének, akik finnanszírozást keresnek
+                  alacsony költségvetésű, kreatív produkcióikhoz, illetve
+                  közönséget, kapcsolati hálót kívánnak építeni.
+                </p>
               </div>
             </div>
             <div
-                class="justify-center items-center gap-4 order-2 lg:order-none grid grid-cols-3 grid-rows-2 grid-flow-col-dense max-w-md sm:max-w-lg lg:max-w-4xl"
+              id="competitionAdvantage"
+              class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
+            >
+              <h2 class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic">
+                versenytársak + versenyelőny
+              </h2>
+            </div>
+            <div class="overflow-x-auto">
+              <table
+                id="tablazat"
+                class="table-fixed border-collapse shadow-md border rounded-lg max-w-sm"
               >
+                <thead>
+                  <tr>
+                    <th class="m-3"></th>
+                    <th>
+                      <svg
+                        class="m-3"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="28"
+                        height="19"
+                        viewBox="0 0 28 19"
+                        fill="none"
+                      >
+                        <path
+                          d="M0.46875 9.83301H2.63046V11.2134L4.10112 9.83301H6.95387L8.92066 11.6791V18.1153H6.58177V12.2778L5.97933 11.6957H4.49094L2.80764 13.2923V18.1153H0.46875V9.83301Z"
+                          fill="#2B535D"
+                        />
+                        <path
+                          d="M2.95737 9.14457H0.46875V6.6875L2.1967 4.99424L0.46875 3.30097V0.862305H2.97615L4.69471 2.54637L6.41326 0.862305H8.92066V3.30097L7.19272 4.99424L8.92066 6.6875V9.14457H6.43204L4.69471 7.44211L2.95737 9.14457Z"
+                          fill="#2B535D"
+                        />
+                        <path
+                          d="M21.266 18.1153H18.7773V15.6582L20.5053 13.9649L18.7773 12.2717V9.83301H21.2847L23.0033 11.5171L24.7219 9.83301H27.2293V12.2717L25.5013 13.9649L27.2293 15.6582V18.1153H24.7406L23.0033 16.4128L21.266 18.1153Z"
+                          fill="#2B535D"
+                        />
+                        <path
+                          d="M9.625 16.307V6.15332H11.9018V10.9286L13.161 9.77246H16.3003L18.0769 11.515V16.374L16.3003 18.1166H11.4706L9.625 16.307ZM15.1446 16.24L15.8001 15.5865V12.3025L15.1446 11.6491H13.4542L11.9018 13.157V15.5865L12.5573 16.24H15.1446Z"
+                          fill="#2B535D"
+                        />
+                        <path
+                          d="M11.3529 4.99424L9.625 3.30097V0.862305H12.1324L13.851 2.54637L15.5695 0.862305H18.0769V3.30097L16.349 4.99424L18.0769 6.6875V9.14457H15.5883L13.851 7.44211L11.3529 4.99424Z"
+                          fill="#2B535D"
+                        />
+                        <path
+                          d="M20.512 5.00047L18.7747 6.70293L21.2539 9.1416L23.01 7.44834L24.7379 9.1416L27.2266 6.68453L25.508 5.00047L27.2266 3.31641L24.7379 0.859332L23.01 2.5526L21.2821 0.859332L18.7747 3.27499L20.512 5.00047Z"
+                          fill="#2B535D"
+                        />
+                      </svg>
+                    </th>
+                    <th>
+                      <svg
+                        class="m-3"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="59"
+                        height="8"
+                        viewBox="0 0 59 8"
+                        fill="none"
+                      >
+                        <path
+                          d="M2.67972 2.78925L3.88368 1.03347C4.10942 0.707395 4.41041 0.544358 4.77411 0.544358C5.0751 0.544358 5.32593 0.644688 5.53913 0.85789C5.75233 1.07109 5.8652 1.32192 5.8652 1.61037C5.8652 1.82357 5.8025 2.01169 5.68963 2.18727L4.59853 3.76747L5.92791 5.46054C6.06586 5.62358 6.12857 5.82424 6.12857 6.04998C6.12857 6.35097 6.02824 6.6018 5.81504 6.815C5.60184 7.0282 5.35101 7.14107 5.05002 7.14107C4.72395 7.14107 4.47312 7.04074 4.29754 6.82754L2.66718 4.79585V5.92457C2.66718 6.25064 2.61701 6.48893 2.50414 6.67705C2.30348 7.00312 2.00249 7.16616 1.61371 7.16616C1.26255 7.16616 0.986643 7.05329 0.798523 6.815C0.622945 6.56418 0.535156 6.27573 0.535156 5.91203V1.74832C0.535156 1.40971 0.622945 1.12126 0.811065 0.895514C0.999184 0.669771 1.27509 0.544358 1.61371 0.544358C1.93978 0.544358 2.20315 0.669771 2.41635 0.895514C2.54176 1.02093 2.61701 1.15888 2.64209 1.28429C2.66718 1.37208 2.66718 1.52258 2.66718 1.74832V2.78925H2.67972ZM8.67445 1.87373V5.89949C8.67445 6.25064 8.58666 6.53909 8.39854 6.76484C8.21042 7.01566 7.93452 7.14107 7.5959 7.14107C7.28237 7.14107 7.019 7.0282 6.8058 6.78992C6.63022 6.6018 6.52989 6.30081 6.52989 5.89949V1.87373C6.52989 1.42225 6.61768 1.09617 6.8058 0.895514C7.019 0.65723 7.28237 0.544358 7.60844 0.544358C7.93452 0.544358 8.19788 0.65723 8.39854 0.882973C8.58666 1.09617 8.67445 1.42225 8.67445 1.87373ZM12.5372 0.418945C13.3273 0.418945 14.0547 0.682312 14.7194 1.20905C15.2335 1.62291 15.4969 2.06185 15.4969 2.51334C15.4969 2.88958 15.3339 3.19057 15.0203 3.40377C14.8448 3.52918 14.6441 3.57935 14.4309 3.57935C14.2553 3.57935 14.0923 3.54173 13.9293 3.45394C13.8665 3.41631 13.7035 3.25328 13.4401 2.97737C13.2019 2.714 12.8883 2.57605 12.5246 2.57605C12.1735 2.57605 11.8725 2.70146 11.6342 2.93974C11.3959 3.19057 11.2705 3.49156 11.2705 3.84272C11.2705 4.19387 11.3959 4.49486 11.6342 4.74569C11.8725 4.99651 12.1735 5.10939 12.5246 5.10939C12.8131 5.10939 13.089 5.00906 13.3398 4.80839C13.4903 4.6579 13.6533 4.5074 13.8038 4.35691C13.9669 4.21895 14.1801 4.14371 14.4309 4.14371C14.7194 4.14371 14.9702 4.24404 15.1959 4.4447C15.4091 4.64536 15.522 4.89618 15.522 5.18463C15.522 5.58595 15.2837 5.98728 14.8197 6.3886C14.1675 6.9655 13.4151 7.2414 12.5497 7.2414C12.023 7.2414 11.5213 7.12853 11.0448 6.90279C10.4553 6.61434 9.97875 6.20048 9.62759 5.64866C9.27643 5.09684 9.10086 4.49486 9.10086 3.83017C9.10086 2.85195 9.46455 2.01169 10.1919 1.32192C10.8316 0.732477 11.6091 0.431487 12.5372 0.418945ZM18.0303 2.78925L19.2342 1.03347C19.46 0.707395 19.761 0.544358 20.1246 0.544358C20.4256 0.544358 20.6765 0.644688 20.8897 0.85789C21.1029 1.07109 21.2157 1.32192 21.2157 1.61037C21.2157 1.82357 21.153 2.01169 21.0402 2.18727L19.9491 3.76747L21.2784 5.46054C21.4164 5.62358 21.4791 5.82424 21.4791 6.04998C21.4791 6.35097 21.3788 6.6018 21.1656 6.815C20.9524 7.0282 20.7015 7.14107 20.4006 7.14107C20.0745 7.14107 19.8237 7.04074 19.6481 6.82754L18.0177 4.79585V5.92457C18.0177 6.25064 17.9675 6.48893 17.8547 6.67705C17.654 7.00312 17.353 7.16616 16.9642 7.16616C16.6131 7.16616 16.3372 7.05329 16.1491 6.815C15.9735 6.6018 15.8731 6.30081 15.8731 5.94965V1.74832C15.8731 1.40971 15.9609 1.12126 16.1491 0.895514C16.3623 0.669771 16.6256 0.544358 16.9642 0.544358C17.2903 0.544358 17.5537 0.65723 17.7794 0.895514C17.9048 1.02093 17.9801 1.15888 18.0052 1.28429C18.0303 1.37208 18.0303 1.52258 18.0303 1.74832V2.78925Z"
+                          fill="#2B535D"
+                        />
+                        <path
+                          d="M22.4548 4.62696C22.6931 4.62696 22.9439 4.72729 23.2198 4.94049C23.5584 5.20386 23.7842 5.32927 23.9096 5.32927C24.0977 5.32927 24.1855 5.22894 24.1855 5.04082C24.1855 4.94049 24.1353 4.8527 24.0224 4.77745C23.9597 4.73983 23.6462 4.61442 23.0568 4.41376C22.1036 4.07514 21.6271 3.46062 21.6271 2.5451C21.6271 1.85533 21.8779 1.31606 22.3795 0.927279C22.831 0.588664 23.3703 0.413086 24.0224 0.413086C24.5868 0.413086 25.0759 0.55104 25.4898 0.814407C25.9036 1.07777 26.1168 1.42893 26.1168 1.85533C26.1168 2.10616 26.0416 2.31936 25.8786 2.49494C25.7155 2.67052 25.5149 2.74577 25.264 2.74577C25.0007 2.74577 24.7122 2.62035 24.3861 2.36953C24.1855 2.21903 24.035 2.13124 23.9347 2.13124C23.7591 2.13124 23.6713 2.21903 23.6713 2.38207C23.6713 2.5451 23.8845 2.6956 24.3234 2.82101C24.9254 3.00913 25.3769 3.23488 25.703 3.51078C26.1419 3.87448 26.3551 4.37613 26.3551 5.02828C26.3551 5.74313 26.1168 6.29495 25.6277 6.69627C25.1762 7.07251 24.5868 7.24809 23.8594 7.24809C23.132 7.24809 22.53 7.05997 22.0535 6.67119C21.6772 6.35766 21.4766 6.0065 21.4766 5.59264C21.4766 5.31673 21.5644 5.09099 21.7525 4.90287C21.9531 4.72729 22.1789 4.62696 22.4548 4.62696ZM28.1862 2.58273H27.6218C27.3083 2.58273 27.0449 2.49494 26.8442 2.3319C26.631 2.14378 26.5182 1.9055 26.5182 1.59197C26.5182 1.40385 26.5683 1.22827 26.6687 1.06523C26.769 0.889655 26.9069 0.776783 27.07 0.701536C27.233 0.626288 27.6218 0.588664 28.2363 0.588664H30.3934C30.9202 0.588664 31.2713 0.626288 31.4218 0.688994C31.5974 0.764242 31.7353 0.877114 31.8357 1.05269C31.936 1.22827 31.9987 1.40385 31.9987 1.59197C31.9987 1.89296 31.8858 2.14378 31.6475 2.35699C31.4845 2.50748 31.2086 2.59527 30.8198 2.59527H30.3307V5.83092C30.3307 6.18208 30.268 6.45799 30.1551 6.64611C29.9545 6.97218 29.6535 7.13522 29.2772 7.13522C28.8885 7.13522 28.6 6.98472 28.3868 6.69627C28.2614 6.50815 28.1862 6.23224 28.1862 5.85601V2.58273ZM33.3908 6.24478C33.2905 6.48307 33.1901 6.67119 33.0773 6.78406C32.8641 7.02234 32.6007 7.13522 32.2872 7.13522C31.9109 7.13522 31.6099 6.98472 31.4093 6.68373C31.2839 6.50815 31.2211 6.29495 31.2211 6.06921C31.2211 5.88109 31.2713 5.69297 31.3591 5.50485L33.3908 1.1781C33.5914 0.751701 33.9175 0.55104 34.3815 0.55104C34.8456 0.55104 35.1842 0.764242 35.3849 1.20319L37.4416 5.55501C37.5294 5.73059 37.567 5.90617 37.567 6.06921C37.567 6.32003 37.4792 6.54578 37.3162 6.74644C37.103 7.0098 36.8271 7.13522 36.4885 7.13522C36.2126 7.13522 35.9868 7.04743 35.7987 6.88439C35.6608 6.75898 35.5228 6.54578 35.3849 6.25733H33.3908V6.24478ZM42.2951 4.57679L42.7968 5.39198C42.9347 5.61772 43.01 5.84346 43.01 6.08175C43.01 6.38274 42.9096 6.63356 42.6964 6.83423C42.4832 7.03489 42.2324 7.13522 41.9314 7.13522C41.5426 7.13522 41.2542 6.97218 41.0535 6.64611L40.1631 5.17878V6.05667C40.1631 6.35766 40.0628 6.60848 39.8621 6.82168C39.6614 7.03489 39.4106 7.13522 39.1096 7.13522C38.7459 7.13522 38.4575 7.0098 38.2693 6.7339C38.0938 6.50815 38.0185 6.19462 38.0185 5.81838V1.81771C38.0185 0.989985 38.4575 0.588664 39.3479 0.588664H40.7149C41.1664 0.588664 41.5802 0.714077 41.9565 0.977444C42.3453 1.24081 42.6212 1.56688 42.7968 1.98075C42.9347 2.29428 42.9974 2.60781 42.9974 2.92134C42.9974 3.51078 42.7591 4.0626 42.2951 4.57679ZM44.841 2.58273H44.2766C43.9631 2.58273 43.6997 2.49494 43.4991 2.3319C43.2859 2.14378 43.173 1.9055 43.173 1.59197C43.173 1.40385 43.2232 1.22827 43.3235 1.06523C43.4238 0.889655 43.5618 0.776783 43.7248 0.701536C43.8878 0.626288 44.2766 0.588664 44.8911 0.588664H47.0482C47.575 0.588664 47.9261 0.626288 48.0766 0.688994C48.2522 0.764242 48.3902 0.877114 48.4905 1.05269C48.5908 1.22827 48.6535 1.40385 48.6535 1.59197C48.6535 1.89296 48.5407 2.14378 48.3024 2.35699C48.1393 2.50748 47.8634 2.59527 47.4747 2.59527H46.9855V5.83092C46.9855 6.18208 46.9228 6.45799 46.81 6.64611C46.6093 6.97218 46.3083 7.13522 45.9321 7.13522C45.5433 7.13522 45.2548 6.98472 45.0416 6.69627C44.9162 6.50815 44.841 6.23224 44.841 5.85601V2.58273ZM51.1869 5.07845H52.1651C52.5664 5.07845 52.8674 5.16623 53.0681 5.32927C53.2938 5.52993 53.4192 5.78076 53.4192 6.09429C53.4192 6.40782 53.3064 6.67119 53.0681 6.85931C52.8925 7.0098 52.5915 7.08505 52.1776 7.08505H50.5096C50.1209 7.08505 49.845 7.05997 49.6945 6.99726C49.406 6.88439 49.2179 6.68373 49.1301 6.42036C49.0674 6.24479 49.0423 5.96888 49.0423 5.5801V2.04345C49.0423 1.74246 49.0549 1.55434 49.0674 1.45401C49.105 1.25335 49.1803 1.07777 49.3182 0.927279C49.4687 0.764242 49.6694 0.663912 49.8951 0.613747C50.008 0.588664 50.2337 0.588664 50.5724 0.588664H51.8516C52.2027 0.588664 52.4034 0.588664 52.4661 0.601205C52.6918 0.626288 52.8799 0.688994 53.0304 0.801866C53.2938 1.00253 53.4192 1.25335 53.4192 1.56688C53.4192 1.9055 53.3064 2.16887 53.0806 2.35699C52.8799 2.52002 52.604 2.59527 52.2529 2.59527H51.1994V3.03422H52.0397C52.2905 3.03422 52.4912 3.09692 52.6542 3.23488C52.8298 3.37283 52.905 3.56095 52.905 3.81177C52.905 4.32597 52.5915 4.58933 51.9644 4.58933H51.1994V5.07845H51.1869ZM58.072 4.57679L58.5737 5.39198C58.7117 5.61772 58.7869 5.84346 58.7869 6.08175C58.7869 6.38274 58.6866 6.63356 58.4734 6.83423C58.2602 7.03489 58.0093 7.13522 57.7083 7.13522C57.3196 7.13522 57.0311 6.97218 56.8305 6.64611L55.94 5.17878V6.05667C55.94 6.35766 55.8397 6.60848 55.639 6.82168C55.4384 7.03489 55.1875 7.13522 54.8866 7.13522C54.5229 7.13522 54.2344 7.0098 54.0463 6.7339C53.8707 6.50815 53.7955 6.19462 53.7955 5.81838V1.81771C53.7955 0.989985 54.2344 0.588664 55.1248 0.588664H56.4918C56.9433 0.588664 57.3572 0.714077 57.7334 0.977444C58.1222 1.24081 58.3981 1.56688 58.5737 1.98075C58.7117 2.29428 58.7744 2.60781 58.7744 2.92134C58.7744 3.51078 58.5361 4.0626 58.072 4.57679Z"
+                          fill="#2B535D"
+                        />
+                      </svg>
+                    </th>
+                    <th>
+                      <svg
+                        class="m-3"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="37"
+                        height="11"
+                        viewBox="0 0 37 11"
+                        fill="none"
+                      >
+                        <path
+                          d="M5.4682 9.38614C4.92852 9.48091 4.37934 9.50933 3.81125 9.585L2.07848 4.50997V9.80282C1.53881 9.85961 1.04646 9.93535 0.535156 10.0111V0.31543H1.9744L3.94379 5.81667V0.31543H5.4682V9.38614ZM8.45076 3.86609C9.03785 3.86609 9.93734 3.83768 10.477 3.83768V5.35259C9.80473 5.35259 9.01889 5.35259 8.45076 5.38101V7.63453C9.34083 7.57774 10.2309 7.50192 11.1303 7.47351V8.93156L6.93578 9.26303V0.31543H11.1303V1.83038H8.45076V3.86609ZM16.764 1.83042H15.1923V8.79917C14.681 8.79917 14.1697 8.79917 13.6774 8.81805V1.83042H12.1057V0.31543H16.7641L16.764 1.83042ZM19.2258 3.76197H21.2994V5.27688H19.2258V8.71396H17.7391V0.31543H21.9717V1.83038H19.2258V3.76197ZM24.4334 7.38834C25.2951 7.40722 26.1661 7.47362 27.0089 7.52088V9.01691C25.6549 8.93163 24.3009 8.84653 22.9185 8.81805V0.31543H24.4334V7.38834ZM28.2871 9.12107C28.77 9.14952 29.2813 9.17793 29.7736 9.23465V0.31543H28.2871V9.12107ZM36.411 0.31543L34.4889 4.92657L36.411 10.0111C35.8429 9.93535 35.2748 9.83119 34.7067 9.73649L33.6178 6.9339L32.5101 9.50933C31.9609 9.41456 31.4306 9.38614 30.8816 9.3104L32.832 4.86971L31.0709 0.31543H32.6994L33.6935 2.86244L34.7541 0.31543L36.411 0.31543Z"
+                          fill="#2B535D"
+                        />
+                      </svg>
+                    </th>
+                    <th>
+                      <svg
+                        class="m-3"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="27"
+                        height="11"
+                        viewBox="0 0 27 11"
+                        fill="none"
+                      >
+                        <path
+                          d="M0.496094 0.31543V10.2162H3.24631V0.31543H0.496094Z"
+                          fill="#2B535D"
+                        />
+                        <path
+                          d="M8.84447 0.31543L8.22896 4.94045L7.84652 2.42486C7.73564 1.61908 7.62928 0.91594 7.52745 0.31543H4.07422V10.2162H6.4073L6.41635 3.67828L7.39846 10.2162H9.05945L9.99178 3.53416L9.99857 10.2162H12.3249V0.31543H8.84447Z"
+                          fill="#2B535D"
+                        />
+                        <path
+                          d="M13.1484 10.2162V0.31543H17.4413C18.412 0.31543 19.1989 1.09646 19.1989 2.0627V8.46893C19.1989 9.43392 18.4133 10.2162 17.4413 10.2162H13.1484ZM16.3564 2.09731C16.2473 2.03835 16.0386 2.00996 15.7351 2.00996V8.50638C16.1359 8.50638 16.3825 8.43432 16.475 8.28365C16.5675 8.13516 16.6149 7.73336 16.6149 7.07389V3.235C16.6149 2.78735 16.5983 2.50129 16.5675 2.37463C16.5367 2.24798 16.4679 2.15627 16.3564 2.09731Z"
+                          fill="#2B535D"
+                        />
+                        <path
+                          d="M24.1063 2.79439H24.2821C25.2695 2.79439 26.07 3.56765 26.07 4.52043V8.49016C26.07 9.44343 25.2698 10.2162 24.2821 10.2162H24.1063C23.5021 10.2162 22.9679 9.92669 22.6443 9.48369L22.4859 10.089H20.0195V0.31543H22.6511V3.49497C22.9911 3.07123 23.5151 2.79439 24.1063 2.79439ZM23.5429 7.62232V5.27631C23.5429 4.88867 23.518 4.63429 23.4661 4.51719C23.4143 4.40009 23.2074 4.32491 23.0622 4.32491C22.917 4.32491 22.6932 4.38601 22.6496 4.48897V8.46018C22.6994 8.57324 22.9129 8.63615 23.0622 8.63615C23.2115 8.63615 23.4288 8.57526 23.4744 8.46018C23.5201 8.3451 23.5429 8.06446 23.5429 7.62232Z"
+                          fill="#2B535D"
+                        />
+                      </svg>
+                    </th>
+                    <th>
+                      <svg
+                        class="m-3"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="10"
+                        viewBox="0 0 24 10"
+                        fill="none"
+                      >
+                        <path
+                          d="M20.4153 7.29346H17.1445L20.4153 3.65996V7.29346ZM23.0897 7.29346V0.31543L16.5789 7.54553H11.5806C11.3654 7.54553 11.1932 7.37338 11.1932 7.1582C11.1932 7.01065 11.2732 6.88769 11.39 6.82006C11.3961 6.82006 11.3961 6.81391 11.4023 6.81391C11.9064 6.55569 12.3921 6.42043 12.6688 6.34051L12.7548 6.31592C12.9208 6.26673 13.1299 6.2237 13.3451 6.17451C13.4188 6.15607 13.4988 6.13762 13.5787 6.12533C14.9005 5.82407 16.6896 5.30764 16.6896 3.19886C16.6896 2.73161 16.5728 2.25821 16.3023 1.834C15.8719 1.15771 15.0604 0.610536 13.7324 0.450687C13.4742 0.419946 13.1914 0.401502 12.8901 0.401502C10.8305 0.401502 9.44105 1.48356 9.39187 3.10664C9.39187 3.13738 9.39187 3.16197 9.39187 3.19271C9.39187 4.09033 10.1173 4.8158 11.015 4.8158C11.9126 4.8158 12.638 4.08418 12.638 3.19271C12.638 2.2951 11.9126 1.56963 11.015 1.56963C10.9658 1.56963 10.9166 1.56963 10.8674 1.57578H10.8612C10.5293 1.60652 10.2219 1.74178 9.98208 1.93851C10.1665 1.64955 10.4186 1.40363 10.726 1.20075C10.7321 1.20075 10.7321 1.1946 10.7383 1.1946C11.2916 0.838013 12.0294 0.641276 12.8963 0.641276C12.9885 0.641276 13.0807 0.641276 13.1668 0.647424C13.1852 0.647424 13.2037 0.647424 13.2221 0.647424C13.4127 0.672016 13.5602 0.831865 13.5602 1.0286V5.52897C13.5602 5.738 13.4127 5.9163 13.2221 5.96548C13.2098 5.96548 13.2037 5.97163 13.1914 5.97163C13.0069 6.00852 12.8409 6.05155 12.6934 6.09459L12.6134 6.11918C12.2138 6.22985 11.3838 6.46347 10.6522 7.02294C10.394 7.21968 10.1727 7.43486 9.98208 7.67463C9.50253 8.28329 9.26276 9.0272 9.26276 9.89408H14.4824L16.5912 7.55167H20.4215V9.89408H23.0959V7.55167H23.766V7.2996H23.0897M1.77444 7.58856L3.42212 4.06573L5.06365 7.58856H1.77444ZM3.9693 2.2951C3.6373 2.98983 2.94872 3.0636 2.94872 3.0636L3.28071 3.77063V3.77678L0.421875 9.88793H0.698537L1.65763 7.84063H5.18046L6.13341 9.88793H9.08447L4.76239 0.604388L3.9693 2.2951Z"
+                          fill="#2B535D"
+                        />
+                      </svg>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="bg-nbwhite">
+                    <td class="p-3 max-w- font-bold font-h2-title text-center text-nbgreydark text-sm felx-wrap">
+                      készítő-készítő kapcsolatteremtés
+                    </td>
+                    <td>
+                      <svg
+                        id="pipa"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="15"
+                        viewBox="0 0 17 15"
+                        fill="none"
+                      >
+                        <path
+                          d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
+                          fill="#90B0B9"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="pipa"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="15"
+                        viewBox="0 0 17 15"
+                        fill="none"
+                      >
+                        <path
+                          d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
+                          fill="#90B0B9"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="flex justify-center m-3 font-bold font-h2-title text-nbgreydark text-sm felx-wrap">
+                        szakmai támogatás
+                      </span>
+                    </td>
+                    <td>
+                      <svg
+                        id="pipa"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="15"
+                        viewBox="0 0 17 15"
+                        fill="none"
+                      >
+                        <path
+                          d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
+                          fill="#90B0B9"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="pipa"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="15"
+                        viewBox="0 0 17 15"
+                        fill="none"
+                      >
+                        <path
+                          d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
+                          fill="#90B0B9"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="pipa"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="15"
+                        viewBox="0 0 17 15"
+                        fill="none"
+                      >
+                        <path
+                          d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
+                          fill="#90B0B9"
+                        />
+                      </svg>
+                    </td>
+                  </tr>
+                  <tr class="bg-nbwhite">
+                    <td>
+                      <span class="flex justify-center m-3 font-bold font-h2-title text-nbgreydark text-sm felx-wrap">
+                        készítő-készítő kapcsolatteremtés
+                      </span>
+                    </td>
+                    <td>
+                      <svg
+                        id="pipa"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="15"
+                        viewBox="0 0 17 15"
+                        fill="none"
+                      >
+                        <path
+                          d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
+                          fill="#90B0B9"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="pipa"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="15"
+                        viewBox="0 0 17 15"
+                        fill="none"
+                      >
+                        <path
+                          d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
+                          fill="#90B0B9"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span class="flex justify-center m-3 font-bold font-h2-title text-nbgreydark text-sm felx-wrap">
+                        szakmai támogatás
+                      </span>
+                    </td>
+                    <td>
+                      <svg
+                        id="pipa"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="15"
+                        viewBox="0 0 17 15"
+                        fill="none"
+                      >
+                        <path
+                          d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
+                          fill="#90B0B9"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="pipa"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="15"
+                        viewBox="0 0 17 15"
+                        fill="none"
+                      >
+                        <path
+                          d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
+                          fill="#90B0B9"
+                        />
+                      </svg>
+                    </td>
+                  </tr>
+                  <tr class="bg-nbwhite">
+                    <td>
+                      <span class="flex justify-center m-3 font-bold font-h2-title text-nbgreydark text-sm felx-wrap">
+                        szubkulturális termelés és prosumerek ösztönzése
+                      </span>
+                    </td>
+                    <td>
+                      <svg
+                        id="pipa"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="17"
+                        height="15"
+                        viewBox="0 0 17 15"
+                        fill="none"
+                      >
+                        <path
+                          d="M6.42147 14.3315L0.124921 8.03493L4.19916 3.96069L6.42147 6.183L12.3476 0.256836L16.4219 4.33107L6.42147 14.3315Z"
+                          fill="#90B0B9"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                    <td>
+                      <svg
+                        id="X"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 18 18"
+                        fill="none"
+                      >
+                        <path
+                          d="M13.6734 9.40823L16.7403 6.34135L12.3638 1.94824L9.26372 4.99855L6.21342 1.94824L1.82031 6.3745L4.85404 9.40823L1.82031 12.442L6.21342 16.8682L9.26372 13.8179L12.314 16.8682L16.7403 12.5166L13.6734 9.40823Z"
+                          fill="#F4451E"
+                        />
+                      </svg>
+                    </td>
+                  </tr>
+                </tbody>
+                <colgroup>
+                  <col />
+                  <col class="bg-nbgreenlight bg-opacity-40" />
+                  <col />
+                  <col class="bg-nbgreymain bg-opacity-15" />
+                  <col />
+                  <col class="bg-nbgreymain bg-opacity-15" />
+                </colgroup>
+              </table>
+            </div>
+            <div
+              id="bisunessModell"
+              class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
+            >
+              <h2 class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic">
+                üzleti modell
+              </h2>
+            </div>
+            <div class="flex lg:flex-row flex-col gap-4">
+              <div class="flex justify-center bg-nbgreenlight px-6 py-2.5 rounded-lg">
+                <svg
+                  width="153"
+                  height="129"
+                  viewBox="0 0 153 129"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M56 14.0889H59.3941V16.2562L61.7032 14.0889H66.1824L69.2705 16.9874V27.093H65.5982V17.9274L64.6522 17.0135H62.3153L59.6723 19.5203V27.093H56V14.0889Z"
+                    fill="#2B535D"
+                  />
+                  <path
+                    d="M59.9074 13.01H56V9.1521L58.7131 6.49347L56 3.83485V0.00585938H59.9369L62.6352 2.65003L65.3336 0.00585938H69.2705V3.83485L66.5574 6.49347L69.2705 9.1521V13.01H65.3631L62.6352 10.3369L59.9074 13.01Z"
+                    fill="#2B535D"
+                  />
+                  <path
+                    d="M88.6535 27.093H84.7461V23.2351L87.4592 20.5765L84.7461 17.9179V14.0889H88.683L91.3813 16.733L94.0797 14.0889H98.0166V17.9179L95.3035 20.5765L98.0166 23.2351V27.093H94.1092L91.3813 24.4199L88.6535 27.093Z"
+                    fill="#2B535D"
+                  />
+                  <path
+                    d="M70.3789 24.255V8.3125H73.9538V15.8102L75.9308 13.995H80.8599L83.6494 16.731V24.3602L80.8599 27.0962H73.2767L70.3789 24.255ZM79.0453 24.1498L80.0745 23.1238V17.9674L79.0453 16.9414H76.3912L73.9538 19.3091V23.1238L74.983 24.1498H79.0453Z"
+                    fill="#2B535D"
+                  />
+                  <path
+                    d="M73.092 6.49347L70.3789 3.83485V0.00585938H74.3158L77.0141 2.65003L79.7125 0.00585938H83.6494V3.83485L80.9363 6.49347L83.6494 9.1521V13.01H79.742L77.0141 10.3369L73.092 6.49347Z"
+                    fill="#2B535D"
+                  />
+                  <path
+                    d="M87.4691 6.50184L84.7412 9.17491L88.6339 13.0039L91.3912 10.3453L94.1043 13.0039L98.0117 9.14602L95.3134 6.50184L98.0117 3.85767L94.1043 -0.000221587L91.3912 2.6584L88.6781 -0.000222052L84.7412 3.79265L87.4691 6.50184Z"
+                    fill="#2B535D"
+                  />
+                  <g clip-path="url(#clip0_0_1)">
+                    <rect
+                      x="2"
+                      y="73.0117"
+                      width="21"
+                      height="21"
+                      rx="10.5"
+                      fill="#2B535D"
+                    />
+                    <path
+                      d="M12.4987 75.9521C10.0155 75.9521 7.98375 78.4805 7.98375 81.5959C7.98375 84.7112 10.0155 87.2396 12.4987 87.2396C14.982 87.2396 17.0138 84.7112 17.0138 81.5959C17.0138 78.4805 14.982 75.9521 12.4987 75.9521ZM7.78057 87.2396C5.38762 87.3525 3.46875 89.3165 3.46875 91.7546V94.0121H21.5287V91.7546C21.5287 89.3165 19.6325 87.3525 17.2169 87.2396C15.9979 88.6167 14.3273 89.4971 12.4987 89.4971C10.6702 89.4971 8.99962 88.6167 7.78057 87.2396Z"
+                      fill="#90B0B9"
+                    />
+                  </g>
+                  <rect
+                    x="1.25"
+                    y="72.2617"
+                    width="22.5"
+                    height="22.5"
+                    rx="11.25"
+                    stroke="#9ED8D2"
+                    stroke-width="1.5"
+                  />
+                  <g clip-path="url(#clip1_0_1)">
+                    <rect
+                      x="13"
+                      y="62.0117"
+                      width="21"
+                      height="21"
+                      rx="10.5"
+                      fill="#2B535D"
+                    />
+                    <path
+                      d="M23.4987 64.9521C21.0155 64.9521 18.9837 67.4805 18.9837 70.5959C18.9837 73.7112 21.0155 76.2396 23.4987 76.2396C25.982 76.2396 28.0138 73.7112 28.0138 70.5959C28.0138 67.4805 25.982 64.9521 23.4987 64.9521ZM18.7806 76.2396C16.3876 76.3525 14.4688 78.3165 14.4688 80.7546V83.0121H32.5287V80.7546C32.5287 78.3165 30.6325 76.3525 28.2169 76.2396C26.9979 77.6167 25.3273 78.4971 23.4987 78.4971C21.6702 78.4971 19.9996 77.6167 18.7806 76.2396Z"
+                      fill="#90B0B9"
+                    />
+                  </g>
+                  <rect
+                    x="12.25"
+                    y="61.2617"
+                    width="22.5"
+                    height="22.5"
+                    rx="11.25"
+                    stroke="#9ED8D2"
+                    stroke-width="1.5"
+                  />
+                  <g clip-path="url(#clip2_0_1)">
+                    <rect
+                      x="24"
+                      y="73.0117"
+                      width="21"
+                      height="21"
+                      rx="10.5"
+                      fill="#2B535D"
+                    />
+                    <path
+                      d="M34.4987 75.9521C32.0155 75.9521 29.9837 78.4805 29.9837 81.5959C29.9837 84.7112 32.0155 87.2396 34.4987 87.2396C36.982 87.2396 39.0138 84.7112 39.0138 81.5959C39.0138 78.4805 36.982 75.9521 34.4987 75.9521ZM29.7806 87.2396C27.3876 87.3525 25.4688 89.3165 25.4688 91.7546V94.0121H43.5287V91.7546C43.5287 89.3165 41.6325 87.3525 39.2169 87.2396C37.9979 88.6167 36.3273 89.4971 34.4987 89.4971C32.6702 89.4971 30.9996 88.6167 29.7806 87.2396Z"
+                      fill="#90B0B9"
+                    />
+                  </g>
+                  <rect
+                    x="23.25"
+                    y="72.2617"
+                    width="22.5"
+                    height="22.5"
+                    rx="11.25"
+                    stroke="#9ED8D2"
+                    stroke-width="1.5"
+                  />
+                  <g clip-path="url(#clip3_0_1)">
+                    <rect
+                      x="35"
+                      y="62.0117"
+                      width="21"
+                      height="21"
+                      rx="10.5"
+                      fill="#2B535D"
+                    />
+                    <path
+                      d="M45.4987 64.9521C43.0155 64.9521 40.9837 67.4805 40.9837 70.5959C40.9837 73.7112 43.0155 76.2396 45.4987 76.2396C47.982 76.2396 50.0138 73.7112 50.0138 70.5959C50.0138 67.4805 47.982 64.9521 45.4987 64.9521ZM40.7806 76.2396C38.3876 76.3525 36.4688 78.3165 36.4688 80.7546V83.0121H54.5287V80.7546C54.5287 78.3165 52.6325 76.3525 50.2169 76.2396C48.9979 77.6167 47.3273 78.4971 45.4987 78.4971C43.6702 78.4971 41.9996 77.6167 40.7806 76.2396Z"
+                      fill="#90B0B9"
+                    />
+                  </g>
+                  <rect
+                    x="34.25"
+                    y="61.2617"
+                    width="22.5"
+                    height="22.5"
+                    rx="11.25"
+                    stroke="#9ED8D2"
+                    stroke-width="1.5"
+                  />
+                  <path
+                    d="M56.4987 75.9521C54.0155 75.9521 51.9837 78.4805 51.9837 81.5959C51.9837 84.7112 54.0155 87.2396 56.4987 87.2396C58.982 87.2396 61.0137 84.7112 61.0137 81.5959C61.0137 78.4805 58.982 75.9521 56.4987 75.9521ZM51.7806 87.2396C49.3876 87.3525 47.4688 89.3165 47.4688 91.7546V94.0121H65.5287V91.7546C65.5287 89.3165 63.6324 87.3525 61.2169 87.2396C59.9979 88.6167 58.3273 89.4971 56.4987 89.4971C54.6702 89.4971 52.9996 88.6167 51.7806 87.2396Z"
+                    fill="#90B0B9"
+                  />
+                  <g clip-path="url(#clip4_0_1)">
+                    <rect
+                      x="83"
+                      y="61.9023"
+                      width="21"
+                      height="21"
+                      rx="10.5"
+                      fill="#2B535D"
+                    />
+                    <path
+                      d="M93.4987 64.8428C91.0155 64.8428 88.9837 67.3712 88.9837 70.4865C88.9837 73.6019 91.0155 76.1303 93.4987 76.1303C95.982 76.1303 98.0138 73.6019 98.0138 70.4865C98.0138 67.3712 95.982 64.8428 93.4987 64.8428ZM88.7806 76.1303C86.3876 76.2431 84.4688 78.2072 84.4688 80.6453V82.9028H102.529V80.6453C102.529 78.2072 100.632 76.2431 98.2169 76.1303C96.9979 77.5073 95.3273 78.3878 93.4987 78.3878C91.6702 78.3878 89.9996 77.5073 88.7806 76.1303Z"
+                      fill="#90B0B9"
+                    />
+                  </g>
+                  <rect
+                    x="82.25"
+                    y="61.1523"
+                    width="22.5"
+                    height="22.5"
+                    rx="11.25"
+                    stroke="#9ED8D2"
+                    stroke-width="1.5"
+                  />
+                  <rect
+                    x="100"
+                    y="81.8301"
+                    width="11"
+                    height="7"
+                    rx="1"
+                    fill="#90B0B9"
+                  />
+                  <g clip-path="url(#clip5_0_1)">
+                    <rect
+                      x="107"
+                      y="53.9023"
+                      width="21"
+                      height="21"
+                      rx="10.5"
+                      fill="#2B535D"
+                    />
+                    <path
+                      d="M117.499 56.8428C115.015 56.8428 112.984 59.3712 112.984 62.4865C112.984 65.6019 115.015 68.1303 117.499 68.1303C119.982 68.1303 122.014 65.6019 122.014 62.4865C122.014 59.3712 119.982 56.8428 117.499 56.8428ZM112.781 68.1303C110.388 68.2431 108.469 70.2072 108.469 72.6453V74.9028H126.529V72.6453C126.529 70.2072 124.632 68.2431 122.217 68.1303C120.998 69.5073 119.327 70.3878 117.499 70.3878C115.67 70.3878 114 69.5073 112.781 68.1303Z"
+                      fill="#90B0B9"
+                    />
+                  </g>
+                  <rect
+                    x="106.25"
+                    y="53.1523"
+                    width="22.5"
+                    height="22.5"
+                    rx="11.25"
+                    stroke="#9ED8D2"
+                    stroke-width="1.5"
+                  />
+                  <rect
+                    x="123"
+                    y="73.9395"
+                    width="11"
+                    height="7"
+                    rx="1"
+                    fill="#90B0B9"
+                  />
+                  <path
+                    d="M76.5875 48.0117C76.5875 47.6873 76.3244 47.4243 76 47.4243C75.6756 47.4243 75.4125 47.6873 75.4125 48.0117L76.5875 48.0117ZM75.4125 48.0117L75.4125 49.1617L76.5875 49.1617L76.5875 48.0117L75.4125 48.0117ZM75.4125 51.4617L75.4125 53.7617L76.5875 53.7617L76.5875 51.4617L75.4125 51.4617ZM75.4125 56.0617L75.4125 58.3617L76.5875 58.3617L76.5875 56.0617L75.4125 56.0617ZM75.4125 60.6617L75.4125 62.9617L76.5875 62.9617L76.5875 60.6617L75.4125 60.6617ZM75.4125 65.2617L75.4125 67.5617L76.5875 67.5617L76.5875 65.2617L75.4125 65.2617ZM75.4125 69.8617L75.4126 72.1617L76.5875 72.1617L76.5875 69.8617L75.4125 69.8617ZM75.4126 74.4617L75.4126 76.7617L76.5875 76.7617L76.5875 74.4617L75.4126 74.4617ZM75.4126 79.0617L75.4126 81.3617L76.5875 81.3617L76.5875 79.0617L75.4126 79.0617ZM75.4126 83.6617L75.4126 85.9617L76.5875 85.9617L76.5875 83.6617L75.4126 83.6617ZM75.4126 88.2617L75.4126 90.5617L76.5875 90.5617L76.5875 88.2617L75.4126 88.2617ZM75.4126 92.8617L75.4126 94.0117L76.5875 94.0117L76.5875 92.8617L75.4126 92.8617Z"
+                    fill="#517A86"
+                  />
+                  <path
+                    d="M27 98.402H6C6 98.402 18 128.683 81.0745 128.683C141 128.683 187.5 63.0002 117.5 22.5L120 19L108 21L114 30.5L115 26C173.021 61.0005 145 117.5 75.5 117.5C75.5 117.5 90.0957 113.922 98.8404 105.064L101.5 108L100.67 97.4216L90.0957 101.001L94.3191 102.128C94.3191 102.128 62.5 124 27 98.402Z"
+                    fill="#00B38C"
+                  />
+                  <path
+                    d="M16.5 59L3 72C3 39.5 23.5 28.5 37 23L33.4981 19.9023L45.9981 20.9023L40 31.5L39 27C33.5 29 20 38 18.5 44.5C31 35 39.7901 39.5 43.5 49L47.5 47.5L43 59L34 50.5H38.7406C35 37 16.5 50.5 16.5 59Z"
+                    fill="#00B38C"
+                  />
+                  <defs>
+                    <clipPath id="clip0_0_1">
+                      <rect
+                        x="2"
+                        y="73.0117"
+                        width="21"
+                        height="21"
+                        rx="10.5"
+                        fill="white"
+                      />
+                    </clipPath>
+                    <clipPath id="clip1_0_1">
+                      <rect
+                        x="13"
+                        y="62.0117"
+                        width="21"
+                        height="21"
+                        rx="10.5"
+                        fill="white"
+                      />
+                    </clipPath>
+                    <clipPath id="clip2_0_1">
+                      <rect
+                        x="24"
+                        y="73.0117"
+                        width="21"
+                        height="21"
+                        rx="10.5"
+                        fill="white"
+                      />
+                    </clipPath>
+                    <clipPath id="clip3_0_1">
+                      <rect
+                        x="35"
+                        y="62.0117"
+                        width="21"
+                        height="21"
+                        rx="10.5"
+                        fill="white"
+                      />
+                    </clipPath>
+                    <clipPath id="clip4_0_1">
+                      <rect
+                        x="83"
+                        y="61.9023"
+                        width="21"
+                        height="21"
+                        rx="10.5"
+                        fill="white"
+                      />
+                    </clipPath>
+                    <clipPath id="clip5_0_1">
+                      <rect
+                        x="107"
+                        y="53.9023"
+                        width="21"
+                        height="21"
+                        rx="10.5"
+                        fill="white"
+                      />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </div>
+              <p class="flex border-nbgreymain pl-4 border-l-2 border-dashed font-p-paragraph text-base text-nbgreydark lg:text-sm">
+                A Near-Balkan Films egy, a filmkészítők és nézők között
+                kapcsolatot teremtő platform, amelynek két, egy visszatérő és
+                egy alkalmi tételekből álló pénzáram biztosítja bevételét. A
+                nézők (havi vagy éves alapon) előfizetnek a platformra, és ebből
+                10%-ot kap meg a Near-Balkan. Ezen kívül a nézőknek lehetősége
+                van a platformon belül alkalmi vásárlásra, amelyek összegéből
+                szintén 10% jut a Near-Balkannak.
+              </p>
+            </div>
+            <div
+              id="prototypeContact"
+              class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
+            >
+              <h2 class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic">
+                prototípus + kapcsolat
+              </h2>
+            </div>
+            <div class="flex lg:flex-row flex-col items-center gap-3">
+              <div class="pr-6">
                 <img
-                  class="lg:block hidden col-span-1 row-span-2 shadow-md rounded-lg"
-                  src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FAdBloc%2F1.jpg?alt=media&amp;token=0251c6a8-dd6c-41bf-aa38-6b6b4583842f"
-                  alt=""
-                /><img
-                  class="col-span-3 lg:col-span-1 row-span-2 lg:row-span-1 shadow-md rounded-lg"
-                  src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FAdBloc%2F2.jpg?alt=media&amp;token=da7397f8-74bd-4093-b1c3-38a07d258559"
-                  alt=""
-                /><img
-                  class="lg:block hidden col-span-1 row-span-1 shadow-md rounded-lg"
-                  src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FAdBloc%2F3.jpg?alt=media&amp;token=85e1d585-6365-471f-b8aa-2acd74a10f44"
-                  alt=""
-                /><img
-                  class="lg:block hidden col-span-1 row-span-2 shadow-md rounded-lg"
-                  src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FAdBloc%2F4.jpg?alt=media&amp;token=13f55c87-e4a8-4217-a2df-bd55b641c5c9"
-                  alt=""
+                  class="max-w-[91px] max-h[91px] mix-blend-multiply"
+                  src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FQR_code.png?alt=media&token=68830bc9-022b-4b67-9a28-f8748c7fc403"
+                  alt="A Near-Balkan QR kód-ja"
                 />
               </div>
-            <p
-              class="order-last mx-5 font-p-paragraph text-base text-nbgreydark lg:text-sm"
-            >
-              A Near-Balkan egy online crowdfunding+streaming-platform, ahol
-              független filmkészítők nyilvánosságot, networking-lehetőséget,
-              finanszírozást találhatnak, míg a közönség a nyertes filmtervek
-              kiválasztási lehetőségét, exklúzív betekintési lehetőséget és egy
-              video-on-demand felületet kap - így a közönség számára a művészeti
-              alkotásba való, minden korábbinál nagyobb
-              filmproduceri/„társművészi” bevonódást lehetővé téve.
-            </p>
-          </div>
-        </div>
-        <div
-          id="validation"
-          class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
-        >
-          <h2
-            class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic"
-          >
-            validáció
-          </h2>
-        </div>
-        <img
-                  class="col-span-3 lg:col-span-1 row-span-2 lg:row-span-1 shadow-md rounded-lg"
-                  src="%PUBLIC_URL%/countries.svg"
-                  alt=""
+              <div class="border-nbgreymain px-6 border-l-2 border-dashed">
+                <img
+                  class="rounded-full max-w-[106px] max-h-[106px]"
+                  src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FMatyi.jpg?alt=media&token=e71f3bb3-5a31-4e52-be81-f36e472f118a"
+                  alt="Matyas"
                 />
-        {/* <svg
+              </div>
+              <div class="flex flex-col items-center">
+                <h2 class="pb-2 font-bold font-bold font-h2-title text-nbgreydark text-nowrap text-xl underline underline-offset-2 decoration-nbgreenmain">
+                  Bizzer I. Mátyás
+                </h2>
+                <p class="font-p-paragraph text-base text-nbgreydark lg:text-sm">
+                  matyas.bizzer@near-balkan.com
+                </p>
+                <p class="font-p-paragraph text-base text-nbgreydark lg:text-sm">
+                  +36 70 533 7066
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            id="balOszlop"
+            class="flex flex-col gap-9 max-w-sm lg:max-w-screen-xl"
+          >
+            <div class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3">
+              <h2 class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic">
+                megoldás
+              </h2>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div class="flex flex-col items-center gap-3">
+                <h2 class="font-bold font-h2-title text-nbgreenmain text-xl">
+                  crowdfunding + streaming platform
+                </h2>
+                <div class="flex flex-row lg:flex-col gap-5 lg:gap-1 order-3 lg:order-none m-2 lg:m-0">
+                  <div class="flex lg:flex-row flex-col items-center gap-2">
+                    <h2 class="flex lg:flex-row flex-col items-center lg:gap-1 font-bold font-h2-title text-md text-nbgreydark text-sm">
+                      <div class="flex flex-row justify-center bg-nbpurplemain px-1 -skew-y-12 min-w-fit text-sm box rotate-12">
+                        <h2 class="flex lg:flex-row flex-col lg:gap-1 font-bold font-h2-title text-md text-nbwhite">
+                          filmkészítóknek
+                        </h2>
+                      </div>
+                      <a class="m-1 lg:m-0 lg:ml-2 underline underline-offset-2 decoration-2 decoration-nbgreenmain">
+                        nyílvánosság
+                      </a>
+                      <span class="lg:block hidden text-nbgreydark">+</span>
+                      <a class="m-1 lg:m-0 underline underline-offset-2 decoration-2 decoration-nbgreenmain">
+                        networking
+                      </a>
+                      <span class="lg:block hidden text-nbgreydark">+</span>
+                      <a class="lg:m-0 mt-1 underline underline-offset-2 decoration-2 decoration-nbgreenmain">
+                        finanszírozás
+                      </a>
+                    </h2>
+                  </div>
+                  <div>
+                    <h2 class="flex lg:flex-row flex-col items-center lg:gap-1 font-bold font-h2-title text-md text-nbgreydark text-sm">
+                      <div class="flex flex-row justify-center bg-nborangemain px-1 -skew-y-12 min-w-fit text-sm box rotate-12">
+                        <h2 class="font-bold font-h2-title text-md text-nbwhite">
+                          fogyasztóknak
+                        </h2>
+                      </div>
+                      <a class="m-1 lg:m-0 lg:ml-2 underline underline-offset-2 decoration-2 decoration-nbgreenmain">
+                        beleszólás
+                      </a>
+                      <span class="lg:block hidden text-nbgreydark">+</span>
+                      <a class="m-1 lg:m-0 underline underline-offset-2 decoration-2 decoration-nbgreenmain">
+                        exkluzivitás
+                      </a>
+                      <span class="lg:block hidden text-nbgreydark">+</span>
+                      <a class="lg:m-0 mt-1 underline underline-offset-2 decoration-2 decoration-nbgreenmain">
+                        meccénásság
+                      </a>
+                    </h2>
+                  </div>
+                </div>
+                <div class="justify-center items-center gap-4 order-2 lg:order-none grid grid-cols-3 grid-rows-2 grid-flow-col-dense max-w-md sm:max-w-lg lg:max-w-4xl">
+                  <img
+                    class="lg:block hidden col-span-1 row-span-2 shadow-md rounded-lg"
+                    src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FAdBloc%2F1.jpg?alt=media&amp;token=0251c6a8-dd6c-41bf-aa38-6b6b4583842f"
+                    alt=""
+                  />
+                  <img
+                    class="col-span-3 lg:col-span-1 row-span-2 lg:row-span-1 shadow-md rounded-lg"
+                    src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FAdBloc%2F2.jpg?alt=media&amp;token=da7397f8-74bd-4093-b1c3-38a07d258559"
+                    alt=""
+                  />
+                  <img
+                    class="lg:block hidden col-span-1 row-span-1 shadow-md rounded-lg"
+                    src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FAdBloc%2F3.jpg?alt=media&amp;token=85e1d585-6365-471f-b8aa-2acd74a10f44"
+                    alt=""
+                  />
+                  <img
+                    class="lg:block hidden col-span-1 row-span-2 shadow-md rounded-lg"
+                    src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FAdBloc%2F4.jpg?alt=media&amp;token=13f55c87-e4a8-4217-a2df-bd55b641c5c9"
+                    alt=""
+                  />
+                </div>
+                <p class="order-last mx-5 font-p-paragraph text-base text-nbgreydark lg:text-sm">
+                  A Near-Balkan egy online crowdfunding+streaming-platform, ahol
+                  független filmkészítők nyilvánosságot, networking-lehetőséget,
+                  finanszírozást találhatnak, míg a közönség a nyertes
+                  filmtervek kiválasztási lehetőségét, exklúzív betekintési
+                  lehetőséget és egy video-on-demand felületet kap - így a
+                  közönség számára a művészeti alkotásba való, minden korábbinál
+                  nagyobb filmproduceri/„társművészi” bevonódást lehetővé téve.
+                </p>
+              </div>
+            </div>
+            <div
+              id="validation"
+              class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
+            >
+              <h2 class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic">
+                validáció
+              </h2>
+            </div>
+            <img
+              class="col-span-3 lg:col-span-1 row-span-2 lg:row-span-1 shadow-md rounded-lg"
+              src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FOrsz%C3%A1gok.svg?alt=media&token=ec5bd752-ad01-4bea-98a4-768529ac4521"
+              alt=""
+            />
+            {/* <svg
           class="rounded-lg max-w-sm lg:max-w-screen-xl"
           width="561"
           height="211"
@@ -1740,447 +1677,393 @@ return (
             >
               {/* <use xlink:href="#image0_0_1" transform="scale(0.00123457)" /> */}
 
-        <div class="flex lg:flex-row flex-col gap-12">
-          <div
-            class="border-nbgreymain pl-6 border-l-2 border-dashed text-nowrap"
-          >
-            <h2 class="font-bold font-h2-title text-md text-nbgreydark font">
-              primer piackutatási kérdőí<a
-                class="underline underline-offset-2 decoration-nbgreenmain"
-                >~400 kitöltés</a
-              >
-            </h2>
-            <h2 class="font-bold font-h2-title text-md text-nbgreydark font">
-              <a class="underline underline-offset-2 decoration-nbgreenmain"
-                >12</a
-              >
-              Letter of Intent
-            </h2>
-            <h2 class="font-bold font-h2-title text-md text-nbgreydark font">
-              összesen
-              <a class="underline underline-offset-2 decoration-nbgreenmain"
-                >231</a
-              >
-              év szakmai tapasztalat
-            </h2>
-            <h2 class="font-bold font-h2-title text-md text-nbgreydark font">
-              <a class="underline underline-offset-2 decoration-nbgreenmain"
-                >5 ország</a
-              >
-              szakmai partnerei
-            </h2>
-          </div>
-          <div
-            class="border-nbgreymain pl-6 border-l-2 border-dashed text-nowrap"
-          >
-            <h2 class="font-bold font-h2-title text-nbgreenmain text-xs font">
-              ebből filmprodukciós cégek
-            </h2>
-            <h2 class="font-bold font-h2-title text-nbgreydark text-sm font">
-              Chudatsi <a class="text-nbgreenmain">(BG)</a>
-            </h2>
-            <h2 class="font-bold font-h2-title text-nbgreydark text-sm font">
-              Nuve Film <a class="text-nbgreenmain">(TR)</a>
-            </h2>
-            <h2
-              class="font-bold font-h2-title text-nbgreenmain text-nowrap text-xs font"
-            >
-              online fizetési szolgáltatás
-            </h2>
-            <h2 class="font-bold font-h2-title text-nbgreydark text-sm font">
-              Bizpay <a class="text-nbgreenmain">(HU)</a>
-            </h2>
-          </div>
-        </div>
-        <div
-          id="team"
-          class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
-        >
-          <h2
-            class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic"
-          >
-            csapat
-          </h2>
-        </div>
-        <div class="flex lg:flex-row flex-col items-center gap-6">
-          <div
-            class="grid grid-col bg-nbgreymain bg-opacity-15 rounded-lg min-w-fit min-h-fit"
-          >
-            <div class="flex flex-row gap-3 px-5 pt-5 min-w-[180px]">
-              <img
-                class="rounded-full max-w-[61px] max-h-[61px]"
-                src="public/images/Matyi.jpg"
-                alt="projectvezető-1"
-              />
-              <div class="flex flex-col">
-                <h2
-                  class="font-bold font-h2-title text-md text-nbgreydark text-nowrap underline underline-offset-2 decoration-nbgreenmain"
-                >
-                  Bizzer I. Mátyás
+            <div class="flex lg:flex-row flex-col gap-12">
+              <div class="border-nbgreymain pl-6 border-l-2 border-dashed text-nowrap">
+                <h2 class="font-bold font-h2-title text-md text-nbgreydark font">
+                  primer piackutatási kérdőí
+                  <a class="underline underline-offset-2 decoration-nbgreenmain">
+                    ~400 kitöltés
+                  </a>
                 </h2>
-                <h2 class="font-bold font-h2-title text-[10px] text-nbgreymain">
-                  <a class="font-bold text-nbgreenmain">CEO</a> / marketing,
-                  tartfejl.
+                <h2 class="font-bold font-h2-title text-md text-nbgreydark font">
+                  <a class="underline underline-offset-2 decoration-nbgreenmain">
+                    12
+                  </a>
+                  Letter of Intent
                 </h2>
-                <p class="font-p-paragraph text-nbgreymain text-xs">
-                  ex-vállalati marketing-
-                </p>
-                <p class="font-p-paragraph text-nbgreymain text-xs">
-                  menedzser (bankszféra)
-                </p>
+                <h2 class="font-bold font-h2-title text-md text-nbgreydark font">
+                  összesen
+                  <a class="underline underline-offset-2 decoration-nbgreenmain">
+                    231
+                  </a>
+                  év szakmai tapasztalat
+                </h2>
+                <h2 class="font-bold font-h2-title text-md text-nbgreydark font">
+                  <a class="underline underline-offset-2 decoration-nbgreenmain">
+                    5 ország
+                  </a>
+                  szakmai partnerei
+                </h2>
+              </div>
+              <div class="border-nbgreymain pl-6 border-l-2 border-dashed text-nowrap">
+                <h2 class="font-bold font-h2-title text-nbgreenmain text-xs font">
+                  ebből filmprodukciós cégek
+                </h2>
+                <h2 class="font-bold font-h2-title text-nbgreydark text-sm font">
+                  Chudatsi <a class="text-nbgreenmain">(BG)</a>
+                </h2>
+                <h2 class="font-bold font-h2-title text-nbgreydark text-sm font">
+                  Nuve Film <a class="text-nbgreenmain">(TR)</a>
+                </h2>
+                <h2 class="font-bold font-h2-title text-nbgreenmain text-nowrap text-xs font">
+                  online fizetési szolgáltatás
+                </h2>
+                <h2 class="font-bold font-h2-title text-nbgreydark text-sm font">
+                  Bizpay <a class="text-nbgreenmain">(HU)</a>
+                </h2>
               </div>
             </div>
-            <div class="flex flex-row gap-3 p-5 min-w-[180px]">
-              <img
-                class="rounded-full max-w-[61px] max-h-[61px]"
-                src="public/images/Dani.jpg"
-                alt="projectvezető-2"
-              />
-              <div class="flex flex-col">
-                <h2
-                  class="font-bold font-h2-title text-md text-nbgreydark text-nowrap underline underline-offset-2 decoration-nbgreenmain"
-                >
-                  Huszár Dániel
-                </h2>
-                <h2 class="font-bold font-h2-title text-[10px] text-nbgreymain">
-                  <a class="font-bold text-nbgreenmain">CFO</a> / menedzsment,
-                  gazd.
-                </h2>
-                <p class="font-p-paragraph text-nbgreymain text-xs">
-                  ex-Big Four tanácsadó
-                </p>
-              </div>
-            </div>
-            <div class="flex flex-row gap-3 px-5 pt-3 pb-5 lg:min-w-[180px]">
-              <img
-                class="rounded-full max-w-[61px] max-h-[61px]"
-                src="public/images/Tamas.jpg"
-                alt="web csapatvezető-1"
-              />
-              <div class="flex flex-col">
-                <h2
-                  class="font-bold font-h2-title text-md text-nbgreydark text-nowrap underline underline-offset-2 decoration-nbgreenmain"
-                >
-                  Kotán Tamás
-                </h2>
-                <h2 class="font-bold font-h2-title text-[10px] text-nbgreymain">
-                  <a class="font-bold text-nbgreenmain">CTO</a> / webfejlesztés
-                </h2>
-                <p class="font-p-paragraph text-nbgreymain text-xs">
-                  villamosmérnök,
-                </p>
-                <p class="font-p-paragraph text-nbgreymain text-xs">
-                  webfejlesztő
-                </p>
-              </div>
-            </div>
-          </div>
-          <div id="kiegészitoSzakmaiStabunk">
             <div
-              class="flex flex-col gap-5 border-nbgreymain pl-6 border-l-2 border-dashed"
+              id="team"
+              class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
             >
-              <h2
-                class="font-bold font-h2-title text-base text-nbgreenmain text-nowrap decoration-nbgreydark"
-              >
-                kiegészítő szakmai stábunk
+              <h2 class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic">
+                csapat
               </h2>
-              <div class="flex lg:flex-row flex-col">
-                <div class="flex flex-col gap-5">
-                  <div class="flex flex-col gap-2">
-                    <div class="flex flex-row gap-0.5">
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/Management1.jpg"
-                      />
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/Management2.jpg"
-                      />
-                    </div>
-                    <h2
-                      class="font-bold font-h2-title text-nbgreydark text-sm underline underline-offset-2 undeline-nbgreymain"
-                    >
-                      menedzsment
+            </div>
+            <div class="flex lg:flex-row flex-col items-center gap-6">
+              <div class="grid grid-col bg-nbgreymain bg-opacity-15 rounded-lg min-w-fit min-h-fit">
+                <div class="flex flex-row gap-3 px-5 pt-5 min-w-[180px]">
+                  <img
+                    class="rounded-full max-w-[61px] max-h-[61px]"
+                    src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FMatyi.jpg?alt=media&token=e71f3bb3-5a31-4e52-be81-f36e472f118a"
+                    alt="projectvezető-1"
+                  />
+                  <div class="flex flex-col">
+                    <h2 class="font-bold font-h2-title text-md text-nbgreydark text-nowrap underline underline-offset-2 decoration-nbgreenmain">
+                      Bizzer I. Mátyás
                     </h2>
-                    <p class="font-p-paragraph text-[10px] text-nbgreymain">
-                      üzleti és jogi tervezés, munkaszervezés
+                    <h2 class="font-bold font-h2-title text-[10px] text-nbgreymain">
+                      <a class="font-bold text-nbgreenmain">CEO</a> / marketing,
+                      tartfejl.
+                    </h2>
+                    <p class="font-p-paragraph text-nbgreymain text-xs">
+                      ex-vállalati marketing-
                     </p>
-                  </div>
-                  <div class="flex flex-col gap-2">
-                    <div class="flex flex-row gap-0.5">
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/Joco.jpg"
-                      />
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/VTamas.png"
-                      />
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/Zoli.jpg"
-                      />
-                    </div>
-                    <h2
-                      class="font-bold font-h2-title text-nbgreydark text-nowrap text-sm underline underline-offset-2 undeline-nbgreymain"
-                    >
-                      marketing & UX/UI
-                    </h2>
-                    <p class="font-p-paragraph text-[10px] text-nbgreymain">
-                      ügyfélelemzés, marketing-stratégia,
-                      vizuális/reklámtervezés
+                    <p class="font-p-paragraph text-nbgreymain text-xs">
+                      menedzser (bankszféra)
                     </p>
                   </div>
                 </div>
-                <div class="flex flex-col gap-5 pt-5 lg:pt-0 lg:pl-5">
-                  <div class="flex flex-col gap-2">
-                    <div class="flex flex-row gap-0.5">
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/Mate.jpg"
-                      />
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/Lili.jpg"
-                      />
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/Kriszti.jpg"
-                      />
-                    </div>
-                    <h2
-                      class="font-bold font-h2-title text-nbgreydark text-sm underline underline-offset-2 undeline-nbgreymain"
-                    >
+                <div class="flex flex-row gap-3 p-5 min-w-[180px]">
+                  <img
+                    class="rounded-full max-w-[61px] max-h-[61px]"
+                    src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FDani.jpg?alt=media&token=8fa753c2-e2dc-457f-888d-c66b31f41743"
+                    alt="projectvezető-2"
+                  />
+                  <div class="flex flex-col">
+                    <h2 class="font-bold font-h2-title text-md text-nbgreydark text-nowrap underline underline-offset-2 decoration-nbgreenmain">
+                      Huszár Dániel
+                    </h2>
+                    <h2 class="font-bold font-h2-title text-[10px] text-nbgreymain">
+                      <a class="font-bold text-nbgreenmain">CFO</a> /
+                      menedzsment, gazd.
+                    </h2>
+                    <p class="font-p-paragraph text-nbgreymain text-xs">
+                      ex-Big Four tanácsadó
+                    </p>
+                  </div>
+                </div>
+                <div class="flex flex-row gap-3 px-5 pt-3 pb-5 lg:min-w-[180px]">
+                  <img
+                    class="rounded-full max-w-[61px] max-h-[61px]"
+                    src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FTamas.jpg?alt=media&token=25133138-df30-4de1-b1b3-72d04260d7ce"
+                    alt="web csapatvezető-1"
+                  />
+                  <div class="flex flex-col">
+                    <h2 class="font-bold font-h2-title text-md text-nbgreydark text-nowrap underline underline-offset-2 decoration-nbgreenmain">
+                      Kotán Tamás
+                    </h2>
+                    <h2 class="font-bold font-h2-title text-[10px] text-nbgreymain">
+                      <a class="font-bold text-nbgreenmain">CTO</a> /
                       webfejlesztés
                     </h2>
-                    <p class="font-p-paragraph text-[10px] text-nbgreymain">
-                      front- és backend-fejlesztés
+                    <p class="font-p-paragraph text-nbgreymain text-xs">
+                      villamosmérnök,
                     </p>
-                  </div>
-                  <div class="flex flex-col gap-2">
-                    <div class="flex flex-row gap-0.5">
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/Timi.jpg"
-                      />
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/Peti.jpg"
-                      />
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/Zsiga.jpg"
-                      />
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/Adam.jpg"
-                      />
-                      <img
-                        class="rounded-full w-[14px] h-[14px]"
-                        src="public/images/Zalan.jpg"
-                      />
-                    </div>
-                    <h2
-                      class="font-bold font-h2-title text-nbgreydark text-sm underline underline-offset-2 undeline-nbgreymain"
-                    >
-                      tartalomgyártás
-                    </h2>
-                    <p class="font-p-paragraph text-[10px] text-nbgreymain">
-                      mozgóképes tartalomgyártás, szakmai kontroll
+                    <p class="font-p-paragraph text-nbgreymain text-xs">
+                      webfejlesztő
                     </p>
                   </div>
                 </div>
               </div>
+              <div id="kiegészitoSzakmaiStabunk">
+                <div class="flex flex-col gap-5 border-nbgreymain pl-6 border-l-2 border-dashed">
+                  <h2 class="font-bold font-h2-title text-base text-nbgreenmain text-nowrap decoration-nbgreydark">
+                    kiegészítő szakmai stábunk
+                  </h2>
+                  <div class="flex lg:flex-row flex-col">
+                    <div class="flex flex-col gap-5">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex flex-row gap-0.5">
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FManagement1.jpg?alt=media&token=0541c6ae-8bae-4a98-98bb-ae00c643de58"
+                          />
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FManagement2.jpg?alt=media&token=491a06a0-054f-4a68-bcf6-63f83b1862ed"
+                          />
+                        </div>
+                        <h2 class="font-bold font-h2-title text-nbgreydark text-sm underline underline-offset-2 undeline-nbgreymain">
+                          menedzsment
+                        </h2>
+                        <p class="font-p-paragraph text-[10px] text-nbgreymain">
+                          üzleti és jogi tervezés, munkaszervezés
+                        </p>
+                      </div>
+                      <div class="flex flex-col gap-2">
+                        <div class="flex flex-row gap-0.5">
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FJoco.jpg?alt=media&token=0a9f0f2f-8eef-4377-8595-d613b68aff31"
+                          />
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FVTamas.png?alt=media&token=79aecee0-8496-4490-8673-913c33cb3ad6"
+                          />
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FZoli.jpg?alt=media&token=eed25669-6c73-4d15-b7f9-efa734539347"
+                          />
+                        </div>
+                        <h2 class="font-bold font-h2-title text-nbgreydark text-nowrap text-sm underline underline-offset-2 undeline-nbgreymain">
+                          marketing & UX/UI
+                        </h2>
+                        <p class="font-p-paragraph text-[10px] text-nbgreymain">
+                          ügyfélelemzés, marketing-stratégia,
+                          vizuális/reklámtervezés
+                        </p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col gap-5 pt-5 lg:pt-0 lg:pl-5">
+                      <div class="flex flex-col gap-2">
+                        <div class="flex flex-row gap-0.5">
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FTamas.jpg?alt=media&token=25133138-df30-4de1-b1b3-72d04260d7ce"
+                          />
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FLili.jpg?alt=media&token=29eec614-e016-45d8-9b8a-b9fb7635be12"
+                          />
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FLili.jpg?alt=media&token=29eec614-e016-45d8-9b8a-b9fb7635be12"
+                          />
+                        </div>
+                        <h2 class="font-bold font-h2-title text-nbgreydark text-sm underline underline-offset-2 undeline-nbgreymain">
+                          webfejlesztés
+                        </h2>
+                        <p class="font-p-paragraph text-[10px] text-nbgreymain">
+                          front- és backend-fejlesztés
+                        </p>
+                      </div>
+                      <div class="flex flex-col gap-2">
+                        <div class="flex flex-row gap-0.5">
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FTimi.jpg?alt=media&token=20a8b461-c277-4a6c-94be-44eb465e1a56"
+                          />
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FPeti.jpg?alt=media&token=c4562284-3897-48d5-b89d-e5ad446fbef4"
+                          />
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FZsiga.jpg?alt=media&token=35b53bd3-4bbe-49c2-aa6d-2ed9ddaca576"
+                          />
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FAdam.jpg?alt=media&token=648adce0-ab1d-4706-8c35-bb8b15924c43"
+                          />
+                          <img
+                            class="rounded-full w-[14px] h-[14px]"
+                            src="https://firebasestorage.googleapis.com/v0/b/near-balkan-films.appspot.com/o/images%2FZalan.jpg?alt=media&token=eddfdeac-c654-4a24-b9ac-69dd0c3c8f2e"
+                          />
+                        </div>
+                        <h2 class="font-bold font-h2-title text-nbgreydark text-sm underline underline-offset-2 undeline-nbgreymain">
+                          tartalomgyártás
+                        </h2>
+                        <p class="font-p-paragraph text-[10px] text-nbgreymain">
+                          mozgóképes tartalomgyártás, szakmai kontroll
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <div
-          id="roadmap"
-          class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
-        >
-          <h2
-            class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic"
-          >
-            mérföldkövek
-          </h2>
-        </div>
-        <div class="max-w-[500px] overflow-x-auto">
-          <div class="flex flex-row gap-16 text-nowrap">
-            <div class="flex flex-col">
-              <h2 class="font-bold font-h2-title text-nbgreydark text-sm">
-                kész MVP
-              </h2>
-              <h2 class="font-h2-title text-nbgreydark text-xs">
-                corwedfounding, events
-              </h2>
-            </div>
-            <div class="flex flex-col">
-              <h2 class="font-bold font-h2-title text-nbgreydark text-sm">
-                Pre-Seed (€100k)
-              </h2>
-              <h2 class="font-h2-title text-nbgreydark text-xs">
-                piacra lépés
-              </h2>
-            </div>
-            <div class="flex flex-col">
-              <h2 class="font-bold font-h2-title text-nbgreydark text-sm">
-                Seed (€500k)
-              </h2>
-              <h2 class="font-h2-title text-nbgreydark text-xs">
-                streaming, webshop
-              </h2>
-            </div>
-          </div>
-          <div class="flex flex-row gap-1">
-            <svg
-              width="422"
-              height="30"
-              viewBox="0 0 422 30"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M342.751 28.4983L369.825 1.15625H421.359"
-                stroke="#507A86"
-                stroke-width="0.944245"
-              />
-              <path
-                d="M168.614 28.6487L195.688 1.30664H247.223"
-                stroke="#46BEA4"
-                stroke-width="0.944245"
-              />
-              <path
-                d="M75.5704 28.8323L46.1995 1.49023L0 1.49023"
-                stroke="#F4451E"
-                stroke-width="0.944245"
-              />
-            </svg>
-          </div>
-          <div class="flex flex-row gap-1">
-            <div class="flex flex-col">
-              <h2
-                class="flex justify-center bg-nbredmain w-24 font-bold font-h4-lead text-nbwhite text-xs"
-              >
-                eddig
-              </h2>
-            </div>
-            <div class="flex flex-row">
-              <h2
-                class="flex justify-center bg-nbgreenmain w-24 font-h4-lead text-nbwhite text-xs"
-              >
-                <a class="font-bold">2024</a> / Q3-Q4
-              </h2>
-              <h2
-                class="flex justify-center bg-nbgreydark w-24 font-bold font-h4-lead text-nbwhite text-xs"
-              >
-                2025
-              </h2>
-              <h2
-                class="flex justify-center bg-nbbluedark w-24 font-bold font-h4-lead text-nbwhite text-xs"
-              >
-                2026
-              </h2>
-              <h2
-                class="flex justify-center bg-nbbluemain w-40 font-bold font-h4-lead text-nbwhite text-xs"
-              >
-                2027-29
-              </h2>
-            </div>
-          </div>
-          <div class="flex flex-row-reverse gap-1">
-            <svg
-              width="293"
-              height="31"
-              viewBox="0 0 293 31"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M213.829 0.448918L240.903 30.4492H292.438"
-                stroke="#31AFF6"
-                stroke-width="0.944245"
-              />
-              <path
-                d="M0.961083 1.26102L28.1655 30.1221H79.9492"
-                stroke="#2B535D"
-                stroke-width="0.944245"
-              />
-            </svg>
-          </div>
-          <div class="flex flex-row-reverse gap-16 text-nowrap">
-            <div class="flex flex-col">
-              <h2 class="font-h2-title text-nbgreydark text-xs">
-                5 millió felhasználó
-              </h2>
-              <h2 class="font-h2-title text-nbgreydark text-xs">
-                €60 millió profit
-              </h2>
-            </div>
-            <div class="flex flex-col">
-              <h2 class="font-h2-title text-nbgreydark text-xs">
-                gyártástámogatás regionális
-              </h2>
-              <h2 class="font-h2-title text-nbgreydark text-xs">
-                (EU) terjeszkedése
-              </h2>
-            </div>
-          </div>
-        </div>
-        <div
-          id="preSeedInvestment"
-          class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
-        >
-          <h2
-            class="bg-nbgreenmain pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic"
-          >
-            pre-seed befektetési lehetőség
-          </h2>
-        </div>
-        <div
-          class="flex lg:flex-row flex-col md:flex-col justify-between items-center gap-5"
-        >
-          <div class="flex flex-col items-center pr-6">
-            <h2
-              class="relative font-bold font-h2-title text-[78px] text-nbgreydark"
-            >
-              €100k
-            </h2>
             <div
-              class="border-nbgreenmain border-t-8 w-60 -translate-y-6"
-            ></div>
+              id="roadmap"
+              class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
+            >
+              <h2 class="bg-nbgreydark pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic">
+                mérföldkövek
+              </h2>
+            </div>
+            <div class="max-w-[500px] overflow-x-auto">
+              <div class="flex flex-row gap-16 text-nowrap">
+                <div class="flex flex-col">
+                  <h2 class="font-bold font-h2-title text-nbgreydark text-sm">
+                    kész MVP
+                  </h2>
+                  <h2 class="font-h2-title text-nbgreydark text-xs">
+                    corwedfounding, events
+                  </h2>
+                </div>
+                <div class="flex flex-col">
+                  <h2 class="font-bold font-h2-title text-nbgreydark text-sm">
+                    Pre-Seed (€100k)
+                  </h2>
+                  <h2 class="font-h2-title text-nbgreydark text-xs">
+                    piacra lépés
+                  </h2>
+                </div>
+                <div class="flex flex-col">
+                  <h2 class="font-bold font-h2-title text-nbgreydark text-sm">
+                    Seed (€500k)
+                  </h2>
+                  <h2 class="font-h2-title text-nbgreydark text-xs">
+                    streaming, webshop
+                  </h2>
+                </div>
+              </div>
+              <div class="flex flex-row gap-1">
+                <svg
+                  width="422"
+                  height="30"
+                  viewBox="0 0 422 30"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M342.751 28.4983L369.825 1.15625H421.359"
+                    stroke="#507A86"
+                    stroke-width="0.944245"
+                  />
+                  <path
+                    d="M168.614 28.6487L195.688 1.30664H247.223"
+                    stroke="#46BEA4"
+                    stroke-width="0.944245"
+                  />
+                  <path
+                    d="M75.5704 28.8323L46.1995 1.49023L0 1.49023"
+                    stroke="#F4451E"
+                    stroke-width="0.944245"
+                  />
+                </svg>
+              </div>
+              <div class="flex flex-row gap-1">
+                <div class="flex flex-col">
+                  <h2 class="flex justify-center bg-nbredmain w-24 font-bold font-h4-lead text-nbwhite text-xs">
+                    eddig
+                  </h2>
+                </div>
+                <div class="flex flex-row">
+                  <h2 class="flex justify-center bg-nbgreenmain w-24 font-h4-lead text-nbwhite text-xs">
+                    <a class="font-bold">2024</a> / Q3-Q4
+                  </h2>
+                  <h2 class="flex justify-center bg-nbgreydark w-24 font-bold font-h4-lead text-nbwhite text-xs">
+                    2025
+                  </h2>
+                  <h2 class="flex justify-center bg-nbbluedark w-24 font-bold font-h4-lead text-nbwhite text-xs">
+                    2026
+                  </h2>
+                  <h2 class="flex justify-center bg-nbbluemain w-40 font-bold font-h4-lead text-nbwhite text-xs">
+                    2027-29
+                  </h2>
+                </div>
+              </div>
+              <div class="flex flex-row-reverse gap-1">
+                <svg
+                  width="293"
+                  height="31"
+                  viewBox="0 0 293 31"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M213.829 0.448918L240.903 30.4492H292.438"
+                    stroke="#31AFF6"
+                    stroke-width="0.944245"
+                  />
+                  <path
+                    d="M0.961083 1.26102L28.1655 30.1221H79.9492"
+                    stroke="#2B535D"
+                    stroke-width="0.944245"
+                  />
+                </svg>
+              </div>
+              <div class="flex flex-row-reverse gap-16 text-nowrap">
+                <div class="flex flex-col">
+                  <h2 class="font-h2-title text-nbgreydark text-xs">
+                    5 millió felhasználó
+                  </h2>
+                  <h2 class="font-h2-title text-nbgreydark text-xs">
+                    €60 millió profit
+                  </h2>
+                </div>
+                <div class="flex flex-col">
+                  <h2 class="font-h2-title text-nbgreydark text-xs">
+                    gyártástámogatás regionális
+                  </h2>
+                  <h2 class="font-h2-title text-nbgreydark text-xs">
+                    (EU) terjeszkedése
+                  </h2>
+                </div>
+              </div>
+            </div>
+            <div
+              id="preSeedInvestment"
+              class="flex items-center bg-nbgreymain bg-opacity-50 rounded-full w-full h-3"
+            >
+              <h2 class="bg-nbgreenmain pr-3 pl-3 rounded-lg w-auto max-w-fit font-h2-title text-lg text-nbwhite italic">
+                pre-seed befektetési lehetőség
+              </h2>
+            </div>
+            <div class="flex lg:flex-row flex-col md:flex-col justify-between items-center gap-5">
+              <div class="flex flex-col items-center pr-6">
+                <h2 class="relative font-bold font-h2-title text-[78px] text-nbgreydark">
+                  €100k
+                </h2>
+                <div class="border-nbgreenmain border-t-8 w-60 -translate-y-6"></div>
+              </div>
+              <p class="border-nbgreymain pl-6 border-l-2 border-dashed font-p-paragraph text-base text-nbgreydark lg:text-sm">
+                A befektetést inkorporációra, az online fizetési szolgáltatás
+                bekötésére, a weboldal üzemeltetésére (szerverdíjak és
+                videó-fogyasztási ráták), marketing-költségekre, belső
+                fejlesztői bérköltségre és egyéb megjelenési költségekre
+                fordítanánk.
+              </p>
+            </div>
           </div>
-          <p
-            class="border-nbgreymain pl-6 border-l-2 border-dashed font-p-paragraph text-base text-nbgreydark lg:text-sm"
-          >
-            A befektetést inkorporációra, az online fizetési szolgáltatás
-            bekötésére, a weboldal üzemeltetésére (szerverdíjak és
-            videó-fogyasztási ráták), marketing-költségekre, belső fejlesztői
-            bérköltségre és egyéb megjelenési költségekre fordítanánk.
-          </p>
         </div>
-      </div>
-    </div>
-    <footer
-      id="footer"
-      class="flex lg:flex-row flex-col justify-between items-center px-11 py-9 max-w-screen-sm lg:max-w-screen-xl"
-    >
-      <h2
-        class="font-bold font-h2-title text-2xl text-nbgreenlight text-nowrap leading-9"
-      >
-        near-balkan.com
-      </h2>
-      <div
-        class="border-nbgreymain mx-9 border-t-[3px] lg:w-full max-w-sm h-px"
-      ></div>
-      <h2
-        class="font-bold font-h2-title text-2xl text-nbgreenlight text-nowrap leading-9"
-      >
-        production@near-balkan.com
-      </h2>
-    </footer>
-  </body>
-</>
-)
+        <footer
+          id="footer"
+          class="flex lg:flex-row flex-col justify-between items-center bg-nbgreylight px-11 py-9 max-w-screen-sm lg:max-w-screen-xl"
+        >
+          <h2 class="font-bold font-h2-title text-2xl text-nbgreenlight text-nowrap leading-9">
+            near-balkan.com
+          </h2>
+          <div class="border-nbgreymain mx-9 border-t-[3px] lg:w-full max-w-sm h-px"></div>
+          <h2 class="font-bold font-h2-title text-2xl text-nbgreenlight text-nowrap leading-9">
+            production@near-balkan.com
+          </h2>
+        </footer>
+      </body>
+    </>
+  );
 };
 
 export default About;

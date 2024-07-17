@@ -203,5 +203,10 @@
     "thriller": "Thriller",
     "western": "Western"
   },
+  "about": {
+    "motto_before-underline": "A ",
+    "motto_underline": "kultfilmek",
+    "motto_after-underline": " inkubátora"
+  },
   "language": "hu"
 }

@@ -52,8 +52,8 @@ function App() {
 
   if (user === undefined) {
     return (
-      <div className='flex items-center justify-center sectionHeight'>
-        <Loading size={'60px'} />
+      <div className='flex items-center justify-center min-h-dvh p-auto m-auto bg-nbgreylight'>
+        <Loading size={'2px'} />
       </div>
     );
   }

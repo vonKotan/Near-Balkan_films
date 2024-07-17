@@ -203,5 +203,10 @@
     "thriller": "Thriller",
     "western": "Western"
   },
+  "about": {
+    "motto_before-underline": "Incubator of ",
+    "motto_underline": "cult films", 
+    "motto_after-underline": ""
+  },
   "language": "en"
 }

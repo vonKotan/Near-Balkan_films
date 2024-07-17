@@ -9,7 +9,7 @@ const Loading = ({ size }) => {
     //   <div style={{ width: `${size}`, height: `${size}` }}></div>
     //   <div style={{ width: `${size}`, height: `${size}` }}></div>
     // </div> */}
-    <div class="flex flex-row">
+    <div class="flex flex-row scale-50">
       <div class="flex flex-col">
         <svg class="m-px animate-pulse" xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52" fill="none">
           <path d="M15.3043 52.0085H0V36.5793L10.6264 25.9465L0 15.3136V0H15.4198L25.9884 10.5751L36.557 0H51.9768V15.3136L41.3504 25.9465L51.9768 36.5793V52.0085H36.6725L25.9884 41.3179L15.3043 52.0085Z" fill="#186A5C"/>
