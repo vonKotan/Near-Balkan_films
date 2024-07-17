@@ -22,6 +22,7 @@ import NewReview from './pages/NewReview';
 import Loading from './components/Loading';
 import Favorites from './pages/Favorites';
 import Search from './pages/Search';
+import User from './pages/User';
 import About from './pages/About';
 import NewEvent from './pages/newEvent'
 import PastCompetitions from './pages/PastCompetitions';
@@ -88,6 +89,10 @@ function App() {
         <Route path="/" element={<Layout />} user={user}>
           <Route index element={<Home search={search} targetDate={targetDate} user={user}/>} />
           <Route path="/past-competitions" element={<PastCompetitions search={search} targetDate={targetDate}/>} />
+          <Route
+            path='/user'
+            element={ <User user={user} />}
+          />
           <Route
             path='/favourites'
             element={!user ? <Navigate to='/login' /> : <Favorites user={user} targetDate={targetDate} />}
