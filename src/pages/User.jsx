@@ -91,20 +91,20 @@ const User = ({ user, targetDate, haveWon }) => {
           </div>
           <div class="w-full h-px bg-nbgreydark mt-6"></div>
 
-          <div className="about content-start">
+          <div className="about container content-start">
             <div className="titleAbout pt-4 pb-4 font-bold font-h3-subtitle text-base text-nbgreydark tracking-tighter">About</div>
             <div className="contentAbout text-gray-600 font-h3-subtitle text-sm">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus quia cumque sit ut quos soluta porro accusamus debitis dolorum culpa illum labore, ducimus quisquam assumenda laudantium nemo? Dolore, quaerat provident!</div>
           </div>
 
           <div class="w-full h-px bg-nbgreydark mt-6"></div>
 
-          <div className="links content-start">
+          <div className="links container content-start pb-4">
             <div className="titleLinks pt-4 pb-4 font-bold font-h3-subtitle text-base text-nbgreydark tracking-tighter">Links</div>
             <div className="contentLinks text-gray-600 font-h3-subtitle text-sm">
-              Instagram <br />
-              Facebook <br />
-              LinkedIn <br />
-              Behance <br />
+              <a href="">Instagram</a> <br />
+              <a href="">Facebook</a> <br />
+              <a href="">LinkedIn</a> <br />
+              <a href="">Behance</a> <br />
             </div>
           </div>
         </div>
