@@ -199,27 +199,16 @@ const User = ({ user, targetDate, haveWon }) => {
           </div>
         </div>
 
-        <div className="columnMovieCards row-span-2 col-span-2 bg-nbgreylight rounded-lg min-w-full min-h-fit">
+        <div className="columnMovieCards row-span-2 col-span-2 rounded-lg min-w-full min-h-fit">
           <div className="cards container">
-            
-
-<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <a href="#">
-        <img class="rounded-t-lg" src="https://s3-alpha-sig.figma.com/img/ffac/cad2/0dcf39ceea8444aa712a00b5aa740fc2?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aDYywlg8Fb5yZDye9pTiQIS5WJW5aNs-8GYk7manWyG1qCmvhAjni0CC1QdEOGB19W9z51jWoe4KM~RbMgAo4qT1MZ58ZCw4zsIABhwgYykMK6a405TkdzDQEZXx~6Ngm-RDW4j~l3pW0u96FbQglIpTYK8lFIZgHnECtZsBy3l8uw17wEad9W1B6NJ1T6yCbcB7SQDyUtQsNu45iTFtprZHRS72hEYCNrL9jJPK7TulhGZlkl2TLCplGP5MpcCrW2fWMRS~rP6UkjsJkOphYRUkkBqIJV9wTQ5RJLbbInnEuYCbxbATyf6lAP9iHTCzURhDtKD7iyYrArEYfplGCw__" alt="" />
-    </a>
-    <div class="p-5">
-        <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Kacifánt</h5>
-        </a>
-        <a href="#" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-             <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-        </a>
-    </div>
-</div>
-
+            <div class="relative w-56 h-56">
+            <img
+            className='rounded-lg relative inline-block h-60 w-52 object-cover object-center"'
+            src="https://s3-alpha-sig.figma.com/img/ffac/cad2/0dcf39ceea8444aa712a00b5aa740fc2?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aDYywlg8Fb5yZDye9pTiQIS5WJW5aNs-8GYk7manWyG1qCmvhAjni0CC1QdEOGB19W9z51jWoe4KM~RbMgAo4qT1MZ58ZCw4zsIABhwgYykMK6a405TkdzDQEZXx~6Ngm-RDW4j~l3pW0u96FbQglIpTYK8lFIZgHnECtZsBy3l8uw17wEad9W1B6NJ1T6yCbcB7SQDyUtQsNu45iTFtprZHRS72hEYCNrL9jJPK7TulhGZlkl2TLCplGP5MpcCrW2fWMRS~rP6UkjsJkOphYRUkkBqIJV9wTQ5RJLbbInnEuYCbxbATyf6lAP9iHTCzURhDtKD7iyYrArEYfplGCw__"
+            alt=""
+          />
+              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font-semibold text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 translate-x-1/2 left-auto top-0 right-0">producing</span>
+            </div>
 
           </div>
         </div>
