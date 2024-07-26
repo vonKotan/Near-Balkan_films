@@ -34,7 +34,7 @@ const User = ({ user, targetDate, haveWon }) => {
   return (
     <>
       <div className="gap-8 grid md:grid-cols-3 sm:grid-cols-1 sm:grid-flow-row grid-flow-col min-w-full">
-        <div className="columnProfile row-span-3 flex flex-col flex-wrap justify-center items-center col-span-auto bg-nbgreylight rounded-lg min-w-full min-h-fit p-6">
+        <div className="columnProfile row-span-2 flex flex-col flex-wrap justify-center items-center col-span-auto bg-nbgreylight rounded-lg min-w-full min-h-fit p-6">
           <img
             className='rounded-full relative inline-block h-28 w-28 object-cover object-center"'
             src="https://s3-alpha-sig.figma.com/img/1bc8/ebd2/0199f30d095605936c7e043284a05446?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fJFWd2ddQwIDGTfW7ksjfw~1OVSpJicJLX2Ik55bGA4WQN4cCfklDVud-t0iFXIAqatyi-0ZQMlFfkntB7fvpLnRweKCsAjWIWxy86W~VSbr~Sx-hzo9G7VIlutoYw94hesx7o0yOZeB7uHoKEZi8y3RanFzcaW562KazzwMmNqHHhyoHGRhLCVhWRqIDUG7PH6OyZCjDOLMtDwkUG1eQoimUElPdiJLL4fR-E1N8M-zewuTY3rSuv1A1JPNkDc-s~zIHBKfS~MXMUVWQlNyVoluM8UB5GNp~PRjsA1y9Ib-4JEbIQ2kjGr3Bxh3liqN4jn45uDB507Ww-uvQ7Rujw__"
@@ -43,7 +43,7 @@ const User = ({ user, targetDate, haveWon }) => {
           <div className="userName p-6 font-black font-h3-title text-2xl text-nbgreydark leading-tight tracking-tight transition-colors decoration-4 decoration-nbgreenmain active:decoration-nbgreenlight -mt-2 max-w-fit">
             Username here
           </div>
-          <div className="userInfo text-gray-600 font-h3-subtitle text-sm">
+          <div className="userInfo grid justify-items-center text-gray-600 font-h3-subtitle text-sm">
             <div className="userStudies">university or smth goes here</div>
             <div className="userLocation">City, Country</div>
           </div>
@@ -124,7 +124,7 @@ const User = ({ user, targetDate, haveWon }) => {
             ">
               <button
                 href="#"
-                class="bg-nbgreydark hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight mt-3 px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
+                class="bg-nbgreydark hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
               >
                 <div class="flex items-start gap-2 -mb-0.5">
                   <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-sm leading-5 tracking-tight">
@@ -134,7 +134,7 @@ const User = ({ user, targetDate, haveWon }) => {
               </button>
               <button
                 href="#"
-                class="bg-nbgreydark hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight mt-3 px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
+                class="bg-nbgreydark hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
               >
                 <div class="flex items-start gap-2 -mb-0.5">
                   <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-sm leading-5 tracking-tight">
@@ -144,7 +144,7 @@ const User = ({ user, targetDate, haveWon }) => {
               </button>
               <button
                 href="#"
-                class="bg-nbgreydark hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight mt-3 px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
+                class="bg-nbgreydark hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
               >
                 <div class="flex items-start gap-2 -mb-0.5">
                   <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-sm leading-5 tracking-tight">
@@ -153,11 +153,11 @@ const User = ({ user, targetDate, haveWon }) => {
                 </div>
               </button>
             </div>
-            <div class="w-full h-px bg-nbgreydark mt-6 mb-6"></div>
+            <div class="w-full h-px bg-nbgreydark mt-3 mb-3"></div>
             <div className="subCategories grid grid-cols-4 justify-items-center">
             <button
                 href="#"
-                class="bg-gray-50 hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight mt-3 px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
+                class="bg-gray-50 hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
               >
                 <div class="flex items-start gap-2 -mb-0.5">
                   <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreydark text-sm leading-5 tracking-tight">
@@ -167,7 +167,7 @@ const User = ({ user, targetDate, haveWon }) => {
               </button>
               <button
                 href="#"
-                class="bg-gray-50 hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight mt-3 px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
+                class="bg-gray-50 hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
               >
                 <div class="flex items-start gap-2 -mb-0.5">
                   <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreydark text-sm leading-5 tracking-tight">
@@ -177,7 +177,7 @@ const User = ({ user, targetDate, haveWon }) => {
               </button>
               <button
                 href="#"
-                class="bg-gray-50 hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight mt-3 px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
+                class="bg-gray-50 hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
               >
                 <div class="flex items-start gap-2 -mb-0.5">
                   <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreydark text-sm leading-5 tracking-tight">
@@ -187,7 +187,7 @@ const User = ({ user, targetDate, haveWon }) => {
               </button>
               <button
                 href="#"
-                class="bg-gray-50 hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight mt-3 px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
+                class="bg-gray-50 hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
               >
                 <div class="flex items-start gap-2 -mb-0.5">
                   <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreydark text-sm leading-5 tracking-tight">
@@ -200,40 +200,71 @@ const User = ({ user, targetDate, haveWon }) => {
         </div>
 
         <div className="columnMovieCards row-span-2 col-span-2 rounded-lg min-w-full min-h-fit">
-          <div className="cards container grid grid-cols-3 justify-items-strech gap-6">
-            <div class="poster relative w-56 h-56">
+          <div className="cards container grid grid-cols-3 xl:grid-cols-4 justify-items-strech gap-6">
+            <div class="poster relative max-w-48 max-h-60 hover:scale-110">
             <img
             className='rounded-lg relative inline-block h-60 w-48 object-cover object-center"'
             src="https://s3-alpha-sig.figma.com/img/ffac/cad2/0dcf39ceea8444aa712a00b5aa740fc2?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aDYywlg8Fb5yZDye9pTiQIS5WJW5aNs-8GYk7manWyG1qCmvhAjni0CC1QdEOGB19W9z51jWoe4KM~RbMgAo4qT1MZ58ZCw4zsIABhwgYykMK6a405TkdzDQEZXx~6Ngm-RDW4j~l3pW0u96FbQglIpTYK8lFIZgHnECtZsBy3l8uw17wEad9W1B6NJ1T6yCbcB7SQDyUtQsNu45iTFtprZHRS72hEYCNrL9jJPK7TulhGZlkl2TLCplGP5MpcCrW2fWMRS~rP6UkjsJkOphYRUkkBqIJV9wTQ5RJLbbInnEuYCbxbATyf6lAP9iHTCzURhDtKD7iyYrArEYfplGCw__"
             alt=""
           />
-              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font- text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 -translate-x-2 left-auto top-0 right-0">producer</span>
+              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font- text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 translate-x-4 left-auto top-0 right-0">producer</span>
             </div>
-            <div class="poster relative w-56 h-56">
+            <div class="poster relative max-w-48 max-h-60 hover:scale-110">
             <img
             className='rounded-lg relative inline-block h-60 w-48 object-cover object-center"'
             src="https://s3-alpha-sig.figma.com/img/8fd3/1a83/87fb2006f37ef5075dd5d12542428f57?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T9ZCAzcav3SqM~wcUgzjCBFO~0y7WWajhcdKGyxysSjy6rjZOKwYAGhoZhPQ6p7i9mf2stYTc0lh7WbTTUs4jN8PWQcrkvzs8D4zBQYQVX6W1BnbVoeuVi7ISqequ~LfsH9ubZUSiM~ioHLR7KuIXXfPmO7hGzaKt9epX1FALr7ylGAPW-JpFsmDKnyNvu2Ch0h6Buh3CknYc73yUI61Q0QFsJUtPvO7QFMtBgZ6TXupJdE6~lishWmpFp342ImhKLOsDT-6yfOWMiCnPjmEreAVYM8bVu8zEtfowAootx4zrBkhfMIqCGvn8X0G9gAUbhKoZ9-s~~H3TpwwfpvT3w__"
             alt=""
           />
-              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font- text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 -translate-x-2 left-auto top-0 right-0">editor</span>
+              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font- text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 translate-x-4 left-auto top-0 right-0">editor</span>
             </div>
-            <div class="poster relative w-56 h-56">
+            <div class="poster relative max-w-48 max-h-60 hover:scale-110">
             <img
             className='rounded-lg relative inline-block h-60 w-48 object-cover object-center"'
             src="https://s3-alpha-sig.figma.com/img/0067/d69d/91ca7f318b39edd4b2ba1ad72a83c33a?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qj4TGbHnRw-dLcIDUl6cjpAfZF87kQn7KVI8u-o3BzUrvRPDYp0MeInYMsJzJg2IQCYbXZ0Pd3is3i7IAkSbNZagi63y1A2K8j1Ev8iY6PjimDH1Wf7PZw~WDYS44mksenUPH9uialkTjaZpaaiCbKo7fr~FQeMtTo39JGQPFQ0W14jmjq6njaUcau3hjrIKYUvRmL~r76L5cV8tBP8l3zLXaC-CYEeue9XV~nvuDp1oa06-S9QanpQriuLtFQc3SbCHI3xoDH8eFO4UBdChyJdEMyMn17bW4spY7gu0y8INGKPuUwCf4prSQNHiabHbNjFHs-PAcdlfStqL6DmlXQ__"
             alt=""
           />
-              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font- text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 -translate-x-2 left-auto top-0 right-0">director</span>
+              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font- text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 translate-x-4 left-auto top-0 right-0">director</span>
             </div>
-            <div class="poster relative w-56 h-56">
+            <div class="poster relative max-w-48 max-h-60 hover:scale-110">
             <img
             className='rounded-lg relative inline-block h-60 w-48 object-cover object-center"'
             src="https://s3-alpha-sig.figma.com/img/4771/a9ca/203bf8cbaf5263fcc29cd7e8280f53d0?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GHl~5R-tkiiiFjRrfplm7W3Nlz99fnR~9srVLsJwM21F6Si-vGD1RKMSg3NO--6ilaz45k0pA5c~z9GIHWV0JvmZTF56~g-ROe~uyj6E8O-W0qn9guBbpOhK4q9mVKooV0P2DTqtoJUMgWapVV5~WEd3JNrptyZ1YluNkIsjVHko~y5f6-lxGrUVDNYee2LxhO8s8a02L9iUk0HT4oyVG3I0kXLDdfdcHJgXY9h5IIqMBnSqNIlVcZs-ZZ7gNDrpbDvMVFOATuHdBGiBS2i~bUmSlPO~-xtnljfeQedOGCbPOCHOZufOa3sW12CEF9C62wTMQwxZSu14ecPjtI~46Q__"
             alt=""
           />
-              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font- text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 -translate-x-2 left-auto top-0 right-0">director</span>
+              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font- text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 translate-x-4 left-auto top-0 right-0">director</span>
             </div>
-
+            <div class="poster relative max-w-48 max-h-60 hover:scale-110">
+            <img
+            className='rounded-lg relative inline-block h-60 w-48 object-cover object-center"'
+            src="https://s3-alpha-sig.figma.com/img/ffac/cad2/0dcf39ceea8444aa712a00b5aa740fc2?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=aDYywlg8Fb5yZDye9pTiQIS5WJW5aNs-8GYk7manWyG1qCmvhAjni0CC1QdEOGB19W9z51jWoe4KM~RbMgAo4qT1MZ58ZCw4zsIABhwgYykMK6a405TkdzDQEZXx~6Ngm-RDW4j~l3pW0u96FbQglIpTYK8lFIZgHnECtZsBy3l8uw17wEad9W1B6NJ1T6yCbcB7SQDyUtQsNu45iTFtprZHRS72hEYCNrL9jJPK7TulhGZlkl2TLCplGP5MpcCrW2fWMRS~rP6UkjsJkOphYRUkkBqIJV9wTQ5RJLbbInnEuYCbxbATyf6lAP9iHTCzURhDtKD7iyYrArEYfplGCw__"
+            alt=""
+          />
+              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font- text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 translate-x-4 left-auto top-0 right-0">cameraman</span>
+            </div>
+            <div class="poster relative max-w-48 max-h-60 hover:scale-110">
+            <img
+            className='rounded-lg relative inline-block h-60 w-48 object-cover object-center"'
+            src="https://s3-alpha-sig.figma.com/img/8fd3/1a83/87fb2006f37ef5075dd5d12542428f57?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=T9ZCAzcav3SqM~wcUgzjCBFO~0y7WWajhcdKGyxysSjy6rjZOKwYAGhoZhPQ6p7i9mf2stYTc0lh7WbTTUs4jN8PWQcrkvzs8D4zBQYQVX6W1BnbVoeuVi7ISqequ~LfsH9ubZUSiM~ioHLR7KuIXXfPmO7hGzaKt9epX1FALr7ylGAPW-JpFsmDKnyNvu2Ch0h6Buh3CknYc73yUI61Q0QFsJUtPvO7QFMtBgZ6TXupJdE6~lishWmpFp342ImhKLOsDT-6yfOWMiCnPjmEreAVYM8bVu8zEtfowAootx4zrBkhfMIqCGvn8X0G9gAUbhKoZ9-s~~H3TpwwfpvT3w__"
+            alt=""
+          />
+              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font- text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 translate-x-4 left-auto top-0 right-0">actor</span>
+            </div>
+            <div class="poster relative max-w-48 max-h-60 hover:scale-110">
+            <img
+            className='rounded-lg relative inline-block h-60 w-48 object-cover object-center"'
+            src="https://s3-alpha-sig.figma.com/img/0067/d69d/91ca7f318b39edd4b2ba1ad72a83c33a?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=qj4TGbHnRw-dLcIDUl6cjpAfZF87kQn7KVI8u-o3BzUrvRPDYp0MeInYMsJzJg2IQCYbXZ0Pd3is3i7IAkSbNZagi63y1A2K8j1Ev8iY6PjimDH1Wf7PZw~WDYS44mksenUPH9uialkTjaZpaaiCbKo7fr~FQeMtTo39JGQPFQ0W14jmjq6njaUcau3hjrIKYUvRmL~r76L5cV8tBP8l3zLXaC-CYEeue9XV~nvuDp1oa06-S9QanpQriuLtFQc3SbCHI3xoDH8eFO4UBdChyJdEMyMn17bW4spY7gu0y8INGKPuUwCf4prSQNHiabHbNjFHs-PAcdlfStqL6DmlXQ__"
+            alt=""
+          />
+              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font- text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 translate-x-4 left-auto top-0 right-0">set designer</span>
+            </div>
+            <div class="poster relative max-w-48 max-h-60 hover:scale-110">
+            <img
+            className='rounded-lg relative inline-block h-60 w-48 object-cover object-center"'
+            src="https://s3-alpha-sig.figma.com/img/4771/a9ca/203bf8cbaf5263fcc29cd7e8280f53d0?Expires=1722816000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=GHl~5R-tkiiiFjRrfplm7W3Nlz99fnR~9srVLsJwM21F6Si-vGD1RKMSg3NO--6ilaz45k0pA5c~z9GIHWV0JvmZTF56~g-ROe~uyj6E8O-W0qn9guBbpOhK4q9mVKooV0P2DTqtoJUMgWapVV5~WEd3JNrptyZ1YluNkIsjVHko~y5f6-lxGrUVDNYee2LxhO8s8a02L9iUk0HT4oyVG3I0kXLDdfdcHJgXY9h5IIqMBnSqNIlVcZs-ZZ7gNDrpbDvMVFOATuHdBGiBS2i~bUmSlPO~-xtnljfeQedOGCbPOCHOZufOa3sW12CEF9C62wTMQwxZSu14ecPjtI~46Q__"
+            alt=""
+          />
+              <span class="bg-nbgreymain text-sm leading-5 tracking-tight font- text-nbgreydark text-center p-0.5 rounded-full px-2 absolute -translate-y-1/2 translate-x-4 left-auto top-0 right-0">director</span>
+            </div>
 
           </div>
         </div>
