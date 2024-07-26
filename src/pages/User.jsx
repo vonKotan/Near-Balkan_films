@@ -34,7 +34,7 @@ const User = ({ user, targetDate, haveWon }) => {
   return (
     <>
       <div className="gap-8 grid md:grid-cols-3 grid-flow-row md:grid-flow-col min-w-full">
-        <div className="columnProfile row-span-3 flex flex-col flex-wrap justify-center items-center col-span-auto bg-nbgreylight rounded-lg min-w-full min-h-fit p-6">
+        <div className="columnProfile row-span-3 flex flex-col flex-wrap justify-center items-center bg-nbgreylight rounded-lg min-w-full min-h-fit p-6">
           <img
             className='rounded-full relative inline-block h-28 w-28 object-cover object-center"'
             src="https://s3-alpha-sig.figma.com/img/1bc8/ebd2/0199f30d095605936c7e043284a05446?Expires=1722211200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=fJFWd2ddQwIDGTfW7ksjfw~1OVSpJicJLX2Ik55bGA4WQN4cCfklDVud-t0iFXIAqatyi-0ZQMlFfkntB7fvpLnRweKCsAjWIWxy86W~VSbr~Sx-hzo9G7VIlutoYw94hesx7o0yOZeB7uHoKEZi8y3RanFzcaW562KazzwMmNqHHhyoHGRhLCVhWRqIDUG7PH6OyZCjDOLMtDwkUG1eQoimUElPdiJLL4fR-E1N8M-zewuTY3rSuv1A1JPNkDc-s~zIHBKfS~MXMUVWQlNyVoluM8UB5GNp~PRjsA1y9Ib-4JEbIQ2kjGr3Bxh3liqN4jn45uDB507Ww-uvQ7Rujw__"
@@ -138,7 +138,7 @@ const User = ({ user, targetDate, haveWon }) => {
               >
                 <div class="flex items-start gap-2 -mb-0.5">
                   <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-sm leading-5 tracking-tight">
-                    Events
+                  Method-Cards
                   </p>
                 </div>
               </button>
@@ -148,13 +148,13 @@ const User = ({ user, targetDate, haveWon }) => {
               >
                 <div class="flex items-start gap-2 -mb-0.5">
                   <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreylight text-sm leading-5 tracking-tight">
-                    Method-Cards
+                    Events
                   </p>
                 </div>
               </button>
             </div>
             <div class="w-full h-px bg-nbgreydark mt-3 mb-3"></div>
-            <div className="subCategories grid grid-cols-4 justify-items-center">
+            <div className="subCategories grid grid-cols-2 gap-2 justify-items-center md:grid-cols-4 md:justify-items-center">
             <button
                 href="#"
                 class="bg-gray-50 hover:bg-nbgreenmain active:bg-nbgreenlight disabled:bg-nbgreenlight px-3 py-2 rounded-xl min-w-fit min-h-fit transition-all select-none group/button focus:outline-none focus:ring focus:ring-nbgreenmain"
@@ -181,7 +181,7 @@ const User = ({ user, targetDate, haveWon }) => {
               >
                 <div class="flex items-start gap-2 -mb-0.5">
                   <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreydark text-sm leading-5 tracking-tight">
-                    Favorites
+                  Recommendations
                   </p>
                 </div>
               </button>
@@ -191,7 +191,7 @@ const User = ({ user, targetDate, haveWon }) => {
               >
                 <div class="flex items-start gap-2 -mb-0.5">
                   <p class="group-hover/button:text-nbgreydark group-active/button:text-nbgreydark group-disabled/button:text-nbgreymiddark min-w-max font-button font-semibold text-nbgreydark text-sm leading-5 tracking-tight">
-                    Recommendations
+                    Favorites
                   </p>
                 </div>
               </button>
