@@ -107,7 +107,7 @@ const User = ({ user, targetDate, haveWon }) => {
 
           <div className="links container content-start pb-4">
             <div className="titleLinks pt-4 pb-4 font-bold font-h3-subtitle text-base text-nbgreydark tracking-tighter">
-              Links
+              Contact
             </div>
             <div className="contentLinks text-gray-600 font-h3-subtitle text-sm">
               <a href="">Instagram</a> <br />
