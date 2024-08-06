@@ -2,12 +2,16 @@ import { Link } from 'react-router-dom';
 import AddFavorite from '../components/AddFavorite';
 import Card from '../components/Card';
 import SectionTitle from '../components/SectionTitle';
-import { useFetchData } from '../hooks/useFetchData';
+import { useFetchFavourites } from '../hooks/useFetchFavourites';
 import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useMemo } from 'react';
+import { useContext } from 'react'
+import { UserContext } from '../App'
 
-const Favorites = ({ user}) => {
-  const { documents: favorites } = useFetchData(`users/${user?.uid}/favorites`);
+const Favorites = ({ targetDate }) => {
+
+  const { user } = useContext(UserContext)
+  const { favorites } = useFetchFavourites(user);
   const { t, i18n } = useTranslation();
   const {documents: competitions} = useFetchData('competitions');
   const [currentCompetition, setCurrentCompetition] = useState(null);
@@ -42,11 +46,11 @@ const Favorites = ({ user}) => {
               movie={movie} targetDate={targetDate} haveWon={false} currentCompetition={currentCompetition}
             />
             <div className='absolute top-2 left-2 p-2 bg-nbredmain cursor-pointer rounded-full shadow-md hover:bg-red-400'>
-              <AddFavorite movieId={movie.id} user={user} />
+              <AddFavorite movie={movie} />
             </div>
           </div>
         ))}
-      {favorites && favorites.length === 0 && (
+      {(!favorites || favorites.length === 0) && (
         <div className='flex justify-center items-center gap-8 py-8 w-full max-w-screen-lg h-[65dvh]'>
           <p>{t("favourites.no_favs")}</p>
         </div>

@@ -3,7 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 // Components
 import { useTranslation } from 'react-i18next';
 
-const NotFound = ({ user, userObject }) => {
+const NotFound = () => {
     const { t, i18n } = useTranslation();
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);

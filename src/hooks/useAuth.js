@@ -1,6 +1,7 @@
 // Firebase Config
 import { app, database } from '../firebase/config';
-import { setDoc, doc, getDoc, getDocFromCache } from 'firebase/firestore';
+import { setDoc, doc, getDoc, onSnapshot } from 'firebase/firestore';
+import { useEffect } from 'react'
 
 // Firebase functions
 import {
@@ -23,13 +24,16 @@ export const useAuth = () => {
   const [message, setMessage] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
+
+  const [user, setUser] = useState(null);
+
   const provider = new GoogleAuthProvider();
   const navigate = useNavigate();
-  
+
 
   // Get auth from firebase
   const auth = getAuth(app);
-  const {uploadImage} = useUploadImage(auth.currentUser)
+  const { uploadImage } = useUploadImage(auth.currentUser)
   auth.languageCode = 'eng';
 
   // Set redirect URL to localhost  //whats this bullshit?
@@ -60,11 +64,9 @@ export const useAuth = () => {
   }
 
   const checkFirstSignIn = async () => {
-    const doc = await getUser();
-    if (!doc) {
+    if (!user) {
       navigate("/register/info");
-    } else console.log(doc);
-    console.log(doc);
+    }
   }
 
   // Function to register and login new users
@@ -75,23 +77,23 @@ export const useAuth = () => {
       const userId = auth.currentUser.uid;
       let imageurl = ''
       console.log(userInfo);
-      if(userInfo.profilePicture){
-        console.log(userInfo.profilePicture);
+      if (userInfo.profilePicture) {
         imageurl = await uploadImage('profilepictures', userInfo.profilePicture, Date.now(), auth.currentUser.email);
         delete userInfo.profilePicture;
-      } else if(auth.currentUser.photoURL){
+      } else if (auth.currentUser.photoURL) {
         imageurl = auth.currentUser.photoURL;
       }
-    
+
       //create doc in our database with the same id as the auth object
-      await setDoc(doc(database, 'users', userId), {...userInfo, email:auth.currentUser?.email, profilePicture:imageurl ?? ""})
+      await setDoc(doc(database, 'users', userId), { ...userInfo, email: auth.currentUser?.email, profilePicture: imageurl ?? "" })
 
       setLoading(false);
-      navigate("/")
+      return true;
     } catch (e) {
       setError(e.message);
       console.log(e.message);
       setLoading(false);
+      return false;
     }
   };
 
@@ -101,7 +103,7 @@ export const useAuth = () => {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      //checkFirstSignIn();
+      await checkFirstSignIn();
       setLoading(false);
     } catch (e) {
       setError(e.message);
@@ -130,25 +132,28 @@ export const useAuth = () => {
       setLoading(false);
     }
   };
+
   //function the retrieve the current users data from our database based on the auth object
   //can be used later when we want to display things based on the users type
-  const getUser = async () => {
-    const uid = auth?.currentUser?.uid;
-    if(!uid) return false;
-    const docRef = doc(database, "users", uid);
-    let document;
-    //if it is cached try to get it from the cache
-
-    try {
-      document = await getDocFromCache(docRef);
-      //if the doc was not cached it throws an error and we read it from the database
-    } catch (err) {
-      document = await getDoc(docRef)
+  const getUser = async (authUser) => {
+    if (!authUser) {
+      setUser(null);
+      return
     }
-    if (document.exists()) {
-      return document.data();
-    } else return false;
+    const docRef = doc(database, "users", authUser.uid);
+    onSnapshot(docRef, snapshot => {
+      if(snapshot.data()){
+        setUser({ ...authUser, ...snapshot.data() })
+      }
+    })
   }
+
+  useEffect(() => {
+
+    onAuthStateChanged(auth, async (authUser) => {
+      await getUser(authUser);
+    });
+  }, []);
 
   return {
     auth,
@@ -162,6 +167,6 @@ export const useAuth = () => {
     error,
     loading,
     onAuthStateChanged,
-    getUser
+    user,
   };
 };
