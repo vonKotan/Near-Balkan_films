@@ -3,12 +3,13 @@ import AddFavorite from '../components/AddFavorite';
 import Card from '../components/Card';
 import SectionTitle from '../components/SectionTitle';
 import { useFetchFavourites } from '../hooks/useFetchFavourites';
+import {useFetchData} from '../hooks/useFetchData';
 import { useTranslation } from 'react-i18next';
 import React, { useEffect, useState, useMemo } from 'react';
 import { useContext } from 'react'
 import { UserContext } from '../App'
 
-const Favorites = ({ targetDate }) => {
+const Favorites = () => {
 
   const { user } = useContext(UserContext)
   const { favorites } = useFetchFavourites(user);

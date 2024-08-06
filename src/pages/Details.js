@@ -37,7 +37,7 @@ import {
   Item,
 } from '@radix-ui/react-navigation-menu';
 
-const Details = ({targetDate, haveWon}) => {
+const Details = ({haveWon}) => {
   const { id } = useParams();
   const videoRef = React.useRef(null);  //megtekintesek novelesehez kell
   const [stars, setStars] = useState([]);
