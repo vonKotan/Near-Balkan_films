@@ -52,7 +52,7 @@ const Home = ({ search }) => {
   const [adUrl, setAdUrl] = useState('')
   const {user} = useContext(UserContext)
 
-  const [randomMovie, setRandomMovie] = useState(0);
+  const [randomMovie, setRandomMovie] = useState(null);
 
   const currentDate = useMemo(() => new Date(), []);
   const formattedDate = currentDate.toLocaleDateString();

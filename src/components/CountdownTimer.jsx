@@ -73,6 +73,7 @@ const ExpiredNotice = ({ haveWon, movie, competition }) => {
     }
 };
 
+
 // Egyeb elemek a versenyhez kotve
 export const CurrentRace = ({ targetDate, detailPage, movie, currentCompetition }) => {
     const { t, i18n } = useTranslation();
@@ -127,7 +128,7 @@ export const RaceState = ({ targetDate, detailPage }) => {
     }
 };
 
-export const FundingButtons = ({ targetDate, movie, user, haveWon }) => {
+export const FundingButtons = ({ targetDate, movie, user, haveWon, competition}) => {
     const { t, i18n } = useTranslation();
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
@@ -138,7 +139,7 @@ export const FundingButtons = ({ targetDate, movie, user, haveWon }) => {
         return (
             <>
                 <div className="z-20 md:col-span-7 md:col-start-1 md:row-span-1 md:row-start-1">
-                    <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} detailPage={true} />
+                    <GraphFieldRace movie={movie} haveWon={haveWon} targetDate={targetDate} detailPage={true} competition={competition} />
                 </div>
                 <div className="flex flex-row md:flex-col justify-center md:col-span-9 md:col-start-1 md:row-span-1 md:row-start-1 bg-teal-700 rounded-2xl divide-x-2 md:divide-x-none divide-y-none md:divide-y-2 divide-nbgreydark text-start transition-colors duration-1000 delay-1000 overflow-clip group/graphfield ring-1 ring-gray-900/5 ring-inset">
                     <Link to={!user ? ("/login") : ("")} className="md:grid md:grid-cols-9 md:grid-rows-1 bg-nbgreymain opacity-60 p-3 md:p-0 w-full h-full transition cursor-default pointer-events-none group/button line-pattern ring-nbgreylight">
@@ -154,7 +155,7 @@ export const FundingButtons = ({ targetDate, movie, user, haveWon }) => {
         return (
             <>
                 <div className="z-20 md:col-span-7 md:col-start-1 md:row-span-1 md:row-start-1">
-                    <GraphFieldRace className="w-full h-full" movie={movie} haveWon={haveWon} targetDate={targetDate} detailPage={true} />
+                    <GraphFieldRace className="w-full h-full" movie={movie} haveWon={haveWon} targetDate={targetDate} detailPage={true} competition={competition}/>
                 </div>
                 <div className="flex flex-row md:flex-col justify-center md:col-span-9 md:col-start-1 md:row-span-1 md:row-start-1 bg-teal-700 rounded-2xl divide-x-2 md:divide-x-none divide-y-none md:divide-y-2 divide-nbgreydark text-start transition-colors duration-1000 delay-1000 overflow-clip group/graphfield ring-1 ring-gray-900/5 ring-inset">
                     <Link to={!user ? ("/login") : ("")} className="md:grid md:grid-cols-9 md:grid-rows-1 bg-emerald-500 hover:bg-nbgreenmain active:bg-nbgreenlight opacity-90 p-3 md:p-0 w-full h-full transition cursor-pointer group/button ring-nbgreylight">
