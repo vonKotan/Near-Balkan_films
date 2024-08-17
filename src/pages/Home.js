@@ -78,7 +78,7 @@ const Home = ({ search }) => {
   }, [competitions, currentDate]);
 
   useEffect(() => {
-    if (currentCompetition) {
+    if (currentCompetition && currentCompetition.films?.length>0) {
       const q = query(
         collection(database, 'films'),
         where(documentId(), 'in', currentCompetition.films)
