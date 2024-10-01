@@ -96,7 +96,7 @@ function App() {
           />
           <Route
             path='/snippet'
-            element={ <User user={user} />}
+            element={!user ? <Navigate to='/login' /> : <Snippet user={user} />}
           />
           <Route
             path='/favourites'
