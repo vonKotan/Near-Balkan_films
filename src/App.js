@@ -95,6 +95,10 @@ function App() {
             element={ <User user={user} />}
           />
           <Route
+            path='/snippet'
+            element={ <User user={user} />}
+          />
+          <Route
             path='/favourites'
             element={!user ? <Navigate to='/login' /> : <Favorites user={user} targetDate={targetDate} />}
           />
