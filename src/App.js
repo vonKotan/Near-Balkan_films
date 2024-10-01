@@ -27,6 +27,7 @@ import About from './pages/About';
 import NewEvent from './pages/newEvent'
 import PastCompetitions from './pages/PastCompetitions';
 import NotFound from './pages/NotFound';
+import Snippet from './pages/Snippet'; 
 
 function App() {
   //auth object of user
