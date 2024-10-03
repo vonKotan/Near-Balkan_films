@@ -17,12 +17,22 @@ import { UserIcon, UserIconList } from "../components/UserIcon";
 // Radix Imports
 import { Item } from "@radix-ui/react-navigation-menu";
 
+// Headless ui
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
+
 const User = ({ user }) => {
   return (
     <>
+<<<<<<< HEAD
       <div className="flex flex-row flex-wrap justify-center items-center">
         <div className="lg:flex items-stretch bg-nbgreylight mx-auto lg:mx-0 px-5 sm:py-2 pt-2 pb-3 rounded-lg w-full min-w-fit lg:max-w-5xl container">
           <div className="lg:flex-auto px-2 sm:px-6 py-5 sm:py-7 lg:p-10 sm:pb-5 lg:pb-10 base">
+=======
+      <div className="base flex flex-row flex-wrap justify-center items-center">
+        <div className="container lg:flex items-stretch bg-nbgreylight mx-auto lg:mx-0 px-5 sm:py-2 pt-2 pb-3 rounded-lg w-full min-w-fit lg:max-w-5xl">
+          <div className="lg:flex-auto px-2 sm:px-6 py-5 sm:py-7 lg:p-10 sm:pb-5 lg:pb-10">
+>>>>>>> a1210f679e9d85a773d78ca01e0df5044df30564
             <div className="titleCategories">
               <div className="inline-flex flex-start justify-center items-center gap-8 w-full title">
                 <div className="flex-auto bg-nbgreenmain h-1"></div>
@@ -76,6 +86,7 @@ const User = ({ user }) => {
                 </div>
               </div>
             </div>
+<<<<<<< HEAD
             <div>
             <div className="gap-2 grid bg-nbgreenlight rounded-3xl problemSolution">
               <div className="flex justify-center mx-20 problem">
@@ -96,6 +107,54 @@ const User = ({ user }) => {
                   </div>
                 </div>
             </div>
+=======
+
+
+
+            <div className="problemSolution w-full px-4 pt-16">
+              <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
+                <Disclosure>
+                  {({ open }) => (
+                    <>
+                      <DisclosureButton className="problem flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
+                        <span>Dramatic situations are usually flat</span>
+                        <ChevronUpIcon
+                          className={`${
+                            open ? "rotate-180 transform" : ""
+                          } h-5 w-5 text-purple-500`}
+                        />
+                      </DisclosureButton>
+                      <DisclosurePanel className="explanation px-4 pb-2 pt-4 text-sm text-gray-500">
+                        
+                      </DisclosurePanel>
+                    </>
+                  )}
+                </Disclosure>
+                <Disclosure as="div" className="mt-2">
+                  {({ open }) => (
+                    <>
+                      <DisclosureButton className="solution flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
+                        <span> We’ve made a dramatic situation in half a minute</span>
+                        <ChevronUpIcon
+                          className={`${
+                            open ? "rotate-180 transform" : ""
+                          } h-5 w-5 text-purple-500`}
+                        />
+                      </DisclosureButton>
+                    </>
+                  )}
+                </Disclosure>
+              </div>
+            </div>
+
+            <div className="">
+              <div className=""></div>
+              <div className="explanationArrow">
+                <div className=""></div>
+                <div className="arrow"></div>
+              </div>
+              <div className=""></div>
+>>>>>>> a1210f679e9d85a773d78ca01e0df5044df30564
             </div>
           </div>
         </div>
