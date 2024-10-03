@@ -20,9 +20,9 @@ import { Item } from "@radix-ui/react-navigation-menu";
 const User = ({ user }) => {
   return (
     <>
-      <div className="flex flex-row flex-wrap justify-center items-center">
+      <div className="base flex flex-row flex-wrap justify-center items-center">
         <div className="container lg:flex items-stretch bg-nbgreylight mx-auto lg:mx-0 px-5 sm:py-2 pt-2 pb-3 rounded-lg w-full min-w-fit lg:max-w-5xl">
-          <div className="base lg:flex-auto px-2 sm:px-6 py-5 sm:py-7 lg:p-10 sm:pb-5 lg:pb-10">
+          <div className="lg:flex-auto px-2 sm:px-6 py-5 sm:py-7 lg:p-10 sm:pb-5 lg:pb-10">
             <div className="titleCategories">
               <div className="title justify-center flex-start gap-8 inline-flex items-center w-full">
                 <div className="flex-auto bg-nbgreenmain h-1"></div>
@@ -92,3 +92,4 @@ const User = ({ user }) => {
 };
 
 export default User;
+ 
