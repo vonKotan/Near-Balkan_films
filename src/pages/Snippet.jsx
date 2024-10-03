@@ -76,22 +76,26 @@ const User = ({ user }) => {
                 </div>
               </div>
             </div>
-            <div className="problemSolution">
-              <div className="flex justify-center problem">
-                <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full max-w-fit">
-                  <div className="font-a-anchor font-bold text-nbgreydark">DRAMATIC SITUATION ARE USUALLY FLAT</div>
+            <div>
+            <div className="gap-2 grid bg-nbgreenlight rounded-3xl problemSolution">
+              <div className="flex justify-center mx-20 problem">
+                <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
+                  <div className="font-a-anchor font-bold text-nbgreydark text-xl">DRAMATIC SITUATION ARE USUALLY FLAT</div>
                   </div>
                 </div>
-              <div className="explanationArrow">
-                <div className="flex-auto bg-nbgreydark h-1 explanation"></div>
-                <div className="arrow"></div>
-                <div className="flex-auto bg-nbgreydark h-1 explanation"></div>
+              <div className="flex space-x-4 px-4 explanationArrow">
+                <div className="flex-auto bg-nbgreylight h-1 explanation"></div>
+                <div className="arrow"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+  <path d="M0.5 5V0L16.5 0V5L8.5 13L0.5 5Z" fill="#E9EEF0"/>
+</svg></div>
+                <div className="flex-auto bg-nbgreylight h-1 explanation"></div>
               </div>
-              <div className="flex justify-center problem">
-                <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full max-w-fit">
-                  <div className="font-a-anchor font-bold text-nbgreydark">WE’VE MADE A DRAMATIC SITUATION IN HALF A MINUTE</div>
+              <div className="flex justify-center mx-20 problem">
+                <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
+                  <div className="font-a-anchor font-bold text-nbgreydark text-xl">WE’VE MADE A DRAMATIC SITUATION IN HALF A MINUTE</div>
                   </div>
                 </div>
+            </div>
             </div>
           </div>
         </div>
