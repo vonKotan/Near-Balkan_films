@@ -18,8 +18,8 @@ import { UserIcon, UserIconList } from "../components/UserIcon";
 import { Item } from "@radix-ui/react-navigation-menu";
 
 // Headless ui
-import { Disclosure } from '@headlessui/react'
-import { ChevronUpIcon } from '@heroicons/react/20/solid'
+import { Disclosure } from "@headlessui/react";
+import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 const User = ({ user }) => {
   return (
@@ -83,57 +83,49 @@ const User = ({ user }) => {
 
 
 
+            <div className="problemSolution w-full px-4 pt-16">
+              <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
+                <Disclosure>
+                  {({ open }) => (
+                    <>
+                      <DisclosureButton className="problem flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
+                        <span>Dramatic situations are usually flat</span>
+                        <ChevronUpIcon
+                          className={`${
+                            open ? "rotate-180 transform" : ""
+                          } h-5 w-5 text-purple-500`}
+                        />
+                      </DisclosureButton>
+                      <DisclosurePanel className="explanation px-4 pb-2 pt-4 text-sm text-gray-500">
+                        
+                      </DisclosurePanel>
+                    </>
+                  )}
+                </Disclosure>
+                <Disclosure as="div" className="mt-2">
+                  {({ open }) => (
+                    <>
+                      <DisclosureButton className="solution flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
+                        <span> We’ve made a dramatic situation in half a minute</span>
+                        <ChevronUpIcon
+                          className={`${
+                            open ? "rotate-180 transform" : ""
+                          } h-5 w-5 text-purple-500`}
+                        />
+                      </DisclosureButton>
+                    </>
+                  )}
+                </Disclosure>
+              </div>
+            </div>
 
-            <div className="w-full px-4 pt-16">
-      <div className="mx-auto w-full max-w-md rounded-2xl bg-white p-2">
-        <Disclosure>
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
-                <span>What is your refund policy?</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'rotate-180 transform' : ''
-                  } h-5 w-5 text-purple-500`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
-                If you're unhappy with your purchase for any reason, email us
-                within 90 days and we'll refund you in full, no questions asked.
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-        <Disclosure as="div" className="mt-2">
-          {({ open }) => (
-            <>
-              <Disclosure.Button className="flex w-full justify-between rounded-lg bg-purple-100 px-4 py-2 text-left text-sm font-medium text-purple-900 hover:bg-purple-200 focus:outline-none focus-visible:ring focus-visible:ring-purple-500/75">
-                <span>Do you offer technical support?</span>
-                <ChevronUpIcon
-                  className={`${
-                    open ? 'rotate-180 transform' : ''
-                  } h-5 w-5 text-purple-500`}
-                />
-              </Disclosure.Button>
-              <Disclosure.Panel className="px-4 pb-2 pt-4 text-sm text-gray-500">
-                No.
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
-      </div>
-    </div>
-
-
-
-
-            <div className="problemSolution">
-              <div className="problem"></div>
+            <div className="">
+              <div className=""></div>
               <div className="explanationArrow">
-                <div className="explanation"></div>
+                <div className=""></div>
                 <div className="arrow"></div>
               </div>
-              <div className="solution"></div>
+              <div className=""></div>
             </div>
           </div>
         </div>
@@ -143,4 +135,3 @@ const User = ({ user }) => {
 };
 
 export default User;
- 
