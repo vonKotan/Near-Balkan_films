@@ -161,14 +161,14 @@ const User = ({ user }) => {
               </div>
             </div>
             <div>
-            <div className="gap-2 grid bg-nbgreenlight rounded-3xl problemSolution">
-              <div className="flex justify-center mx-16 problem">
+            <div className="gap-5 grid bg-nbgreenlight rounded-3xl problemSolution">
+              <div className="flex justify-center mx-20 problem">
                 <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
                   <div className="font-a-anchor font-bold text-nbgreydark text-xl">DRAMATIC SITUATION ARE USUALLY FLAT</div>
                   </div>
                 </div>
-              <div className="flex flex-col mx-20 explanationArrow">
-                <div className="gap-2 grid descriptionSpace1">
+              <div className="flex flex-col mx-28 explanationArrow">
+                <div className="gap-5 grid descriptionSpace1">
                   <div className="bg-nbgreylight rounded-xl one">
                     <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
                       <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
@@ -177,9 +177,49 @@ const User = ({ user }) => {
                       <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">Take three characters in a situation, two standing in, one outside for now.</div>
                     </div>
                   </div>
+                  <div className="bg-nbgreylight rounded-xl two">
+                    <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
+                      <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
+                        <div className="font-a-anchor font-bold text-nbgreydark text-sm number">2.</div>
+                      </div>
+                      <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">The first character should start any kind of activity setting the scene/location/act.</div>
+                    </div>
+                  </div>
+                  <div className="bg-nbgreylight rounded-xl three">
+                    <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
+                      <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
+                        <div className="font-a-anchor font-bold text-nbgreydark text-sm number">3.</div>
+                      </div>
+                      <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">Take three characters in a situation, two standing in, one outside for now.</div>
+                    </div>
+                  </div>
+                  <div className="bg-nbgreylight rounded-xl four">
+                    <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
+                      <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
+                        <div className="font-a-anchor font-bold text-nbgreydark text-sm number">4.</div>
+                      </div>
+                      <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">Take three characters in a situation, two standing in, one outside for now.</div>
+                    </div>
+                  </div>
+                  <div className="bg-nbgreylight rounded-xl five">
+                    <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
+                      <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
+                        <div className="font-a-anchor font-bold text-nbgreydark text-sm number">5.</div>
+                      </div>
+                      <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">Take three characters in a situation, two standing in, one outside for now.</div>
+                    </div>
+                  </div>
+                  <div className="bg-nbgreylight rounded-xl six">
+                    <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
+                      <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
+                        <div className="font-a-anchor font-bold text-nbgreydark text-sm number">6.</div>
+                      </div>
+                      <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">Take three characters in a situation, two standing in, one outside for now.</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="flex justify-center mx-16 problem">
+              <div className="flex justify-center mx-20 problem">
                 <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
                   <div className="font-a-anchor font-bold text-nbgreydark text-xl">WE’VE MADE A DRAMATIC SITUATION IN HALF A MINUTE</div>
                   </div>
