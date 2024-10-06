@@ -25,7 +25,7 @@ const User = ({ user }) => {
   return (
     <>
       <div className="flex flex-row flex-wrap justify-center items-center">
-        <div className="lg:flex items-stretch bg-nbgreylight mx-auto lg:mx-0 px-5 sm:py-2 pt-2 pb-3 rounded-lg w-full min-w-fit lg:max-w-5xl container">
+        <div className="lg:flex items-stretch bg-nbgreylight mx-auto lg:mx-0 px-5 sm:py-2 pt-2 pb-3 rounded-3xl w-full min-w-fit lg:max-w-5xl container">
           <div className="lg:flex-auto px-2 sm:px-6 py-5 sm:py-7 lg:p-10 sm:pb-5 lg:pb-10 base">
             <div className="titleCategories">
               <div className="inline-flex flex-start justify-center items-center gap-8 w-full title">
@@ -105,7 +105,7 @@ const User = ({ user }) => {
         </div>
       </div>
       <div className="flex flex-row flex-wrap justify-center items-center">
-        <div className="lg:flex items-stretch bg-nbgreylight mx-auto lg:mx-0 px-5 sm:py-2 pt-2 pb-3 rounded-lg w-full min-w-fit lg:max-w-5xl container">
+        <div className="lg:flex items-stretch bg-nbgreylight mx-auto lg:mx-0 px-5 sm:py-2 pt-2 pb-3 rounded-3xl w-full min-w-fit lg:max-w-5xl container">
           <div className="lg:flex-auto px-2 sm:px-6 py-5 sm:py-7 lg:p-10 sm:pb-5 lg:pb-10 base">
             <div className="titleCategories">
               <div className="inline-flex flex-start justify-center items-center gap-8 w-full title">
@@ -162,19 +162,24 @@ const User = ({ user }) => {
             </div>
             <div>
             <div className="gap-2 grid bg-nbgreenlight rounded-3xl problemSolution">
-              <div className="flex justify-center mx-20 problem">
+              <div className="flex justify-center mx-16 problem">
                 <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
                   <div className="font-a-anchor font-bold text-nbgreydark text-xl">DRAMATIC SITUATION ARE USUALLY FLAT</div>
                   </div>
                 </div>
-              <div className="flex space-x-4 px-4 explanationArrow">
-                <div className="flex-auto bg-nbgreylight h-1 explanation"></div>
-                <div className="arrow"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
-  <path d="M0.5 5V0L16.5 0V5L8.5 13L0.5 5Z" fill="#E9EEF0"/>
-</svg></div>
-                <div className="flex-auto bg-nbgreylight h-1 explanation"></div>
+              <div className="flex flex-col mx-20 explanationArrow">
+                <div className="gap-2 grid descriptionSpace1">
+                  <div className="bg-nbgreylight rounded-xl one">
+                    <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
+                      <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
+                        <div className="font-a-anchor font-bold text-nbgreydark text-sm number">1.</div>
+                      </div>
+                      <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">Take three characters in a situation, two standing in, one outside for now.</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div className="flex justify-center mx-20 problem">
+              <div className="flex justify-center mx-16 problem">
                 <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
                   <div className="font-a-anchor font-bold text-nbgreydark text-xl">WE’VE MADE A DRAMATIC SITUATION IN HALF A MINUTE</div>
                   </div>
