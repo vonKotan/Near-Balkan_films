@@ -170,7 +170,7 @@ const User = ({ user }) => {
               <div className="flex flex-col mx-28 explanationArrow">
                 <div className="gap-5 grid descriptionSpace1">
                   <div className="bg-nbgreylight rounded-xl one">
-                    <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
+                    <div className="flex flex-row space-x-2.5 mx-2 my-2 px">
                       <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
                         <div className="font-a-anchor font-bold text-nbgreydark text-sm number">1.</div>
                       </div>
@@ -178,7 +178,7 @@ const User = ({ user }) => {
                     </div>
                   </div>
                   <div className="bg-nbgreylight rounded-xl two">
-                    <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
+                    <div className="flex flex-row space-x-2.5 mx-2 my-2 px">
                       <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
                         <div className="font-a-anchor font-bold text-nbgreydark text-sm number">2.</div>
                       </div>
@@ -186,31 +186,31 @@ const User = ({ user }) => {
                     </div>
                   </div>
                   <div className="bg-nbgreylight rounded-xl three">
-                    <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
+                    <div className="flex flex-row space-x-2.5 mx-2 my-2 px">
                       <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
                         <div className="font-a-anchor font-bold text-nbgreydark text-sm number">3.</div>
                       </div>
-                      <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">Take three characters in a situation, two standing in, one outside for now.</div>
+                      <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">The second character should then interact with the first setting the relationship between the two of them.</div>
                     </div>
                   </div>
                   <div className="bg-nbgreylight rounded-xl four">
-                    <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
+                    <div className="flex flex-row space-x-2.5 mx-2 my-2 px">
                       <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
                         <div className="font-a-anchor font-bold text-nbgreydark text-sm number">4.</div>
                       </div>
-                      <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">Take three characters in a situation, two standing in, one outside for now.</div>
+                      <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">Then again the first character should create a problem (something physically manifested, best if climactic).</div>
                     </div>
                   </div>
                   <div className="bg-nbgreylight rounded-xl five">
-                    <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
+                    <div className="flex flex-row space-x-2.5 mx-2 my-2 px">
                       <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
                         <div className="font-a-anchor font-bold text-nbgreydark text-sm number">5.</div>
                       </div>
-                      <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">Take three characters in a situation, two standing in, one outside for now.</div>
+                      <div className="font-bold font-p-paragraph text-nbgreydark text-sm description">The second character should react to the first’s problem and should now make it bigger, that’s ought to be resolved immediately (with ticking clocks and pointing guns).</div>
                     </div>
                   </div>
                   <div className="bg-nbgreylight rounded-xl six">
-                    <div className="flex flex-row justify-start space-x-2.5 mx-1 my-1 px-8">
+                    <div className="flex flex-row space-x-2.5 mx-2 my-2 px">
                       <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
                         <div className="font-a-anchor font-bold text-nbgreydark text-sm number">6.</div>
                       </div>
@@ -218,6 +218,11 @@ const User = ({ user }) => {
                     </div>
                   </div>
                 </div>
+                <img
+                    className="arrowdown"
+                    src="file:///C:/Users/nagyz/Downloads/Frame%201150.svg"
+                    alt=""
+                  ></img>
               </div>
               <div className="flex justify-center mx-20 problem">
                 <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
