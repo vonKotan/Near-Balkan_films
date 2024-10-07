@@ -50,7 +50,7 @@ const User = ({ user }) => {
                 <div className="relative m-2.5 snippetAuthor">
                   <img
                     className="rounded-full w-24 h-24 avatar"
-                    src="https://scontent.fbud8-1.fna.fbcdn.net/v/t39.30808-6/461030322_2306234669728302_5885443326522953977_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=YuqrXw-nSq4Q7kNvgGoIKkX&_nc_ht=scontent.fbud8-1.fna&_nc_gid=AsP1gRkaXVcYF_ZBSEhMiX1&oh=00_AYDrNUMrQyQjSoFT0BmoCIOSRyLHcSqg-U0ljDWc4VgqbA&oe=67034E1B"
+                    src="https://s3-alpha-sig.figma.com/img/1016/d0ff/40a71e65703e671209652ed889492c4c?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=iuS4-IbkmO2tCEkS8K6gNi2MxliUkQA-Dg7o8u8xw8RrbI2XREudMa88VkEZ71pr3IvOYRYAsiYw~hHO7Dxw-kUhYjpAXDuGR7b01VSxUPm01w5eiWwfWFwAzPGHYe~mbtZlUWO53JkEfAXgQ5ulOzNwmO1d83zC6bLEL4PzjKEGmfer0dnhauyrUnPG2tcEiW7AeOIRaLaMh6ywBsbqq-CLZD-wC78H-zAMwD1vjFU2sUSVc52ONuTWfjvIog-FMFVF2KWRDthV0qBB5GEHxMnDiN~gv9XfHzHN9MLu6GtzbJsmm3ac97ns7CitmuyZhVUjScEPMobUDWMiL5PPkA__"
                     alt=""
                   ></img>
                   <span className="display:inline-block bottom-0 left-17 absolute border-2 border-nbwhitemain rounded-full w-6 h-6 overflow-hidden flag">
@@ -81,15 +81,15 @@ const User = ({ user }) => {
               </div>
             </div>
             <div>
-              <div className="gap-2 grid bg-nbgreenlight rounded-3xl problemSolution">
-                <div className="flex justify-center mx-20 problem">
-                  <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
-                    <div className="font-a-anchor font-bold text-nbgreydark text-xl">
+              <div className="gap-2 grid bg-nbgreenlight rounded-3xl max-h-full problemSolution">
+                <div className="relative flex justify-center mx-20 problem">
+                  <div className="-bottom-4 absolute flex justify-center bg-nbgreylight px-8 py-2 rounded-full w-14 min-w-full h-14">
+                    <div className="font-a-anchor font-bold text-2xl text-nbgreydark">
                       DRAMATIC SITUATION ARE USUALLY FLAT
                     </div>
                   </div>
                 </div>
-                <div className="flex space-x-4 px-4 explanationArrow">
+                <div className="flex justify-center items-center space-x-4 my-8 px-4 explanationArrow">
                   <div className="flex-auto bg-nbgreylight h-1 explanation"></div>
                   <div className="arrow">
                     <svg
@@ -107,9 +107,9 @@ const User = ({ user }) => {
                   </div>
                   <div className="flex-auto bg-nbgreylight h-1 explanation"></div>
                 </div>
-                <div className="flex justify-center mx-20 problem">
-                  <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
-                    <div className="font-a-anchor font-bold text-nbgreydark text-xl">
+                <div className="relative flex justify-center mx-20 problem">
+                  <div className="-top-6 absolute flex justify-center bg-nbgreylight px-8 py-2 rounded-full w-14 min-w-full h-14">
+                    <div className="font-a-anchor font-bold text-2xl text-nbgreydark">
                       WE’VE MADE A DRAMATIC SITUATION IN HALF A MINUTE
                     </div>
                   </div>
@@ -145,7 +145,7 @@ const User = ({ user }) => {
                 <div className="relative m-2.5 snippetAuthor">
                   <img
                     className="rounded-full w-24 h-24 avatar"
-                    src="https://scontent.fbud8-1.fna.fbcdn.net/v/t39.30808-6/461030322_2306234669728302_5885443326522953977_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=YuqrXw-nSq4Q7kNvgGoIKkX&_nc_ht=scontent.fbud8-1.fna&_nc_gid=AsP1gRkaXVcYF_ZBSEhMiX1&oh=00_AYDrNUMrQyQjSoFT0BmoCIOSRyLHcSqg-U0ljDWc4VgqbA&oe=67034E1B"
+                    src="https://s3-alpha-sig.figma.com/img/1016/d0ff/40a71e65703e671209652ed889492c4c?Expires=1729468800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=iuS4-IbkmO2tCEkS8K6gNi2MxliUkQA-Dg7o8u8xw8RrbI2XREudMa88VkEZ71pr3IvOYRYAsiYw~hHO7Dxw-kUhYjpAXDuGR7b01VSxUPm01w5eiWwfWFwAzPGHYe~mbtZlUWO53JkEfAXgQ5ulOzNwmO1d83zC6bLEL4PzjKEGmfer0dnhauyrUnPG2tcEiW7AeOIRaLaMh6ywBsbqq-CLZD-wC78H-zAMwD1vjFU2sUSVc52ONuTWfjvIog-FMFVF2KWRDthV0qBB5GEHxMnDiN~gv9XfHzHN9MLu6GtzbJsmm3ac97ns7CitmuyZhVUjScEPMobUDWMiL5PPkA__"
                     alt=""
                   ></img>
                   <span className="display:inline-block bottom-0 left-17 absolute border-2 border-nbwhitemain rounded-full w-6 h-6 overflow-hidden flag">
@@ -177,18 +177,18 @@ const User = ({ user }) => {
             </div>
             <div>
               <div className="gap-5 grid bg-nbgreenlight rounded-3xl problemSolution">
-                <div className="top-5 absolute flex justify-center mx-20 problem">
-                  <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
-                    <div className="font-a-anchor font-bold text-nbgreydark text-xl">
+                <div className="relative flex justify-center mx-20 problem">
+                  <div className="-bottom-4 absolute flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
+                    <div className="font-a-anchor font-bold text-2xl text-nbgreydark">
                       DRAMATIC SITUATION ARE USUALLY FLAT
                     </div>
                   </div>
                 </div>
                 <div className="flex flex-row justify-center px-16">
-                  <div className="flex flex-col mx-28 explanationArrow">
-                    <div className="gap-5 grid descriptionSpace1">
+                  <div className="flex flex-col mx-28 my-8 explanationArrow">
+                    <div className="flex flex-col gap-5 descriptionSpace1">
                       <div className="bg-nbgreylight rounded-xl one">
-                        <div className="flex flex-row space-x-2.5 mx-2 my-2 px">
+                        <div className="flex flex-row mx-2 my-2 pr-2">
                           <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
                             <div className="font-a-anchor font-bold text-nbgreydark text-sm number">
                               1.
@@ -214,7 +214,7 @@ const User = ({ user }) => {
                         </div>
                       </div>
                       <div className="bg-nbgreylight rounded-xl three">
-                        <div className="flex flex-row space-x-2.5 mx-2 my-2 px">
+                        <div className="flex flex-row space-x-2.5 mx-2 my-2">
                           <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
                             <div className="font-a-anchor font-bold text-nbgreydark text-sm number">
                               3.
@@ -242,7 +242,7 @@ const User = ({ user }) => {
                         </div>
                       </div>
                       <div className="bg-nbgreylight rounded-xl five">
-                        <div className="flex flex-row space-x-2.5 mx-2 my-2 px">
+                        <div className="flex flex-row space-x-2.5 mx-2 my-2">
                           <div className="flex justify-center bg-nbgreenlight rounded-full nubercomponent size-6">
                             <div className="font-a-anchor font-bold text-nbgreydark text-sm number">
                               5.
@@ -286,7 +286,7 @@ const User = ({ user }) => {
                         />
                       </svg>
                     </div>
-                    <div className="border-2 bg-nbgreylight border-dashed min-h-full"></div>
+                    <div className="border-2 border-nbgreyligth border-dashed h-full"></div>
                     <div>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -303,9 +303,9 @@ const User = ({ user }) => {
                     </div>
                   </div>
                 </div>
-                <div className="flex justify-center mx-20 problem">
-                  <div className="flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
-                    <div className="font-a-anchor font-bold text-nbgreydark text-xl">
+                <div className="relative flex justify-center mx-20 problem">
+                  <div className="-top-4 absolute flex justify-center bg-nbgreylight px-8 py-2 rounded-full min-w-full">
+                    <div className="font-a-anchor font-bold text-2xl text-nbgreydark">
                       WE’VE MADE A DRAMATIC SITUATION IN HALF A MINUTE
                     </div>
                   </div>
