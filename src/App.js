@@ -27,6 +27,7 @@ import About from './pages/About';
 import NewEvent from './pages/newEvent'
 import PastCompetitions from './pages/PastCompetitions';
 import NotFound from './pages/NotFound';
+import Snippet from './pages/Snippet'; 
 
 // A usert mostantól ezen a contexten kersztül bármelyik komponensből el lehet érni nincs szükség folyamatosan továbbpasszolgatni
 export const UserContext = createContext(null)
@@ -90,6 +91,10 @@ function App() {
           <Route
             path='/user'
             element={ <User user={user} />}
+          />
+          <Route
+            path='/snippet'
+            element={!user ? <Navigate to='/login' /> : <Snippet user={user} />}
           />
           <Route
             path='/favourites'
