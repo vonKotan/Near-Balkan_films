@@ -11,8 +11,8 @@ export const EurCalc = ({ inputAmount }) => {
     const [rates, setRates] = useState();
     const [amount, setAmount] = useState(0);
     const [ratesFetched, setRatesFetched] = useState(false);
-    const [fromCurrency, setFromCurrency] = useState("EUR");
-    const [toCurrency, setToCurrency] = useState("HUF");
+    const [fromCurrency, setFromCurrency] = useState("MON");
+    const [toCurrency, setToCurrency] = useState("MONH");
     const [output, setOutput] = useState();
 
     const getRates = async () => {
