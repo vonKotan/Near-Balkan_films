@@ -63,7 +63,7 @@ export const EurCalc = ({ inputAmount }) => {
             {i18n.language === 'en' && (formatter.format(inputAmount))}
             <span className="font-thin">{t("card.currency")}</span> */}
             {formatter?.format(inputAmount)}
-            <span className="font-thin">EUR</span>
+            <span className="font-thin">MON</span>
         </span>
     );
 }
