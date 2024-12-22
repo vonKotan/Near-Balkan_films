@@ -2,12 +2,14 @@ import React, { useEffect, useLayoutEffect, useState } from 'react';
 import { useCountdown } from '../hooks/useCountdown';
 
 // Router
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 // Components
 import { useTranslation } from 'react-i18next';
 import { GraphFieldRace } from './GraphFieldRace';
+import Modal from './Modal';  // Import your Modal component
+
 
 export const CountdownTimer = ({ targetDate, haveWon, movie, competition }) => {
 
@@ -134,6 +136,29 @@ export const FundingButtons = ({ targetDate, movie, user, haveWon, competition})
         i18n.changeLanguage(lng);
     };
     const [days, hours, minutes, seconds] = useCountdown(targetDate);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [fundingAmount, setFundingAmount] = useState(0);
+    const navigate = useNavigate();
+
+    const openDialog = (e) => {
+        e.preventDefault();
+        if (!user) {
+            navigate("/login");
+        } else {
+            setIsModalOpen(true); // Open the modal
+        }
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
+    const handleConfirm = (amount) => {
+        setFundingAmount(amount);
+        console.log("Funding amount:", amount);
+        // Additional logic for funding can be added here
+        setIsModalOpen(false); // Close the modal after confirmation
+    };
 
     if (days + hours + minutes + seconds <= 0) {
         return (
@@ -158,9 +183,21 @@ export const FundingButtons = ({ targetDate, movie, user, haveWon, competition})
                     <GraphFieldRace className="w-full h-full" movie={movie} haveWon={haveWon} targetDate={targetDate} detailPage={true} competition={competition}/>
                 </div>
                 <div className="flex flex-row md:flex-col justify-center md:col-span-9 md:col-start-1 md:row-span-1 md:row-start-1 bg-teal-700 rounded-2xl divide-x-2 md:divide-x-none divide-y-none md:divide-y-2 divide-nbgreydark text-start transition-colors duration-1000 delay-1000 overflow-clip group/graphfield ring-1 ring-gray-900/5 ring-inset">
-                    <Link to={!user ? ("/login") : ("")} className="md:grid md:grid-cols-9 md:grid-rows-1 bg-emerald-500 hover:bg-nbgreenmain active:bg-nbgreenlight opacity-90 p-3 md:p-0 w-full h-full transition cursor-pointer group/button ring-nbgreylight">
-                        <h3 className="group-hover/button:text-nbwhite group-active/button:text-nbgreydark flex justify-center items-center md:col-span-2 md:col-start-8 font-h2-title font-semibold text-lg text-nbwhite underline-offset-2 hover:underline select-none decoration-2 active:decoration-nbgreenmain">{t("details.back-them")}</h3>
+                    <Link
+                to={!user ? "/login" : "#"}
+                onClick={openDialog}  // Trigger openDialog on click
+                className="md:grid md:grid-cols-9 md:grid-rows-1 bg-emerald-500 hover:bg-nbgreenmain active:bg-nbgreenlight opacity-90 p-3 md:p-0 w-full h-full transition cursor-pointer group/button ring-nbgreylight"
+                    >
+                        <h3 className="group-hover/button:text-nbwhite group-active/button:text-nbgreydark flex justify-center items-center md:col-span-2 md:col-start-8 font-h2-title font-semibold text-lg text-nbwhite underline-offset-2 hover:underline select-none decoration-2 active:decoration-nbgreenmain">
+                            {t("details.back-them")}
+                        </h3>
                     </Link>
+                    {/* Modal */}
+                    <Modal 
+                        isOpen={isModalOpen} 
+                        onClose={handleCloseModal}
+                        onConfirm={handleConfirm}
+                     />
                     <Link to={!user ? ("/login") : ("")} className="md:grid md:grid-cols-9 md:grid-rows-1 bg-emerald-700 hover:bg-nbredmain active:bg-nbredlight opacity-90 p-3 md:p-0 w-full h-full transition cursor-pointer group/button">
                         <h3 className="group-hover/button:text-nbwhite group-active/button:text-nbgreydark flex justify-center items-center md:col-span-2 md:col-start-8 font-h2-title font-semibold text-lg text-nbgreymain underline-offset-2 hover:underline select-none decoration-2 active:decoration-nbredmain">{t("details.own-them")}</h3>
                     </Link>

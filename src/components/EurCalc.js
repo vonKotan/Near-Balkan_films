@@ -11,8 +11,8 @@ export const EurCalc = ({ inputAmount }) => {
     const [rates, setRates] = useState();
     const [amount, setAmount] = useState(0);
     const [ratesFetched, setRatesFetched] = useState(false);
-    const [fromCurrency, setFromCurrency] = useState("EUR");
-    const [toCurrency, setToCurrency] = useState("HUF");
+    const [fromCurrency, setFromCurrency] = useState("MON");
+    const [toCurrency, setToCurrency] = useState("MONH");
     const [output, setOutput] = useState();
 
     const getRates = async () => {
@@ -63,7 +63,7 @@ export const EurCalc = ({ inputAmount }) => {
             {i18n.language === 'en' && (formatter.format(inputAmount))}
             <span className="font-thin">{t("card.currency")}</span> */}
             {formatter?.format(inputAmount)}
-            <span className="font-thin">EUR</span>
+            <span className="font-thin">MON</span>
         </span>
     );
 }
